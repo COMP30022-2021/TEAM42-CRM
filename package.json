@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"no test specified\" && exit 0",
     "crm": "npm start --prefix crm",
-    "start": "concurrently \"npm run crm\" \"npm run server\"",
+    "start": "node server",
+    "heroku-postbuild": "cd crm/ && npm install && npm run build",
     "server": "nodemon server.js"
   },
   "repository": {

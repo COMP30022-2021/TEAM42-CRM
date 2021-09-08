@@ -7,5 +7,7 @@ app.get("/", function (req, res) {
 })
 
 // start the server listening for requests
-app.listen(process.env.PORT || 8888,
-    () => console.log("Server is running..."));
+// app.listen(process.env.PORT || 8888,
+//     () => console.log("Server is running..."));
+app.set('port', (process.env.PORT || 8081))
+app.use(express.static(path.resolve(__dirname, '../crm/build')));

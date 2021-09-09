@@ -5,9 +5,11 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"no test specified\" && exit 0",
-    "crm": "npm start --prefix crm",
-    "start": "concurrently \"npm run server\" \"npm run crm\"",
-    "server": "nodemon server.js"
+    "start": "node server.js",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix crm && npm run build --prefix crm",
+    "dev": "concurrently \"npm run server\" \"npm run crm\"",
+    "server": "nodemon server.js",
+    "crm": "npm start --prefix crm"
   },
   "repository": {
     "type": "git",

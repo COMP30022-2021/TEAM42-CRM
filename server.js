@@ -5,8 +5,8 @@ const path = require('path');
 
 const port = process.env.PORT || 5000;
 
-// define routes:
-app.get("/", function (req, res) {
+// // define routes:
+app.get("/api", function (req, res) {
     res.send("<h1>Hello The Team!</h1>")
 })
 

@@ -1,13 +1,29 @@
-const express = require("express")
+const express = require("express");
+const path = require('path');
+const mysql = require('mysql');
+
 const app = express()
 
-const path = require('path');
-
+// port for backend running
 const port = process.env.PORT || 5000;
 
+// connection for mysql
+const connection = mysql.createConnection({
+    host:'us-cdbr-east-04.cleardb.com',
+    user:'b01eb9170bdd13',
+    password:'fd7ba9ac',
+    database:'heroku_c2fca39d7a7384f',
+})
+
 // define routes:
-app.get("/api", function (req, res) {
-    res.send("<h1>Hello The Team!</h1>")
+app.get("/mysql", function (req, res) {
+    // test connection
+    connection.query('SELECT * FROM customer WHERE id = "1"', (err, rows) => {
+        if (!err) {
+            console.log(rows)
+            res.send(rows)
+        }
+    })
 })
 
 
@@ -23,3 +39,5 @@ app.listen(port, (err) => {
     if (err) return console.log(err);
     console.log("Server is running on port: ", port)
 });
+
+module.exports = connection

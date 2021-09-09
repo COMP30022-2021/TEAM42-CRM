@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"no test specified\" && exit 0",
-    "start": "node server",
+    "start": "node server.js",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run crm\"",
     "server": "nodemon server.js",
     "crm": "npm start --prefix crm"

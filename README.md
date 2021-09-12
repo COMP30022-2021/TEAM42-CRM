@@ -30,3 +30,18 @@ the following is the connection infomation:
 
 - password: fd7ba9ac
 
+## Routes
+
+#### http://.../customer/creat
+Create a new customer
+- POST
+- json in body
+
+#### http://.../customer/:id
+Search customer infomation by id(e.g. 1)
+- GET
+
+#### http://.../customer/all
+Search all customer infomation
+- GET
+

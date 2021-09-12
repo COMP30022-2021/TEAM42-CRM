@@ -8,14 +8,14 @@ Start the project locally:
 
 2. in ./Team42-CRM/crm/, run: npm install
 
-3. in ./Team42-CRM/, run: npm run dev
-
-4. creat a .env file in toor directory, including:
+3. creat a .env file in toor directory, including:
 
   -   MYSQL_HOST=us-cdbr-east-04.cleardb.com
   -   MYSQL_USER=b01eb9170bdd13
   -   MYSQL_DATABASE=heroku_c2fca39d7a7384f
   -   MYSQL_PASSWORD=fd7ba9ac
+
+4. in ./Team42-CRM/, run: npm run dev
 
 then,
 
@@ -37,16 +37,16 @@ the following is the connection infomation:
 
 ## Routes
 
-#### http://.../customer/creat
+#### https://team42-crm.herokuapp.com/creat
 Create a new customer
 - POST
 - json in body
 
-#### http://.../customer/:id
+#### https://team42-crm.herokuapp.com/customer/:id
 Search customer infomation by id(e.g. 1)
 - GET
 
-#### http://.../customer/all
+#### https://team42-crm.herokuapp.com/customer/all
 Search all customer infomation
 - GET
 

@@ -1,6 +1,5 @@
 import React from "react";
 import { SideBarElement } from "./SideBarElement";
-import { SideBarUser } from "./SideBarUser";
 
 import { FcStatistics } from "react-icons/fc";
 import { MdPermContactCalendar } from "react-icons/md";

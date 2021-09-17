@@ -45,12 +45,20 @@
 
 body {
   background: #f5f6f8;
-  width: 1440px;
-  height: 850px;
+  width: 1200x;
+  height: 762px;
 }
 
 h1 {
-  color: blue;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 22px;
+  text-align: left;
+  letter-spacing: 0.01em;
+
+  color: #323c47;
 }
 
 h3 {

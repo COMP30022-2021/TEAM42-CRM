@@ -1,11 +1,10 @@
 import React from "react";
-import Contacts from "../Components/Contacts/Contacts";
-import Filters from "../Components/Filters";
 import { Helmet } from "react-helmet";
 
 import SearchBar from "../Components/SearchBar";
 import { SideBar } from "../Components/SideBar/SideBar";
 import SideBarCollapsed from "../Components/SideBar/SBC";
+import RecentContacts from "../Components/RecentContacts/RecentContacts";
 
 export default function Dashboard() {
   const [sbc, setSBC] = React.useState(true);
@@ -15,8 +14,7 @@ export default function Dashboard() {
         <title>Dashboard</title>
       </Helmet>
       <SearchBar />
-      <Filters />
-      <Contacts />
+      <RecentContacts />
       {sbc ? <SideBarCollapsed setSBC={setSBC} /> : <SideBar setSBC={setSBC} />}
     </div>
   );

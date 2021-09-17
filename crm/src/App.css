@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+
 .App {
   text-align: center;
 }
@@ -35,4 +37,116 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+body {
+  background: #f5f6f8;
+  width: 1440px;
+  height: 850px;
+}
+
+h1 {
+  color: blue;
+}
+
+h3 {
+  position: absolute;
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 19px;
+  /* identical to box height */
+
+  letter-spacing: 0.01em;
+
+  color: #cfd7e3;
+}
+
+h4 {
+  position: absolute;
+
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 19px;
+
+  letter-spacing: 0.01em;
+
+  color: #334d6e;
+
+  opacity: 0.5;
+}
+
+p {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 19px;
+
+  text-align: center;
+  letter-spacing: 0.01em;
+
+  /* white */
+
+  color: #ffffff;
+}
+
+.icon {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+
+  color: white;
+
+  border: 0;
+  box-sizing: border-box;
+  border-radius: 1px;
+}
+
+.search-bar {
+  position: absolute;
+
+  height: 60px;
+  width: 860px;
+  left: 68px;
+  right: 383px;
+  top: 0px;
+  /* white */
+
+  background: #ffffff;
+}
+
+.button1 {
+  position: absolute;
+
+  width: 160px;
+  height: 42px;
+  background: #265573;
+  justify-content: "center";
+
+  text-align: center;
+  line-height: 42px;
+
+  box-shadow: 0px 4px 10px rgba(16, 156, 241, 0.24);
+  border-radius: 4px;
+}
+
+.block {
+  position: absolute;
+  height: 48px;
+  width: 957px;
+  /* white */
+
+  background: #ffffff;
+  border-radius: 4px;
+}
+
+.form-control-check {
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }

@@ -40,7 +40,7 @@ export default function SBCElements() {
       </SideBarElement>
 
       <SideBarElement>
-        <FiSettings className="icon" style={{ top: 590, left: 194 }} />
+        <FiSettings className="icon" style={{ bottom: 22, left: 194 }} />
       </SideBarElement>
     </div>
   );

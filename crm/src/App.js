@@ -1,20 +1,14 @@
 import React from "react";
 import "./App.css";
-import Contacts from "./Components/Contacts";
-import Filters from "./Components/Filters";
-
-import SearchBar from "./Components/SearchBar";
-import { SideBar } from "./Components/SideBar";
-import SideBarCollapsed from "./Components/SBC";
+import ContactPage from "./ContactPage";
+import { Route } from "react-router-dom";
+import Dashboard from "./Dashboard";
 
 function App() {
-  const [sbc, setSBC] = React.useState(true);
   return (
     <div className="App">
-      <SearchBar />
-      <Filters />
-      <Contacts />
-      {sbc ? <SideBarCollapsed setSBC={setSBC} /> : <SideBar setSBC={setSBC} />}
+      <Route exact path="/contacts" component={ContactPage} />
+      <Route exact path="/" component={Dashboard} />
     </div>
   );
 }

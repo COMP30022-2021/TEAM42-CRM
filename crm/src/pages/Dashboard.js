@@ -1,12 +1,11 @@
 import React from "react";
-import "./App.css";
-import Contacts from "./Components/Contacts";
-import Filters from "./Components/Filters";
+import Contacts from "../Components/Contacts/Contacts";
+import Filters from "../Components/Filters";
 import { Helmet } from "react-helmet";
 
-import SearchBar from "./Components/SearchBar";
-import { SideBar } from "./Components/SideBar";
-import SideBarCollapsed from "./Components/SBC";
+import SearchBar from "../Components/SearchBar";
+import { SideBar } from "../Components/SideBar/SideBar";
+import SideBarCollapsed from "../Components/SideBar/SBC";
 
 export default function Dashboard() {
   const [sbc, setSBC] = React.useState(true);

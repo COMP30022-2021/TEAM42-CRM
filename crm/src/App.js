@@ -1,8 +1,8 @@
 import React from "react";
 import "./App.css";
-import ContactPage from "./ContactPage";
+import ContactPage from "./pages/ContactPage";
 import { Route } from "react-router-dom";
-import Dashboard from "./Dashboard";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
   return (

@@ -37,8 +37,8 @@ export default function SideBarElements() {
       </SideBarElement>
 
       <SideBarElement>
-        <h3 style={{ top: 578, left: 58 }}>Setting</h3>
-        <FiSettings className="icon" style={{ top: 590, left: 24 }} />
+        <h3 style={{ bottom: 10, left: 58 }}>Setting</h3>
+        <FiSettings className="icon" style={{ bottom: 22, left: 24 }} />
       </SideBarElement>
     </div>
   );

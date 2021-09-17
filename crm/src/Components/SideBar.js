@@ -6,6 +6,7 @@ export const SideBar = ({ setSBC }) => {
   return (
     <React.Fragment>
       <div
+        onMouseLeave={() => setSBC(true)}
         className="side-bar"
         style={{
           left: 0,
@@ -13,11 +14,6 @@ export const SideBar = ({ setSBC }) => {
       >
         <SideBarElements />
       </div>
-      <div
-        onMouseOut={() => setSBC(true)}
-        className="side-bar"
-        style={{ left: 0, opacity: 0 }}
-      ></div>
     </React.Fragment>
   );
 };

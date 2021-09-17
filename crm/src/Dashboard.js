@@ -8,12 +8,12 @@ import SearchBar from "./Components/SearchBar";
 import { SideBar } from "./Components/SideBar";
 import SideBarCollapsed from "./Components/SBC";
 
-export default function ContactPage() {
+export default function Dashboard() {
   const [sbc, setSBC] = React.useState(true);
   return (
     <div>
       <Helmet>
-        <title>Contacts</title>
+        <title>Dashboard</title>
       </Helmet>
       <SearchBar />
       <Filters />

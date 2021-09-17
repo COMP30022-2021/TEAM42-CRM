@@ -2,11 +2,13 @@ import React from "react";
 import "./App.css";
 import ContactPage from "./ContactPage";
 import { Route } from "react-router-dom";
+import Dashboard from "./Dashboard";
 
 function App() {
   return (
-    <div>
-      <Route exact path="/." component={ContactPage} />
+    <div className="App">
+      <Route exact path="/contacts" component={ContactPage} />
+      <Route exact path="/" component={Dashboard} />
     </div>
   );
 }

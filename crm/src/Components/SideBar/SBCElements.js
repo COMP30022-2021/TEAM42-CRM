@@ -5,7 +5,7 @@ import { FcStatistics } from "react-icons/fc";
 import { MdPermContactCalendar } from "react-icons/md";
 import { RiDashboardLine } from "react-icons/ri";
 import { FiSettings } from "react-icons/fi";
-import user from "../res/images/user_cropped.jpg";
+import user from "../../res/images/user_cropped.jpg";
 
 export default function SBCElements() {
   return (

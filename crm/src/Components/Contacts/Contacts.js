@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { Contact } from "./Contact";
 import ContactsHeader from "./ContactsHeader";
 
-import customer from "../res/images/Customer.jpg";
-import employee from "../res/images/Employee.jfif";
-import vendor from "../res/images/external_vendor.jpg";
+import customer from "../../res/images/Customer.jpg";
+import employee from "../../res/images/Employee.jfif";
+import vendor from "../../res/images/external_vendor.jpg";
 
 export default function Contacts() {
   // eslint-disable-next-line

@@ -8,7 +8,7 @@ import { RiDashboardLine } from "react-icons/ri";
 import { FiSettings } from "react-icons/fi";
 import { Link } from "react-router-dom";
 
-import user from "../res/images/user_cropped.jpg";
+import user from "../../res/images/user_cropped.jpg";
 
 export default function SideBarElements() {
   return (

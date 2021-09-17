@@ -1,4 +1,6 @@
 import React from "react";
+import { SideBarElement } from "./SideBarElement";
+import { SideBarUser } from "./SideBarUser";
 
 import { FcStatistics } from "react-icons/fc";
 import { MdPermContactCalendar } from "react-icons/md";
@@ -14,7 +16,7 @@ export default function SBCElements() {
         style={{
           position: "absolute",
           top: 55,
-          left: 11,
+          left: 181,
           borderRadius: "50%",
           width: 46,
           height: 46,
@@ -23,16 +25,24 @@ export default function SBCElements() {
         alt="User"
       />
 
-      <RiDashboardLine className="icon" style={{ top: 183, left: 24 }} />
+      <SideBarElement>
+        <RiDashboardLine className="icon" style={{ top: 183, left: 194 }} />
+      </SideBarElement>
 
-      <MdPermContactCalendar
-        className="icon"
-        style={{ color: "#9FBF8E", top: 223, left: 24 }}
-      />
+      <SideBarElement>
+        <MdPermContactCalendar
+          className="icon"
+          style={{ color: "#9FBF8E", top: 223, left: 194 }}
+        />
+      </SideBarElement>
 
-      <FcStatistics className="icon" style={{ top: 263, left: 24 }} />
+      <SideBarElement>
+        <FcStatistics className="icon" style={{ top: 263, left: 194 }} />
+      </SideBarElement>
 
-      <FiSettings className="icon" style={{ top: 590, left: 24 }} />
+      <SideBarElement>
+        <FiSettings className="icon" style={{ top: 590, left: 194 }} />
+      </SideBarElement>
     </div>
   );
 }

@@ -4,7 +4,7 @@ import { SideBarElement } from "./SideBarElement";
 import { FcStatistics } from "react-icons/fc";
 import { MdPermContactCalendar } from "react-icons/md";
 import { RiDashboardLine } from "react-icons/ri";
-import { FiSettings } from "react-icons/fi";
+import { FiLogOut, FiSettings } from "react-icons/fi";
 import user from "../../res/images/user_cropped.jpg";
 
 export default function SBCElements({ path }) {
@@ -51,7 +51,11 @@ export default function SBCElements({ path }) {
       </SideBarElement>
 
       <SideBarElement>
-        <FiSettings className="icon" style={{ bottom: 22, left: 194 }} />
+        <FiSettings className="icon" style={{ bottom: 62, left: 194 }} />
+      </SideBarElement>
+
+      <SideBarElement>
+        <FiLogOut className="icon" style={{ bottom: 22, left: 194 }} />
       </SideBarElement>
     </div>
   );

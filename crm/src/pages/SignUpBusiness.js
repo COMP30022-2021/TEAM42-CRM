@@ -16,6 +16,7 @@ function SignUpBusiness() {
   return (
     <div style={{ background: "#265573", width: "100%", height: "100%" }}>
       <div
+        className="logInBox"
         style={{
           background: "#FFFCFC",
           width: 916,
@@ -73,7 +74,7 @@ function SignUpBusiness() {
             left: "56%",
             top: "24%",
           }}
-          type="text"
+          type="password"
           placeholder="Enter the admin password"
           value={password1}
           onChange={(e) => setText3(e.target.value)}
@@ -91,7 +92,7 @@ function SignUpBusiness() {
             width: "35%",
             top: "44%",
           }}
-          type="text"
+          type="password"
           placeholder="Repeat the admin password"
           value={password2}
           onChange={(e) => setText4(e.target.value)}

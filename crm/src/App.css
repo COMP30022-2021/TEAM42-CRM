@@ -128,6 +128,9 @@ p {
   color: #ffffff;
 }
 
+input {
+  text-indent: 10px;
+}
 p1 {
   position: absolute;
   height: 28px;
@@ -241,4 +244,8 @@ p2 {
   width: 240px;
   background: #265573;
   box-shadow: 6px 1px 18px rgba(0, 0, 0, 0.06);
+}
+
+.logInBox {
+  filter: drop-shadow(6px 6px 8px rgba(0, 0, 0, 0.25));
 }

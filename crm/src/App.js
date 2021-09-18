@@ -9,7 +9,7 @@ import SignUpBusiness from "./pages/SignUpBusiness";
 function App() {
   const [loggedIn, setloggedIn] = React.useState(false);
   return (
-    <div className="App">
+    <div className="App" style={{ background: "#000000" }}>
       <Route
         exact
         path="/contacts"

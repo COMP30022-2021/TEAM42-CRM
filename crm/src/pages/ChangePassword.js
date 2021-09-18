@@ -24,7 +24,7 @@ function ChangePassword() {
           transform: "translate(-50%, -50%)",
         }}
       >
-        <Header text={"Change your Password"} top_a={"0%"} />
+        <Header text={"Change your Password"} top_a={"0%"} width_a={476.15}/>
         <p1 style={{ top: "15%", left: "15%" }}>Old Password:</p1>
 
         <input
@@ -98,7 +98,7 @@ function ChangePassword() {
         <p2 style={{ top: "83%", left: "28%", "font-size": 10 }}>
           Back to main page
         </p2>
-        <Header text={""} top_a={"100%"} />
+        <Header text={""} top_a={"100%"} width_a={476.15}/>
       </div>
     </div>
   );

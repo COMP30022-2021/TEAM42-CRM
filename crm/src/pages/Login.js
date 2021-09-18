@@ -24,8 +24,8 @@ function Login({ setLogIn }) {
           transform: "translate(-50%, -50%)",
         }}
       >
-        <Header text={"Sign in"} top_a={"0%"} />
-        <p1 style={{ top: "16%", left: "15%" }}>Username:</p1>
+        <Header text={"Sign in"} top_a={"0%"} width_a={476.15} />
+        <p1 style={{ top: "16%", left: "15%" }}>Email adress:</p1>
 
         <input
           className="search-bar"
@@ -37,7 +37,7 @@ function Login({ setLogIn }) {
             top: "24%",
           }}
           type="text"
-          placeholder="Enter your username"
+          placeholder="Enter your Email adress"
           value={username}
           onChange={(e) => setText1(e.target.value)}
         ></input>
@@ -84,7 +84,7 @@ function Login({ setLogIn }) {
         </p2>
         <p2 style={{ top: "79%", left: "25%", "font-size": 10 }}>Sign Up</p2>
 
-        <Header text={""} top_a={"100%"} />
+        <Header text={""} top_a={"100%"} width_a={476.15} />
       </div>
     </div>
   );

@@ -2,7 +2,7 @@ import React from "react";
 import Header from "../Components/SignIns/SignInHeader";
 import { useState } from "react";
 
-function SignUpPage() {
+function Login() {
   const [username, setText1] = useState("");
   const [password, setText2] = useState("");
 
@@ -87,4 +87,4 @@ function SignUpPage() {
   );
 }
 
-export default SignUpPage;
+export default Login;

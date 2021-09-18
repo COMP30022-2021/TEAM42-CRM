@@ -3,9 +3,7 @@ import "./App.css";
 import ContactPage from "./pages/ContactPage";
 import { Route, Redirect } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
-import Header from "./Components/SignIns/SignInHeader";
-import ChangePassword from "./pages/ChangePassword";
-import SignUpPage from "./Components/SignIns/Login";
+import Login from "./pages/Login";
 
 function App() {
   const [loggedIn, setLogIn] = React.useState(true);

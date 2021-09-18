@@ -1,7 +1,7 @@
 import React from "react";
 import SideBarElements from "./SideBarElements";
 
-export const SideBar = ({ setSBC }) => {
+export const SideBar = ({ setSBC, path }) => {
   return (
     <React.Fragment>
       <div
@@ -11,7 +11,7 @@ export const SideBar = ({ setSBC }) => {
           left: 0,
         }}
       >
-        <SideBarElements />
+        <SideBarElements path={path} />
       </div>
     </React.Fragment>
   );

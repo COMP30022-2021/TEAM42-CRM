@@ -2,7 +2,6 @@ import React from "react";
 import SelectBox from "../Contacts/SelectBox";
 
 export const RecentContact = ({ contact, index }) => {
-  console.log(contact);
   return (
     <div
       className="block"

@@ -10,23 +10,51 @@ import { Link } from "react-router-dom";
 
 import user from "../../res/images/user_cropped.jpg";
 
-export default function SideBarElements() {
+export default function SideBarElements({ path }) {
   return (
     <div>
       <SideBarUser image={user} />
+
       <Link to="/">
-        <SideBarElement>
-          <h3 style={{ top: 171, left: 58 }}>Dashboard</h3>
-          <RiDashboardLine className="icon" style={{ top: 183, left: 24 }} />
-        </SideBarElement>
+        <div>
+          <h3
+            style={{
+              color: path === undefined ? "#9FBF8E" : "#cfd7e3",
+              top: 171,
+              left: 58,
+            }}
+          >
+            Dashboard
+          </h3>
+          <RiDashboardLine
+            className="icon"
+            style={{
+              color: path === undefined ? "#9FBF8E" : "#cfd7e3",
+              top: 183,
+              left: 24,
+            }}
+          />
+        </div>
       </Link>
 
       <Link to="/contacts">
         <SideBarElement>
-          <h3 style={{ color: "#9FBF8E", top: 211, left: 58 }}>Contacts</h3>
+          <h3
+            style={{
+              color: path === "/contacts" ? "#9FBF8E" : "#cfd7e3",
+              top: 211,
+              left: 58,
+            }}
+          >
+            Contacts
+          </h3>
           <MdPermContactCalendar
             className="icon"
-            style={{ color: "#9FBF8E", top: 223, left: 24 }}
+            style={{
+              color: path === "/contacts" ? "#9FBF8E" : "#cfd7e3",
+              top: 223,
+              left: 24,
+            }}
           />
         </SideBarElement>
       </Link>

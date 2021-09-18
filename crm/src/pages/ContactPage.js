@@ -7,7 +7,7 @@ import SearchBar from "../Components/SearchBar";
 import { SideBar } from "../Components/SideBar/SideBar";
 import SideBarCollapsed from "../Components/SideBar/SBC";
 
-export default function ContactPage() {
+export default function ContactPage(props) {
   const [sbc, setSBC] = React.useState(true);
   return (
     <div>
@@ -17,7 +17,11 @@ export default function ContactPage() {
       <SearchBar />
       <Filters />
       <Contacts />
-      {sbc ? <SideBarCollapsed setSBC={setSBC} /> : <SideBar setSBC={setSBC} />}
+      {sbc ? (
+        <SideBarCollapsed setSBC={setSBC} path={props.location.pathname} />
+      ) : (
+        <SideBar setSBC={setSBC} path={props.location.pathname} />
+      )}
     </div>
   );
 }

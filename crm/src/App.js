@@ -16,7 +16,7 @@ function App() {
       <ChangePassword/>
       <SignUpPage/>
       */}
-      <SignUpPage/>  
+      <ChangePassword/>
     </div>
   );
 }

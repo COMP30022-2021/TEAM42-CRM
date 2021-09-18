@@ -1,7 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
 
-
-
 .App {
   text-align: center;
 }
@@ -64,7 +62,7 @@ h1 {
 }
 
 h2 {
-  color:white;
+  color: white;
   background: rgba(159, 191, 142, 1);
   border-radius: 6px;
 }
@@ -99,22 +97,22 @@ h4 {
 }
 
 h5 {
-width: 476.15;
-height:400;
-position: 'absolute';
-left: '50%';
-top: '52.5%';
-transform: 'translate(-50%, -50%)';
-font-family: Roboto;
-font-style: normal;
-font-weight: 500;
-font-size: 16px;
-line-height: 28px;
-/* or 175% */
+  width: 476.15;
+  height: 400;
+  position: "absolute";
+  left: "50%";
+  top: "52.5%";
+  transform: "translate(-50%, -50%)";
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 28px;
+  /* or 175% */
 
-text-align: center;
+  text-align: center;
 
-color: #000000;
+  color: #000000;
 }
 
 p {
@@ -131,44 +129,41 @@ p {
 }
 
 p1 {
-position: absolute;
-height: 28px;
-left: 0px;
-top: 0px;
+  position: absolute;
+  height: 28px;
+  left: 0px;
+  top: 0px;
 
-font-family: Roboto;
-font-style: normal;
-font-weight: 500;
-font-size: 16px;
-line-height: 28px;
-/* or 175% */
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 28px;
+  /* or 175% */
 
-text-align: center;
+  text-align: center;
 
-color: #000000;
-
+  color: #000000;
 }
 
-p2{
-position: absolute;
-width: 114px;
-height: 28px;
-left: 0px;
-top: 0px;
+p2 {
+  position: absolute;
+  width: 114px;
+  height: 28px;
+  left: 0px;
+  top: 0px;
 
-font-family: Roboto;
-font-style: normal;
-font-weight: 500;
-font-size: 14px;
-line-height: 28px;
-/* or 200% */
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 28px;
+  /* or 200% */
 
-text-decoration-line: underline;
+  text-decoration-line: underline;
 
-color: #0075FF;
+  color: #0075ff;
 }
-
-
 
 .icon {
   position: absolute;
@@ -238,13 +233,12 @@ color: #0075FF;
   height: 100%;
   display: flex;
   flex-direction: column;
-  border-right: 4px solid;
   border-radius: 0;
-  border-color: #001420;
+  border-color: #265573;
   transition: 0.8s ease;
 
   position: fixed;
-  width: 220px;
+  width: 240px;
   background: #265573;
   box-shadow: 6px 1px 18px rgba(0, 0, 0, 0.06);
 }

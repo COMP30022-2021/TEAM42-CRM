@@ -7,7 +7,7 @@ import { RiDashboardLine } from "react-icons/ri";
 import { FiSettings } from "react-icons/fi";
 import user from "../../res/images/user_cropped.jpg";
 
-export default function SBCElements() {
+export default function SBCElements({ path }) {
   return (
     <div>
       <img
@@ -25,13 +25,24 @@ export default function SBCElements() {
       />
 
       <SideBarElement>
-        <RiDashboardLine className="icon" style={{ top: 183, left: 194 }} />
+        <RiDashboardLine
+          className="icon"
+          style={{
+            color: path === undefined ? "#9FBF8E" : "#cfd7e3",
+            top: 183,
+            left: 194,
+          }}
+        />
       </SideBarElement>
 
       <SideBarElement>
         <MdPermContactCalendar
           className="icon"
-          style={{ color: "#9FBF8E", top: 223, left: 194 }}
+          style={{
+            color: path === "/contacts" ? "#9FBF8E" : "#cfd7e3",
+            top: 223,
+            left: 194,
+          }}
         />
       </SideBarElement>
 
@@ -40,7 +51,7 @@ export default function SBCElements() {
       </SideBarElement>
 
       <SideBarElement>
-        <FiSettings className="icon" style={{ top: 590, left: 194 }} />
+        <FiSettings className="icon" style={{ bottom: 22, left: 194 }} />
       </SideBarElement>
     </div>
   );

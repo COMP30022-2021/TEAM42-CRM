@@ -1,17 +1,17 @@
 import React from "react";
 import SBCElements from "./SBCElements";
 
-export default function SideBarCollapsed({ setSBC }) {
+export default function SideBarCollapsed({ setSBC, path }) {
   return (
     <React.Fragment>
       <div
-        onMouseOver={() => setSBC(false)}
+        onMouseEnter={() => setSBC(false)}
         className="side-bar"
         style={{
           left: -170,
         }}
       >
-        <SBCElements />
+        <SBCElements path={path} />
       </div>
     </React.Fragment>
   );

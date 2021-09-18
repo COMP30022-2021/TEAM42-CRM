@@ -6,22 +6,27 @@ import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
 
 function App() {
-  const [loggedIn, setLogIn] = React.useState(true);
+  const [loggedIn, setloggedIn] = React.useState(false);
+  console.log(setloggedIn);
   return (
     <div className="App">
       <Route
         exact
         path="/contacts"
-        render={() => render(loggedIn, ContactPage)}
+        render={() => (loggedIn ? <ContactPage /> : <Redirect to="/login" />)}
       />
-      <Route exact path="/" render={() => render(loggedIn, Dashboard)} />
-      <Route exact path="/login" component={Login} />{" "}
+      <Route
+        exact
+        path="/"
+        render={() => (loggedIn ? <Dashboard /> : <Redirect to="/login" />)}
+      />
+      <Route
+        exact
+        path="/login"
+        render={() => <Login setLogIn={setloggedIn} />}
+      />
     </div>
   );
 }
-
-const render = ({ loggedIn, component }) => {
-  return loggedIn ? <component /> : <Redirect to="/login" />;
-};
 
 export default App;

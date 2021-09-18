@@ -1,8 +1,8 @@
 import React from "react";
-import Header from "./Header";
+import Header from "../Components/SignIns/SignInHeader";
 import { useState } from "react";
 
-function Login() {
+function SignUpPage() {
   const [username, setText1] = useState("");
   const [password, setText2] = useState("");
 
@@ -12,8 +12,6 @@ function Login() {
 
   return (
     <div style={{ background: "#265573", width: "100%", height: "100%" }}>
-      <Header text={"Sign in"} top_a={"20%"} />
-      <Header text={""} top_a={"79.5%"} />
       <div
         style={{
           background: "#FFFCFC",
@@ -25,7 +23,8 @@ function Login() {
           transform: "translate(-50%, -50%)",
         }}
       >
-        <p1 style={{ top: "7%", left: "15%" }}>Username:</p1>
+        <Header text={"Sign in"} top_a={"0%"} />
+        <p1 style={{ top: "16%", left: "15%" }}>Username:</p1>
 
         <input
           className="search-bar"
@@ -34,7 +33,7 @@ function Login() {
             border: 0,
             height: 28,
             width: "70%",
-            top: "15%",
+            top: "24%",
           }}
           type="text"
           placeholder="Enter your username"
@@ -42,7 +41,7 @@ function Login() {
           onChange={(e) => setText1(e.target.value)}
         ></input>
 
-        <p1 style={{ top: "29%", left: "15%" }}>Password:</p1>
+        <p1 style={{ top: "36%", left: "15%" }}>Password:</p1>
 
         <input
           className="search-bar"
@@ -51,7 +50,7 @@ function Login() {
             border: 0,
             height: 28,
             width: "70%",
-            top: "37%",
+            top: "44%",
           }}
           type="text"
           placeholder="Enter your password"
@@ -59,19 +58,19 @@ function Login() {
           onChange={(e) => setText2(e.target.value)}
         ></input>
 
-        <p2 style={{ top: "48%", left: "13%" }}>Forgot Password</p2>
+        <p2 style={{ top: "55%", left: "13%" }}>Forgot Password</p2>
 
         <button
           className="button2"
           onClick={attemptLogin}
-          style={{ width: "65%", margin: 10, left: "15%", top: "60%" }}
+          style={{ width: "65%", margin: 10, left: "15%", top: "64%" }}
         >
           <p>Sign in</p>
         </button>
 
         <p2
           style={{
-            top: "75%",
+            top: "79%",
             left: "15%",
             color: "black",
             "text-decoration-line": "None",
@@ -80,10 +79,12 @@ function Login() {
         >
           New business?
         </p2>
-        <p2 style={{ top: "75%", left: "25%", "font-size": 10 }}>Sign Up</p2>
+        <p2 style={{ top: "79%", left: "25%", "font-size": 10 }}>Sign Up</p2>
+
+        <Header text={""} top_a={"100%"} />
       </div>
     </div>
   );
 }
 
-export default Login;
+export default SignUpPage;

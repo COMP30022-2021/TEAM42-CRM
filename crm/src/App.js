@@ -3,9 +3,9 @@ import "./App.css";
 import ContactPage from "./pages/ContactPage";
 import { Route, Redirect } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
-import Header from "./Components/SignIns/Header";
-import ChangePassword from "./Components/SignIns/ChangePassword";
-import Login from "./Components/SignIns/Login";
+import Header from "./Components/SignIns/SignInHeader";
+import ChangePassword from "./pages/ChangePassword";
+import SignUpPage from "./Components/SignIns/Login";
 
 function App() {
   const [loggedIn, setLogIn] = React.useState(true);
@@ -17,7 +17,7 @@ function App() {
         render={() => render(loggedIn, ContactPage)}
       />
       <Route exact path="/" render={() => render(loggedIn, Dashboard)} />
-      <Route exact path="/login" component={Login} />
+      <Route exact path="/login" component={Login} />{" "}
     </div>
   );
 }

@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
 
+
+
 .App {
   text-align: center;
 }
@@ -53,6 +55,12 @@ h1 {
   color: blue;
 }
 
+h2 {
+  color:white;
+  background: rgba(159, 191, 142, 1);
+  border-radius: 6px;
+}
+
 h3 {
   position: absolute;
   font-family: "Poppins", sans-serif;
@@ -83,20 +91,77 @@ h4 {
   opacity: 0.5;
 }
 
+h5 {
+width: 476.15;
+height:400;
+position: 'absolute';
+left: '50%';
+top: '52.5%';
+transform: 'translate(-50%, -50%)';
+font-family: Roboto;
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 28px;
+/* or 175% */
+
+text-align: center;
+
+color: #000000;
+}
+
 p {
   font-family: Poppins;
   font-style: normal;
   font-weight: 500;
   font-size: 13px;
   line-height: 19px;
-
-  text-align: center;
   letter-spacing: 0.01em;
 
   /* white */
 
   color: #ffffff;
 }
+
+p1 {
+position: absolute;
+height: 28px;
+left: 0px;
+top: 0px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 28px;
+/* or 175% */
+
+text-align: center;
+
+color: #000000;
+
+}
+
+p2{
+position: absolute;
+width: 114px;
+height: 28px;
+left: 0px;
+top: 0px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 28px;
+/* or 200% */
+
+text-decoration-line: underline;
+
+color: #0075FF;
+}
+
+
 
 .icon {
   position: absolute;
@@ -138,6 +203,12 @@ p {
   border-radius: 4px;
 }
 
+.button2 {
+  position: absolute;
+  background: #265573;
+  border-radius: 50.5px;
+}
+
 .block {
   position: absolute;
   height: 48px;
@@ -161,14 +232,11 @@ p {
   flex-direction: column;
   border-right: 4px solid;
   border-radius: 0;
-  border-color: #265573;
+  border-color: #001420;
   transition: 0.8s ease;
 
   position: fixed;
-  width: 240px;
-  left: 0px;
-  top: 0px;
-  bottom: 0px;
+  width: 220px;
   background: #265573;
-  box-shadow: 6px 0px 18px rgba(0, 0, 0, 0.06);
+  box-shadow: 6px 1px 18px rgba(0, 0, 0, 0.06);
 }

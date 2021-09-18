@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../Components/SignIns/SignInHeader";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Helmet from "react-helmet";
 
 function Login({ setLogIn }) {
   const [username, setText1] = useState("");
@@ -12,8 +13,9 @@ function Login({ setLogIn }) {
   };
 
   return (
-    <div style={{ background: "#265573", width: "100%", height: "100%" }}>
+    <div>
       <div
+        className="logInBox"
         style={{
           background: "#FFFCFC",
           width: 476.15,
@@ -24,6 +26,8 @@ function Login({ setLogIn }) {
           transform: "translate(-50%, -50%)",
         }}
       >
+        <Helmet bodyAttributes={{ style: "background-color : #ffffff" }} />
+
         <Header text={"Sign in"} top_a={"0%"} width_a={476.15} />
         <p1 style={{ top: "16%", left: "15%" }}>Email Address</p1>
 
@@ -53,15 +57,13 @@ function Login({ setLogIn }) {
             width: "70%",
             top: "44%",
           }}
-          type="text"
+          type="password"
           placeholder="Enter your password"
           value={password}
           onChange={(e) => setText2(e.target.value)}
         ></input>
 
-        <Link to="/signup">
-          <p2 style={{ top: "53%", left: "13%" }}>Forgot Password</p2>
-        </Link>
+        <p2 style={{ top: "53%", left: "13%" }}>Forgot Password</p2>
 
         <Link to="/">
           <button

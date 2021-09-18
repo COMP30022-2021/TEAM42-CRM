@@ -5,7 +5,8 @@ import { SideBarUser } from "./SideBarUser";
 import { FcStatistics } from "react-icons/fc";
 import { MdPermContactCalendar } from "react-icons/md";
 import { RiDashboardLine } from "react-icons/ri";
-import { FiSettings } from "react-icons/fi";
+import { FiLogOut, FiSettings } from "react-icons/fi";
+
 import { Link } from "react-router-dom";
 
 import user from "../../res/images/user_cropped.jpg";
@@ -65,9 +66,16 @@ export default function SideBarElements({ path }) {
       </SideBarElement>
 
       <SideBarElement>
-        <h3 style={{ bottom: 10, left: 58 }}>Setting</h3>
-        <FiSettings className="icon" style={{ bottom: 22, left: 24 }} />
+        <h3 style={{ bottom: 50, left: 58 }}>Setting</h3>
+        <FiSettings className="icon" style={{ bottom: 62, left: 24 }} />
       </SideBarElement>
+
+      <Link to="/login">
+        <SideBarElement>
+          <h3 style={{ bottom: 10, left: 58 }}>Logout</h3>
+          <FiLogOut className="icon" style={{ bottom: 22, left: 24 }} />
+        </SideBarElement>
+      </Link>
     </div>
   );
 }

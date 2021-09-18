@@ -4,10 +4,10 @@ import ContactPage from "./pages/ContactPage";
 import { Route, Redirect } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
+import SignUpBusiness from "./pages/SignUpBusiness";
 
 function App() {
   const [loggedIn, setloggedIn] = React.useState(false);
-  console.log(setloggedIn);
   return (
     <div className="App">
       <Route
@@ -25,6 +25,7 @@ function App() {
         path="/login"
         render={() => <Login setLogIn={setloggedIn} />}
       />
+      <Route exact path="/signup" render={() => <SignUpBusiness />} />
     </div>
   );
 }

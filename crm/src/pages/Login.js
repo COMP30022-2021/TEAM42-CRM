@@ -25,7 +25,7 @@ function Login({ setLogIn }) {
         }}
       >
         <Header text={"Sign in"} top_a={"0%"} width_a={476.15} />
-        <p1 style={{ top: "16%", left: "15%" }}>Email adress:</p1>
+        <p1 style={{ top: "16%", left: "15%" }}>Email Address</p1>
 
         <input
           className="search-bar"
@@ -42,7 +42,7 @@ function Login({ setLogIn }) {
           onChange={(e) => setText1(e.target.value)}
         ></input>
 
-        <p1 style={{ top: "36%", left: "15%" }}>Password:</p1>
+        <p1 style={{ top: "36%", left: "15%" }}>Password</p1>
 
         <input
           className="search-bar"
@@ -59,7 +59,9 @@ function Login({ setLogIn }) {
           onChange={(e) => setText2(e.target.value)}
         ></input>
 
-        <p2 style={{ top: "55%", left: "13%" }}>Forgot Password</p2>
+        <Link to="/signup">
+          <p2 style={{ top: "53%", left: "13%" }}>Forgot Password</p2>
+        </Link>
 
         <Link to="/">
           <button
@@ -77,12 +79,15 @@ function Login({ setLogIn }) {
             left: "15%",
             color: "black",
             "text-decoration-line": "None",
-            "font-size": 10,
+            "font-size": 12,
           }}
         >
           New business?
         </p2>
-        <p2 style={{ top: "79%", left: "25%", "font-size": 10 }}>Sign Up</p2>
+
+        <Link to="/signup">
+          <p2 style={{ top: "79%", left: "27%", "font-size": 12 }}>Sign Up</p2>
+        </Link>
 
         <Header text={""} top_a={"100%"} width_a={476.15} />
       </div>

@@ -1,6 +1,6 @@
 import React from "react";
 
-function Header({ text, top_a,width_a }) {
+function Header({ text, top_a, width_a }) {
   return (
     <div>
       <h2

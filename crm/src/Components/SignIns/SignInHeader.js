@@ -1,6 +1,6 @@
 import React from "react";
 
-function Header({ text, top_a }) {
+function Header({ text, top_a,width_a }) {
   return (
     <div>
       <h2
@@ -8,7 +8,7 @@ function Header({ text, top_a }) {
           position: "absolute",
           left: "50%",
           top: top_a,
-          width: 476.15,
+          width: width_a,
           height: 54.85,
           transform: "translate(-50%, -50%)",
         }}

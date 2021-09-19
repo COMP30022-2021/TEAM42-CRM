@@ -7,6 +7,49 @@ import Login from "./pages/Login";
 import SignUpBusiness from "./pages/SignUpBusiness";
 import ContactDisplay from "./pages/ContactDisplay";
 
+import customer from "./res/images/Customer.jpg";
+import employee from "./res/images/Employee.jfif";
+import vendor from "./res/images/external_vendor.jpg";
+
+const contacts = [
+  {
+    id: 1,
+    Name: "Lindsey Stroud",
+    Gender: "Female",
+    Role: "Employee",
+    Email: "lindsey.stroud@gmail.com",
+    image: employee,
+    Phone: "+61468337459",
+    Address: "1406/28 Bouverie Street, Melbourne",
+    DateOfBirth: "23rd of September 2000",
+    DateJoined: "3rd of November 2015",
+  },
+  {
+    id: 2,
+    Name: "Nicci Troiani",
+    Gender: "Female",
+    Role: "Customer",
+    Email: "nicci.troiani@gmail.com",
+    image: customer,
+    Phone: "+436603668350",
+    Address: "575 Lonsdale street, Melbourne",
+    DateOfBirth: "1th of September 2000",
+    FirstVisit: "4th of March 2015",
+  },
+  {
+    id: 3,
+    Name: "George Fields",
+    Gender: "Male",
+    Role: "External Vendor",
+    Email: "george.fields@gmail.com",
+    image: vendor,
+    Phone: "+436603668350",
+    Address: "575 Lonsdale street, Melbourne",
+    tags: "#plummer #tradie",
+    cost: "61$ per hour",
+  },
+];
+
 function App() {
   const [loggedIn, setloggedIn] = React.useState(true);
   return (
@@ -14,7 +57,13 @@ function App() {
       <Route
         exact
         path="/contacts"
-        render={() => (loggedIn ? <ContactPage /> : <Redirect to="/login" />)}
+        render={() =>
+          loggedIn ? (
+            <ContactPage contacts={contacts} />
+          ) : (
+            <Redirect to="/login" />
+          )
+        }
       />
       <Route
         exact
@@ -30,9 +79,13 @@ function App() {
 
       <Route
         exact
-        path="/contact1"
+        path="/contacts/:role/:name/:id"
         render={() =>
-          loggedIn ? <ContactDisplay /> : <Redirect to="/login" />
+          loggedIn ? (
+            <ContactDisplay contacts={contacts} />
+          ) : (
+            <Redirect to="/login" />
+          )
         }
       />
     </div>

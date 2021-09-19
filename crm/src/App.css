@@ -72,7 +72,7 @@ h2 {
 
 h3 {
   position: absolute;
-  font-family: "Poppins", sans-serif;
+  font-family: Poppins, sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 13px;
@@ -86,7 +86,7 @@ h3 {
 h4 {
   position: absolute;
 
-  font-family: Poppins;
+  font-family: Poppins, sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 13px;
@@ -119,7 +119,7 @@ h5 {
 }
 
 p {
-  font-family: Poppins;
+  font-family: Poppins, sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 13px;
@@ -174,7 +174,7 @@ p2 {
 
 .p3 {
   position: absolute;
-  font-family: Poppins;
+  font-family: Poppins, sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
@@ -185,7 +185,7 @@ p2 {
 
 .p4 {
   position: absolute;
-  font-family: Poppins;
+  font-family: Poppins, sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 13px;
@@ -199,7 +199,7 @@ p2 {
 }
 
 .p5 {
-  font-family: Poppins;
+  font-family: Poppins, sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 10px;
@@ -214,7 +214,7 @@ p2 {
 }
 
 .p6 {
-  font-family: Poppins;
+  font-family: Poppins, sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 12px;
@@ -227,7 +227,7 @@ p2 {
 }
 
 .p7 {
-  font-family: Poppins;
+  font-family: Poppins, sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 12px;
@@ -241,7 +241,7 @@ p2 {
 }
 
 .p8 {
-  font-family: Poppins;
+  font-family: Poppins, sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 10px;

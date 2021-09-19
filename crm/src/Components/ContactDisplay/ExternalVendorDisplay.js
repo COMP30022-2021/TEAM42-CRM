@@ -1,6 +1,6 @@
 import React from "react";
 import EngadementTable from "./EngadementTable";
-import { useState } from "react";
+
 import { IoIosMan } from "react-icons/io";
 import { ImPhone } from "react-icons/im";
 import { MdEmail } from "react-icons/md";
@@ -8,9 +8,7 @@ import { TiLocation } from "react-icons/ti";
 import { BiDollar } from "react-icons/bi";
 import { ImPriceTags } from "react-icons/im";
 
-import vendor from "../../res/images/external_vendor.jpg";
-
-export default function ExternalVendorDisplay() {
+export default function ExternalVendorDisplay({ contact }) {
   const nextContact = () => {
     alert("next contact please");
   };
@@ -22,18 +20,6 @@ export default function ExternalVendorDisplay() {
   const addVisit = () => {
     alert("Visit has happened");
   };
-
-  const [contact, setContacts] = useState({
-    Name: "George Fields",
-    Gender: "Male",
-    Role: "External Vendor",
-    Email: "george.fields@gmail.com",
-    image: vendor,
-    Phone: "+436603668350",
-    Address: "575 Lonsdale street, Melbourne",
-    tags: "#plummer #tradie",
-    cost: "61$ per hour",
-  });
 
   return (
     <div>
@@ -51,7 +37,6 @@ export default function ExternalVendorDisplay() {
             transform: "translate(-50%, -50%)",
           }}
           alt="User"
-
         />
 
         <p1
@@ -176,9 +161,8 @@ export default function ExternalVendorDisplay() {
           height: "25%",
         }}
       >
-        <EngadementTable/>
+        <EngadementTable />
       </div>
-
     </div>
   );
 }

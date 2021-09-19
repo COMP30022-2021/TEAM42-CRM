@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+
 import { IoIosMan } from "react-icons/io";
 import { ImPhone } from "react-icons/im";
 import { MdEmail } from "react-icons/md";
@@ -7,9 +7,7 @@ import { TiLocation } from "react-icons/ti";
 import { FaBirthdayCake } from "react-icons/fa";
 import { ImCalendar } from "react-icons/im";
 
-import employee from "../../res/images/Employee.jfif";
-
-export default function EmployeeDisplay() {
+export default function EmployeeDisplay({ contact }) {
   const nextContact = () => {
     alert("next contact please");
   };
@@ -17,18 +15,6 @@ export default function EmployeeDisplay() {
   const previousContact = () => {
     alert("previous contact please");
   };
-
-  const [contact, setContacts] = useState({
-    Name: "Lindsey Stroud",
-    Gender: "Female",
-    Role: "Employee",
-    Email: "lindsey.stroud@gmail.com",
-    image: employee,
-    Phone: "+61468337459",
-    Address: "1406/28 Bouverie Street, Melbourne",
-    DateOfBirth: "23rd of September 2000",
-    DateJoined: "3rd of November 2015",
-  });
 
   return (
     <div>
@@ -71,7 +57,7 @@ export default function EmployeeDisplay() {
             "font-size": 20,
           }}
         >
-          Role: EmployeeDisplay
+          Role: {contact.Role}
         </p1>
 
         <IoIosMan

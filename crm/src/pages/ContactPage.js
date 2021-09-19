@@ -9,7 +9,7 @@ import SideBarCollapsed from "../Components/SideBar/SBC";
 
 import { useLocation } from "react-router";
 
-export default function ContactPage(props) {
+export default function ContactPage({ contacts }) {
   const [sbc, setSBC] = React.useState(true);
   const location = useLocation();
   return (
@@ -19,7 +19,7 @@ export default function ContactPage(props) {
       </Helmet>
       <SearchBar />
       <Filters />
-      <Contacts />
+      <Contacts contacts={contacts} />
       {sbc ? (
         <SideBarCollapsed setSBC={setSBC} path={location.pathname} />
       ) : (

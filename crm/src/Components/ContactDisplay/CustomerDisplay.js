@@ -1,12 +1,16 @@
+<<<<<<< ContactComponents
 import React from 'react'
 import VisitSmall from './VisitTable';
+=======
+import React from "react";
+>>>>>>> main
 import { useState } from "react";
-import {IoIosMan} from 'react-icons/io'
-import {ImPhone} from 'react-icons/im'
-import {MdEmail} from 'react-icons/md'
-import {TiLocation} from 'react-icons/ti'
-import {FaBirthdayCake} from 'react-icons/fa'
-import {ImCalendar} from 'react-icons/im'
+import { IoIosMan } from "react-icons/io";
+import { ImPhone } from "react-icons/im";
+import { MdEmail } from "react-icons/md";
+import { TiLocation } from "react-icons/ti";
+import { FaBirthdayCake } from "react-icons/fa";
+import { ImCalendar } from "react-icons/im";
 
 import customer from "../../res/images/Customer.jpg";
 
@@ -51,16 +55,17 @@ export default function CustomerDisplay() {
           }}>
   
           <img
+
           src={contact.image}
           style={{
             position: "absolute",
             top: "18%",
             left: "50%",
             borderRadius: "50%",
-            width: "18%",
-            height: "25%",
+            width: 160,
+            height: 160,
             display: "block",
-            transform: "translate(-50%, -50%)"
+            transform: "translate(-50%, -50%)",
           }}
           alt="User"
           />    

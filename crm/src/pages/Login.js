@@ -41,7 +41,7 @@ function Login({ setLogIn }) {
             top: "24%",
           }}
           type="text"
-          placeholder="Enter your Email adress"
+          placeholder="Enter Email Address"
           value={username}
           onChange={(e) => setText1(e.target.value)}
         ></input>
@@ -58,7 +58,7 @@ function Login({ setLogIn }) {
             top: "44%",
           }}
           type="password"
-          placeholder="Enter your password"
+          placeholder="Enter Password"
           value={password}
           onChange={(e) => setText2(e.target.value)}
         ></input>

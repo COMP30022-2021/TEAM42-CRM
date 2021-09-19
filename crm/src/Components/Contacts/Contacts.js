@@ -5,6 +5,7 @@ import ContactsHeader from "./ContactsHeader";
 import customer from "../../res/images/Customer.jpg";
 import employee from "../../res/images/Employee.jfif";
 import vendor from "../../res/images/external_vendor.jpg";
+import { Link } from "react-router-dom";
 
 export default function Contacts() {
   // eslint-disable-next-line
@@ -35,9 +36,11 @@ export default function Contacts() {
   return (
     <div>
       <ContactsHeader />
-      {contacts.map((contact, index) => (
-        <Contact contact={contact} index={index + 1} />
-      ))}
+      <Link to="contact1">
+        {contacts.map((contact, index) => (
+          <Contact contact={contact} index={index + 1} />
+        ))}
+      </Link>
     </div>
   );
 }

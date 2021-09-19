@@ -50,8 +50,6 @@
 
 body {
   background: #f5f6f8;
-  width: 1200x;
-  height: 762px;
 }
 
 h1 {
@@ -173,7 +171,7 @@ p2 {
   color: #0075ff;
 }
 
-.p3{
+.p3 {
   position: absolute;
   font-family: Poppins;
   font-style: normal;
@@ -184,7 +182,7 @@ p2 {
   color: #000000;
 }
 
-.p4{
+.p4 {
   position: absolute;
   font-family: Poppins;
   font-style: normal;
@@ -195,6 +193,7 @@ p2 {
   align-items: center;
   text-align: center;
   letter-spacing: 0.01em;
+
   color: #109CF1;
 }
 
@@ -254,6 +253,7 @@ color: #707683;
   letter-spacing: 0.01em;
 
   color: #0692BE;
+=======
 }
 
 .icon {
@@ -273,8 +273,7 @@ color: #707683;
 
   height: 60px;
   width: 860px;
-  left: 68px;
-  right: 383px;
+  left: 69px;
   top: 0px;
   /* white */
 
@@ -305,8 +304,8 @@ color: #707683;
 
 .button3 {
   position: absolute;
-  background: '#FFFFFF'; 
-  height:'10%';
+  background: "#FFFFFF";
+  height: "10%";
   margin: 10;
 }
 

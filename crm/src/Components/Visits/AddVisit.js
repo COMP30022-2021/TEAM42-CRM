@@ -24,21 +24,10 @@ export default function AddVisit({ setBlur }) {
 
   return (
     <div>
-      <div
-        className="logInBox"
-        style={{
-          background: "#FFFCFC",
-          width: 476.15,
-          height: 400,
-          position: "absolute",
-          left: "59%",
-          top: "52.5%",
-          transform: "translate(-50%, -50%)",
-        }}
-      >
+      <div className="addVisit">
         <Helmet bodyAttributes={{ style: "background-color : #ffffff" }} />
 
-        <Header text={"Add Visit"} top_a={"0%"} width_a={476.15} />
+        <Header text={"Add Visit"} top_a={"0%"} width_a={"100%"} />
         <p1 style={{ top: "16%", left: "14%" }}>Total amount:</p1>
 
         <input
@@ -76,7 +65,7 @@ export default function AddVisit({ setBlur }) {
         <button
           className="button2"
           onClick={() => addItem()}
-          style={{ width: "25%", margin: 10, left: "57%", top: "39%" }}
+          style={{ width: "25%", margin: 10, left: "58%", top: "38%" }}
         >
           <p>Add Item</p>
         </button>
@@ -112,7 +101,7 @@ export default function AddVisit({ setBlur }) {
           cursor="pointer"
         />
 
-        <Header text={""} top_a={"100%"} width_a={476.15} />
+        <Header text={""} top_a={"100%"} width_a={"100%"} />
       </div>
     </div>
   );

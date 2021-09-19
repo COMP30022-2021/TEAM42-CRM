@@ -16,21 +16,10 @@ export default function AddEngagement({ setBlur }) {
 
   return (
     <div>
-      <div
-        className="logInBox"
-        style={{
-          background: "#FFFCFC",
-          width: 476.15,
-          height: 400,
-          position: "absolute",
-          left: "50%",
-          top: "52.5%",
-          transform: "translate(-50%, -50%)",
-        }}
-      >
+      <div className="addVisit">
         <Helmet bodyAttributes={{ style: "background-color : #ffffff" }} />
 
-        <Header text={"Add Engagement"} top_a={"0%"} width_a={476.15} />
+        <Header text={"Add Engagement"} top_a={"0%"} width_a={"100%"} />
         <p1 style={{ top: "16%", left: "14%" }}>Date:</p1>
 
         <input
@@ -96,7 +85,7 @@ export default function AddEngagement({ setBlur }) {
           cursor="pointer"
         />
 
-        <Header text={""} top_a={"100%"} width_a={476.15} />
+        <Header text={""} top_a={"100%"} width_a={"100%"} />
       </div>
     </div>
   );

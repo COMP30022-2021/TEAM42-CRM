@@ -67,7 +67,7 @@ export default function EmployeeDisplay() {
 
         <p1 className = "p3" style={{position: "absolute",
           left: "50%",transform: "translate(-50%, -50%)",
-        top:'44%','font-size':20}}>Role: {contact.Role}</p1>
+        top:'44%','font-size':20}}>Role: EmployeeDisplay</p1>
 
         <IoIosMan style={{position: "absolute",
           left: "15%",

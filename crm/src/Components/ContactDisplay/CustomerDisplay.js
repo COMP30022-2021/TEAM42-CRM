@@ -1,7 +1,6 @@
 import React from "react";
 import VisitTable from "./VisitTable";
 
-import { useState } from "react";
 import { IoIosMan } from "react-icons/io";
 import { ImPhone } from "react-icons/im";
 import { MdEmail } from "react-icons/md";
@@ -9,9 +8,7 @@ import { TiLocation } from "react-icons/ti";
 import { FaBirthdayCake } from "react-icons/fa";
 import { ImCalendar } from "react-icons/im";
 
-import customer from "../../res/images/Customer.jpg";
-
-export default function CustomerDisplay() {
+export default function CustomerDisplay({ contact }) {
   const nextContact = () => {
     alert("next contact please");
   };
@@ -23,19 +20,7 @@ export default function CustomerDisplay() {
   const addVisit = () => {
     alert("Visit has happened");
   };
-
-  const [contact, setContacts] = useState({
-    Name: "Nicci Troiani",
-    Gender: "Female",
-    Role: "Customer",
-    Email: "nicci.troiani@gmail.com",
-    image: customer,
-    Phone: "+436603668350",
-    Address: "575 Lonsdale street, Melbourne",
-    DateOfBirth: "1th of September 2000",
-    FirstVisit: "4th of March 2015",
-  });
-
+  console.log(contact);
   return (
     <div>
       <div className="contactDisplay">

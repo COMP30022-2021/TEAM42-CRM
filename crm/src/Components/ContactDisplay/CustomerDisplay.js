@@ -1,4 +1,6 @@
 import React from "react";
+import VisitSmall from "./VisitTable";
+
 import { useState } from "react";
 import { IoIosMan } from "react-icons/io";
 import { ImPhone } from "react-icons/im";
@@ -138,7 +140,7 @@ export default function CustomerDisplay() {
       <button
         className="button3"
         onClick={() => nextContact()}
-        style={{ position: "absolute", left: "80%", top: "82%", width: "12%" }}
+        style={{ position: "absolute", left: "80%", top: "86%", width: "12%" }}
       >
         <p style={{ color: "#109CF1" }}>Next</p>
       </button>
@@ -146,7 +148,7 @@ export default function CustomerDisplay() {
       <button
         className="button3"
         onClick={() => previousContact()}
-        style={{ position: "absolute", left: "25%", top: "82%", width: "12%" }}
+        style={{ position: "absolute", left: "25%", top: "86%", width: "12%" }}
       >
         <p style={{ color: "#109CF1" }}>Previous</p>
       </button>
@@ -157,13 +159,37 @@ export default function CustomerDisplay() {
         style={{
           position: "absolute",
           left: "52.5%",
-          top: "82%",
+          top: "86%",
           width: "12%",
           backgroundColor: "#265573",
         }}
       >
         <p>Add Visit</p>
       </button>
+
+      <div
+        style={{
+          position: "absolute",
+          left: "70%",
+          top: "53%",
+          width: "15%",
+          height: "25%",
+        }}
+      >
+        <VisitSmall />
+      </div>
+
+      <p
+        className="p8"
+        style={{
+          position: "absolute",
+          left: "77.25%",
+          top: "78.25%",
+          width: "12%",
+        }}
+      >
+        View Complete History
+      </p>
     </div>
   );
 }

@@ -32,7 +32,17 @@ export default function EmployeeDisplay() {
 
   return (
     <div>
-      <div className="contactDisplay">
+      <div
+        style={{
+          background: "#FFFCFC",
+          width: "78.6%",
+          height: "86%",
+          position: "absolute",
+          left: "20%",
+          top: "10%",
+          right: "10%",
+        }}
+      >
         <img
           src={contact.image}
           style={{

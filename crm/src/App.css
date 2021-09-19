@@ -131,7 +131,7 @@ p {
   color: #ffffff;
 }
 
-input {
+.signUpInput {
   text-indent: 10px;
 }
 
@@ -405,4 +405,15 @@ p2 {
   top: 44%;
   font-size: 20px;
   transform: translate(-50%, -50%);
+}
+
+.addVisit {
+  background: #fffcfc;
+  width: 30%;
+  height: 50%;
+  position: absolute;
+  left: 59.5%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  filter: drop-shadow(6px 6px 8px rgba(0, 0, 0, 0.25));
 }

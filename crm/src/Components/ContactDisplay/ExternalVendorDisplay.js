@@ -60,6 +60,7 @@ export default function ExternalVendorDisplay() {
             transform: "translate(-50%, -50%)",
           }}
           alt="User"
+
         />
 
         <p1

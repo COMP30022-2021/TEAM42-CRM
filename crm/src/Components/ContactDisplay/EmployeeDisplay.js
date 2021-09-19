@@ -42,6 +42,7 @@ export default function EmployeeDisplay() {
           top: "10%",
           right: "10%",
         }}
+
       >
         <img
           src={contact.image}

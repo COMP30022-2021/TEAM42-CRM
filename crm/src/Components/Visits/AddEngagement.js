@@ -4,13 +4,14 @@ import { useState } from "react";
 import Helmet from "react-helmet";
 import { GrClose } from "react-icons/gr";
 
-export default function AddEngagement() {
+export default function AddEngagement({ setBlur }) {
   const [Date, setText1] = useState("");
   const [Purpose, setText2] = useState("");
   const [Rating, setText3] = useState("");
 
   const addEngagement = () => {
     alert("Added Engagement");
+    setBlur(false);
   };
 
   return (
@@ -89,7 +90,11 @@ export default function AddEngagement() {
           <p>Add Engagement</p>
         </button>
 
-        <GrClose style={{ position: "absolute", left: "92%", top: "2.5%" }} />
+        <GrClose
+          onClick={() => setBlur(false)}
+          style={{ position: "absolute", left: "92%", top: "2.5%" }}
+          cursor="pointer"
+        />
 
         <Header text={""} top_a={"100%"} width_a={476.15} />
       </div>

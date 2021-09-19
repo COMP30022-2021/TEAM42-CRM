@@ -1,10 +1,6 @@
 import React from "react";
 import ContactsListElement from "./ContactsListElement";
 
-import customer from "../../res/images/Customer.jpg";
-import employee from "../../res/images/Employee.jfif";
-import vendor from "../../res/images/external_vendor.jpg";
-
 export default function ContactList({ contacts }) {
   return (
     <div>

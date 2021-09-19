@@ -68,7 +68,13 @@ function App() {
       <Route
         exact
         path="/"
-        render={() => (loggedIn ? <Dashboard /> : <Redirect to="/login" />)}
+        render={() =>
+          loggedIn ? (
+            <Dashboard contacts={contacts} />
+          ) : (
+            <Redirect to="/login" />
+          )
+        }
       />
       <Route
         exact

@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function VisitTableElement({ visit, index }) {
+export default function VisitTableElement({ engagement, index }) {
   return (
     <div>
       <p
@@ -11,7 +11,7 @@ export default function VisitTableElement({ visit, index }) {
           left: "12%",
         }}
       >
-        {visit.date}
+        {engagement.date}
       </p>
       <p
         className="p7"
@@ -21,7 +21,7 @@ export default function VisitTableElement({ visit, index }) {
           left: "64%",
         }}
       >
-        ${visit.price}
+        {engagement.purpose}
       </p>
     </div>
   );

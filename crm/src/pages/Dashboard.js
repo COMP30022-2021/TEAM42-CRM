@@ -6,7 +6,7 @@ import { SideBar } from "../Components/SideBar/SideBar";
 import SideBarCollapsed from "../Components/SideBar/SBC";
 import RecentContacts from "../Components/RecentContacts/RecentContacts";
 
-export default function Dashboard() {
+export default function Dashboard({ contacts }) {
   const [sbc, setSBC] = React.useState(true);
   return (
     <div>
@@ -14,7 +14,7 @@ export default function Dashboard() {
         <title>Dashboard</title>
       </Helmet>
       <SearchBar />
-      <RecentContacts />
+      <RecentContacts contacts={contacts} />
       {sbc ? <SideBarCollapsed setSBC={setSBC} /> : <SideBar setSBC={setSBC} />}
     </div>
   );

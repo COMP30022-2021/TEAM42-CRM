@@ -6,29 +6,8 @@ import vendor from "../../res/images/external_vendor.jpg";
 import { RecentContact } from "./RecentContact";
 import { Link } from "react-router-dom";
 
-export default function RecentContacts() {
+export default function RecentContacts({ contacts }) {
   // eslint-disable-next-line
-  const [contacts, setContacts] = useState([
-    {
-      Name: "Lindsey Stroud",
-      Role: "Employee",
-      Email: "lindsey.stroud@gmail.com",
-      image: employee,
-    },
-    {
-      Name: "Nicci Troiani",
-      Role: "Customer",
-      Email: "nicci.troiani@gmail.com",
-      image: customer,
-    },
-    {
-      Name: "George Fields",
-      Role: "External Vendor",
-      Email: "george.fields@gmail.com",
-      image: vendor,
-    },
-  ]);
-
   return (
     <div>
       <div className="block" style={{ width: 750, left: 103, top: 120 }}>

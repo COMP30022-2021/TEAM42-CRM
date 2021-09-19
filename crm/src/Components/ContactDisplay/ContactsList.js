@@ -5,22 +5,7 @@ import customer from "../../res/images/Customer.jpg";
 import employee from "../../res/images/Employee.jfif";
 import vendor from "../../res/images/external_vendor.jpg";
 
-export default function ContactList() {
-  const [contacts, setContacts] = React.useState([
-    {
-      Name: "Lindsey Stroud",
-      image: employee,
-    },
-    {
-      Name: "Nicci Troiani",
-      image: customer,
-    },
-    {
-      Name: "George Fields",
-      image: vendor,
-    },
-  ]);
-
+export default function ContactList({ contacts }) {
   return (
     <div>
       <div className="block" style={{ width: "14%", left: "5.6%", top: "10%" }}>

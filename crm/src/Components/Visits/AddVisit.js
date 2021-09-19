@@ -1,24 +1,23 @@
 import React from "react";
 import Header from "../SignIns/SignInHeader";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import Helmet from "react-helmet";
-import {GrClose} from "react-icons/gr"
+import { GrClose } from "react-icons/gr";
 
 export default function AddVisit() {
-    const [totalAmount, setText1] = useState("");
-    const [ID, setText2] = useState("");
-    const [NumberOfPeople,setText3] = useState("");
+  const [totalAmount, setText1] = useState("");
+  const [ID, setText2] = useState("");
+  const [NumberOfPeople, setText3] = useState("");
 
-    const addVisit = () => {
-        alert("Added Visit");
-    };
+  const addVisit = () => {
+    alert("Added Visit");
+  };
 
-    const addItem = () => {
-        alert("Added Item");
-    };
+  const addItem = () => {
+    alert("Added Item");
+  };
 
-    return (
+  return (
     <div>
       <div
         className="logInBox"
@@ -34,8 +33,8 @@ export default function AddVisit() {
       >
         <Helmet bodyAttributes={{ style: "background-color : #ffffff" }} />
 
-        <Header text={"Add Visit"} top_a={"0%"} width_a={476.15}/>
-        <p1 style={{ top: "16%", left:"14%"}}>Total amount:</p1>
+        <Header text={"Add Visit"} top_a={"0%"} width_a={476.15} />
+        <p1 style={{ top: "16%", left: "14%" }}>Total amount:</p1>
 
         <input
           className="search-bar"
@@ -70,11 +69,11 @@ export default function AddVisit() {
         ></input>
 
         <button
-        className="button2"
-        onClick={() => addItem()}
-        style={{ width: "25%", margin: 10, left: "57%", top: "39%" }}
+          className="button2"
+          onClick={() => addItem()}
+          style={{ width: "25%", margin: 10, left: "57%", top: "39%" }}
         >
-        <p>Add Item</p>
+          <p>Add Item</p>
         </button>
 
         <p1 style={{ top: "56%", left: "15%" }}>Number of People:</p1>
@@ -94,21 +93,18 @@ export default function AddVisit() {
           onChange={(e) => setText3(e.target.value)}
         ></input>
 
-        
         <button
-        className="button2"
-        onClick={() => addVisit()}
-        style={{ width: "65%", margin: 10, left: "15%", top: "74%" }}>
-        <p>Add Visit</p>
+          className="button2"
+          onClick={() => addVisit()}
+          style={{ width: "65%", margin: 10, left: "15%", top: "74%" }}
+        >
+          <p>Add Visit</p>
         </button>
 
-        <GrClose
-          style={{ position: "absolute", left: "92%", top: "2.5%" }}
-        />
+        <GrClose style={{ position: "absolute", left: "92%", top: "2.5%" }} />
 
         <Header text={""} top_a={"100%"} width_a={476.15} />
       </div>
     </div>
   );
 }
-

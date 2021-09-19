@@ -26,7 +26,7 @@ export default function ContactDisplay({ contacts }) {
         <ExternalVendorDisplay contact={contact} />
       )}
 
-      <ContactList />
+      <ContactList contacts={contacts} />
       {sbc ? (
         <SideBarCollapsed setSBC={setSBC} path={location.pathname} />
       ) : (

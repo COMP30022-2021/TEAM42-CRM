@@ -1,5 +1,5 @@
 import React from "react";
-import VisitSmall from "./VisitTable";
+import VisitTable from "./VisitTable";
 
 import { useState } from "react";
 import { IoIosMan } from "react-icons/io";
@@ -176,7 +176,7 @@ export default function CustomerDisplay() {
           height: "25%",
         }}
       >
-        <VisitSmall />
+        <VisitTable />
       </div>
 
       <p

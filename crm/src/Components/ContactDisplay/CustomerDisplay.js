@@ -1,5 +1,6 @@
 import React from "react";
 import VisitTable from "./VisitTable";
+import AddVisit from "../Visits/AddVisit";
 
 import { IoIosMan } from "react-icons/io";
 import { ImPhone } from "react-icons/im";
@@ -9,6 +10,7 @@ import { FaBirthdayCake } from "react-icons/fa";
 import { ImCalendar } from "react-icons/im";
 
 export default function CustomerDisplay({ contact }) {
+  const [blur, setBlur] = React.useState(false);
   const nextContact = () => {
     alert("next contact please");
   };
@@ -20,50 +22,22 @@ export default function CustomerDisplay({ contact }) {
   const addVisit = () => {
     alert("Visit has happened");
   };
-  console.log(contact);
+
   return (
     <div>
-      <div className="contactDisplay">
-        <img
-          src={contact.image}
-          style={{
-            position: "absolute",
-            top: "18%",
-            left: "50%",
-            borderRadius: "50%",
-            width: 160,
-            height: 160,
-            display: "block",
-            transform: "translate(-50%, -50%)",
-          }}
-          alt="User"
-        />
+      <div
+        className="contactDisplay"
+        style={{
+          filter:
+            "drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.25))" +
+            (blur ? "blur(2px)" : ""),
+        }}
+      >
+        <img src={contact.image} className="contactImage" alt="User" />
 
-        <p1
-          className="p3"
-          style={{
-            position: "absolute",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            top: "36%",
-            "font-size": 36,
-          }}
-        >
-          {contact.Name}
-        </p1>
+        <p1 className="contactTitle">{contact.Name}</p1>
 
-        <p1
-          className="p3"
-          style={{
-            position: "absolute",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            top: "44%",
-            "font-size": 20,
-          }}
-        >
-          Role: Customer
-        </p1>
+        <p1 className="contactSubtitle">Role: Customer</p1>
 
         <IoIosMan
           style={{ position: "absolute", left: "15%", top: "51.25%" }}
@@ -118,63 +92,67 @@ export default function CustomerDisplay({ contact }) {
           className="p3"
           style={{ position: "absolute", left: "17%", top: "76%" }}
         >
-          First Visit {contact.FirstVisit}{" "}
+          First Visited - {contact.FirstVisit}{" "}
         </p1>
+
+        <button
+          className="button3"
+          onClick={() => nextContact()}
+          style={{
+            left: "73%",
+          }}
+        >
+          <p style={{ color: "#109CF1" }}>Next</p>
+        </button>
+
+        <button
+          className="button3"
+          onClick={() => previousContact()}
+          style={{
+            left: "15%",
+          }}
+        >
+          <p style={{ color: "#109CF1" }}>Previous</p>
+        </button>
+
+        <button
+          className="button3"
+          onClick={() => addVisit()}
+          style={{
+            left: "44%",
+            backgroundColor: "#265573",
+          }}
+        >
+          <p>Add Visit</p>
+        </button>
+
+        <div
+          style={{
+            position: "absolute",
+            left: "70%",
+            top: "53%",
+            width: "15%",
+            height: "25%",
+          }}
+        >
+          <VisitTable />
+        </div>
+
+        <p
+          className="p8"
+          style={{
+            position: "absolute",
+            left: "77.25%",
+            top: "80%",
+            width: "12%",
+            cursor: "pointer",
+          }}
+          onClick={() => setBlur(true)}
+        >
+          View Complete History
+        </p>
       </div>
-
-      <button
-        className="button3"
-        onClick={() => nextContact()}
-        style={{ position: "absolute", left: "80%", top: "86%", width: "12%" }}
-      >
-        <p style={{ color: "#109CF1" }}>Next</p>
-      </button>
-
-      <button
-        className="button3"
-        onClick={() => previousContact()}
-        style={{ position: "absolute", left: "25%", top: "86%", width: "12%" }}
-      >
-        <p style={{ color: "#109CF1" }}>Previous</p>
-      </button>
-
-      <button
-        className="button3"
-        onClick={() => addVisit()}
-        style={{
-          position: "absolute",
-          left: "52.5%",
-          top: "86%",
-          width: "12%",
-          backgroundColor: "#265573",
-        }}
-      >
-        <p>Add Visit</p>
-      </button>
-
-      <div
-        style={{
-          position: "absolute",
-          left: "70%",
-          top: "53%",
-          width: "15%",
-          height: "25%",
-        }}
-      >
-        <VisitTable />
-      </div>
-
-      <p
-        className="p8"
-        style={{
-          position: "absolute",
-          left: "77.25%",
-          top: "78.25%",
-          width: "12%",
-        }}
-      >
-        View Complete History
-      </p>
+      {blur && <AddVisit setBlur={setBlur} />}
     </div>
   );
 }

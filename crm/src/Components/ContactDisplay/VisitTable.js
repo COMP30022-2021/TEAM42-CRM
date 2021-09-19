@@ -1,14 +1,13 @@
 import React from "react";
-import { useState } from "react";
 import VisitTableElement from "./VisitTableElement";
 
 export default function VisitTable() {
-  const [total, setTotals] = useState({
+  const total = {
     visits: "9",
     spent: "365.70",
-  });
+  };
 
-  const [visits, setVisits] = useState([
+  const visits = [
     {
       date: "27/06/2017",
       price: "09.50",
@@ -21,7 +20,7 @@ export default function VisitTable() {
       date: "27/05/2017",
       price: "56.50",
     },
-  ]);
+  ];
 
   return (
     <div style={{ width: "100%", height: "100%", background: "#F8F2F2" }}>

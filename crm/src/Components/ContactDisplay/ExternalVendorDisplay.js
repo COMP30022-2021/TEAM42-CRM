@@ -120,27 +120,24 @@ export default function ExternalVendorDisplay() {
             <button
             className="button3"
             onClick={() => nextContact()}
-            style={{position: 'absolute',left: "80%", top: "82%",width: "12%" }}>
+            style={{position: 'absolute',left: "80%", top: "86%",width: "12%" }}>
             <p style={{ color: '#109CF1'}}>Next</p>
             </button>
   
             <button
             className="button3"
             onClick={() => previousContact()}
-            style={{position: 'absolute',left: "25%", top: "82%",width: "12%" }}>
+            style={{position: 'absolute',left: "25%", top: "86%",width: "12%" }}>
             <p style={{ color: '#109CF1'}}>Previous</p>
             </button>
 
             <button
             className="button3"
             onClick={() => addVisit()}
-            style={{position: 'absolute',left: "52.5%", top: "82%",width: "12%",backgroundColor:"#265573" }}>
+            style={{position: 'absolute',left: "52.5%", top: "86%",width: "12%",backgroundColor:"#265573" }}>
             <p>Add Engadement</p>
             </button>
           </div>
-  
-  
-  
       )
   }
   

@@ -115,14 +115,14 @@ export default function EmployeeDisplay() {
           <button
           className="button3"
           onClick={() => nextContact()}
-          style={{position: 'absolute',left: "80%", top: "82%",width: "12%" }}>
+          style={{position: 'absolute',left: "80%", top: "86%",width: "12%" }}>
           <p style={{ color: '#109CF1'}}>Next</p>
           </button>
 
           <button
           className="button3"
           onClick={() => previousContact()}
-          style={{position: 'absolute',left: "25%", top: "82%",width: "12%" }}>
+          style={{position: 'absolute',left: "25%", top: "86%",width: "12%" }}>
           <p style={{ color: '#109CF1'}}>Previous</p>
           </button>
 

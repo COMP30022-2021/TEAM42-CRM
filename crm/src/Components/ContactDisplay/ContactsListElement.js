@@ -4,7 +4,7 @@ export default function ContactsListElement({ contact, index }) {
   return (
     <div
       className="block"
-      style={{ width: "14%", left: "5.6%", top: "" + (10 + index * 7.6) + "%" }}
+      style={{ width: "14%", left: "5.6%", top: "" + (10 + index * 7.7) + "%" }}
     >
       <img
         src={contact.image}

@@ -3,7 +3,7 @@ import SelectBox from "./SelectBox";
 
 export const Contact = ({ contact, index }) => {
   return (
-    <div className="block" style={{ left: 103, top: 120 + 50 * index }}>
+    <div className="block" style={{ left: 103, top: 120 + 50.5 * index }}>
       <SelectBox />
       <img
         src={contact.image}

@@ -1,5 +1,6 @@
 import React from "react";
 import EngagementTable from "./EngagementTable";
+import AddEngagement from "../Visits/AddEngagement";
 
 import { IoIosMan } from "react-icons/io";
 import { ImPhone } from "react-icons/im";
@@ -9,6 +10,8 @@ import { BiDollar } from "react-icons/bi";
 import { ImPriceTags } from "react-icons/im";
 
 export default function ExternalVendorDisplay({ contact }) {
+  const [blur, setBlur] = React.useState(false);
+
   const nextContact = () => {
     alert("next contact please");
   };
@@ -23,158 +26,103 @@ export default function ExternalVendorDisplay({ contact }) {
 
   return (
     <div>
-      <div className="contactDisplay">
-        <img
-          src={contact.image}
-          style={{
-            position: "absolute",
-            top: "18%",
-            left: "50%",
-            borderRadius: "50%",
-            width: 160,
-            height: 160,
-            display: "block",
-            transform: "translate(-50%, -50%)",
-          }}
-          alt="User"
-        />
+      <div
+        className="contactDisplay"
+        style={{
+          filter:
+            "drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.25))" +
+            (blur ? "blur(2px)" : ""),
+        }}
+      >
+        <img src={contact.image} className="contactImage" alt="User" />
 
-        <p1
-          className="p3"
-          style={{
-            position: "absolute",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            top: "36%",
-            "font-size": 36,
-          }}
-        >
-          {contact.Name}
-        </p1>
+        <p1 className="contactTitle">{contact.Name}</p1>
 
-        <p1
-          className="p3"
-          style={{
-            position: "absolute",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            top: "44%",
-            "font-size": 20,
-          }}
-        >
-          Role: External Vendor
-        </p1>
+        <p1 className="contactSubtitle">Role: External Vendor</p1>
 
         <IoIosMan
           style={{ position: "absolute", left: "15%", top: "51.25%" }}
         />
-        <p1
-          className="p3"
-          style={{ position: "absolute", left: "17%", top: "51%" }}
-        >
+        <p1 className="p3" style={{ left: "17%", top: "51%" }}>
           {contact.Gender}{" "}
         </p1>
 
         <ImPhone style={{ position: "absolute", left: "15%", top: "56.25%" }} />
-        <p1
-          className="p3"
-          style={{ position: "absolute", left: "17%", top: "56%" }}
-        >
+        <p1 className="p3" style={{ left: "17%", top: "56%" }}>
           {contact.Phone}{" "}
         </p1>
 
         <MdEmail style={{ position: "absolute", left: "15%", top: "61.25%" }} />
-        <p1
-          className="p3"
-          style={{ position: "absolute", left: "17%", top: "61%" }}
-        >
+        <p1 className="p3" style={{ left: "17%", top: "61%" }}>
           {contact.Email}{" "}
         </p1>
 
         <TiLocation
           style={{ position: "absolute", left: "15%", top: "66.25%" }}
         />
-        <p1
-          className="p3"
-          style={{ position: "absolute", left: "17%", top: "66%" }}
-        >
+        <p1 className="p3" style={{ left: "17%", top: "66%" }}>
           {contact.Address}{" "}
         </p1>
 
         <ImPriceTags
           style={{ position: "absolute", left: "15%", top: "71.25%" }}
         />
-        <p1
-          className="p3"
-          style={{ position: "absolute", left: "17%", top: "71%" }}
-        >
+        <p1 className="p3" style={{ left: "17%", top: "71%" }}>
           Tags: {contact.tags}{" "}
         </p1>
 
         <BiDollar
           style={{ position: "absolute", left: "15%", top: "76.25%" }}
         />
-        <p1
-          className="p3"
-          style={{ position: "absolute", left: "17%", top: "76%" }}
-        >
+        <p1 className="p3" style={{ left: "17%", top: "76%" }}>
           {contact.cost}{" "}
         </p1>
+
+        <button
+          className="button3"
+          onClick={() => nextContact()}
+          style={{ left: "80%" }}
+        >
+          <p style={{ color: "#109CF1" }}>Next</p>
+        </button>
+
+        <button
+          className="button3"
+          onClick={() => previousContact()}
+          style={{ left: "8%" }}
+        >
+          <p style={{ color: "#109CF1" }}>Previous</p>
+        </button>
+
+        <button
+          className="button3"
+          onClick={() => addVisit()}
+          style={{ left: "44%", backgroundColor: "#265573" }}
+        >
+          <p>Add Engagement</p>
+        </button>
+
+        <div
+          style={{
+            position: "absolute",
+            left: "65%",
+            top: "51%",
+            width: "25%",
+            height: "30%",
+          }}
+        >
+          <EngagementTable />
+        </div>
+
+        <p
+          className="p8"
+          style={{ left: "78.75%", top: "81.25%" }}
+          onClick={() => setBlur(true)}
+        >
+          View Complete History
+        </p>
       </div>
-
-      <button
-        className="button3"
-        onClick={() => nextContact()}
-        style={{ position: "absolute", left: "80%", top: "86%", width: "12%" }}
-      >
-        <p style={{ color: "#109CF1" }}>Next</p>
-      </button>
-
-      <button
-        className="button3"
-        onClick={() => previousContact()}
-        style={{ position: "absolute", left: "25%", top: "86%", width: "12%" }}
-      >
-        <p style={{ color: "#109CF1" }}>Previous</p>
-      </button>
-
-      <button
-        className="button3"
-        onClick={() => addVisit()}
-        style={{
-          position: "absolute",
-          left: "52.5%",
-          top: "86%",
-          width: "12%",
-          backgroundColor: "#265573",
-        }}
-      >
-        <p>Add Engagement</p>
-      </button>
-
-      <div
-        style={{
-          position: "absolute",
-          left: "70%",
-          top: "53%",
-          width: "15%",
-          height: "25%",
-        }}
-      >
-        <EngagementTable />
-      </div>
-
-      <p
-        className="p8"
-        style={{
-          position: "absolute",
-          left: "77.25%",
-          top: "78.25%",
-          width: "12%",
-        }}
-      >
-        View Complete History
-      </p>
+      {blur && <AddEngagement setBlur={setBlur} />}
     </div>
   );
 }

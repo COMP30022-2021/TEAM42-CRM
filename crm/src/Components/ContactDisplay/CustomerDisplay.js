@@ -42,10 +42,7 @@ export default function CustomerDisplay({ contact }) {
         <IoIosMan
           style={{ position: "absolute", left: "15%", top: "51.25%" }}
         />
-        <p1
-          className="p3"
-          style={{ position: "absolute", left: "17%", top: "51%" }}
-        >
+        <p1 className="p3" style={{ left: "17%", top: "51%" }}>
           {contact.Gender}{" "}
         </p1>
 
@@ -58,49 +55,35 @@ export default function CustomerDisplay({ contact }) {
         </p1>
 
         <MdEmail style={{ position: "absolute", left: "15%", top: "61.25%" }} />
-        <p1
-          className="p3"
-          style={{ position: "absolute", left: "17%", top: "61%" }}
-        >
+        <p1 className="p3" style={{ left: "17%", top: "61%" }}>
           {contact.Email}{" "}
         </p1>
 
         <TiLocation
           style={{ position: "absolute", left: "15%", top: "66.25%" }}
         />
-        <p1
-          className="p3"
-          style={{ position: "absolute", left: "17%", top: "66%" }}
-        >
+        <p1 className="p3" style={{ left: "17%", top: "66%" }}>
           {contact.Address}{" "}
         </p1>
 
         <FaBirthdayCake
           style={{ position: "absolute", left: "15%", top: "71.25%" }}
         />
-        <p1
-          className="p3"
-          style={{ position: "absolute", left: "17%", top: "71%" }}
-        >
+        <p1 className="p3" style={{ left: "17%", top: "71%" }}>
           Born {contact.DateOfBirth}{" "}
         </p1>
 
         <ImCalendar
           style={{ position: "absolute", left: "15%", top: "76.25%" }}
         />
-        <p1
-          className="p3"
-          style={{ position: "absolute", left: "17%", top: "76%" }}
-        >
+        <p1 className="p3" style={{ left: "17%", top: "76%" }}>
           First Visited - {contact.FirstVisit}{" "}
         </p1>
 
         <button
           className="button3"
           onClick={() => nextContact()}
-          style={{
-            left: "73%",
-          }}
+          style={{ left: "80%" }}
         >
           <p style={{ color: "#109CF1" }}>Next</p>
         </button>
@@ -109,7 +92,7 @@ export default function CustomerDisplay({ contact }) {
           className="button3"
           onClick={() => previousContact()}
           style={{
-            left: "15%",
+            left: "8%",
           }}
         >
           <p style={{ color: "#109CF1" }}>Previous</p>
@@ -129,10 +112,10 @@ export default function CustomerDisplay({ contact }) {
         <div
           style={{
             position: "absolute",
-            left: "70%",
-            top: "53%",
-            width: "15%",
-            height: "25%",
+            left: "65%",
+            top: "51%",
+            width: "25%",
+            height: "30%",
           }}
         >
           <VisitTable />
@@ -140,13 +123,7 @@ export default function CustomerDisplay({ contact }) {
 
         <p
           className="p8"
-          style={{
-            position: "absolute",
-            left: "77.25%",
-            top: "80%",
-            width: "12%",
-            cursor: "pointer",
-          }}
+          style={{ left: "78.75%", top: "81.25%" }}
           onClick={() => setBlur(true)}
         >
           View Complete History

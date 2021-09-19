@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 
 export const Contact = ({ contact, index }) => {
   return (
-    // + "/" + contact.Name + "/" + contact.id
     <Link
       to={
         "/contacts/" +

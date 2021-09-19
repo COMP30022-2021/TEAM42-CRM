@@ -1,4 +1,5 @@
 import React from "react";
+import EngadementTable from "./EngadementTable";
 import { useState } from "react";
 import { IoIosMan } from "react-icons/io";
 import { ImPhone } from "react-icons/im";
@@ -165,6 +166,19 @@ export default function ExternalVendorDisplay() {
       >
         <p>Add Engadement</p>
       </button>
+
+      <div
+        style={{
+          position: "absolute",
+          left: "70%",
+          top: "53%",
+          width: "15%",
+          height: "25%",
+        }}
+      >
+        <EngadementTable/>
+      </div>
+
     </div>
   );
 }

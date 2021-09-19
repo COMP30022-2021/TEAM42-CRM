@@ -256,6 +256,16 @@ p2 {
   color: #0692be;
 }
 
+.p9{
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 19px;
+  letter-spacing: 0.01em;
+  color: #FFFFFF;
+}
+
 .icon {
   position: absolute;
   width: 20px;

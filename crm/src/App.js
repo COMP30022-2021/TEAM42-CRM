@@ -5,9 +5,10 @@ import { Route, Redirect } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
 import SignUpBusiness from "./pages/SignUpBusiness";
+import ContactDisplay from "./pages/ContactDisplay";
 
 function App() {
-  const [loggedIn, setloggedIn] = React.useState(false);
+  const [loggedIn, setloggedIn] = React.useState(true);
   return (
     <div className="App" style={{ background: "#000000" }}>
       <Route
@@ -26,6 +27,14 @@ function App() {
         render={() => <Login setLogIn={setloggedIn} />}
       />
       <Route exact path="/signup" render={() => <SignUpBusiness />} />
+
+      <Route
+        exact
+        path="/contact1"
+        render={() =>
+          loggedIn ? <ContactDisplay /> : <Redirect to="/login" />
+        }
+      />
     </div>
   );
 }

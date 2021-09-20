@@ -20,7 +20,7 @@ export default function CustomerDisplay({ contact }) {
   };
 
   const addVisit = () => {
-    alert("Visit has happened");
+    setBlur(true);
   };
 
   return (
@@ -121,11 +121,7 @@ export default function CustomerDisplay({ contact }) {
           <VisitTable />
         </div>
 
-        <p
-          className="p8"
-          style={{ left: "78.75%", top: "81.25%" }}
-          onClick={() => setBlur(true)}
-        >
+        <p className="p8" style={{ left: "78.75%", top: "81.25%" }}>
           View Complete History
         </p>
       </div>

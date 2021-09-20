@@ -1,13 +1,14 @@
 import React from "react";
+
 import Header from "../SignIns/SignInHeader";
 import { useState } from "react";
 import Helmet from "react-helmet";
 import { GrClose } from "react-icons/gr";
 
 export default function AddVisit({ setBlur }) {
-  const [totalAmount, setTotalAmount] = useState("");
-  const [ID, setID] = useState("");
-  const [NumberOfPeople, setNumPeople] = useState("");
+  const [totalAmount, setTotalAmount] = React.useState("");
+  const [ID, setID] = React.useState("");
+  const [NumberOfPeople, setNumPeople] = React.useState("");
 
   const addVisit = () => {
     alert("Added Visit");

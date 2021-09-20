@@ -1,4 +1,6 @@
 import React from "react";
+import Helmet from "react-helmet";
+
 import Header from "../Components/SignIns/SignInHeader";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -27,6 +29,10 @@ function SignUpBusiness() {
           transform: "translate(-50%, -50%)",
         }}
       >
+        <Helmet>
+          <title>Lynk - Sign Up Your Business</title>
+        </Helmet>
+
         <Header text={"Sign up your Business"} top_a={"0%"} width_a={916} />
         <p1 style={{ top: "16%", left: "8%" }}>Business Name</p1>
 

@@ -15,8 +15,9 @@ export default function ContactPage({ contacts }) {
   return (
     <div>
       <Helmet>
-        <title>Contacts</title>
+        <title>Lynk - Contacts</title>
       </Helmet>
+
       <SearchBar />
       <Filters />
       <Contacts contacts={contacts} />

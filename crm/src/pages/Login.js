@@ -1,4 +1,5 @@
 import React from "react";
+
 import Header from "../Components/SignIns/SignInHeader";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -26,6 +27,9 @@ function Login({ setLogIn }) {
           transform: "translate(-50%, -50%)",
         }}
       >
+        <Helmet>
+          <title>Lynk - Login</title>
+        </Helmet>
         <Helmet bodyAttributes={{ style: "background-color : #ffffff" }} />
 
         <Header text={"Sign in"} top_a={"0%"} width_a={476.15} />

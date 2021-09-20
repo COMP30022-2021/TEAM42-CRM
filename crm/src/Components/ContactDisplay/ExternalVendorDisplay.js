@@ -21,7 +21,7 @@ export default function ExternalVendorDisplay({ contact }) {
   };
 
   const addVisit = () => {
-    alert("Visit has happened");
+    setBlur(true);
   };
 
   return (

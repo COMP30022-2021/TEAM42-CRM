@@ -11,7 +11,7 @@ export default function Dashboard({ contacts }) {
   return (
     <div>
       <Helmet>
-        <title>Dashboard</title>
+        <title>Lynk - Dashboard</title>
       </Helmet>
       <SearchBar />
       <RecentContacts contacts={contacts} />

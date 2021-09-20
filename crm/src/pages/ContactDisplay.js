@@ -1,7 +1,9 @@
 import React from "react";
+import Helmet from "react-helmet";
+import { useLocation, useRouteMatch } from "react-router";
+
 import SideBarCollapsed from "../Components/SideBar/SBC";
 import { SideBar } from "../Components/SideBar/SideBar";
-import { useLocation, useRouteMatch } from "react-router";
 import SearchBar from "../Components/SearchBar";
 import ContactList from "../Components/ContactDisplay/ContactsList";
 
@@ -17,6 +19,10 @@ export default function ContactDisplay({ contacts }) {
 
   return (
     <div>
+      <Helmet>
+        <title>Lynk - {contact.Name}</title>
+      </Helmet>
+
       <SearchBar width={1232} />
       {contact.Role === "Employee" ? (
         <EmployeeDisplay contact={contact} />

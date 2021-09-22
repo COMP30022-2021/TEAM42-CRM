@@ -1,5 +1,6 @@
 const express = require("express");
 const path = require('path');
+
 if (process.env.NODE_ENV !== 'production') require('dotenv').config()
 
 const app = express()
@@ -14,6 +15,7 @@ const port = process.env.PORT || 5000;
 // define routes
 app.use("/customer", require("./routes/customerRoutes"));
 
+app.use("/auth", require("./routes/authenticationRoutes"));
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('crm/build'));

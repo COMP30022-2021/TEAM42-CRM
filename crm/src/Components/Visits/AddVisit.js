@@ -1,7 +1,6 @@
 import React from "react";
 
 import Header from "../SignIns/SignInHeader";
-import { useState } from "react";
 import Helmet from "react-helmet";
 import { GrClose } from "react-icons/gr";
 

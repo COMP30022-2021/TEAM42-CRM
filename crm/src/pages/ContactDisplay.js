@@ -6,6 +6,7 @@ import SideBarCollapsed from "../Components/SideBar/SBC";
 import { SideBar } from "../Components/SideBar/SideBar";
 import SearchBar from "../Components/SearchBar";
 import ContactList from "../Components/ContactDisplay/ContactsList";
+import AddPopUp from "../Components/AddContact/AddPopUp.js";
 
 import CustomerDisplay from "../Components/ContactDisplay/CustomerDisplay";
 import ExternalVendorDisplay from "../Components/ContactDisplay/ExternalVendorDisplay";
@@ -21,25 +22,32 @@ export default function ContactDisplay({ contacts }) {
 
   return (
     <div>
-      <Helmet>
-        <title>Lynk - {contact.Name}</title>
-      </Helmet>
+      <div
+        style={{
+          filter: blur ? "blur(2px)" : "",
+        }}
+      >
+        <Helmet>
+          <title>Lynk - {contact.Name}</title>
+        </Helmet>
 
-      <SearchBar width={1232} onClick={setBlur} />
-      {contact.Role === "Employee" ? (
-        <EmployeeDisplay contact={contact} />
-      ) : contact.Role === "Customer" ? (
-        <CustomerDisplay contact={contact} />
-      ) : (
-        <ExternalVendorDisplay contact={contact} />
-      )}
+        <SearchBar width={1232} onClick={setBlur} />
+        {contact.Role === "Employee" ? (
+          <EmployeeDisplay contact={contact} />
+        ) : contact.Role === "Customer" ? (
+          <CustomerDisplay contact={contact} />
+        ) : (
+          <ExternalVendorDisplay contact={contact} />
+        )}
 
-      <ContactList contacts={contacts} />
+        <ContactList contacts={contacts} />
+      </div>
       {sbc ? (
         <SideBarCollapsed setSBC={setSBC} path={location.pathname} />
       ) : (
         <SideBar setSBC={setSBC} path={location.pathname} />
       )}
+      {blur && <AddPopUp setBlur={setBlur} />}
     </div>
   );
 }

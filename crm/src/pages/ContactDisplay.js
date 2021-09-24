@@ -13,6 +13,8 @@ import EmployeeDisplay from "../Components/ContactDisplay/EmployeeDisplay";
 
 export default function ContactDisplay({ contacts }) {
   const [sbc, setSBC] = React.useState(true);
+  const [blur, setBlur] = React.useState(false);
+
   const location = useLocation();
   const id = parseInt(useRouteMatch().params.id);
   const contact = contacts.filter((contact) => id === contact.id)[0];
@@ -23,7 +25,7 @@ export default function ContactDisplay({ contacts }) {
         <title>Lynk - {contact.Name}</title>
       </Helmet>
 
-      <SearchBar width={1232} />
+      <SearchBar width={1232} onClick={setBlur} />
       {contact.Role === "Employee" ? (
         <EmployeeDisplay contact={contact} />
       ) : contact.Role === "Customer" ? (

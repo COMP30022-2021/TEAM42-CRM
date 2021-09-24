@@ -2,9 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import { BsSearch } from "react-icons/bs";
-import { GrAdd } from "react-icons/gr";
+import { AddButton } from "./AddContact/AddButton";
 
-export default function SearchBar({ width }) {
+export default function SearchBar({ width, onClick }) {
   const [text, setText] = React.useState("");
 
   return (
@@ -27,8 +27,8 @@ export default function SearchBar({ width }) {
         className="icon"
         style={{ color: "#9FBF8E", top: 20, left: 30 }}
       />
-      <GrAdd
-        className="icon"
+      <AddButton
+        onClick={onClick}
         style={{ color: "#9FBF8E", left: width - 35, top: 20 }}
       />
     </div>

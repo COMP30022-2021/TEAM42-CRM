@@ -11,6 +11,7 @@ import { useLocation } from "react-router";
 
 export default function ContactPage({ contacts }) {
   const [sbc, setSBC] = React.useState(true);
+  const [blur, setBlur] = React.useState(false);
   const location = useLocation();
   return (
     <div>
@@ -18,7 +19,7 @@ export default function ContactPage({ contacts }) {
         <title>Lynk - Contacts</title>
       </Helmet>
 
-      <SearchBar />
+      <SearchBar onClick={setBlur} />
       <Filters />
       <Contacts contacts={contacts} />
       {sbc ? (

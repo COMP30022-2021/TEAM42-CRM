@@ -4,22 +4,19 @@ import { useState } from "react";
 import Helmet from "react-helmet";
 import { GrClose } from "react-icons/gr";
 
-
 export default function AddPopUp({ setBlur }) {
+  const addCustomer = () => {
+    alert("Added Customer");
+  };
 
-    const addCustomer = () => {
-        alert("Added Customer");
-      };
-    
-    const addEmployee = () => {
+  const addEmployee = () => {
     alert("Added Employee");
-    };
+  };
 
-    const addVendor = () => {
+  const addVendor = () => {
     alert("Added Vendor");
-    };
-    
- 
+  };
+
   return (
     <div>
       <div className="addVisit">
@@ -30,28 +27,23 @@ export default function AddPopUp({ setBlur }) {
         <button
           className="button2"
           onClick={() => addCustomer()}
-          style={{ width: "65%", margin: 10, left: "15%", top: "22%" }}
+          style={{ width: "65%", margin: 10, left: "15%", top: "47%" }}
         >
           <p>Add Customer</p>
         </button>
 
-
         <button
           className="button2"
           onClick={() => addVendor()}
-          style={{ width: "65%", margin: 10, left: "15%", top: "47%" }}
+          style={{ width: "65%", margin: 10, left: "15%", top: "72%" }}
         >
           <p>Add External Vendor</p>
         </button>
 
-
-
-
-
         <button
           className="button2"
           onClick={() => addEmployee()}
-          style={{ width: "65%", margin: 10, left: "15%", top: "72%" }}
+          style={{ width: "65%", margin: 10, left: "15%", top: "22%" }}
         >
           <p>Add Employee</p>
         </button>

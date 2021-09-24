@@ -168,6 +168,7 @@ export default function AddEmployee() {
             onChange={(e) => setText6(e.target.value)}
           ></input>
   
+  
           <button
             className="button2"
             onClick={createContact}

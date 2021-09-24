@@ -46,6 +46,7 @@ export default function AddEmployee() {
             onChange={(e) => setText1(e.target.value)}
           ></input>
   
+  
           <p1 style={{ top: "36%", left: "8%" }}>Employee Email adress:</p1>
   
           <input

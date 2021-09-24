@@ -4,18 +4,18 @@ import { useState } from "react";
 import { GrClose } from "react-icons/gr";
 
 
-export default function AddCustomer({ setBlur }) {
-    const [customerName, setText1] = useState("");
+export default function UpdateEmployee({ setBlur }) {
+    const [employeeName, setText1] = useState("");
     const [Email, setText2] = useState("");
     const [adress, setText3] = useState("");
     const [dateBrthday, setText4] = useState("");
-    const [dateFirstVisit, setText5] = useState("");
+    const [dateJoined, setText5] = useState("");
     const [phoneNumber,setText6] = useState("");
     const [gender, setGender] = useState(false);
   
     
     function createContact() {
-      alert(customerName + Email + dateBrthday + dateFirstVisit +adress);
+      alert(employeeName + Email + dateBrthday + dateJoined +adress);
     }
   
     return (
@@ -31,8 +31,8 @@ export default function AddCustomer({ setBlur }) {
             transform: "translate(-50%, -50%)",
           }}
         >
-          <Header text={"Create Customer Contact"} top_a={"0%"} width_a={916} />
-          <p1 style={{ top: "16%", left: "8%" }}>Customer Name:</p1>
+          <Header text={"Update Employee Contact"} top_a={"0%"} width_a={916} />
+          <p1 style={{ top: "16%", left: "8%" }}>Employee Name:</p1>
   
           <input
             className="search-bar"
@@ -44,13 +44,13 @@ export default function AddCustomer({ setBlur }) {
               top: "24%",
             }}
             type="text"
-            placeholder="Enter the name of your Customer"
-            value={customerName}
+            placeholder="Enter the name of your Employee"
+            value={employeeName}
             onChange={(e) => setText1(e.target.value)}
           ></input>
   
 
-          <p1 style={{ top: "36%", left: "8%" }}>Customer Email adress:</p1>
+          <p1 style={{ top: "36%", left: "8%" }}>Employee Email adress:</p1>
   
           <input
             className="search-bar"
@@ -62,13 +62,13 @@ export default function AddCustomer({ setBlur }) {
               top: "44%",
             }}
             type="text"
-            placeholder="Enter the Email adress of the Customer"
+            placeholder="Enter the Email adress of the Employee"
             value={Email}
             onChange={(e) => setText2(e.target.value)}
           ></input>
   
           <p1 style={{ top: "56%", left: "8%" }}>
-            Date when the Customer first visited:
+            Date when Employee started with comapny:
           </p1>
   
           <input
@@ -81,12 +81,12 @@ export default function AddCustomer({ setBlur }) {
               top: "64%",
             }}
             type="text"
-            placeholder="Enter the date when the Customer first visited"
-            value={dateFirstVisit}
+            placeholder="Enter the date when the Employee started"
+            value={dateJoined}
             onChange={(e) => setText5(e.target.value)}
           ></input>
   
-          <p1 style={{ top: "16%", left: "56.5%" }}>Customer adress:</p1>
+          <p1 style={{ top: "16%", left: "56.5%" }}>Employee adress:</p1>
   
           <input
             className="search-bar"
@@ -99,12 +99,12 @@ export default function AddCustomer({ setBlur }) {
               top: "24%",
             }}
             type="text"
-            placeholder="Enter the Customer's adress"
+            placeholder="Enter the Employee's adress"
             value={adress}
             onChange={(e) => setText3(e.target.value)}
           ></input>
   
-          <p1 style={{ top: "36%", left: "56.5%" }}>Customer Birthday:</p1>
+          <p1 style={{ top: "36%", left: "56.5%" }}>Employee Birthday:</p1>
   
           <input
             className="search-bar"
@@ -117,7 +117,7 @@ export default function AddCustomer({ setBlur }) {
               top: "44%",
             }}
             type="text"
-            placeholder="Enter the Customer's birthday"
+            placeholder="Enter the Employee's birthday"
             value={dateBrthday}
             onChange={(e) => setText4(e.target.value)}
           ></input>
@@ -153,7 +153,7 @@ export default function AddCustomer({ setBlur }) {
           />
 
           <p1 style={{ top: "56%", left: "56.5%" }}>
-            Customer phone number:
+            Employee phone number:
           </p1>
   
           <input
@@ -167,7 +167,7 @@ export default function AddCustomer({ setBlur }) {
               top: "64%",
             }}
             type="text"
-            placeholder="Enter the Customer's phone number"
+            placeholder="Enter the Employee's phone number"
             value={phoneNumber}
             onChange={(e) => setText6(e.target.value)}
           ></input>
@@ -177,15 +177,15 @@ export default function AddCustomer({ setBlur }) {
             onClick={createContact}
             style={{ width: "35%", margin: 10, left: "32%", top: "85%" }}
           >
-            <p>Create Customer Contact</p>
+            <p>Update Employee Contact</p>
           </button>
-
+  
           <GrClose
           onClick={() => setBlur(false)}
           style={{ position: "absolute", left: "95%", top: "2.5%" }}
           cursor="pointer"
           />  
-
+  
           <Header text={""} top_a={"100%"} />
         </div>
       </div>

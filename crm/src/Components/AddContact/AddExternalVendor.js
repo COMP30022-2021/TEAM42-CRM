@@ -1,8 +1,10 @@
 import React from "react";
 import Header from "../SignIns/SignInHeader";
 import { useState } from "react";
+import { GrClose } from "react-icons/gr";
 
-export default function AddExternalVendor() {
+
+export default function AddExternalVendor({ setBlur }) {
     const [vendorName, setText1] = useState("");
     const [Email, setText2] = useState("");
     const [adress, setText3] = useState("");
@@ -15,6 +17,7 @@ export default function AddExternalVendor() {
       alert(vendorName + Email + price + tags +adress);
     }
   
+    
     return (
       <div style={{ background: "#265573", width: "100%", height: "100%" }}>
         <div
@@ -177,7 +180,11 @@ export default function AddExternalVendor() {
             <p>Create Vendor Contact</p>
           </button>
   
-         
+          <GrClose
+          onClick={() => setBlur(false)}
+          style={{ position: "absolute", left: "95%", top: "2.5%" }}
+          cursor="pointer"
+          />  
   
           <Header text={""} top_a={"100%"} />
         </div>

@@ -4,7 +4,7 @@ import { useState } from "react";
 import { GrClose } from "react-icons/gr";
 
 
-export default function AddCustomer({ setBlur }) {
+export default function UpdateCustomer({ setBlur }) {
     const [customerName, setText1] = useState("");
     const [Email, setText2] = useState("");
     const [adress, setText3] = useState("");
@@ -31,7 +31,7 @@ export default function AddCustomer({ setBlur }) {
             transform: "translate(-50%, -50%)",
           }}
         >
-          <Header text={"Create Customer Contact"} top_a={"0%"} width_a={916} />
+          <Header text={"Update Customer Contact"} top_a={"0%"} width_a={916} />
           <p1 style={{ top: "16%", left: "8%" }}>Customer Name:</p1>
   
           <input
@@ -177,7 +177,7 @@ export default function AddCustomer({ setBlur }) {
             onClick={createContact}
             style={{ width: "35%", margin: 10, left: "32%", top: "85%" }}
           >
-            <p>Create Customer Contact</p>
+            <p>Update Customer Contact</p>
           </button>
 
           <GrClose

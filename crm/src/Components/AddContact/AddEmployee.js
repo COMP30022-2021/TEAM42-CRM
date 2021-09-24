@@ -1,8 +1,10 @@
 import React from "react";
 import Header from "../SignIns/SignInHeader";
 import { useState } from "react";
+import { GrClose } from "react-icons/gr";
 
-export default function AddEmployee() {
+
+export default function AddEmployee({ setBlur }) {
     const [employeeName, setText1] = useState("");
     const [Email, setText2] = useState("");
     const [adress, setText3] = useState("");
@@ -11,6 +13,7 @@ export default function AddEmployee() {
     const [phoneNumber,setText6] = useState("");
     const [gender, setGender] = useState(false);
   
+    
     function createContact() {
       alert(employeeName + Email + dateBrthday + dateJoined +adress);
     }
@@ -46,7 +49,7 @@ export default function AddEmployee() {
             onChange={(e) => setText1(e.target.value)}
           ></input>
   
-  
+
           <p1 style={{ top: "36%", left: "8%" }}>Employee Email adress:</p1>
   
           <input
@@ -177,7 +180,11 @@ export default function AddEmployee() {
             <p>Create Employee Contact</p>
           </button>
   
-         
+          <GrClose
+          onClick={() => setBlur(false)}
+          style={{ position: "absolute", left: "95%", top: "2.5%" }}
+          cursor="pointer"
+          />  
   
           <Header text={""} top_a={"100%"} />
         </div>

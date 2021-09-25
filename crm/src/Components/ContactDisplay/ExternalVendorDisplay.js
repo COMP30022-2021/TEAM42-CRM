@@ -8,8 +8,9 @@ import { MdEmail } from "react-icons/md";
 import { TiLocation } from "react-icons/ti";
 import { BiDollar } from "react-icons/bi";
 import { ImPriceTags } from "react-icons/im";
+import { EditContact } from "./EditContact";
 
-export default function ExternalVendorDisplay({ contact }) {
+export default function ExternalVendorDisplay({ contact, setEditMode }) {
   const [blur, setBlur] = React.useState(false);
 
   const nextContact = () => {
@@ -121,6 +122,8 @@ export default function ExternalVendorDisplay({ contact }) {
         >
           View Complete History
         </p>
+
+        <EditContact setEditMode={setEditMode} />
       </div>
       {blur && <AddEngagement setBlur={setBlur} />}
     </div>

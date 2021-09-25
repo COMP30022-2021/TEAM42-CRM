@@ -15,6 +15,7 @@ import EmployeeDisplay from "../Components/ContactDisplay/EmployeeDisplay";
 export default function ContactDisplay({ contacts }) {
   const [sbc, setSBC] = React.useState(true);
   const [blur, setBlur] = React.useState(false);
+  const [editMode, setEditMode] = React.useState(false);
 
   const location = useLocation();
   const id = parseInt(useRouteMatch().params.id);
@@ -34,11 +35,11 @@ export default function ContactDisplay({ contacts }) {
 
         <SearchBar width={1240} onClick={setBlur} />
         {contact.Role === "Employee" ? (
-          <EmployeeDisplay contact={contact} />
+          <EmployeeDisplay contact={contact} setEditMode={setEditMode} />
         ) : contact.Role === "Customer" ? (
-          <CustomerDisplay contact={contact} />
+          <CustomerDisplay contact={contact} setEditMode={setEditMode} />
         ) : (
-          <ExternalVendorDisplay contact={contact} />
+          <ExternalVendorDisplay contact={contact} setEditMode={setEditMode} />
         )}
 
         <ContactList contacts={contacts} />
@@ -47,6 +48,13 @@ export default function ContactDisplay({ contacts }) {
         <SideBarCollapsed setSBC={setSBC} path={location.pathname} />
       ) : (
         <SideBar setSBC={setSBC} path={location.pathname} />
+      )}
+      {editMode && (
+        <AddPopUp
+          setBlur={setEditMode}
+          contact={contact}
+          initialMode={contact.Role}
+        />
       )}
       {blur && <AddPopUp setBlur={setBlur} />}
     </div>

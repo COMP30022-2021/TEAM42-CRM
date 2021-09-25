@@ -6,8 +6,9 @@ import { MdEmail } from "react-icons/md";
 import { TiLocation } from "react-icons/ti";
 import { FaBirthdayCake } from "react-icons/fa";
 import { ImCalendar } from "react-icons/im";
+import { EditContact } from "./EditContact";
 
-export default function EmployeeDisplay({ contact }) {
+export default function EmployeeDisplay({ contact, setEditMode }) {
   const nextContact = () => {
     alert("next contact please");
   };
@@ -80,6 +81,8 @@ export default function EmployeeDisplay({ contact }) {
         >
           <p style={{ color: "#109CF1" }}>Previous</p>
         </button>
+
+        <EditContact setEditMode={setEditMode} />
       </div>
     </div>
   );

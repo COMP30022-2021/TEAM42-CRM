@@ -3,18 +3,14 @@ import Header from "../SignIns/SignInHeader";
 import { useState } from "react";
 import { GrClose } from "react-icons/gr";
 
-export default function AddEmployee({ setBlur }) {
-  const [employeeName, setText1] = useState("");
-  const [Email, setText2] = useState("");
-  const [adress, setText3] = useState("");
-  const [dateBrthday, setText4] = useState("");
-  const [dateJoined, setText5] = useState("");
-  const [phoneNumber, setText6] = useState("");
-  const [gender, setGender] = useState(false);
-
-  function createContact() {
-    alert(employeeName + Email + dateBrthday + dateJoined + adress);
-  }
+export default function AddEmployee({ setBlur, contact }) {
+  const [employeeName, setText1] = useState(contact.Name);
+  const [employeeEmail, setText2] = useState(contact.Email);
+  const [employeeAddress, setText3] = useState(contact.Address);
+  const [employeeDOB, setText4] = useState(contact.DateOfBirth);
+  const [dateJoined, setText5] = useState(contact.DateJoined);
+  const [employeeNumber, setText6] = useState(contact.Phone);
+  const [employeeGender, setGender] = useState(contact.Gender);
 
   return (
     <div style={{ background: "#265573", width: "100%", height: "100%" }}>
@@ -29,7 +25,13 @@ export default function AddEmployee({ setBlur }) {
           transform: "translate(-50%, -50%)",
         }}
       >
-        <Header text={"Create Employee Contact"} top_a={"0%"} width_a={916} />
+        <Header
+          text={
+            (contact == undefined ? "Create" : "Update") + " Employee Contact"
+          }
+          top_a={"0%"}
+          width_a={916}
+        />
         <p1 style={{ top: "16%", left: "8%" }}>Name</p1>
 
         <input
@@ -60,7 +62,7 @@ export default function AddEmployee({ setBlur }) {
           }}
           type="text"
           placeholder="Enter Employee's Email Address"
-          value={Email}
+          value={employeeEmail}
           onChange={(e) => setText2(e.target.value)}
         ></input>
 
@@ -95,7 +97,7 @@ export default function AddEmployee({ setBlur }) {
           }}
           type="text"
           placeholder="Enter Employee's Address"
-          value={adress}
+          value={employeeAddress}
           onChange={(e) => setText3(e.target.value)}
         ></input>
 
@@ -113,7 +115,7 @@ export default function AddEmployee({ setBlur }) {
           }}
           type="date"
           placeholder="Enter Employee's birthday"
-          value={dateBrthday}
+          value={employeeDOB}
           onChange={(e) => setText4(e.target.value)}
         ></input>
 
@@ -129,8 +131,8 @@ export default function AddEmployee({ setBlur }) {
             top: "76%",
           }}
           type="checkbox"
-          checked={gender}
-          value={gender}
+          checked={employeeGender}
+          value={employeeGender}
           onChange={(e) => setGender(e.currentTarget.checked)}
         />
 
@@ -143,8 +145,8 @@ export default function AddEmployee({ setBlur }) {
             top: "76%",
           }}
           type="checkbox"
-          checked={gender}
-          value={gender}
+          checked={employeeGender}
+          value={employeeGender}
           onChange={(e) => setGender(e.currentTarget.checked)}
         />
 
@@ -162,7 +164,7 @@ export default function AddEmployee({ setBlur }) {
           }}
           type="text"
           placeholder="Enter Employee's Phone Number"
-          value={phoneNumber}
+          value={employeeNumber}
           onChange={(e) => setText6(e.target.value)}
         ></input>
 
@@ -171,7 +173,7 @@ export default function AddEmployee({ setBlur }) {
           onClick={() => setBlur(false)}
           style={{ width: "35%", margin: 10, left: "32%", top: "85%" }}
         >
-          <p>Create Employee Contact</p>
+          <p>{(contact == undefined ? "Create" : "Update") + " Contact"}</p>{" "}
         </button>
 
         <GrClose
@@ -185,3 +187,15 @@ export default function AddEmployee({ setBlur }) {
     </div>
   );
 }
+
+AddEmployee.defaultProps = {
+  contact: {
+    Name: "",
+    Gender: "",
+    Email: "",
+    Phone: "",
+    Address: "",
+    DateOfBirth: "",
+    DateJoined: "",
+  },
+};

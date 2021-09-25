@@ -9,8 +9,9 @@ export default function SelectBox() {
         position: "absolute",
         width: 16,
         height: 16,
-        left: 15,
-        top: 13,
+        left: "2%",
+        top: "50%",
+        transform: "translate(-50%, -50%)",
       }}
       type="checkbox"
       checked={select}

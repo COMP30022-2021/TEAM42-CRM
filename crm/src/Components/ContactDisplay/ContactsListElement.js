@@ -13,24 +13,18 @@ export default function ContactsListElement({ contact, index }) {
         contact.id
       }
     >
-      <div
-        className="block"
-        style={{
-          width: "14%",
-          left: "5.6%",
-          top: "" + (10 + index * 7.7) + "%",
-        }}
-      >
+      <div className="block">
         <img
           src={contact.image}
           style={{
             position: "absolute",
-            top: 10,
-            left: "4%",
+            top: "50%",
+            left: "12%",
             borderRadius: "50%",
             width: 27,
             height: 27,
             display: "block",
+            transform: "translate(-50%, -50%)",
           }}
           alt="User"
         />

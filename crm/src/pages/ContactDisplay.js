@@ -23,6 +23,7 @@ export default function ContactDisplay({ contacts }) {
   return (
     <div>
       <div
+        className="contactDisplayPage"
         style={{
           filter: blur ? "blur(2px)" : "",
         }}
@@ -31,7 +32,7 @@ export default function ContactDisplay({ contacts }) {
           <title>Lynk - {contact.Name}</title>
         </Helmet>
 
-        <SearchBar width={1232} onClick={setBlur} />
+        <SearchBar width={1240} onClick={setBlur} />
         {contact.Role === "Employee" ? (
           <EmployeeDisplay contact={contact} />
         ) : contact.Role === "Customer" ? (

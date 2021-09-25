@@ -131,6 +131,15 @@ p {
   color: #ffffff;
 }
 
+.pButton {
+  font-family: Poppins, sans-serif;
+  font-style: normal;
+  /* white */
+  line-height: 0px;
+  font-size: 11px;
+  color: #109CF1;
+}
+
 .signUpInput {
   text-indent: 10px;
 }
@@ -290,6 +299,10 @@ p2 {
   background: #ffffff;
 }
 
+.numInput{
+  position: absolute;
+}
+
 .button1 {
   position: absolute;
 
@@ -320,6 +333,20 @@ p2 {
   margin: 10;
   top: 88%;
   line-height: 13px;
+}
+
+.buttonFilter {
+  position: absolute;
+  background: #ffffff;
+  height: 10%;
+  margin: 10;
+}
+
+.buttonAdd {
+  position: absolute;
+  background: #ffffff;
+  height: 3.5%;
+  margin: 10;
 }
 
 .block {
@@ -364,6 +391,17 @@ p2 {
   height: 86%;
   position: absolute;
   left: 20%;
+  top: 10%;
+  right: 10%;
+  filter: drop-shadow(6px 6px 8px rgba(0, 0, 0, 0.25));
+}
+
+.filterBar {
+  background: #fffcfc;
+  width: 20%;
+  height: 86%;
+  position: absolute;
+  left: 77.5%;
   top: 10%;
   right: 10%;
   filter: drop-shadow(6px 6px 8px rgba(0, 0, 0, 0.25));

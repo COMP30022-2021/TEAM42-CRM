@@ -1,19 +1,27 @@
 import React from "react";
+
 import Header from "../SignIns/SignInHeader";
 import { useState } from "react";
 import { GrClose } from "react-icons/gr";
 
-export default function AddCustomer({ setBlur }) {
-  const [customerName, setText1] = useState("");
-  const [Email, setText2] = useState("");
-  const [adress, setText3] = useState("");
-  const [dateBrthday, setText4] = useState("");
-  const [dateFirstVisit, setText5] = useState("");
-  const [phoneNumber, setText6] = useState("");
-  const [gender, setGender] = useState(false);
+export default function AddCustomer({ setBlur, contact }) {
+  const [customerName, setText1] = useState(contact.Name);
+  const [customer_email, setText2] = useState(contact.Email);
+  const [customer_address, setText3] = useState(contact.Address);
+  const [customer_dob, setText4] = useState(contact.DateOfBirth);
+  const [dateFirstVisit, setText5] = useState(contact.FirstVisit);
+  const [customerNumber, setText6] = useState(contact.Phone);
+  const [customerGender, setGender] = useState(contact.Gender);
 
+  console.log(contact.name);
   function createContact() {
-    alert(customerName + Email + dateBrthday + dateFirstVisit + adress);
+    alert(
+      customerName +
+        customer_email +
+        customer_dob +
+        dateFirstVisit +
+        customer_address
+    );
   }
 
   return (
@@ -29,7 +37,13 @@ export default function AddCustomer({ setBlur }) {
           transform: "translate(-50%, -50%)",
         }}
       >
-        <Header text={"Create Customer Contact"} top_a={"0%"} width_a={916} />
+        <Header
+          text={
+            (contact == undefined ? "Create" : "Update") + " Customer Contact"
+          }
+          top_a={"0%"}
+          width_a={916}
+        />
         <p1 style={{ top: "16%", left: "8%" }}>Name</p1>
 
         <input
@@ -60,7 +74,7 @@ export default function AddCustomer({ setBlur }) {
           }}
           type="text"
           placeholder="Enter Customer's Email address"
-          value={Email}
+          value={customer_email}
           onChange={(e) => setText2(e.target.value)}
         ></input>
 
@@ -95,7 +109,7 @@ export default function AddCustomer({ setBlur }) {
           }}
           type="text"
           placeholder="Enter Customer's Address"
-          value={adress}
+          value={customer_address}
           onChange={(e) => setText3(e.target.value)}
         ></input>
 
@@ -113,7 +127,7 @@ export default function AddCustomer({ setBlur }) {
           }}
           type="date"
           placeholder=""
-          value={dateBrthday}
+          value={customer_dob}
           onChange={(e) => setText4(e.target.value)}
         ></input>
 
@@ -128,8 +142,8 @@ export default function AddCustomer({ setBlur }) {
             top: "76%",
           }}
           type="checkbox"
-          checked={gender}
-          value={gender}
+          checked={customerGender}
+          value={customerGender}
           onChange={(e) => setGender(e.currentTarget.checked)}
         />
 
@@ -142,8 +156,8 @@ export default function AddCustomer({ setBlur }) {
             top: "76%",
           }}
           type="checkbox"
-          checked={gender}
-          value={gender}
+          checked={customerGender}
+          value={customerGender}
           onChange={(e) => setGender(e.currentTarget.checked)}
         />
 
@@ -161,7 +175,7 @@ export default function AddCustomer({ setBlur }) {
           }}
           type="text"
           placeholder="Enter Customer's Phone Number"
-          value={phoneNumber}
+          value={customerNumber}
           onChange={(e) => setText6(e.target.value)}
         ></input>
 
@@ -170,7 +184,7 @@ export default function AddCustomer({ setBlur }) {
           onClick={() => setBlur(false)}
           style={{ width: "35%", margin: 10, left: "32%", top: "85%" }}
         >
-          <p>Create Customer Contact</p>
+          <p>{(contact == undefined ? "Create" : "Update") + " Contact"}</p>
         </button>
 
         <GrClose
@@ -184,3 +198,15 @@ export default function AddCustomer({ setBlur }) {
     </div>
   );
 }
+
+AddCustomer.defaultProps = {
+  contact: {
+    name: "",
+    email: "",
+    address: "",
+    dob: "",
+    first_visit: "",
+    phoneNumber: "",
+    gender: "",
+  },
+};

@@ -3,18 +3,14 @@ import Header from "../SignIns/SignInHeader";
 import { useState } from "react";
 import { GrClose } from "react-icons/gr";
 
-export default function AddExternalVendor({ setBlur }) {
-  const [vendorName, setText1] = useState("");
-  const [Email, setText2] = useState("");
-  const [adress, setText3] = useState("");
-  const [tags, setText4] = useState("");
-  const [price, setText5] = useState("");
-  const [phoneNumber, setText6] = useState("");
-  const [gender, setGender] = useState(false);
-
-  function createContact() {
-    alert(vendorName + Email + price + tags + adress);
-  }
+export default function AddExternalVendor({ setBlur, contact }) {
+  const [vendorName, setText1] = useState(contact.Name);
+  const [vendorEmail, setText2] = useState(contact.Email);
+  const [vendorAddress, setText3] = useState(contact.Address);
+  const [vendorTags, setText4] = useState(contact.tags);
+  const [vendorCost, setText5] = useState(contact.cost);
+  const [vendorNumber, setText6] = useState(contact.Phone);
+  const [vendorGender, setGender] = useState(contact.Gender);
 
   return (
     <div style={{ background: "#265573", width: "100%", height: "100%" }}>
@@ -29,7 +25,13 @@ export default function AddExternalVendor({ setBlur }) {
           transform: "translate(-50%, -50%)",
         }}
       >
-        <Header text={"Create Vendor Contact"} top_a={"0%"} width_a={916} />
+        <Header
+          text={
+            (contact == undefined ? "Create" : "Update") + " Vendor Contact"
+          }
+          top_a={"0%"}
+          width_a={916}
+        />
         <p1 style={{ top: "16%", left: "8%" }}>Name</p1>
 
         <input
@@ -60,7 +62,7 @@ export default function AddExternalVendor({ setBlur }) {
           }}
           type="text"
           placeholder="Enter Vendor's Email Address"
-          value={Email}
+          value={vendorEmail}
           onChange={(e) => setText2(e.target.value)}
         ></input>
 
@@ -77,7 +79,7 @@ export default function AddExternalVendor({ setBlur }) {
           }}
           type="text"
           placeholder="Enter Vendor's Rate"
-          value={price}
+          value={vendorCost}
           onChange={(e) => setText5(e.target.value)}
         ></input>
 
@@ -95,7 +97,7 @@ export default function AddExternalVendor({ setBlur }) {
           }}
           type="text"
           placeholder="Enter Vendor's Address"
-          value={adress}
+          value={vendorAddress}
           onChange={(e) => setText3(e.target.value)}
         ></input>
 
@@ -113,7 +115,7 @@ export default function AddExternalVendor({ setBlur }) {
           }}
           type="text"
           placeholder="Enter Vendor's Tags"
-          value={tags}
+          value={vendorTags}
           onChange={(e) => setText4(e.target.value)}
         ></input>
 
@@ -128,8 +130,8 @@ export default function AddExternalVendor({ setBlur }) {
             top: "76%",
           }}
           type="checkbox"
-          checked={gender}
-          value={gender}
+          checked={vendorGender}
+          value={vendorGender}
           onChange={(e) => setGender(e.currentTarget.checked)}
         />
 
@@ -142,8 +144,8 @@ export default function AddExternalVendor({ setBlur }) {
             top: "76%",
           }}
           type="checkbox"
-          checked={gender}
-          value={gender}
+          checked={vendorGender}
+          value={vendorGender}
           onChange={(e) => setGender(e.currentTarget.checked)}
         />
 
@@ -161,7 +163,7 @@ export default function AddExternalVendor({ setBlur }) {
           }}
           type="text"
           placeholder="Enter Vendor's Phone Number"
-          value={phoneNumber}
+          value={vendorNumber}
           onChange={(e) => setText6(e.target.value)}
         ></input>
 
@@ -170,7 +172,7 @@ export default function AddExternalVendor({ setBlur }) {
           onClick={() => setBlur(false)}
           style={{ width: "35%", margin: 10, left: "32%", top: "85%" }}
         >
-          <p>Create Vendor Contact</p>
+          <p>{(contact == undefined ? "Create" : "Update") + " Contact"}</p>
         </button>
 
         <GrClose
@@ -184,3 +186,15 @@ export default function AddExternalVendor({ setBlur }) {
     </div>
   );
 }
+
+AddExternalVendor.defaultProps = {
+  contact: {
+    Name: "",
+    Gender: "",
+    Email: "",
+    Phone: "",
+    Address: "",
+    tags: "",
+    cost: "",
+  },
+};

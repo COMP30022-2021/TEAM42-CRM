@@ -46,7 +46,7 @@ const contacts = [
     Phone: "+43 603 668 350",
     Address: "575 Lonsdale Street, Melbourne",
     tags: "#plummer #tradie",
-    cost: "61$ per hour",
+    cost: "$61 per hour",
   },
 ];
 

@@ -8,8 +8,9 @@ import { MdEmail } from "react-icons/md";
 import { TiLocation } from "react-icons/ti";
 import { FaBirthdayCake } from "react-icons/fa";
 import { ImCalendar } from "react-icons/im";
+import { EditContact } from "./EditContact";
 
-export default function CustomerDisplay({ contact }) {
+export default function CustomerDisplay({ contact, setEditMode }) {
   const [blur, setBlur] = React.useState(false);
   const nextContact = () => {
     alert("next contact please");
@@ -124,6 +125,8 @@ export default function CustomerDisplay({ contact }) {
         <p className="p8" style={{ left: "78.75%", top: "81.25%" }}>
           View Complete History
         </p>
+
+        <EditContact setEditMode={setEditMode} />
       </div>
       {blur && <AddVisit setBlur={setBlur} />}
     </div>

@@ -19,7 +19,7 @@ export default function EmployeeDisplay({ contact }) {
   return (
     <div>
       <div className="contactDisplay">
-        <img src={contact.image} className="contactImage" />
+        <img src={contact.image} className="contactImage" alt="user" />
 
         <p1 className="contactTitle">{contact.Name}</p1>
 

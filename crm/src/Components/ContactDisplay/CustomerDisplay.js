@@ -33,7 +33,7 @@ export default function CustomerDisplay({ contact }) {
             (blur ? "blur(2px)" : ""),
         }}
       >
-        <img src={contact.image} className="contactImage" />
+        <img src={contact.image} className="contactImage" alt="user" />
 
         <p1 className="contactTitle">{contact.Name}</p1>
 

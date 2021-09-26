@@ -306,7 +306,7 @@ p2 {
 }
 
 .button1 {
-  position: absolute;
+  position: fixed;
 
   width: 12%;
   height: 7%;

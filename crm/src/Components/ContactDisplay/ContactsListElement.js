@@ -13,7 +13,7 @@ export default function ContactsListElement({ contact, index }) {
         contact.id
       }
     >
-      <div className="block">
+      <div className="block" style={{ width: "100%" }}>
         <img
           src={contact.image}
           style={{
@@ -28,7 +28,7 @@ export default function ContactsListElement({ contact, index }) {
           }}
           alt="User"
         />
-        <h4 style={{ left: "25%", top: 0 }}>{contact.Name}</h4>
+        <h4 style={{ left: "48%", top: "12%" }}>{contact.Name}</h4>
       </div>
     </Link>
   );

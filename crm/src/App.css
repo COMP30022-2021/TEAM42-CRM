@@ -384,6 +384,7 @@ p2 {
   width: 18%;
   background: #265573;
   box-shadow: 6px 1px 18px rgba(0, 0, 0, 0.06);
+  z-index: 10;
 }
 
 .logInBox {

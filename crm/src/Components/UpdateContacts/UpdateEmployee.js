@@ -180,6 +180,7 @@ export default function UpdateEmployee({ setBlur }) {
             <p>Update Employee Contact</p>
           </button>
 
+
           <button
             className="button2"
             onClick={createContact}

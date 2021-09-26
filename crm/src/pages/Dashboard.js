@@ -20,7 +20,7 @@ export default function Dashboard({ contacts }) {
         <Helmet>
           <title>Lynk - Dashboard</title>
         </Helmet>
-        <SearchBar onClick={setBlur} />
+        <SearchBar onClick={setBlur} width="95%" />
         <RecentContacts contacts={contacts} />
       </div>
       {sbc ? <SideBarCollapsed setSBC={setSBC} /> : <SideBar setSBC={setSBC} />}

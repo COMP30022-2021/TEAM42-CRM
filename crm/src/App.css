@@ -327,7 +327,7 @@ p2 {
   justify-content: "center";
 
   text-align: center;
-  line-height: 42px;
+  line-height: 100%;
 
   box-shadow: 0px 4px 10px rgba(16, 156, 241, 0.24);
   border-radius: 4px;
@@ -356,8 +356,8 @@ p2 {
 .button4 {
   position: absolute;
 
-  width: 20%;
-  height: 8%;
+  width: 22%;
+  height: 9%;
   background: #265573;
   justify-content: "center";
 

@@ -35,13 +35,13 @@ export default function RecentContacts({ contacts }) {
         </Link>
 
         <Link to="/contacts">
-          <div className="button1" style={{ left: "30%", bottom: 10 }}>
+          <div className="button4" style={{ left: "39%", bottom: 10 }}>
             <p>Employees</p>
           </div>
         </Link>
 
         <Link to="/contacts">
-          <div className="button1" style={{ left: "55%", bottom: 10 }}>
+          <div className="button4" style={{ left: "78%", bottom: 10 }}>
             <p>External Vendors</p>
           </div>
         </Link>

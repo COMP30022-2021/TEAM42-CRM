@@ -66,8 +66,21 @@ h1 {
 
 h2 {
   color: white;
+  top: -25%;
+  left: 0%;
+  width: 100%;
+  position: absolute;
+}
+
+.header {
   background: rgba(159, 191, 142, 1);
   border-radius: 6px;
+  position: absolute;
+  left: 50%;
+
+  height: 55px;
+  transform: translate(-50%, -25%);
+  text-align: center;
 }
 
 h3 {

@@ -33,7 +33,7 @@ export default function UpdateExternalVendor({ setEditMode, contact }) {
 
         <GrClose
           onClick={() => setEditMode(false)}
-          style={{ position: "absolute", left: "95%", top: "2.5%" }}
+          style={{ position: "absolute", left: "95%", top: "1%" }}
           cursor="pointer"
         />
 

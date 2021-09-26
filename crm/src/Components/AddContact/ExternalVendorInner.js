@@ -114,7 +114,7 @@ export default function ExternalVendorInner({ contact }) {
 ExternalVendorInner.defaultProps = {
   contact: {
     Name: "",
-    Gender: "",
+    Gender: false,
     Email: "",
     Phone: "",
     Address: "",

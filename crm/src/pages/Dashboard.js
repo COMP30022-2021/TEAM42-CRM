@@ -14,6 +14,7 @@ export default function Dashboard({ contacts }) {
   return (
     <div>
       <div
+        className="Page"
         style={{
           filter: blur ? "blur(2px)" : "",
         }}

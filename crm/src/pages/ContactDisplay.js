@@ -25,7 +25,7 @@ export default function ContactDisplay({ contacts }) {
   return (
     <div>
       <div
-        className="contactDisplayPage"
+        className="Page"
         style={{
           filter: editMode || blur ? "blur(2px)" : "",
         }}

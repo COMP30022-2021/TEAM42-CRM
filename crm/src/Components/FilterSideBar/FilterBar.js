@@ -79,4 +79,5 @@ export default function FilterBar() {
       </button>
     </div>
   );
+
 }

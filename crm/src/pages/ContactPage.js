@@ -24,10 +24,10 @@ export default function ContactPage({ contacts }) {
         <Helmet>
           <title>Lynk - Contacts</title>
         </Helmet>
+        <Contacts contacts={contacts} />
 
         <SearchBar onClick={setBlur} width="66%" />
         <Filters />
-        <Contacts contacts={contacts} />
       </div>
       {sbc ? (
         <SideBarCollapsed setSBC={setSBC} path={location.pathname} />

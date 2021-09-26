@@ -14,8 +14,23 @@ export default function ContactList({ contacts }) {
       <div className="block">
         <h4 style={{ left: "20%", top: "12%" }}>Name</h4>
       </div>
-      {contacts.map((contact, index) => (
-        <ContactsListElement contact={contact} index={index + 1} />
+      {contacts.map((contact) => (
+        <ContactsListElement contact={contact} />
+      ))}
+      {contacts.map((contact) => (
+        <ContactsListElement contact={contact} />
+      ))}
+      {contacts.map((contact) => (
+        <ContactsListElement contact={contact} />
+      ))}
+      {contacts.map((contact) => (
+        <ContactsListElement contact={contact} />
+      ))}{" "}
+      {contacts.map((contact) => (
+        <ContactsListElement contact={contact} />
+      ))}
+      {contacts.map((contact) => (
+        <ContactsListElement contact={contact} />
       ))}
     </div>
   );

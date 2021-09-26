@@ -35,7 +35,7 @@ export default function ContactDisplay({ contacts }) {
         </Helmet>
         <ContactList contacts={contacts} />
 
-        <SearchBar width={1240} onClick={setBlur} />
+        <SearchBar width="95%" onClick={setBlur} />
         {contact.Role === "Employee" ? (
           <EmployeeDisplay contact={contact} setEditMode={setEditMode} />
         ) : contact.Role === "Customer" ? (

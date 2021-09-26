@@ -386,10 +386,8 @@ p2 {
 }
 
 .block {
-  /* position: absolute; */
   height: 48px;
   width: 100%;
-  /* white */
 
   background: #ffffff;
   border-radius: 4px;

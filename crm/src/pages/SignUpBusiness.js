@@ -49,7 +49,7 @@ function SignUpBusiness() {
           placeholder="Enter the name of your business"
           value={businessName}
           onChange={(e) => setText1(e.target.value)}
-        ></input>
+        />
 
         <p1 style={{ top: "36%", left: "8%" }}>Email Address</p1>
 
@@ -66,7 +66,7 @@ function SignUpBusiness() {
           placeholder="Enter the Email adress of the admin"
           value={Email}
           onChange={(e) => setText2(e.target.value)}
-        ></input>
+        />
 
         <p1 style={{ top: "16%", left: "56.5%" }}>Admin Password</p1>
 
@@ -84,7 +84,7 @@ function SignUpBusiness() {
           placeholder="Enter the admin password"
           value={password1}
           onChange={(e) => setText3(e.target.value)}
-        ></input>
+        />
 
         <p1 style={{ top: "36%", left: "56.5%" }}>Repeat Admin Password</p1>
 
@@ -102,7 +102,7 @@ function SignUpBusiness() {
           placeholder="Repeat the admin password"
           value={password2}
           onChange={(e) => setText4(e.target.value)}
-        ></input>
+        />
 
         <Link to="/">
           <button

@@ -28,7 +28,11 @@ export default function ContactsListElement({ contact }) {
           }}
           alt="User"
         />
-        <h4 style={{ left: "48%", top: "12%" }}>{contact.Name}</h4>
+        <h4
+          style={{ left: "25%", top: "0%", transform: "translate(-0%, -0%)" }}
+        >
+          {contact.Name}
+        </h4>
       </div>
     </Link>
   );

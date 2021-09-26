@@ -17,6 +17,10 @@ export default function UpdateCustomer({ setBlur }) {
     function createContact() {
       alert(customerName + Email + dateBrthday + dateFirstVisit +adress);
     }
+
+    function deleteContact() {
+      alert("Deleted");
+    }
   
     return (
       <div style={{ background: "#265573", width: "100%", height: "100%" }}>
@@ -175,9 +179,17 @@ export default function UpdateCustomer({ setBlur }) {
           <button
             className="button2"
             onClick={createContact}
-            style={{ width: "35%", margin: 10, left: "32%", top: "85%" }}
+            style={{ width: "25%", margin: 10, left: "20%", top: "83.5%" }}
           >
             <p>Update Customer Contact</p>
+          </button>
+
+          <button
+            className="button2"
+            onClick={deleteContact}
+            style={{ width: "25%", margin: 10, left: "50%", top: "83.5%" ,background: "red"}}
+          >
+            <p>Delete Customer Contact</p>
           </button>
 
           <GrClose
@@ -185,8 +197,7 @@ export default function UpdateCustomer({ setBlur }) {
           style={{ position: "absolute", left: "95%", top: "2.5%" }}
           cursor="pointer"
           />  
-
-          <Header text={""} top_a={"100%"} />
+          <Header text={""} top_a={"100%"} width_a={916} />   
         </div>
       </div>
     );

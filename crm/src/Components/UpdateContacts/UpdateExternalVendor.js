@@ -175,11 +175,18 @@ export default function UpdateExternalVendor({ setBlur }) {
           <button
             className="button2"
             onClick={createContact}
-            style={{ width: "35%", margin: 10, left: "32%", top: "85%" }}
+            style={{ width: "25%", margin: 10, left: "20%", top: "83.5%" }}
           >
             <p>Update Vendor Contact</p>
           </button>
-  
+
+          <button
+            className="button2"
+            onClick={createContact}
+            style={{ width: "25%", margin: 10, left: "50%", top: "83.5%" ,background: "red"}}
+          >
+            <p>Delete Vendor Contact</p>
+          </button>
             
           <GrClose
           onClick={() => setBlur(false)}
@@ -187,7 +194,7 @@ export default function UpdateExternalVendor({ setBlur }) {
           cursor="pointer"
           />  
   
-          <Header text={""} top_a={"100%"} />
+          <Header text={""} top_a={"100%"} width_a={916} />  
         </div>
       </div>
     );

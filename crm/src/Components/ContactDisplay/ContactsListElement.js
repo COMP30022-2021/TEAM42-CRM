@@ -13,7 +13,7 @@ export default function ContactsListElement({ contact }) {
         contact.id
       }
     >
-      <div className="block" style={{ width: "100%" }}>
+      <div className="block">
         <img
           src={contact.image}
           style={{

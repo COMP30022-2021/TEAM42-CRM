@@ -32,6 +32,7 @@ export default function CustomerDisplay({ contact, setEditMode }) {
           filter:
             "drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.25))" +
             (blur ? "blur(2px)" : ""),
+          position: "fixed",
         }}
       >
         <img src={contact.image} className="contactImage" alt="user" />

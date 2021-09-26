@@ -32,6 +32,7 @@ export default function ContactDisplay({ contacts }) {
         <Helmet>
           <title>Lynk - {contact.Name}</title>
         </Helmet>
+        <ContactList contacts={contacts} />
 
         <SearchBar width={1240} onClick={setBlur} />
         {contact.Role === "Employee" ? (
@@ -41,8 +42,6 @@ export default function ContactDisplay({ contacts }) {
         ) : (
           <ExternalVendorDisplay contact={contact} setEditMode={setEditMode} />
         )}
-
-        <ContactList contacts={contacts} />
       </div>
       {sbc ? (
         <SideBarCollapsed setSBC={setSBC} path={location.pathname} />

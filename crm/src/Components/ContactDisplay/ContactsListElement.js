@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default function ContactsListElement({ contact, index }) {
+export default function ContactsListElement({ contact }) {
   return (
     <Link
       to={

@@ -3,39 +3,20 @@ import Header from "../SignIns/SignInHeader";
 import { GrClose } from "react-icons/gr";
 import CustomerInner from "./CustomerInner";
 
-export default function AddCustomer({ setBlur, contact }) {
-
-  console.log(contact.name);
-
+export default function AddCustomer({ setBlur }) {
   return (
     <div style={{ background: "#265573", width: "100%", height: "100%" }}>
-      <div
-        style={{
-          background: "#FFFCFC",
-          width: 916,
-          height: 524,
-          position: "absolute",
-          left: "50%",
-          top: "52.5%",
-          transform: "translate(-50%, -50%)",
-        }}
-      >
-        <Header
-          text={
-            (contact == undefined ? "Create" : "Add") + " Customer Contact"
-          }
-          top_a={"0%"}
-          width_a={916}
-        />
-       
-        <CustomerInner contact={contact}/>
+      <div className="addContact">
+        <Header text="Add Vendor Contact" top_a={"0%"} width_a={"100%"} />
+
+        <CustomerInner />
 
         <button
           className="button2"
           onClick={() => setBlur(false)}
-          style={{ width: "35%", margin: 10, left: "32%", top: "85%" }}
+          style={{ width: "35%", margin: 10, left: "32%", top: "81%" }}
         >
-          <p>{(contact == undefined ? "Create" : "Add") + " Contact"}</p>
+          <p>Add Contact</p>
         </button>
 
         <GrClose
@@ -44,20 +25,8 @@ export default function AddCustomer({ setBlur, contact }) {
           cursor="pointer"
         />
 
-        <Header text={""} top_a={"100%"} />
+        <Header text={""} top_a={"100%"} width_a={"100%"} />
       </div>
     </div>
   );
 }
-
-AddCustomer.defaultProps = {
-  contact: {
-    name: "",
-    email: "",
-    address: "",
-    dob: "",
-    first_visit: "",
-    phoneNumber: "",
-    gender: "",
-  },
-};

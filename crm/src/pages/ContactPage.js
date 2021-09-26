@@ -17,6 +17,7 @@ export default function ContactPage({ contacts }) {
   return (
     <div>
       <div
+        className="Page"
         style={{
           filter: blur ? "blur(2px)" : "",
         }}

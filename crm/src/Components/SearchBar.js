@@ -12,10 +12,9 @@ export default function SearchBar({ width, onClick }) {
       <input
         style={{
           border: 0,
-          height: 58,
-          width: width - 120,
+          height: "97%",
+          width: "85%",
           top: 0,
-          left: 500,
           outline: "none",
         }}
         type="text"
@@ -25,11 +24,21 @@ export default function SearchBar({ width, onClick }) {
       ></input>
       <BsSearch
         className="icon"
-        style={{ color: "#9FBF8E", top: 20, left: 30 }}
+        style={{
+          color: "#9FBF8E",
+          top: "50%",
+          left: "4%",
+          transform: "translate(-50%, -50%)",
+        }}
       />
       <AddButton
         onClick={onClick}
-        style={{ color: "#9FBF8E", left: width - 35, top: 20 }}
+        style={{
+          color: "#9FBF8E",
+          right: "3%",
+          top: "50%",
+          transform: "translate(-50%, -50%)",
+        }}
       />
     </div>
   );

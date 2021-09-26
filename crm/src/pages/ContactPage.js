@@ -25,7 +25,7 @@ export default function ContactPage({ contacts }) {
           <title>Lynk - Contacts</title>
         </Helmet>
 
-        <SearchBar onClick={setBlur} />
+        <SearchBar onClick={setBlur} width="66%" />
         <Filters />
         <Contacts contacts={contacts} />
       </div>

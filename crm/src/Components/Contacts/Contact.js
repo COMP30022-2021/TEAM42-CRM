@@ -21,7 +21,7 @@ export const Contact = ({ contact, index }) => {
           style={{
             position: "absolute",
             top: "50%",
-            left: "7%",
+            left: "6%",
             borderRadius: "50%",
             width: 27,
             height: 27,
@@ -30,10 +30,11 @@ export const Contact = ({ contact, index }) => {
           }}
           alt="User"
         />
-        <h4 style={{ left: "16%", top: "12%" }}>{contact.Name}</h4>
-        <h4 style={{ left: "36%", top: "12%" }}>{contact.Gender}</h4>
-        <h4 style={{ left: "57%", top: "12%" }}>{contact.Role}</h4>
-        <h4 style={{ left: "85%", top: "12%" }}>{contact.Email}</h4>
+        <h4 style={{ left: "12%", top: "12%" }}>{contact.Name}</h4>
+        <h4 style={{ left: "30%", top: "12%" }}>{contact.Gender}</h4>
+        <h4 style={{ left: "49%", top: "12%" }}>{contact.Role}</h4>
+        <h4 style={{ left: "70%", top: "12%" }}>{contact.Email}</h4>
+        <h4 style={{ left: "88%", top: "12%" }}>{contact.Phone}</h4>
       </div>
     </Link>
   );

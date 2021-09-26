@@ -14,12 +14,13 @@ export default function SBCElements({ path }) {
         src={user}
         style={{
           position: "absolute",
-          top: 55,
-          left: 181,
+          top: "12%",
+          left: "86%",
           borderRadius: "50%",
           width: 46,
           height: 46,
           display: "block",
+          transform: "translate(-50%, -50%)",
         }}
         alt="User"
       />
@@ -29,8 +30,8 @@ export default function SBCElements({ path }) {
           className="icon"
           style={{
             color: path === undefined ? "#9FBF8E" : "#cfd7e3",
-            top: 183,
-            left: 194,
+            top: "28%",
+            left: "83%",
           }}
         />
       </SideBarElement>
@@ -40,22 +41,22 @@ export default function SBCElements({ path }) {
           className="icon"
           style={{
             color: path === "/contacts" ? "#9FBF8E" : "#cfd7e3",
-            top: 223,
-            left: 194,
+            top: "34%",
+            left: "83%",
           }}
         />
       </SideBarElement>
 
       <SideBarElement>
-        <FcStatistics className="icon" style={{ top: 263, left: 194 }} />
+        <FcStatistics className="icon" style={{ top: "40%", left: "83%" }} />
       </SideBarElement>
 
       <SideBarElement>
-        <FiSettings className="icon" style={{ bottom: 62, left: 194 }} />
+        <FiSettings className="icon" style={{ bottom: "10%", left: "83%" }} />
       </SideBarElement>
 
       <SideBarElement>
-        <FiLogOut className="icon" style={{ bottom: 22, left: 194 }} />
+        <FiLogOut className="icon" style={{ bottom: "4%", left: "83%" }} />
       </SideBarElement>
     </div>
   );

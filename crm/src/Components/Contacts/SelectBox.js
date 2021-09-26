@@ -10,7 +10,7 @@ export default function SelectBox() {
         width: 16,
         height: 16,
         left: "2%",
-        top: "50%",
+        top: "40%",
         transform: "translate(-50%, -50%)",
       }}
       type="checkbox"

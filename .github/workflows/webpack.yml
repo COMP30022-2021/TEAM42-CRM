@@ -27,3 +27,4 @@ jobs:
         npm install
         # npx webpack
         npm test
+g

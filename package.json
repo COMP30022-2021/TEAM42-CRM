@@ -5,9 +5,11 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"no test specified\" && exit 0",
-    "crm": "npm start --prefix crm",
-    "start": "concurrently \"npm run crm\" \"npm run server\"",
-    "server": "nodemon server.js"
+    "start": "node server.js",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix crm && npm run build --prefix crm",
+    "dev": "concurrently \"npm run server\" \"npm run crm\"",
+    "server": "nodemon server.js",
+    "crm": "npm start --prefix crm"
   },
   "repository": {
     "type": "git",
@@ -21,8 +23,16 @@
   },
   "homepage": "https://github.com/COMP30022-2021/TEAM42-CRM#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "concurrently": "^6.2.1",
     "express": "^4.17.1",
-    "nodemon": "^2.0.12"
+    "mysql2": "^2.3.0",
+    "nodemon": "^2.0.12",
+    "react-icons": "^4.2.0",
+    "react-sizeme": "^3.0.2"
+  },
+  "devDependencies": {
+    "dotenv": "^10.0.0",
+    "react": "^17.0.2"
   }
 }

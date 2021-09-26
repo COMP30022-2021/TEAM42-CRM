@@ -43,7 +43,7 @@ exports.register = async function (req, res) {
         console.log(authentication)
         console.log(authentication.length)
         //If the email already exist, can not create an account
-        if (authentication.length != 0) {
+        if (authentication.length !== 0) {
             res.status(409).json({error: "Email already registered"});
         } else {
             const newEmployee = new Authentication(

@@ -17,6 +17,8 @@ app.use("/customer", require("./routes/customerRoutes"));
 
 app.use("/auth", require("./routes/authenticationRoutes"));
 
+app.use("/business", require("./routes/businessRoutes"));
+
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('crm/build'));
     app.get("*", (req, res) => {

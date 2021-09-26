@@ -35,6 +35,7 @@ exports.signupbusiness = async function (req, res) {
         });
       });
 
+
       //Encrypt the user's password
       bcrypt.genSalt(10, (err, salt) => {
         bcrypt.hash(newEmployee.password, salt, (err, hash) => {

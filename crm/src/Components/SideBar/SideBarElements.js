@@ -21,8 +21,8 @@ export default function SideBarElements({ path }) {
           <h3
             style={{
               color: path === undefined ? "#9FBF8E" : "#cfd7e3",
-              top: 171,
-              left: 58,
+              top: "26%",
+              left: "25%",
             }}
           >
             Dashboard
@@ -31,8 +31,8 @@ export default function SideBarElements({ path }) {
             className="icon"
             style={{
               color: path === undefined ? "#9FBF8E" : "#cfd7e3",
-              top: 183,
-              left: 24,
+              top: "28%",
+              left: "10.5%",
             }}
           />
         </div>
@@ -43,8 +43,8 @@ export default function SideBarElements({ path }) {
           <h3
             style={{
               color: path === "/contacts" ? "#9FBF8E" : "#cfd7e3",
-              top: 211,
-              left: 58,
+              top: "32%",
+              left: "25%",
             }}
           >
             Contacts
@@ -53,27 +53,27 @@ export default function SideBarElements({ path }) {
             className="icon"
             style={{
               color: path === "/contacts" ? "#9FBF8E" : "#cfd7e3",
-              top: 223,
-              left: 24,
+              top: "34%",
+              left: "10.5%",
             }}
           />
         </SideBarElement>
       </Link>
 
       <SideBarElement>
-        <h3 style={{ top: 251, left: 58 }}>Statistics</h3>
-        <FcStatistics className="icon" style={{ top: 263, left: 24 }} />
+        <h3 style={{ top: "38%", left: "25%" }}>Statistics</h3>
+        <FcStatistics className="icon" style={{ top: "40%", left: "10.5%" }} />
       </SideBarElement>
 
       <SideBarElement>
-        <h3 style={{ bottom: 50, left: 58 }}>Setting</h3>
-        <FiSettings className="icon" style={{ bottom: 62, left: 24 }} />
+        <h3 style={{ bottom: "8%", left: "25%" }}>Setting</h3>
+        <FiSettings className="icon" style={{ bottom: "10%", left: "10.5%" }} />
       </SideBarElement>
 
       <Link to="/login">
         <SideBarElement>
-          <h3 style={{ bottom: 10, left: 58 }}>Logout</h3>
-          <FiLogOut className="icon" style={{ bottom: 22, left: 24 }} />
+          <h3 style={{ bottom: "2%", left: "25%" }}>Logout</h3>
+          <FiLogOut className="icon" style={{ bottom: "4%", left: "10.5%" }} />
         </SideBarElement>
       </Link>
     </div>

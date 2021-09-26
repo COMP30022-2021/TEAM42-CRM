@@ -4,7 +4,7 @@ import { useState } from "react";
 import { GrClose } from "react-icons/gr";
 import EmployeeInner from "./EmployeeInner";
 
-export default function AddEmployee({ setBlur, contact }) {
+export default function AddEmployee({ setBlur }) {
   return (
     <div style={{ background: "#265573", width: "100%", height: "100%" }}>
       <div
@@ -18,22 +18,16 @@ export default function AddEmployee({ setBlur, contact }) {
           transform: "translate(-50%, -50%)",
         }}
       >
-        <Header
-          text={
-            (contact == undefined ? "Create" : "Add") + " Employee Contact"
-          }
-          top_a={"0%"}
-          width_a={916}
-        />
-        
-        <EmployeeInner contact = {contact}/>  
+        <Header text={"Add Employee Contact"} top_a={"0%"} width_a={916} />
+
+        <EmployeeInner />
 
         <button
           className="button2"
           onClick={() => setBlur(false)}
           style={{ width: "35%", margin: 10, left: "32%", top: "85%" }}
         >
-          <p>{(contact == undefined ? "Create" : "Add") + " Contact"}</p>{" "}
+          <p>Add Contact</p>
         </button>
 
         <GrClose
@@ -47,15 +41,3 @@ export default function AddEmployee({ setBlur, contact }) {
     </div>
   );
 }
-
-AddEmployee.defaultProps = {
-  contact: {
-    Name: "",
-    Gender: "",
-    Email: "",
-    Phone: "",
-    Address: "",
-    DateOfBirth: "",
-    DateJoined: "",
-  },
-};

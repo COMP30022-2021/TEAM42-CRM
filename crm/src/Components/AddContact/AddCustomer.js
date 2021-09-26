@@ -3,10 +3,7 @@ import Header from "../SignIns/SignInHeader";
 import { GrClose } from "react-icons/gr";
 import CustomerInner from "./CustomerInner";
 
-export default function AddCustomer({ setBlur, contact }) {
-
-  console.log(contact.name);
-
+export default function AddCustomer({ setBlur }) {
   return (
     <div style={{ background: "#265573", width: "100%", height: "100%" }}>
       <div
@@ -20,22 +17,16 @@ export default function AddCustomer({ setBlur, contact }) {
           transform: "translate(-50%, -50%)",
         }}
       >
-        <Header
-          text={
-            (contact == undefined ? "Create" : "Add") + " Customer Contact"
-          }
-          top_a={"0%"}
-          width_a={916}
-        />
-       
-        <CustomerInner contact={contact}/>
+        <Header text={"Add Customer Contact"} top_a={"0%"} width_a={916} />
+
+        <CustomerInner />
 
         <button
           className="button2"
           onClick={() => setBlur(false)}
           style={{ width: "35%", margin: 10, left: "32%", top: "85%" }}
         >
-          <p>{(contact == undefined ? "Create" : "Add") + " Contact"}</p>
+          <p>Add Contact</p>
         </button>
 
         <GrClose
@@ -49,15 +40,3 @@ export default function AddCustomer({ setBlur, contact }) {
     </div>
   );
 }
-
-AddCustomer.defaultProps = {
-  contact: {
-    name: "",
-    email: "",
-    address: "",
-    dob: "",
-    first_visit: "",
-    phoneNumber: "",
-    gender: "",
-  },
-};

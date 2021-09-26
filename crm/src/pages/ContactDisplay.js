@@ -11,6 +11,7 @@ import AddPopUp from "../Components/AddContact/AddPopUp.js";
 import CustomerDisplay from "../Components/ContactDisplay/CustomerDisplay";
 import ExternalVendorDisplay from "../Components/ContactDisplay/ExternalVendorDisplay";
 import EmployeeDisplay from "../Components/ContactDisplay/EmployeeDisplay";
+import UpdateContact from "../Components/UpdateContacts/UpdateContact";
 
 export default function ContactDisplay({ contacts }) {
   const [sbc, setSBC] = React.useState(true);
@@ -26,7 +27,7 @@ export default function ContactDisplay({ contacts }) {
       <div
         className="contactDisplayPage"
         style={{
-          filter: blur ? "blur(2px)" : "",
+          filter: editMode || blur ? "blur(2px)" : "",
         }}
       >
         <Helmet>
@@ -49,11 +50,7 @@ export default function ContactDisplay({ contacts }) {
         <SideBar setSBC={setSBC} path={location.pathname} />
       )}
       {editMode && (
-        <AddPopUp
-          setBlur={setEditMode}
-          contact={contact}
-          initialMode={contact.Role}
-        />
+        <UpdateContact setEditMode={setEditMode} contact={contact} />
       )}
       {blur && <AddPopUp setBlur={setBlur} />}
     </div>

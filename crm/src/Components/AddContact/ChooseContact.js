@@ -13,7 +13,7 @@ export const ChooseContact = ({ setBlur, setMode }) => {
       <button
         className="button2"
         style={{ width: "65%", margin: 10, left: "15%", top: "22%" }}
-        onClick={() => setMode("Employee")}
+        onClick={() => setMode(1)}
       >
         <p>Add Employee</p>
       </button>
@@ -21,7 +21,7 @@ export const ChooseContact = ({ setBlur, setMode }) => {
       <button
         className="button2"
         style={{ width: "65%", margin: 10, left: "15%", top: "47%" }}
-        onClick={() => setMode("Customer")}
+        onClick={() => setMode(2)}
       >
         <p>Add Customer</p>
       </button>
@@ -29,7 +29,7 @@ export const ChooseContact = ({ setBlur, setMode }) => {
       <button
         className="button2"
         style={{ width: "65%", margin: 10, left: "15%", top: "72%" }}
-        onClick={() => setMode("External Vendor")}
+        onClick={() => setMode(3)}
       >
         <p>Add External Vendor</p>
       </button>

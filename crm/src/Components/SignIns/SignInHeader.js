@@ -11,7 +11,7 @@ function Header({ text, top_a, width_a }) {
           width: width_a,
           height: 54.85,
           transform: "translate(-50%, -50%)",
-          textAlign:"center"
+          textAlign: "center",
         }}
       >
         {text}

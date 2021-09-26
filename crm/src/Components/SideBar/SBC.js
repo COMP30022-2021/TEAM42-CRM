@@ -9,7 +9,7 @@ export default function SideBarCollapsed({ setSBC, path }) {
         onMouseOver={() => setSBC(false)}
         className="side-bar"
         style={{
-          left: -170,
+          left: "-13%",
         }}
       >
         <SBCElements path={path} />

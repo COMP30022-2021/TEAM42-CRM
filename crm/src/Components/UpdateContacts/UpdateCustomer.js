@@ -184,6 +184,7 @@ export default function UpdateCustomer({ setBlur }) {
             <p>Update Customer Contact</p>
           </button>
 
+
           <button
             className="button2"
             onClick={deleteContact}

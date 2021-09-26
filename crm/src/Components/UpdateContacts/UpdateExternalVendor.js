@@ -180,6 +180,7 @@ export default function UpdateExternalVendor({ setBlur }) {
             <p>Update Vendor Contact</p>
           </button>
 
+
           <button
             className="button2"
             onClick={createContact}

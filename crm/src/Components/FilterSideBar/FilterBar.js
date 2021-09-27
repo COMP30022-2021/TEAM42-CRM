@@ -9,24 +9,15 @@ export default function FilterBar() {
 
       <button
         className="buttonFilter"
-        style={{
-          left: "6%",
-          width: "40%",
-          top: "10%",
-        }}
-      >
-        <p style={{ color: "#109CF1" }}>Male</p>
+        style={{left: "6%",width: "40%",top: "10%",}}>
+        <p className="pText">Male</p>
       </button>
 
       <button
         className="buttonFilter"
-        style={{
-          left: "54%",
-          width: "40%",
-          top: "10%",
-        }}
+        style={{left: "54%",width: "40%",top: "10%",}}
       >
-        <p style={{ color: "#109CF1" }}>Female</p>
+        <p className="pText">Female</p>
       </button>
 
       <p1 className="p3" style={{ left: "10%", top: "25%" }}>
@@ -68,11 +59,7 @@ export default function FilterBar() {
 
       <button
         className="buttonAdd"
-        style={{
-          left: "50%",
-          width: "40%",
-          top: "43%",
-          lineHeight: "13px",
+        style={{left: "50%",width: "40%",top: "43%",lineHeight: "13px",
         }}
       >
         <p class="pButton">Add postcode</p>

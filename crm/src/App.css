@@ -113,6 +113,7 @@ h4 {
   transform: translate(-50%, -50%);
 }
 
+
 h5 {
   width: 476.15;
   height: 400;
@@ -145,6 +146,18 @@ p {
   color: #ffffff;
 }
 
+.pText {
+  font-family: Poppins, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 19px;
+  letter-spacing: 0.01em;
+
+  /* white */
+
+  color: #109CF1;
+}
 .pButton {
   font-family: Poppins, sans-serif;
   font-style: normal;
@@ -353,6 +366,16 @@ p2 {
 .button3 {
   position: absolute;
   background: #ffffff;
+  height: 10%;
+  width: 14%;
+  margin: 10;
+  top: 88%;
+  line-height: 13px;
+}
+
+.addButton {
+  position: absolute;
+  background: #265573;
   height: 10%;
   width: 14%;
   margin: 10;

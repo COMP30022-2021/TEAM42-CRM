@@ -66,7 +66,7 @@ export default function EmployeeDisplay({ contact, setEditMode }) {
         onClick={() => nextContact()}
         style={{ left: "80%" }}
       >
-        <p style={{ color: "#109CF1" }}>Next</p>
+        <p className="pText">Next</p>
       </button>
 
       <button
@@ -76,7 +76,7 @@ export default function EmployeeDisplay({ contact, setEditMode }) {
           left: "8%",
         }}
       >
-        <p style={{ color: "#109CF1" }}>Previous</p>
+        <p className="pText">Previous</p>
       </button>
 
       <EditContact setEditMode={setEditMode} />

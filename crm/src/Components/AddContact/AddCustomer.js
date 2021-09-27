@@ -7,7 +7,7 @@ export default function AddCustomer({ setBlur }) {
   return (
     <div style={{ background: "#265573", width: "100%", height: "100%" }}>
       <div className="addContact">
-        <Header text="Add Vendor Contact" top_a={"0%"} width_a={"100%"} />
+        <Header text="Add Customer Contact" top_a={"0%"} width_a={"100%"} />
 
         <CustomerInner />
 
@@ -16,7 +16,7 @@ export default function AddCustomer({ setBlur }) {
           onClick={() => setBlur(false)}
           style={{ width: "35%", margin: 10, left: "32%", top: "81%" }}
         >
-          <p>Add Contact</p>
+          <p>Add Customer</p>
         </button>
 
         <GrClose

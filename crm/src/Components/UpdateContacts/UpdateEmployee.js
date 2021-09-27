@@ -26,7 +26,7 @@ export default function UpdateEmployee({ setEditMode, contact }) {
           className="button2"
           style={{ width: "25%", margin: 10, left: "20%", top: "83.5%" }}
         >
-          <p>Update Employee Contact</p>
+          <p>Update Employee</p>
         </button>
 
         <button
@@ -39,7 +39,7 @@ export default function UpdateEmployee({ setEditMode, contact }) {
             background: "red",
           }}
         >
-          <p>Delete Employee Contact</p>
+          <p>Delete Employee</p>
         </button>
 
         <GrClose

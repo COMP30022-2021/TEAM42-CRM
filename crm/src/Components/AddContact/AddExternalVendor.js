@@ -17,7 +17,7 @@ export default function AddExternalVendor({ setBlur }) {
           onClick={() => setBlur(false)}
           style={{ width: "35%", margin: 10, left: "32%", top: "81%" }}
         >
-          <p>Add Contact</p>
+          <p>Add Vendor</p>
         </button>
 
         <GrClose

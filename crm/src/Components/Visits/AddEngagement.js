@@ -20,17 +20,11 @@ export default function AddEngagement({ setBlur }) {
         <Helmet bodyAttributes={{ style: "background-color : #ffffff" }} />
 
         <Header text={"Add Engagement"} top_a={"0%"} width_a={"100%"} />
-        <p1 style={{ top: "16%", left: "14%" }}>Date:</p1>
+        <p1 style={{ top: "16%", left: "15%" }}>Date:</p1>
 
         <input
-          className="search-bar"
-          style={{
-            background: "#F0EBEB",
-            border: 0,
-            height: 28,
-            width: "70%",
-            top: "24%",
-          }}
+          className="search-bar2"
+          style={{width: "70%",top: "24%",left:"15%",height:"8%"}}
           type="text"
           placeholder="Enter the Date"
           value={Date}
@@ -40,14 +34,8 @@ export default function AddEngagement({ setBlur }) {
         <p1 style={{ top: "36%", left: "15%" }}>Purpose:</p1>
 
         <input
-          className="search-bar"
-          style={{
-            background: "#F0EBEB",
-            border: 0,
-            height: 28,
-            width: "70%",
-            top: "44%",
-          }}
+          className="search-bar2"
+          style={{width: "70%",top: "44%",left:"15%",height:"8%"}}
           type="text"
           placeholder="Enter the Purpose"
           value={Purpose}
@@ -57,14 +45,8 @@ export default function AddEngagement({ setBlur }) {
         <p1 style={{ top: "56%", left: "15%" }}>Rating:</p1>
 
         <input
-          className="search-bar"
-          style={{
-            background: "#F0EBEB",
-            border: 0,
-            height: 28,
-            width: "70%",
-            top: "64%",
-          }}
+          className="search-bar2"
+          style={{ width: "70%",top: "64%", left:"15%",height:"8%"}}
           type="text"
           placeholder="Enter the rating out of 10"
           value={Rating}
@@ -72,9 +54,9 @@ export default function AddEngagement({ setBlur }) {
         ></input>
 
         <button
-          className="button2"
+          className="buttonCustomer"
           onClick={() => addEngagement()}
-          style={{ width: "65%", margin: 10, left: "15%", top: "74%" }}
+          style={{ width: "65%", left: "15%", top: "78%" }}
         >
           <p>Add Engagement</p>
         </button>

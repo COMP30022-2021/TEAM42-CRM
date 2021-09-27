@@ -84,7 +84,7 @@ export default function ExternalVendorDisplay({ contact, setEditMode }) {
           onClick={() => nextContact()}
           style={{ left: "80%" }}
         >
-          <p style={{ color: "#109CF1" }}>Next</p>
+          <p className="pText">Next</p>
         </button>
 
         <button
@@ -92,13 +92,13 @@ export default function ExternalVendorDisplay({ contact, setEditMode }) {
           onClick={() => previousContact()}
           style={{ left: "8%" }}
         >
-          <p style={{ color: "#109CF1" }}>Previous</p>
+          <p className="pText">Previous</p>
         </button>
 
         <button
-          className="button3"
+          className="addButton"
           onClick={() => addVisit()}
-          style={{ left: "44%", backgroundColor: "#265573" }}
+          style={{ left: "44%" }}
         >
           <p>Add Engagement</p>
         </button>

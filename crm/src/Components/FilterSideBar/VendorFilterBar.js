@@ -21,7 +21,6 @@ export default function VendorFilterBar() {
           Gender:
         </p1>
 
-
         <button
           className="buttonFilter"
           onClick={() => setMale()}
@@ -69,8 +68,6 @@ export default function VendorFilterBar() {
           }}
             ><p class="pButton">Add postcode</p>
         </button>
-
-
         </div>
       );
 }

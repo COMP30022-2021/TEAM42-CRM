@@ -96,6 +96,8 @@ h3 {
   color: #cfd7e3;
 }
 
+
+
 h4 {
   position: absolute;
 
@@ -112,6 +114,7 @@ h4 {
   opacity: 0.5;
   transform: translate(-50%, -50%);
 }
+
 
 h5 {
   width: 476.15;
@@ -139,12 +142,18 @@ p {
   font-size: 13px;
   line-height: 19px;
   letter-spacing: 0.01em;
-
-  /* white */
-
   color: #ffffff;
 }
 
+.pText {
+  font-family: Poppins, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 19px;
+  letter-spacing: 0.01em;
+  color: #109CF1;
+}
 .pButton {
   font-family: Poppins, sans-serif;
   font-style: normal;
@@ -288,6 +297,17 @@ p2 {
   color: #ffffff;
 }
 
+.userDesign {
+  position: absolute;
+  font-family: Poppins, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 19px;
+  color: "#9FBF8E";
+  letter-spacing: 0.01em;
+}
+
 .icon {
   position: absolute;
   width: 20px;
@@ -353,6 +373,16 @@ p2 {
 .button3 {
   position: absolute;
   background: #ffffff;
+  height: 10%;
+  width: 14%;
+  margin: 10;
+  top: 88%;
+  line-height: 13px;
+}
+
+.addButton {
+  position: absolute;
+  background: #265573;
   height: 10%;
   width: 14%;
   margin: 10;

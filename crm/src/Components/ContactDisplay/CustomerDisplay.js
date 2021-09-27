@@ -35,7 +35,7 @@ export default function CustomerDisplay({ contact, setEditMode }) {
           position: "fixed",
         }}
       >
-        <img src={contact.image} className="contactImage" alt="user" />
+       <img src={contact.image} className="contactImage" alt="user" /> 
 
         <p1 className="contactTitle">{contact.Name}</p1>
 
@@ -87,25 +87,22 @@ export default function CustomerDisplay({ contact, setEditMode }) {
           onClick={() => nextContact()}
           style={{ left: "80%" }}
         >
-          <p style={{ color: "#109CF1" }}>Next</p>
+          <p className="pText">Next</p>
         </button>
 
         <button
           className="button3"
           onClick={() => previousContact()}
-          style={{
-            left: "8%",
-          }}
+          style={{left: "8%",}}
         >
-          <p style={{ color: "#109CF1" }}>Previous</p>
+          <p className="pText">Previous</p>
         </button>
 
         <button
-          className="button3"
+          className="addButton"
           onClick={() => addVisit()}
           style={{
             left: "44%",
-            backgroundColor: "#265573",
           }}
         >
           <p>Add Visit</p>

@@ -28,7 +28,7 @@ export default function CustomerFilterBar() {
           style={{
             left: "6%", width:"40%",top:"10%"
           }}
-            ><p style={{ color: "#109CF1" }}>Male</p>
+            ><p className="pText">Male</p>
         </button>
 
         <button
@@ -37,7 +37,7 @@ export default function CustomerFilterBar() {
           style={{
             left: "54%", width:"40%",top:"10%"
           }}
-            ><p style={{ color: "#109CF1" }}>Female</p>
+            ><p className="pText">Female</p>
         </button>
 
         <p1 className="p3" style={{ left: "10%", top: "25%" }}>

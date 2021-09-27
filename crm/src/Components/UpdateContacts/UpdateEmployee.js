@@ -23,22 +23,15 @@ export default function UpdateEmployee({ setEditMode, contact }) {
         <EmployeeInner contact={contact} />
 
         <button
-          className="button2"
-          style={{ width: "25%", margin: 10, left: "20%", top: "83.5%" }}
+          className="buttonCustomer"
+          style={{ width: "25%", left: "20%", top: "83.5%" }}
         >
           <p>Update Employee</p>
         </button>
 
         <button
-          className="button2"
-          style={{
-            width: "25%",
-            margin: 10,
-            left: "50%",
-            top: "83.5%",
-            background: "red",
-          }}
-        >
+          className="deleteButton"
+          style={{width: "25%",left: "50%",top: "83.5%",}}>
           <p>Delete Employee</p>
         </button>
 

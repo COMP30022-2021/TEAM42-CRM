@@ -23,9 +23,9 @@ export default function AddEmployee({ setBlur }) {
         <EmployeeInner />
 
         <button
-          className="button2"
+          className="buttonCustomer"
           onClick={() => setBlur(false)}
-          style={{ width: "35%", margin: 10, left: "32%", top: "85%" }}
+          style={{ width: "35%", left: "32%", top: "85%" }}
         >
           <p>Add Employee</p>
         </button>

@@ -314,6 +314,13 @@ p2 {
   background: #ffffff;
 }
 
+.search-bar1 {
+  position: absolute;
+  position: fixed;
+  background: "#F0EBEB";
+  border: 0;
+}
+
 .numInput {
   position: absolute;
 }
@@ -525,4 +532,12 @@ p2 {
   width: 35%;
   position: absolute;
   text-indent: 5px;
+}
+
+.buttonCustomer {
+  position: absolute;
+  background: #265573;
+  border-radius: 50.5px;
+  border: none;
+  margin: 10;
 }

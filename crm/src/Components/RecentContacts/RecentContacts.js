@@ -1,5 +1,4 @@
 import React from "react";
-
 import { RecentContact } from "./RecentContact";
 import { Link } from "react-router-dom";
 

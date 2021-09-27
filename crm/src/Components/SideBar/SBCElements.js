@@ -1,6 +1,5 @@
 import React from "react";
 import { SideBarElement } from "./SideBarElement";
-
 import { FcStatistics } from "react-icons/fc";
 import { MdPermContactCalendar } from "react-icons/md";
 import { RiDashboardLine } from "react-icons/ri";
@@ -28,22 +27,14 @@ export default function SBCElements({ path }) {
       <SideBarElement>
         <RiDashboardLine
           className="icon"
-          style={{
-            color: path === undefined ? "#9FBF8E" : "#cfd7e3",
-            top: "28%",
-            left: "83%",
-          }}
+          style={{color: path === undefined ? "#9FBF8E" : "#cfd7e3", top: "28%",left: "83%",}}
         />
       </SideBarElement>
 
       <SideBarElement>
         <MdPermContactCalendar
           className="icon"
-          style={{
-            color: path === "/contacts" ? "#9FBF8E" : "#cfd7e3",
-            top: "34%",
-            left: "83%",
-          }}
+          style={{color: path === "/contacts" ? "#9FBF8E" : "#cfd7e3", top: "34%",left: "83%",}}
         />
       </SideBarElement>
 

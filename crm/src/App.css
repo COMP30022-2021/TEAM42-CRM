@@ -96,6 +96,8 @@ h3 {
   color: #cfd7e3;
 }
 
+
+
 h4 {
   position: absolute;
 
@@ -293,6 +295,17 @@ p2 {
   line-height: 19px;
   letter-spacing: 0.01em;
   color: #ffffff;
+}
+
+.userDesign {
+  position: absolute;
+  font-family: Poppins, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 19px;
+  color: "#9FBF8E";
+  letter-spacing: 0.01em;
 }
 
 .icon {

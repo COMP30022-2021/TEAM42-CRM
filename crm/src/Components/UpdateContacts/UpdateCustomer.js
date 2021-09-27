@@ -1,6 +1,5 @@
 import React from "react";
 import Header from "../SignIns/SignInHeader";
-import { useState } from "react";
 import { GrClose } from "react-icons/gr";
 import CustomerInner from "../AddContact/CustomerInner";
 
@@ -12,22 +11,15 @@ export default function UpdateCustomer({ setEditMode, contact }) {
       <CustomerInner contact={contact} />
 
       <button
-        className="button2"
-        style={{ width: "25%", margin: 10, left: "23%", top: "81%" }}
+        className="buttonCustomer"
+        style={{ width: "25%", left: "23%", top: "81%" }}
       >
         <p>Update Customer</p>
       </button>
 
       <button
-        className="button2"
-        style={{
-          width: "25%",
-          margin: 10,
-          left: "52%",
-          top: "81%",
-          background: "red",
-        }}
-      >
+        className="deleteButton"
+        style={{width: "25%",left: "52%",top: "81%",}}>
         <p>Delete Vendor Contact</p>
       </button>
 
@@ -36,7 +28,7 @@ export default function UpdateCustomer({ setEditMode, contact }) {
         style={{ position: "absolute", left: "95%", top: "1%" }}
         cursor="pointer"
       />
-
+      
       <Header text={""} top_a={"100%"} width_a={"100%"} />
     </div>
   );

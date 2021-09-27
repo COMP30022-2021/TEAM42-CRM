@@ -12,9 +12,9 @@ export default function AddCustomer({ setBlur }) {
         <CustomerInner />
 
         <button
-          className="button2"
+          className="buttonCustomer"
           onClick={() => setBlur(false)}
-          style={{ width: "35%", margin: 10, left: "32%", top: "81%" }}
+          style={{width: "35%", left: "32%", top: "81%" }}
         >
           <p>Add Customer</p>
         </button>

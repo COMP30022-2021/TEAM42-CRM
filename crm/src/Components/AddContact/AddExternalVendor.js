@@ -1,6 +1,5 @@
 import React from "react";
 import Header from "../SignIns/SignInHeader";
-import { useState } from "react";
 import { GrClose } from "react-icons/gr";
 import ExternalVendorInner from "./ExternalVendorInner";
 
@@ -13,9 +12,9 @@ export default function AddExternalVendor({ setBlur }) {
         <ExternalVendorInner />
 
         <button
-          className="button2"
+          className="buttonCustomer"
           onClick={() => setBlur(false)}
-          style={{ width: "35%", margin: 10, left: "32%", top: "81%" }}
+          style={{ width: "35%", left: "32%", top: "81%" }}
         >
           <p>Add Vendor</p>
         </button>

@@ -1,7 +1,5 @@
 import React from "react";
-import Header from "../SignIns/SignInHeader";
 import { useState } from "react";
-import { GrClose } from "react-icons/gr";
 
 export default function ExternalVendorInner({ contact }) {
   const [vendorName, setText1] = useState(contact.Name);

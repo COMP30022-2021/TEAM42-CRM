@@ -7,7 +7,7 @@ import CustomerInner from "../AddContact/CustomerInner";
 export default function UpdateCustomer({ setEditMode, contact }) {
   return (
     <div className="addContact">
-      <Header text={"Update Vendor Contact"} top_a={"0%"} width_a={"100%"} />
+      <Header text={"Update Customer Contact"} top_a={"0%"} width_a={"100%"} />
 
       <CustomerInner contact={contact} />
 
@@ -15,7 +15,7 @@ export default function UpdateCustomer({ setEditMode, contact }) {
         className="button2"
         style={{ width: "25%", margin: 10, left: "23%", top: "81%" }}
       >
-        <p>Update Vendor Contact</p>
+        <p>Update Customer</p>
       </button>
 
       <button

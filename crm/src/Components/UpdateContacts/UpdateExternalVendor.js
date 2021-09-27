@@ -14,7 +14,7 @@ export default function UpdateExternalVendor({ setEditMode, contact }) {
         className="button2"
         style={{ width: "25%", margin: 10, left: "23%", top: "81%" }}
       >
-        <p>Update Vendor Contact</p>
+        <p>Update Vendor</p>
       </button>
 
       <button
@@ -27,7 +27,7 @@ export default function UpdateExternalVendor({ setEditMode, contact }) {
           background: "red",
         }}
       >
-        <p>Delete Vendor Contact</p>
+        <p>Delete Vendor</p>
       </button>
 
       <GrClose

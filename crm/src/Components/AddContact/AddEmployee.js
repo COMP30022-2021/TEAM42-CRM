@@ -27,7 +27,7 @@ export default function AddEmployee({ setBlur }) {
           onClick={() => setBlur(false)}
           style={{ width: "35%", margin: 10, left: "32%", top: "85%" }}
         >
-          <p>Add Contact</p>
+          <p>Add Employee</p>
         </button>
 
         <GrClose

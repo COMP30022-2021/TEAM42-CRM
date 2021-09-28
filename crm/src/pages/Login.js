@@ -11,11 +11,16 @@ function Login({ setLogIn }) {
 
   const attemptLogin = () => {
     console.log(email);
+    console.log(password);
+    const newPassword = password.toString();
     fetch("https://team42-crm.herokuapp.com/auth/login", {
       method: "post",
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8;'
+      },
       body: JSON.stringify({
         email: email,
-        password: password,
+        password: newPassword,
       }),
     })
       .then(response => response.json())

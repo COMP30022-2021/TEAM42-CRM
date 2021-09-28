@@ -14,7 +14,7 @@ export const RecentContact = ({ contact }) => {
         contact.id
       }
     >
-      <div className="block" style={{ width: "80%" }}>
+      <div className="block">
         <SelectBox />
         <img
           src={contact.image}

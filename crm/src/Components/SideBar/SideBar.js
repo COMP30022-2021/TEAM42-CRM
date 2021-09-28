@@ -7,10 +7,7 @@ export const SideBar = ({ setSBC, path }) => {
       <div
         onMouseLeave={() => setSBC(true)}
         className="side-bar"
-        style={{
-          left: 0,
-        }}
-      >
+        style={{left: 0,}}>
         <SideBarElements path={path} />
       </div>
     </React.Fragment>

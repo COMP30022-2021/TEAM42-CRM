@@ -2,7 +2,7 @@ import React from "react";
 import SelectBox from "./SelectBox";
 import { Link } from "react-router-dom";
 
-export const Contact = ({ contact, index }) => {
+export const Contact = ({ contact }) => {
   return (
     <Link
       to={

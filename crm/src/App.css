@@ -66,8 +66,21 @@ h1 {
 
 h2 {
   color: white;
+  top: -25%;
+  left: 0%;
+  width: 100%;
+  position: absolute;
+}
+
+.header {
   background: rgba(159, 191, 142, 1);
   border-radius: 6px;
+  position: absolute;
+  left: 50%;
+
+  height: 55px;
+  transform: translate(-50%, -25%);
+  text-align: center;
 }
 
 h3 {
@@ -82,6 +95,8 @@ h3 {
 
   color: #cfd7e3;
 }
+
+
 
 h4 {
   position: absolute;
@@ -99,6 +114,7 @@ h4 {
   opacity: 0.5;
   transform: translate(-50%, -50%);
 }
+
 
 h5 {
   width: 476.15;
@@ -126,12 +142,18 @@ p {
   font-size: 13px;
   line-height: 19px;
   letter-spacing: 0.01em;
-
-  /* white */
-
   color: #ffffff;
 }
 
+.pText {
+  font-family: Poppins, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 19px;
+  letter-spacing: 0.01em;
+  color: #109CF1;
+}
 .pButton {
   font-family: Poppins, sans-serif;
   font-style: normal;
@@ -275,6 +297,17 @@ p2 {
   color: #ffffff;
 }
 
+.userDesign {
+  position: absolute;
+  font-family: Poppins, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 19px;
+  color: "#9FBF8E";
+  letter-spacing: 0.01em;
+}
+
 .icon {
   position: absolute;
   width: 20px;
@@ -301,12 +334,26 @@ p2 {
   background: #ffffff;
 }
 
+.search-bar1 {
+  position: absolute;
+  position: fixed;
+  background: "#F0EBEB";
+  border: 0;
+}
+
+.search-bar2 {
+  position: absolute;
+  position: fixed;
+  background: #F0EBEB;
+  border: 0;
+}
+
 .numInput {
   position: absolute;
 }
 
 .button1 {
-  position: absolute;
+  position: fixed;
 
   width: 12%;
   height: 7%;
@@ -314,7 +361,7 @@ p2 {
   justify-content: "center";
 
   text-align: center;
-  line-height: 42px;
+  line-height: 100%;
 
   box-shadow: 0px 4px 10px rgba(16, 156, 241, 0.24);
   border-radius: 4px;
@@ -327,6 +374,7 @@ p2 {
   position: absolute;
   background: #265573;
   border-radius: 50.5px;
+  border: none;
 }
 
 .button3 {
@@ -337,6 +385,34 @@ p2 {
   margin: 10;
   top: 88%;
   line-height: 13px;
+}
+
+.addButton {
+  position: absolute;
+  background: #265573;
+  height: 10%;
+  width: 14%;
+  margin: 10;
+  top: 88%;
+  line-height: 13px;
+}
+
+.button4 {
+  position: absolute;
+
+  width: 22%;
+  height: 9%;
+  background: #265573;
+  justify-content: "center";
+
+  text-align: center;
+  line-height: 42px;
+
+  box-shadow: 0px 4px 10px rgba(16, 156, 241, 0.24);
+  border-radius: 4px;
+  box-sizing: border-box;
+
+  cursor: pointer;
 }
 
 .buttonFilter {
@@ -354,10 +430,8 @@ p2 {
 }
 
 .block {
-  /* position: absolute; */
   height: 48px;
   width: 100%;
-  /* white */
 
   background: #ffffff;
   border-radius: 4px;
@@ -384,6 +458,7 @@ p2 {
   width: 18%;
   background: #265573;
   box-shadow: 6px 1px 18px rgba(0, 0, 0, 0.06);
+  z-index: 10;
 }
 
 .logInBox {
@@ -468,10 +543,46 @@ p2 {
   filter: drop-shadow(6px 6px 8px rgba(0, 0, 0, 0.25));
 }
 
-.contactDisplayPage {
+.Page {
   width: 100%;
   height: 100%;
   position: absolute;
   left: 0%;
   top: 0%;
+}
+
+.addContact {
+  background: #fffcfc;
+  width: 60%;
+  height: 65%;
+  position: absolute;
+  left: 55%;
+  top: 45%;
+  transform: translate(-50%, -50%);
+  filter: drop-shadow(6px 6px 8px rgba(0, 0, 0, 0.25));
+}
+
+.addInput {
+  background: #f3efef;
+  border: 0;
+  height: 28px;
+  width: 35%;
+  position: absolute;
+  text-indent: 5px;
+}
+
+.buttonCustomer {
+  position: absolute;
+  background: #265573;
+  border-radius: 50.5px;
+  border: none;
+  margin: 10;
+}
+
+.deleteButton {
+  position: absolute;
+  background: red;
+  border-radius: 50.5px;
+  border: none;
+  margin: 10;
 }

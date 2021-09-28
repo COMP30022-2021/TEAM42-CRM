@@ -17,14 +17,7 @@ export const SideBarUser = ({ image }) => {
         }}
         alt="User"
       />
-      <h3
-        style={{
-          top: "7.5%",
-          left: "30%",
-          fontSize: "14px",
-          color: "#9FBF8E",
-        }}
-      >
+      <h3 className = "userDesign" style={{top: "7.5%", left: "30%",fontSize: "14px" }}>
         Katrina Hofer
       </h3>
       <h3 style={{ top: "10.5%", left: "30%", fontSize: "11px" }}>

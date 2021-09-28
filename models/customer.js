@@ -1,7 +1,8 @@
 const mysql = require('../config/mysql');
 
 class Customer {
-    constructor(firstName, lastName, email, phone, address) {
+    constructor(businessID, firstName, lastName, email, phone, address) {
+        this.businessID = businessID
         this.firstName = firstName
         this.lastName = lastName
         this.email = email
@@ -12,12 +13,14 @@ class Customer {
     async save() {
         let sql = `
         INSERT INTO customer(
+        business_id,
         first_name, 
         last_name, 
         email, 
         phone, 
         address
         )VALUES(
+        '${this.businessID}', 
         '${this.firstName}', 
         '${this.lastName}', 
         '${this.email}', 

@@ -4,24 +4,14 @@ import AddEmployee from "./AddEmployee";
 import AddCustomer from "./AddCustomer";
 import AddExternalVendor from "./AddExternalVendor";
 
-export default function AddPopUp({ setBlur, initialMode, contact }) {
-  const [mode, setMode] = React.useState(initialMode);
+export default function AddPopUp({ setBlur }) {
+  const [mode, setMode] = React.useState(0);
   return (
     <div>
-      {mode === "" && <ChooseContact setBlur={setBlur} setMode={setMode} />}
-      {mode === "Employee" && (
-        <AddEmployee setBlur={setBlur} contact={contact} />
-      )}
-      {mode === "Customer" && (
-        <AddCustomer setBlur={setBlur} contact={contact} />
-      )}
-      {mode === "External Vendor" && (
-        <AddExternalVendor setBlur={setBlur} contact={contact} />
-      )}
+      {mode === 0 && <ChooseContact setBlur={setBlur} setMode={setMode} />}
+      {mode === 1 && <AddEmployee setBlur={setBlur} />}
+      {mode === 2 && <AddCustomer setBlur={setBlur} />}
+      {mode === 3 && <AddExternalVendor setBlur={setBlur} />}
     </div>
   );
 }
-
-AddPopUp.defaultProps = {
-  initialMode: "",
-};

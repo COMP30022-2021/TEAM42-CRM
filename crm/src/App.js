@@ -59,7 +59,7 @@ function App() {
         exact
         path="/contacts"
         render={() =>
-          localStorage.getItem("loggedIn") ? (
+          localStorage.getItem("loggedIn") === true ? (
             <ContactPage contacts={contacts} />
           ) : (
             <Redirect to="/login" />
@@ -70,7 +70,7 @@ function App() {
         exact
         path="/"
         render={() =>
-          localStorage.getItem("loggedIn") ? (
+          localStorage.getItem("loggedIn") === true ? (
             <Dashboard contacts={contacts} />
           ) : (
             <Redirect to="/login" />
@@ -84,7 +84,7 @@ function App() {
         exact
         path="/contacts/:role/:name/:id"
         render={() =>
-          localStorage.getItem("loggedIn") ? (
+          localStorage.getItem("loggedIn") === true ? (
             <ContactDisplay contacts={contacts} />
           ) : (
             <Redirect to="/login" />

@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 
 import Header from "../Components/SignIns/SignInHeader";
 import { useState } from "react";
@@ -15,26 +15,18 @@ function Login({ setLogIn }) {
     const newPassword = password.toString();
     fetch("https://team42-crm.herokuapp.com/auth/login", {
       method: "post",
-      mode: 'cors',
+      mode: "cors",
       headers: new Headers({
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
+        "Content-Type": "application/json",
+        Accept: "application/json",
       }),
       body: JSON.stringify({
         email: email,
         password: newPassword,
-      })
+      }),
     })
       .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        if (data.success) {
-          localStorage.setItem("loggedIn", true);
-          history.push("/");
-        } else {
-          alert(data.error);
-        }
-      });
+      .then((data) => console.log(data));
   };
 
   // useEffect(() => {

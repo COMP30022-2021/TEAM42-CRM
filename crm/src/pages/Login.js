@@ -25,7 +25,6 @@ function Login({ setLogIn }) {
         password: newPassword,
       })
     })
-<<<<<<< HEAD
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
@@ -36,10 +35,6 @@ function Login({ setLogIn }) {
           alert(data.error);
         }
       });
-=======
-      .then(response => response.json())
-      .then(data => console.log(data));
->>>>>>> parent of ccc2698 (Connected login to backend)
   };
 
   // useEffect(() => {

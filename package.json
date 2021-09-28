@@ -34,6 +34,9 @@
     "react-icons": "^4.2.0",
     "react-sizeme": "^3.0.2"
   },
+  "engines": {
+    "node": "14.x.x"
+  },
   "devDependencies": {
     "dotenv": "^10.0.0",
     "react": "^17.0.2"

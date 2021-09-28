@@ -22,7 +22,7 @@ export default function Dashboard({ contacts }) {
         <Helmet>
           <title>Lynk - Dashboard</title>
         </Helmet>
-        <SearchBar onClick={setBlur} width={"95%"} />
+        <SearchBar onClick={setBlur} width="95%" />
         <RecentContacts contacts={contacts} />
         <StatisticsDisplay />
       </div>

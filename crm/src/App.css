@@ -96,6 +96,8 @@ h3 {
   color: #cfd7e3;
 }
 
+
+
 h4 {
   position: absolute;
 
@@ -112,6 +114,7 @@ h4 {
   opacity: 0.5;
   transform: translate(-50%, -50%);
 }
+
 
 h5 {
   width: 476.15;
@@ -149,7 +152,7 @@ p {
   font-size: 13px;
   line-height: 19px;
   letter-spacing: 0.01em;
-  color: #109cf1;
+  color: #109CF1;
 }
 .pButton {
   font-family: Poppins, sans-serif;
@@ -341,7 +344,7 @@ p2 {
 .search-bar2 {
   position: absolute;
   position: fixed;
-  background: #f0ebeb;
+  background: #F0EBEB;
   border: 0;
 }
 
@@ -372,7 +375,6 @@ p2 {
   background: #265573;
   border-radius: 50.5px;
   border: none;
-  cursor: pointer;
 }
 
 .button3 {

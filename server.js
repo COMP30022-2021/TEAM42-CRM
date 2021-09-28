@@ -45,5 +45,3 @@ app.listen(port, function () {
     console.log('CORS-enabled web server listening on port', port)
 })
 
-
-module.exports = app;

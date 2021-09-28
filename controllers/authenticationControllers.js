@@ -2,12 +2,19 @@ const bcrypt = require("bcryptjs");
 const Authentication = require("../models/authentication");
 
 exports.login = async (req, res) => {
+<<<<<<< HEAD
   try {
     console.log(req.body);
     let [authentication] = await Authentication.findEmployeeByEmail(
       req.body.email
     );
     console.log(authentication);
+=======
+    try {
+        console.log(req.body);
+        let [authentication,] = await Authentication.findEmployeeByEmail(req.body.email);
+        console.log(authentication);
+>>>>>>> parent of 6e58725 (Tests for authetication)
 
     if (authentication.length === 0) {
       res.status(200).json({

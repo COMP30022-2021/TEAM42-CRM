@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "../SignIns/SignInHeader";
+import Header from "../Components/SignIns/SignInHeader";
 import { useState } from "react";
 
 export default function CreateEmployeeAccounts() {
@@ -133,12 +133,103 @@ export default function CreateEmployeeAccounts() {
           onChange={(e) => setManager(e.currentTarget.checked)}
         />
 
+        <button
+          className="button2"
+          onClick={attemptLogin}
+          style={{ width: "35%", margin: 10, left: "32%", top: "72%" }}
+        />
+
         <Header text={"CreateEmployeeAccounts"} top_a={"0%"} width_a={916} />
         <p1 style={{ top: "16%", left: "8%" }}>Employee Name:</p1>
 
+        <input
+          className="search-bar"
+          style={{
+            background: "#F0EBEB",
+            border: 0,
+            height: 28,
+            width: "35%",
+            top: "24%",
+          }}
+          type="text"
+          placeholder="Enter the name of your employee"
+          value={employeeName}
+          onChange={(e) => setText1(e.target.value)}
+        />
 
         <p1 style={{ top: "36%", left: "8%" }}>Employee Email adress:</p1>
 
+        <input
+          className="search-bar"
+          style={{
+            background: "#F0EBEB",
+            border: 0,
+            height: 28,
+            width: "35%",
+            top: "44%",
+          }}
+          type="text"
+          placeholder="Enter the Email adress of the Employee"
+          value={Email}
+          onChange={(e) => setText2(e.target.value)}
+        />
+
+        <p1 style={{ top: "56%", left: "8%" }}>
+          Date when Employee started with comapny:
+        </p1>
+
+        <input
+          className="search-bar"
+          style={{
+            background: "#F0EBEB",
+            border: 0,
+            height: 28,
+            width: "35%",
+            top: "64%",
+          }}
+          type="text"
+          placeholder="Enter the date when the Employee started"
+          value={date}
+          onChange={(e) => setText5(e.target.value)}
+        />
+
+        <p1 style={{ top: "16%", left: "56.5%" }}>Employee Password:</p1>
+
+        <input
+          className="search-bar"
+          style={{
+            background: "#F0EBEB",
+            border: 0,
+            height: 28,
+            width: "35%",
+            left: "56%",
+            top: "24%",
+          }}
+          type="text"
+          placeholder="Enter the employee password"
+          value={password1}
+          onChange={(e) => setText3(e.target.value)}
+        />
+
+        <p1 style={{ top: "36%", left: "56.5%" }}>Repeat Employee Password:</p1>
+
+        <input
+          className="search-bar"
+          style={{
+            background: "#F0EBEB",
+            border: 0,
+            height: 28,
+            left: "56%",
+            width: "35%",
+            top: "44%",
+          }}
+          type="text"
+          placeholder="Repeat the employee password"
+          value={password2}
+          onChange={(e) => setText4(e.target.value)}
+        />
+
+        <p1 style={{ top: "56%", left: "56.5%" }}>Manager privaliges:</p1>
 
         <input
           style={{

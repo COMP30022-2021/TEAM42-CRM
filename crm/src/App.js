@@ -51,14 +51,15 @@ const contacts = [
 ];
 
 function App() {
-  const [loggedIn, setloggedIn] = React.useState(true);
+  localStorage.setItem("loggedIn", false);
+
   return (
     <div className="App" style={{ background: "#000000" }}>
       <Route
         exact
         path="/contacts"
         render={() =>
-          loggedIn ? (
+          localStorage.getItem("loggedIn") === true ? (
             <ContactPage contacts={contacts} />
           ) : (
             <Redirect to="/login" />
@@ -69,25 +70,21 @@ function App() {
         exact
         path="/"
         render={() =>
-          loggedIn ? (
+          localStorage.getItem("loggedIn") === true ? (
             <Dashboard contacts={contacts} />
           ) : (
             <Redirect to="/login" />
           )
         }
       />
-      <Route
-        exact
-        path="/login"
-        render={() => <Login setLogIn={setloggedIn} />}
-      />
+      <Route exact path="/login" render={() => <Login />} />
       <Route exact path="/signup" render={() => <SignUpBusiness />} />
 
       <Route
         exact
         path="/contacts/:role/:name/:id"
         render={() =>
-          loggedIn ? (
+          localStorage.getItem("loggedIn") === true ? (
             <ContactDisplay contacts={contacts} />
           ) : (
             <Redirect to="/login" />

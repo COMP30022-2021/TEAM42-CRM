@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "../Components/SignIns/SignInHeader";
+import Header from "../SignIns/SignInHeader";
 import { useState } from "react";
 
 function ChangePassword() {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 
 import Header from "../Components/SignIns/SignInHeader";
 import { useState } from "react";
@@ -6,12 +6,25 @@ import { Link } from "react-router-dom";
 import Helmet from "react-helmet";
 
 function Login({ setLogIn }) {
-  const [username, setText1] = useState("");
+  const [email, setText1] = useState("");
   const [password, setText2] = useState("");
 
   const attemptLogin = () => {
-    setLogIn(true);
+    console.log(email);
+    fetch("https://team42-crm.herokuapp.com/auth/login", {
+      method: "post",
+      body: JSON.stringify({
+        email: email,
+        password: password,
+      }),
+    })
+      .then(response => response.json())
+      .then(data => console.log(data));
   };
+
+  // useEffect(() => {
+  //
+  // }, []);
 
   return (
     <div>
@@ -46,9 +59,9 @@ function Login({ setLogIn }) {
           }}
           type="text"
           placeholder="Enter Email Address"
-          value={username}
+          value={email}
           onChange={(e) => setText1(e.target.value)}
-        ></input>
+        />
 
         <p1 style={{ top: "36%", left: "15%" }}>Password</p1>
 
@@ -65,7 +78,7 @@ function Login({ setLogIn }) {
           placeholder="Enter Password"
           value={password}
           onChange={(e) => setText2(e.target.value)}
-        ></input>
+        />
 
         <p2 style={{ top: "53%", left: "13%" }}>Forgot Password</p2>
 

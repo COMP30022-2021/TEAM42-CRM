@@ -43,7 +43,7 @@ export default function CreateEmployeeAccounts() {
           placeholder="Enter the name of your employee"
           value={employeeName}
           onChange={(e) => setText1(e.target.value)}
-        ></input>
+        />
 
         <p1 style={{ top: "36%", left: "8%" }}>Employee Email adress:</p1>
 
@@ -60,7 +60,7 @@ export default function CreateEmployeeAccounts() {
           placeholder="Enter the Email adress of the Employee"
           value={Email}
           onChange={(e) => setText2(e.target.value)}
-        ></input>
+        />
 
         <p1 style={{ top: "56%", left: "8%" }}>
           Date when Employee started with comapny:
@@ -79,7 +79,7 @@ export default function CreateEmployeeAccounts() {
           placeholder="Enter the date when the Employee started"
           value={date}
           onChange={(e) => setText5(e.target.value)}
-        ></input>
+        />
 
         <p1 style={{ top: "16%", left: "56.5%" }}>Employee Password:</p1>
 
@@ -97,7 +97,7 @@ export default function CreateEmployeeAccounts() {
           placeholder="Enter the employee password"
           value={password1}
           onChange={(e) => setText3(e.target.value)}
-        ></input>
+        />
 
         <p1 style={{ top: "36%", left: "56.5%" }}>Repeat Employee Password:</p1>
 
@@ -115,7 +115,7 @@ export default function CreateEmployeeAccounts() {
           placeholder="Repeat the employee password"
           value={password2}
           onChange={(e) => setText4(e.target.value)}
-        ></input>
+        />
 
         <p1 style={{ top: "56%", left: "56.5%" }}>Manager privaliges:</p1>
 
@@ -155,7 +155,7 @@ export default function CreateEmployeeAccounts() {
           placeholder="Enter the name of your employee"
           value={employeeName}
           onChange={(e) => setText1(e.target.value)}
-        ></input>
+        />
 
         <p1 style={{ top: "36%", left: "8%" }}>Employee Email adress:</p1>
 
@@ -172,7 +172,7 @@ export default function CreateEmployeeAccounts() {
           placeholder="Enter the Email adress of the Employee"
           value={Email}
           onChange={(e) => setText2(e.target.value)}
-        ></input>
+        />
 
         <p1 style={{ top: "56%", left: "8%" }}>
           Date when Employee started with comapny:
@@ -191,7 +191,7 @@ export default function CreateEmployeeAccounts() {
           placeholder="Enter the date when the Employee started"
           value={date}
           onChange={(e) => setText5(e.target.value)}
-        ></input>
+        />
 
         <p1 style={{ top: "16%", left: "56.5%" }}>Employee Password:</p1>
 
@@ -209,7 +209,7 @@ export default function CreateEmployeeAccounts() {
           placeholder="Enter the employee password"
           value={password1}
           onChange={(e) => setText3(e.target.value)}
-        ></input>
+        />
 
         <p1 style={{ top: "36%", left: "56.5%" }}>Repeat Employee Password:</p1>
 
@@ -227,7 +227,7 @@ export default function CreateEmployeeAccounts() {
           placeholder="Repeat the employee password"
           value={password2}
           onChange={(e) => setText4(e.target.value)}
-        ></input>
+        />
 
         <p1 style={{ top: "56%", left: "56.5%" }}>Manager privaliges:</p1>
 

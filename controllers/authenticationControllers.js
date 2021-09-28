@@ -3,7 +3,6 @@ const Authentication = require("../models/authentication");
 
 exports.login = async (req, res) => {
   try {
-    console.log(req.body);
     let [authentication] = await Authentication.findEmployeeByEmail(
       req.body.email
     );

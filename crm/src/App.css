@@ -474,6 +474,17 @@ p2 {
   filter: drop-shadow(6px 6px 8px rgba(0, 0, 0, 0.25));
 }
 
+.settingsDisplay {
+  background: #fffcfc;
+  width: 91.6%;
+  height: 86%;
+  position: absolute;
+  left: 7%;
+  top: 10%;
+  right: 10%;
+  filter: drop-shadow(6px 6px 8px rgba(0, 0, 0, 0.25));
+}
+
 .filterBar {
   width: 25%;
   height: 86%;
@@ -583,4 +594,14 @@ p2 {
   border-radius: 50.5px;
   border: none;
   margin: 10;
+}
+
+.pSettings {
+  position: absolute;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 20px; 
+  color: #707683;
 }

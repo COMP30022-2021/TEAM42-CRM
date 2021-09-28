@@ -70,7 +70,7 @@ function App() {
         exact
         path="/"
         render={() =>
-          localStorage.getItem("loggedIn") ? (
+          localStorage.getItem("loggedIn") === true ? (
             <Dashboard contacts={contacts} />
           ) : (
             <Redirect to="/login" />

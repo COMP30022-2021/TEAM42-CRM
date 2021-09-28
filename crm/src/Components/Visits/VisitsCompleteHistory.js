@@ -3,36 +3,13 @@ import Header from "../SignIns/SignInHeader";
 import { Link } from "react-router-dom";
 import Helmet from "react-helmet";
 import {GrClose} from "react-icons/gr"
-import VisitsList from "./VisitsList";
 
-
-export default function VisitsCompleteHistory({visits}) {
+export default function VisitsCompleteHistory() {
     const [Total, setContacts] = useState({
         Visits: "100",
         Revenue: "500",
       });
 
-      const visits = [
-        {
-          date: "23/08/2029",
-          items: "4, 6, 10",
-          numberPeople: "2" ,
-          price: "20" ,
-        },
-        {
-          date: "16/05/2019",
-          items: "4, 6, 7",
-          numberPeople: "3" ,
-          price: "70" ,
-        },
-        {
-          date: "11/05/2018",
-          items: "3, 4",
-          numberPeople: "2" ,
-          price: "20" ,
-        },
-      ];
-      
     return (
     <div>
       <div
@@ -51,8 +28,6 @@ export default function VisitsCompleteHistory({visits}) {
 
         <Header text={"Contact History"} top_a={"0%"} width_a={476.15}/>
         
-        <VisitsList vistis = {visits}/>
-
         <GrClose
           style={{ position: "absolute", left: "92%", top: "2.5%" }}
         />

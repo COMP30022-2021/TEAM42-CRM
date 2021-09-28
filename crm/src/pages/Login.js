@@ -13,13 +13,6 @@ function Login({ setLogIn }) {
     console.log(email);
     fetch("https://team42-crm.herokuapp.com/auth/login", {
       method: "post",
-      mode: "no-cors",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin" : "*",
-        "Access-Control-Allow-Credentials" : true
-      },
       body: JSON.stringify({
         email: email,
         password: password,

@@ -44,10 +44,6 @@ export default function SearchBar({ width, onClick }) {
   );
 }
 
-SearchBar.contextTypes = {
-  router: PropTypes.object.isRequired,
-};
-
 SearchBar.defaultProps = {
   width: 860,
 };

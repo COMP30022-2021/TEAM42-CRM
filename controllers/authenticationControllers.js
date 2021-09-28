@@ -2,8 +2,7 @@ const bcrypt = require("bcryptjs");
 const Authentication = require("../models/authentication");
 
 exports.login = async (req, res) => {
-    try {
-        console.log(req.body);
+    try { 
         let [authentication,] = await Authentication.findEmployeeByEmail(req.body.email);
         console.log(authentication);
 

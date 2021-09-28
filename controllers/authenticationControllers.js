@@ -2,11 +2,11 @@ const bcrypt = require("bcryptjs");
 const Authentication = require("../models/authentication");
 
 exports.login = async (req, res) => {
-
-    try { 
-        let [authentication,] = await Authentication.findEmployeeByEmail(req.body.email);
-        console.log(authentication);
-
+  try {
+    let [authentication] = await Authentication.findEmployeeByEmail(
+      req.body.email
+    );
+    console.log(authentication);
 
     if (authentication.length === 0) {
       res.status(200).json({

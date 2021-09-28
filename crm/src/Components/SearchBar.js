@@ -22,7 +22,6 @@ export default function SearchBar({ width, onClick }) {
         value={text}
         onChange={(e) => setText(e.target.value)}
       ></input>
-
       <BsSearch
         className="icon"
         style={{
@@ -44,6 +43,10 @@ export default function SearchBar({ width, onClick }) {
     </div>
   );
 }
+
+SearchBar.contextTypes = {
+  router: PropTypes.object.isRequired,
+};
 
 SearchBar.defaultProps = {
   width: 860,

@@ -1,29 +1,31 @@
-import React, { useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import React, {useEffect} from "react";
 
 import Header from "../Components/SignIns/SignInHeader";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Helmet from "react-helmet";
 
-function Login() {
-  const history = useHistory();
+function Login({ setLogIn }) {
   const [email, setText1] = useState("");
   const [password, setText2] = useState("");
 
   const attemptLogin = () => {
+    console.log(email);
+    console.log(password);
+    const newPassword = password.toString();
     fetch("https://team42-crm.herokuapp.com/auth/login", {
       method: "post",
-      mode: "cors",
+      mode: 'cors',
       headers: new Headers({
-        "Content-Type": "application/json",
-        Accept: "application/json",
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
       }),
       body: JSON.stringify({
         email: email,
-        password: password,
-      }),
+        password: newPassword,
+      })
     })
+<<<<<<< HEAD
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
@@ -34,6 +36,10 @@ function Login() {
           alert(data.error);
         }
       });
+=======
+      .then(response => response.json())
+      .then(data => console.log(data));
+>>>>>>> parent of ccc2698 (Connected login to backend)
   };
 
   // useEffect(() => {
@@ -96,13 +102,15 @@ function Login() {
 
         <p2 style={{ top: "53%", left: "13%" }}>Forgot Password</p2>
 
-        <button
-          className="button2"
-          onClick={() => attemptLogin()}
-          style={{ width: "65%", margin: 10, left: "15%", top: "64%" }}
-        >
-          <p>Sign in</p>
-        </button>
+        <Link to="/">
+          <button
+            className="button2"
+            onClick={() => attemptLogin()}
+            style={{ width: "65%", margin: 10, left: "15%", top: "64%" }}
+          >
+            <p>Sign in</p>
+          </button>
+        </Link>
 
         <p2
           style={{

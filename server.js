@@ -1,14 +1,14 @@
 const express = require("express");
 const path = require('path');
-const cors = require('cors')
+const cors = require('cors');
 
 if (process.env.NODE_ENV !== 'production') require('dotenv').config()
 
 const app = express()
 
+app.use(cors())
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
 
 // port for backend running
 const port = process.env.PORT || 5000;
@@ -35,15 +35,9 @@ if (process.env.NODE_ENV === 'production') {
 //     console.log("Server is running on port: ", port)
 // });
 
-app.use(
-  cors({
-      credentials: true,
-      origin: "http://localhost:3000",
-  })
-);
-
 app.get('/products/:id', function (req, res, next) {
-    res.json({msg: 'This is CORS-enabled for all origins!'})
+    res.json({msg: 'This is CORS-enabled for all origins!'});
+    next();
 })
 
 app.listen(port, function () {

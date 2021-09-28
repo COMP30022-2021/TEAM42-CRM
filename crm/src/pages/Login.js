@@ -13,7 +13,7 @@ function Login({ setLogIn }) {
     console.log(email);
     console.log(password);
     const newPassword = password.toString();
-    fetch("https://team42-crm.herokuapp.com/auth/login", {
+    fetch("http://localhost:5000/auth/login", {
       method: "post",
       headers: {
         'Content-Type': 'application/json;charset=utf-8;'

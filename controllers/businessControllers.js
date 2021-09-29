@@ -29,6 +29,8 @@ exports.signupbusiness = async function (req, res) {
       newBusiness.save().then((business) => {
         res.json({
           business: {
+            status_code: 0,
+            status_message: "Success",
             name: newBusiness.name,
             dateEstablished: newBusiness.dateEstablished,
           },

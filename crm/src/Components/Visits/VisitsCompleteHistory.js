@@ -8,31 +8,9 @@ import VisitsList from "./VisitsList";
 
 export default function VisitsCompleteHistory({visits}) {
     const [Total, setContacts] = useState({
-        Visits: "100",
+        NumberVisits: "100",
         Revenue: "500",
       });
-
-      const visits = [
-        {
-          date: "23/08/2029",
-          items: "4, 6, 10",
-          numberPeople: "2" ,
-          price: "20" ,
-        },
-        {
-          date: "16/05/2019",
-          items: "4, 6, 7",
-          numberPeople: "3" ,
-          price: "70" ,
-        },
-        {
-          date: "11/05/2018",
-          items: "3, 4",
-          numberPeople: "2" ,
-          price: "20" ,
-        },
-      ];
-      
     return (
     <div>
       <div
@@ -51,7 +29,7 @@ export default function VisitsCompleteHistory({visits}) {
 
         <Header text={"Contact History"} top_a={"0%"} width_a={476.15}/>
         
-        <VisitsList vistis = {visits}/>
+        <VisitsList visits = {visits}/>
 
         <GrClose
           style={{ position: "absolute", left: "92%", top: "2.5%" }}
@@ -59,7 +37,7 @@ export default function VisitsCompleteHistory({visits}) {
 
 
         <Header text={""} top_a={"100%"} width_a={476.15} />
-        <p className="p9" style={{position: "absolute",top:"99.5%",left:"10%"}}>Total # of visits: {Total.Visits}</p> 
+        <p className="p9" style={{position: "absolute",top:"99.5%",left:"10%"}}>Total # of visits: {Total.NumberVisits}</p> 
         <p className="p9" style={{position: "absolute",top:"99.5%",left:"60%"}}>Total Revenue: {Total.Revenue} $</p> 
       </div>
     </div>

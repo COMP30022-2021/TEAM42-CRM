@@ -8,7 +8,7 @@ export default function ContactsHeader() {
       style={{ position: "sticky", left: 103, top: 0, zIndex: 1 }}
     >
       <SelectBox />
-      <h4 style={{ left: "11%", top: "12%" }}>Name</h4>
+      <h4 style={{ left: "13.5%", top: "15%" }}>Name</h4>
       <h4 style={{ left: "30%", top: "12%" }}>Gender</h4>
       <h4 style={{ left: "49%", top: "12%" }}>Role</h4>
       <h4 style={{ left: "70%", top: "12%" }}>Email</h4>

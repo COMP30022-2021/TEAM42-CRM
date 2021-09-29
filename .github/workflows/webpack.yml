@@ -12,7 +12,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12.x, 14.x, 16.x]
+        node-version: [ 14.x ]
     
     steps:
     - uses: actions/checkout@v2
@@ -28,3 +28,8 @@ jobs:
         # npx webpack
         npm test
         npm run build
+      env:
+        MYSQL_HOST: us-cdbr-east-04.cleardb.com
+        MYSQL_USER: b01eb9170bdd13
+        MYSQL_DATABASE: heroku_c2fca39d7a7384f
+        MYSQL_PASSWORD: fd7ba9ac

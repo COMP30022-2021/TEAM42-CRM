@@ -9,8 +9,9 @@ exports.login = async (req, res) => {
 
         if (authentication.length === 0) {
             res.status(200).json({
+                status_code: 409,
                 success: false,
-                error: "This email is not registered",
+                status_message: "Error: This email is not registered"
             });
         }else {
             bcrypt.compare(req.body.password, authentication[0].password, (err, isMatch) => {
@@ -18,21 +19,29 @@ exports.login = async (req, res) => {
                 console.log(authentication[0].password)
                 if (isMatch) {
                     res.status(200).json({
+                        status_code: 0,
+                        status_message: "Success",
                         success: true,
+                        businessID: authentication[0].business_id,
                         employee: {
                             employee_id: authentication[0].employee_id,
                         },
                     });
                 } else {
                     res.status(409).json({
-                        error: err,
-                        message: "Incorrect password",
+                        status_code: 409,
+                        success: false,
+                        status_message: "Error: Incorrect Password",
                     });
                 }
             });
         }
     } catch (err) {
         console.log(err);
+        res.status(200).json({
+            status_code: 400,
+            status_message: "Error: Internal Server Error"
+        })
     }
 }
 

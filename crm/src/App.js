@@ -11,6 +11,25 @@ import customer from "./res/images/Customer.jpg";
 import employee from "./res/images/Employee.jfif";
 import vendor from "./res/images/external_vendor.jpg";
 
+import AddEmployee from "./Components/AddContact/AddEmployee";
+import UpdateEmployee from "./Components/UpdateContacts/UpdateEmployee";
+import AddCustomer from "./Components/AddContact/AddCustomer";
+import UpdateCustomer from "./Components/UpdateContacts/UpdateCustomer";
+import AddExternalVendor from "./Components/AddContact/AddExternalVendor";
+import UpdateExternalVendor from "./Components/UpdateContacts/UpdateExternalVendor";
+import CustomerDisplay from "./Components/ContactDisplay/CustomerDisplay";
+import EmployeeDisplay from "./Components/ContactDisplay/EmployeeDisplay";
+import ExternalVendorDisplay from "./Components/ContactDisplay/ExternalVendorDisplay";
+import CustomerFilterBar from "./Components/FilterSideBar/CustomerFilterBar";
+import FilterBar from "./Components/FilterSideBar/FilterBar";
+import { SideBarUser } from "./Components/SideBar/SideBarUser";
+import AddEngagement from "./Components/Visits/AddEngagement";
+import AddVisit from "./Components/Visits/AddVisit";
+import EngagementCompleteHistory from "./Components/Visits/EngagementCompleteHistory";
+import ContactsListElement from "./Components/ContactDisplay/ContactsListElement";
+import ContactsList from "./Components/ContactDisplay/ContactsList";
+import VisitsCompleteHistory from "./Components/Visits/VisitsCompleteHistory";
+
 const contacts = [
   {
     id: 1,
@@ -51,13 +70,9 @@ const contacts = [
 ];
 
 function App() {
-  if (!localStorage.getItem("loggedIn")) {
-    localStorage.setItem("loggedIn", false);
-  }
-  console.log(localStorage.getItem("loggedIn"));
   return (
     <div className="App" style={{ background: "#000000" }}>
-      <Route
+      {/* <Route
         exact
         path="/contacts"
         render={() =>
@@ -92,7 +107,8 @@ function App() {
             <Redirect to="/login" />
           )
         }
-      />
+      /> */}
+    <VisitsCompleteHistory/>
     </div>
   );
 }

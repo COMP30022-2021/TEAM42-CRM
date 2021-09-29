@@ -5,12 +5,39 @@ import { GrClose } from "react-icons/gr";
 import { useState } from "react";
 
 function ChangePassword({ setBlur }) {
-  const [oldPassword, setText1] = useState("");
-  const [newPassword1, setText2] = useState("");
-  const [newPassword2, setText3] = useState("");
+  const [oldPassword, setOldPassword] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [repeatPassword, setRepeatPassword] = useState("");
 
-  function attemptChange({ setchangePassword }) {
-    alert(oldPassword + newPassword1 + newPassword2);
+  function attemptChange() {
+    if (oldPassword === "") alert("Add Old Password");
+    else if (newPassword === "") alert("Add New Password");
+    else if (repeatPassword === "") alert("Add Repeat Password");
+    else if (newPassword !== repeatPassword) alert("Passwords do not match");
+    else {
+      console.log(localStorage.getItem("businessID"));
+      console.log(localStorage.getItem("employeeID"));
+      fetch("https://team42-crm.herokuapp.com/auth/change/password", {
+        method: "post",
+        mode: "cors",
+        headers: new Headers({
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        }),
+        body: JSON.stringify({
+          employeeID: localStorage.getItem("employeeID"),
+          oldPassword: oldPassword,
+          newPassword: newPassword,
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.status_code === 0) {
+            alert("Password changed successfully!");
+            setBlur(false);
+          } else alert(data.status_message);
+        });
+    }
   }
 
   return (
@@ -25,7 +52,7 @@ function ChangePassword({ setBlur }) {
           type="text"
           placeholder="Enter Old Password"
           value={oldPassword}
-          onChange={(e) => setText1(e.target.value)}
+          onChange={(e) => setOldPassword(e.target.value)}
         ></input>
 
         <p1 style={{ top: "33%", left: "15%" }}>New Password:</p1>
@@ -35,8 +62,8 @@ function ChangePassword({ setBlur }) {
           style={{ top: "41%" }}
           type="text"
           placeholder="Enter New Password"
-          value={newPassword1}
-          onChange={(e) => setText2(e.target.value)}
+          value={newPassword}
+          onChange={(e) => setNewPassword(e.target.value)}
         ></input>
 
         <p1 style={{ top: "51%", left: "15%" }}>Repeat New Password:</p1>
@@ -46,8 +73,8 @@ function ChangePassword({ setBlur }) {
           style={{ top: "59%" }}
           type="text"
           placeholder="Repeat your new password"
-          value={newPassword2}
-          onChange={(e) => setText3(e.target.value)}
+          value={repeatPassword}
+          onChange={(e) => setRepeatPassword(e.target.value)}
         ></input>
 
         <button

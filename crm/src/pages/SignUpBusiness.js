@@ -16,7 +16,7 @@ function SignUpBusiness() {
   const attemptSignUp = () => {
     if (businessName === "") alert("Add Business Name");
     else if (email === "") alert("Add Business Email");
-    if (password !== repeatPassword) alert("Passwords do not match");
+    else if (password !== repeatPassword) alert("Passwords do not match");
     else {
       fetch("https://team42-crm.herokuapp.com/business/signupbusiness", {
         method: "post",

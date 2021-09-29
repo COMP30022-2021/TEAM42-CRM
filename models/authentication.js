@@ -26,8 +26,19 @@ class Authentication {
         return newEmployee
     }
 
+    async updatePassword(employeeID) {
+        let sql = `UPDATE employee SET password = '${this.password}' WHERE employee_id = ${employeeID}`
+        const [result, _] = await mysql.execute(sql);
+        return result
+    }
+
     static findEmployeeByEmail(email) {
         let sql = `SELECT * FROM employee WHERE email = '${email}'`
+        return mysql.execute((sql))
+    }
+
+    static findEmployeeByID(employeeID) {
+        let sql = `SELECT * FROM employee WHERE employee_id = ${employeeID}`
         return mysql.execute((sql))
     }
 }

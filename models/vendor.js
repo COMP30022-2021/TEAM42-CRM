@@ -13,8 +13,7 @@ class Vendor {
         let sql = `
         INSERT INTO vendor(
         business_id,
-        first_name, 
-        last_name, 
+        name,
         email, 
         phone, 
         address

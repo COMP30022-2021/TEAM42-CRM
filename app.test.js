@@ -1,21 +1,24 @@
 
 const supertest = require("supertest")
 const app = require('./app.js')
-const http = require('http')
-
+const mysql = require('./config/mysql');
+// jest.setTimeout(20000)
 describe("POST /auth/login", () => {
+  let server;
+  let request;
+
+  beforeAll((done)=>{
+    server = app.listen(5000, ()=>console.log("Listening on 5000"))
+    request = supertest(app)
+    done()
+  })
+
+  afterAll(async ()=>{
+    await server.close()
+    await mysql.end()
+  })
   describe("given a username and password", () => {
-    let server;
-    let request;
-    beforeAll((done)=>{
-      server = http.createServer(app)
-      server.listen(done)
-      request = supertest(server)
-    })
-    afterAll((done)=>{
-      server.close(done)
-    })
-    test("should respond with a 200 status code", async (done) => {
+    test("should respond with a 200 status code", async () => {
       jest.setTimeout(30000);
 
       const response = await request.post("/auth/login").send({
@@ -23,10 +26,9 @@ describe("POST /auth/login", () => {
         password: "123"
       })
       expect(response.statusCode).toBe(200)
-      done();
     })
 
-    test("should be a JSON response", async (done) => {
+    test("should be a JSON response", async () => {
       jest.setTimeout(30000);
 
       const response = await request.post("/auth/login").send({
@@ -34,10 +36,9 @@ describe("POST /auth/login", () => {
         password: "123"
       })
       expect(response.headers['content-type']).toEqual(expect.stringContaining("json"))
-      done();
     })
 
-    test("Should find an existing account in the database", async (done) => {
+    test("Should find an existing account in the database", async () => {
       jest.setTimeout(30000);
 
       const response = await request.post("/auth/login").send({
@@ -45,31 +46,28 @@ describe("POST /auth/login", () => {
         password: "123"
       })
       expect(response.body.success).toEqual(true)
-      done();
     })
 
-    test("Should return Error Code 409 if password is incorrect", async (done) => {
+    test("Should return Error Code 409 if password is incorrect", async () => {
       jest.setTimeout(30000);
       const response = await request.post("/auth/login").send({
         email: "test4@qq.com",
         password: "WRONG PASSWORD"
-      }) 
+      })
       expect(response.statusCode).toBe(409)
-      done();
     })
 
-    test("Warn about attempt to log in with incorrect email", async (done) => {
+    test("Warn about attempt to log in with incorrect email", async () => {
       jest.setTimeout(30000);
       const response = await request.post("/auth/login").send({
         email: "thisemaildoesnotexist@qq.com",
         password: "123"
-      }) 
+      })
       expect(response.body.success).toEqual(false)
-      done();
     })
 
 
-    
+
   })
 
   // // describe("when the username and password is missing", () => {
@@ -88,4 +86,4 @@ describe("POST /auth/login", () => {
 
 })
 
-afterAll(async (done) => { await mysqlPool.end(); done() })
+// afterAll(async (done) => { await mysqlPool.end(); done() })

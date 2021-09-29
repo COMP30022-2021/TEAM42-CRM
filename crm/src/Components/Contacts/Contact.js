@@ -7,10 +7,10 @@ import vendor from "../../res/images/external_vendor.jpg";
 
 export const Contact = ({ contact }) => {
   const image =
-    contact.role === "employee"
-      ? employee
-      : contact.role === "customer"
-      ? customer
+    contact.gender === 0
+      ? contact.role === "employee"
+        ? employee
+        : customer
       : vendor;
   return (
     // <Link

@@ -27,4 +27,4 @@ jobs:
         npm ci
         # npx webpack
         npm test
-        npm run build  
+        npm run build

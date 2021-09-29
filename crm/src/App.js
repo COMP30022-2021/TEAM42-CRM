@@ -11,25 +11,6 @@ import customer from "./res/images/Customer.jpg";
 import employee from "./res/images/Employee.jfif";
 import vendor from "./res/images/external_vendor.jpg";
 
-import AddEmployee from "./Components/AddContact/AddEmployee";
-import UpdateEmployee from "./Components/UpdateContacts/UpdateEmployee";
-import AddCustomer from "./Components/AddContact/AddCustomer";
-import UpdateCustomer from "./Components/UpdateContacts/UpdateCustomer";
-import AddExternalVendor from "./Components/AddContact/AddExternalVendor";
-import UpdateExternalVendor from "./Components/UpdateContacts/UpdateExternalVendor";
-import CustomerDisplay from "./Components/ContactDisplay/CustomerDisplay";
-import EmployeeDisplay from "./Components/ContactDisplay/EmployeeDisplay";
-import ExternalVendorDisplay from "./Components/ContactDisplay/ExternalVendorDisplay";
-import CustomerFilterBar from "./Components/FilterSideBar/CustomerFilterBar";
-import FilterBar from "./Components/FilterSideBar/FilterBar";
-import { SideBarUser } from "./Components/SideBar/SideBarUser";
-import AddEngagement from "./Components/Visits/AddEngagement";
-import AddVisit from "./Components/Visits/AddVisit";
-import EngagementCompleteHistory from "./Components/Visits/EngagementCompleteHistory";
-import ContactsListElement from "./Components/ContactDisplay/ContactsListElement";
-import ContactsList from "./Components/ContactDisplay/ContactsList";
-import VisitsCompleteHistory from "./Components/Visits/VisitsCompleteHistory";
-
 const contacts = [
   {
     id: 1,
@@ -70,13 +51,14 @@ const contacts = [
 ];
 
 function App() {
+  const [loggedIn, setloggedIn] = React.useState(true);
   return (
     <div className="App" style={{ background: "#000000" }}>
-      {/* <Route
+      <Route
         exact
         path="/contacts"
         render={() =>
-          localStorage.getItem("loggedIn") === "true" ? (
+          loggedIn ? (
             <ContactPage contacts={contacts} />
           ) : (
             <Redirect to="/login" />
@@ -87,28 +69,31 @@ function App() {
         exact
         path="/"
         render={() =>
-          localStorage.getItem("loggedIn") === "true" ? (
+          loggedIn ? (
             <Dashboard contacts={contacts} />
           ) : (
             <Redirect to="/login" />
           )
         }
       />
-      <Route exact path="/login" render={() => <Login />} />
+      <Route
+        exact
+        path="/login"
+        render={() => <Login setLogIn={setloggedIn} />}
+      />
       <Route exact path="/signup" render={() => <SignUpBusiness />} />
 
       <Route
         exact
         path="/contacts/:role/:name/:id"
         render={() =>
-          localStorage.getItem("loggedIn") === "true" ? (
+          loggedIn ? (
             <ContactDisplay contacts={contacts} />
           ) : (
             <Redirect to="/login" />
           )
         }
-      /> */}
-    <VisitsCompleteHistory/>
+      />
     </div>
   );
 }

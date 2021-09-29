@@ -23,10 +23,12 @@
   },
   "homepage": "https://github.com/COMP30022-2021/TEAM42-CRM#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "concurrently": "^6.2.1",
     "express": "^4.17.1",
-    "mysql": "^2.18.1",
+    "fetch": "^1.1.0",
     "mysql2": "^2.3.0",
+    "node-fetch": "^3.0.0",
     "nodemon": "^2.0.12",
     "react-icons": "^4.2.0",
     "react-sizeme": "^3.0.2"

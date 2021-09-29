@@ -6,9 +6,10 @@ export default function SideBarCollapsed({ setSBC, path }) {
     <React.Fragment>
       <div
         onMouseEnter={() => setSBC(false)}
+        onMouseOver={() => setSBC(false)}
         className="side-bar"
         style={{
-          left: -170,
+          left: "-13%",
         }}
       >
         <SBCElements path={path} />

@@ -1,7 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
 
-
-
 .App {
   text-align: center;
 }
@@ -45,10 +43,13 @@
   }
 }
 
+.center {
+  display: flex;
+  justify-content: center;
+}
+
 body {
   background: #f5f6f8;
-  width: 1200x;
-  height: 762px;
 }
 
 h1 {
@@ -64,14 +65,27 @@ h1 {
 }
 
 h2 {
-  color:white;
+  color: white;
+  top: -25%;
+  left: 0%;
+  width: 100%;
+  position: absolute;
+}
+
+.header {
   background: rgba(159, 191, 142, 1);
   border-radius: 6px;
+  position: absolute;
+  left: 50%;
+
+  height: 55px;
+  transform: translate(-50%, -25%);
+  text-align: center;
 }
 
 h3 {
   position: absolute;
-  font-family: "Poppins", sans-serif;
+  font-family: Poppins, sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 13px;
@@ -82,10 +96,29 @@ h3 {
   color: #cfd7e3;
 }
 
+
+
 h4 {
   position: absolute;
 
-  font-family: Poppins;
+  font-family: Poppins, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 19px;
+
+  letter-spacing: 0.01em;
+
+  color: #334d6e;
+
+  opacity: 0.5;
+  transform: translate(-50%, -50%);
+}
+
+.hvisits {
+  position: absolute;
+
+  font-family: Poppins, sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 13px;
@@ -99,76 +132,196 @@ h4 {
 }
 
 h5 {
-width: 476.15;
-height:400;
-position: 'absolute';
-left: '50%';
-top: '52.5%';
-transform: 'translate(-50%, -50%)';
-font-family: Roboto;
-font-style: normal;
-font-weight: 500;
-font-size: 16px;
-line-height: 28px;
-/* or 175% */
+  width: 476.15;
+  height: 400;
+  position: "absolute";
+  left: "50%";
+  top: "52.5%";
+  transform: "translate(-50%, -50%)";
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 28px;
+  /* or 175% */
 
-text-align: center;
+  text-align: center;
 
-color: #000000;
+  color: #000000;
 }
 
 p {
-  font-family: Poppins;
+  font-family: Poppins, sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 13px;
   line-height: 19px;
   letter-spacing: 0.01em;
-
-  /* white */
-
   color: #ffffff;
 }
 
+.pText {
+  font-family: Poppins, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 19px;
+  letter-spacing: 0.01em;
+  color: #109CF1;
+}
+.pButton {
+  font-family: Poppins, sans-serif;
+  font-style: normal;
+  /* white */
+  line-height: 0px;
+  font-size: 11px;
+  color: #109cf1;
+}
+
+.signUpInput {
+  text-indent: 10px;
+}
+
 p1 {
-position: absolute;
-height: 28px;
-left: 0px;
-top: 0px;
+  position: absolute;
+  height: 28px;
 
-font-family: Roboto;
-font-style: normal;
-font-weight: 500;
-font-size: 16px;
-line-height: 28px;
-/* or 175% */
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 28px;
 
-text-align: center;
+  text-align: center;
 
-color: #000000;
-
+  color: #000000;
 }
 
-p2{
-position: absolute;
-width: 114px;
-height: 28px;
-left: 0px;
-top: 0px;
+p2 {
+  position: absolute;
+  width: 114px;
+  height: 28px;
+  left: 0px;
+  top: 0px;
 
-font-family: Roboto;
-font-style: normal;
-font-weight: 500;
-font-size: 14px;
-line-height: 28px;
-/* or 200% */
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 28px;
+  /* or 200% */
 
-text-decoration-line: underline;
+  text-decoration-line: underline;
 
-color: #0075FF;
+  color: #0075ff;
 }
 
+.p3 {
+  position: absolute;
+  font-family: Poppins, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 21px;
+  letter-spacing: 0.01em;
+  color: #000000;
+}
 
+.p4 {
+  position: absolute;
+  font-family: Poppins, sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 19px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.01em;
+
+  color: #109cf1;
+}
+
+.p5 {
+  font-family: Poppins, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 10px;
+  line-height: 19px;
+  /* identical to box height */
+
+  letter-spacing: 0.01em;
+
+  /* table_gray */
+
+  color: #707683;
+}
+
+.p6 {
+  font-family: Poppins, sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 24px;
+  /* identical to box height */
+  letter-spacing: 0.01em;
+  /* dark_blue */
+  color: #334d6e;
+  opacity: 0.5;
+}
+
+.p7 {
+  font-family: Poppins, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 19px;
+  /* identical to box height */
+
+  letter-spacing: 0.01em;
+
+  /* table_gray */
+  color: #707683;
+}
+
+.p8 {
+  font-family: Poppins, sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 18px;
+  position: absolute;
+  /* identical to box height */
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.01em;
+
+  cursor: pointer;
+  color: #0692be;
+}
+
+.p9 {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 19px;
+  letter-spacing: 0.01em;
+  color: #ffffff;
+}
+
+.userDesign {
+  position: absolute;
+  font-family: Poppins, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 19px;
+  color: "#9FBF8E";
+  letter-spacing: 0.01em;
+}
 
 .icon {
   position: absolute;
@@ -180,6 +333,7 @@ color: #0075FF;
   border: 0;
   box-sizing: border-box;
   border-radius: 1px;
+  cursor: pointer;
 }
 
 .search-bar {
@@ -187,19 +341,82 @@ color: #0075FF;
 
   height: 60px;
   width: 860px;
-  left: 68px;
-  right: 383px;
+  left: 69px;
   top: 0px;
   /* white */
+  position: fixed;
 
   background: #ffffff;
 }
 
+.search-bar1 {
+  position: absolute;
+  position: fixed;
+  background: "#F0EBEB";
+  border: 0;
+}
+
+.search-bar2 {
+  position: absolute;
+  position: fixed;
+  background: #F0EBEB;
+  border: 0;
+}
+
+.numInput {
+  position: absolute;
+}
+
 .button1 {
+  position: fixed;
+
+  width: 12%;
+  height: 7%;
+  background: #265573;
+  justify-content: "center";
+
+  text-align: center;
+  line-height: 100%;
+
+  box-shadow: 0px 4px 10px rgba(16, 156, 241, 0.24);
+  border-radius: 4px;
+  box-sizing: border-box;
+
+  cursor: pointer;
+}
+
+.button2 {
+  position: absolute;
+  background: #265573;
+  border-radius: 50.5px;
+  border: none;
+}
+
+.button3 {
+  position: absolute;
+  background: #ffffff;
+  height: 10%;
+  width: 14%;
+  margin: 10;
+  top: 88%;
+  line-height: 13px;
+}
+
+.addButton {
+  position: absolute;
+  background: #265573;
+  height: 10%;
+  width: 14%;
+  margin: 10;
+  top: 88%;
+  line-height: 13px;
+}
+
+.button4 {
   position: absolute;
 
-  width: 160px;
-  height: 42px;
+  width: 22%;
+  height: 9%;
   background: #265573;
   justify-content: "center";
 
@@ -209,22 +426,32 @@ color: #0075FF;
   box-shadow: 0px 4px 10px rgba(16, 156, 241, 0.24);
   border-radius: 4px;
   box-sizing: border-box;
+
+  cursor: pointer;
 }
 
-.button2 {
+.buttonFilter {
   position: absolute;
-  background: #265573;
-  border-radius: 50.5px;
+  background: #ffffff;
+  height: 10%;
+  margin: 10;
+}
+
+.buttonAdd {
+  position: absolute;
+  background: #ffffff;
+  height: 3.5%;
+  margin: 10;
 }
 
 .block {
-  position: absolute;
   height: 48px;
-  width: 957px;
-  /* white */
+  width: 100%;
 
   background: #ffffff;
   border-radius: 4px;
+  filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.25));
+  margin-bottom: 0.2%;
 }
 
 .form-control-check {
@@ -238,13 +465,139 @@ color: #0075FF;
   height: 100%;
   display: flex;
   flex-direction: column;
-  border-right: 4px solid;
   border-radius: 0;
-  border-color: #001420;
+  border-color: #265573;
   transition: 0.8s ease;
 
   position: fixed;
-  width: 220px;
+  width: 18%;
   background: #265573;
   box-shadow: 6px 1px 18px rgba(0, 0, 0, 0.06);
+  z-index: 10;
+}
+
+.logInBox {
+  filter: drop-shadow(6px 6px 8px rgba(0, 0, 0, 0.25));
+}
+
+.contactDisplay {
+  background: #fffcfc;
+  width: 78.6%;
+  height: 86%;
+  position: absolute;
+  left: 20%;
+  top: 10%;
+  right: 10%;
+  filter: drop-shadow(6px 6px 8px rgba(0, 0, 0, 0.25));
+}
+
+.filterBar {
+  width: 25%;
+  height: 86%;
+  top: 10%;
+  left: 75%;
+
+  display: flex;
+  flex-direction: column;
+  border-radius: 0;
+  border-color: #265573;
+  transition: 0.8s ease;
+
+  position: fixed;
+  background: #ffffff;
+  box-shadow: 6px 1px 18px rgba(0, 0, 0, 0.06);
+}
+
+.contactImage {
+  position: absolute;
+  top: 18%;
+  left: 50%;
+  border-radius: 50%;
+  width: 160px;
+  height: 160px;
+  display: block;
+  transform: translate(-50%, -50%);
+}
+
+.contactTitle {
+  position: absolute;
+  font-family: Poppins, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  letter-spacing: 0.01em;
+  color: #000000;
+
+  left: 50%;
+  top: 37%;
+  font-size: 36px;
+  transform: translate(-50%, -50%);
+}
+
+.contactSubtitle {
+  position: absolute;
+  font-family: Poppins, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  letter-spacing: 0.01em;
+  color: #000000;
+
+  left: 50%;
+  top: 44%;
+  font-size: 20px;
+  transform: translate(-50%, -50%);
+}
+
+.addVisit {
+  background: #fffcfc;
+  width: 30%;
+  height: 50%;
+  position: absolute;
+  left: 53%;
+  top: 48%;
+  transform: translate(-50%, -50%);
+  filter: drop-shadow(6px 6px 8px rgba(0, 0, 0, 0.25));
+}
+
+.Page {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0%;
+  top: 0%;
+}
+
+.addContact {
+  background: #fffcfc;
+  width: 60%;
+  height: 65%;
+  position: absolute;
+  left: 55%;
+  top: 45%;
+  transform: translate(-50%, -50%);
+  filter: drop-shadow(6px 6px 8px rgba(0, 0, 0, 0.25));
+}
+
+.addInput {
+  background: #f3efef;
+  border: 0;
+  height: 28px;
+  width: 35%;
+  position: absolute;
+  text-indent: 5px;
+}
+
+.buttonCustomer {
+  position: absolute;
+  background: #265573;
+  border-radius: 50.5px;
+  border: none;
+  margin: 10;
+}
+
+.deleteButton {
+  position: absolute;
+  background: red;
+  border-radius: 50.5px;
+  border: none;
+  margin: 10;
 }

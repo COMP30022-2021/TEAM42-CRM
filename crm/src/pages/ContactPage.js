@@ -6,22 +6,36 @@ import { Helmet } from "react-helmet";
 import SearchBar from "../Components/SearchBar";
 import { SideBar } from "../Components/SideBar/SideBar";
 import SideBarCollapsed from "../Components/SideBar/SBC";
+import AddPopUp from "../Components/AddContact/AddPopUp.js";
 
-export default function ContactPage(props) {
+import { useLocation } from "react-router";
+
+export default function ContactPage({ contacts }) {
   const [sbc, setSBC] = React.useState(true);
+  const [blur, setBlur] = React.useState(false);
+  const location = useLocation();
   return (
     <div>
-      <Helmet>
-        <title>Contacts</title>
-      </Helmet>
-      <SearchBar />
-      <Filters />
-      <Contacts />
+      <div
+        className="Page"
+        style={{
+          filter: blur ? "blur(2px)" : "",
+        }}
+      >
+        <Helmet>
+          <title>Lynk - Contacts</title>
+        </Helmet>
+        <Contacts contacts={contacts} />
+
+        <SearchBar onClick={setBlur} width="66%" />
+        <Filters />
+      </div>
       {sbc ? (
-        <SideBarCollapsed setSBC={setSBC} path={props.location.pathname} />
+        <SideBarCollapsed setSBC={setSBC} path={location.pathname} />
       ) : (
-        <SideBar setSBC={setSBC} path={props.location.pathname} />
+        <SideBar setSBC={setSBC} path={location.pathname} />
       )}
+      {blur && <AddPopUp setBlur={setBlur} />}
     </div>
   );
 }

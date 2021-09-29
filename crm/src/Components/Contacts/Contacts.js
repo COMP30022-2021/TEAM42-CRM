@@ -2,7 +2,30 @@ import React from "react";
 import { Contact } from "./Contact";
 import ContactsHeader from "./ContactsHeader";
 
-export default function Contacts({ contacts }) {
+export default function Contacts() {
+  const [contacts, setContacts] = React.useState([]);
+
+  React.useEffect(() => {
+    loadContacts();
+  }, []);
+
+  const loadContacts = async () => {
+    await fetch(
+      "https://team42-crm.herokuapp.com/contact/" +
+        localStorage.getItem("businessID"),
+      {
+        method: "get",
+        mode: "cors",
+        headers: new Headers({
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        }),
+      }
+    )
+      .then((response) => response.json())
+      .then((data) => setContacts(data.contacts));
+  };
+
   return (
     <div
       style={{
@@ -16,15 +39,6 @@ export default function Contacts({ contacts }) {
     >
       <ContactsHeader />
 
-      {contacts.map((contact) => (
-        <Contact contact={contact} />
-      ))}
-      {contacts.map((contact) => (
-        <Contact contact={contact} />
-      ))}
-      {contacts.map((contact) => (
-        <Contact contact={contact} />
-      ))}
       {contacts.map((contact) => (
         <Contact contact={contact} />
       ))}

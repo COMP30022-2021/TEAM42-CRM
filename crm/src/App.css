@@ -176,10 +176,6 @@ p {
   color: #109cf1;
 }
 
-.signUpInput {
-  text-indent: 10px;
-}
-
 p1 {
   position: absolute;
   height: 28px;
@@ -361,6 +357,15 @@ p2 {
   border: 0;
 }
 
+.signUpInput {
+  position: absolute;
+  background: #f0ebeb;
+  border: 0;
+  height: 7%;
+  width: 35%;
+  text-indent: 5%;
+}
+
 .numInput {
   position: absolute;
 }
@@ -389,6 +394,16 @@ p2 {
   border-radius: 50.5px;
   border: none;
   cursor: pointer;
+}
+
+.signUpButton {
+  position: absolute;
+  background: #265573;
+  border-radius: 50.5px;
+  border: none;
+  cursor: pointer;
+  width: 35%;
+  margin: 10px;
 }
 
 .button3 {
@@ -477,6 +492,18 @@ p2 {
 
 .logInBox {
   filter: drop-shadow(6px 6px 8px rgba(0, 0, 0, 0.25));
+}
+
+.signUp {
+  filter: drop-shadow(6px 6px 8px rgba(0, 0, 0, 0.25));
+
+  background: #fffcfc;
+  width: 45%;
+  height: 55%;
+  position: absolute;
+  left: 50%;
+  top: 52.5%;
+  transform: translate(-50%, -50%);
 }
 
 .contactDisplay {

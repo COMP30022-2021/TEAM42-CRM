@@ -1,6 +1,5 @@
 import React from "react";
 import Header from "../SignIns/SignInHeader";
-import { useState } from "react";
 import { GrClose } from "react-icons/gr";
 import EmployeeInner from "./EmployeeInner";
 

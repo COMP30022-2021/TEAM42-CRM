@@ -1,5 +1,4 @@
 import React from "react";
-import AddPopUp from "../AddContact/AddPopUp";
 import { AiFillEdit } from "react-icons/ai";
 
 export const EditContact = ({ setEditMode }) => {

@@ -50,3 +50,24 @@ exports.createNewCustomer = async (req, res) => {
 
     }
 }
+
+exports.deleteCustomer = async (req, res) => {
+    try {
+        const customerId = req.params.id;
+        const newCustomer = new Customer();
+
+        let result = newCustomer.deleteByID(customerId);
+
+        console.log(result);
+        res.status(200).json({
+            status_code: 0,
+            status_message: "Success: Customer Delete",
+        });
+    } catch (err) {
+        console.log(err);
+        res.status(200).json({
+            status_code: 400,
+            status_message: "Error: Internal Server Error"
+        })
+    }
+}

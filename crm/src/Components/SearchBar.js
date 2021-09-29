@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 import { BsSearch } from "react-icons/bs";
 import { AddButton } from "./AddContact/AddButton";

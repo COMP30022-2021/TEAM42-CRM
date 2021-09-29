@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useHistory } from "react-router-dom";
 
 import Header from "../Components/SignIns/SignInHeader";
@@ -12,8 +12,6 @@ function Login() {
   const [password, setText2] = useState("");
 
   const attemptLogin = () => {
-    console.log(email);
-    console.log(password);
     fetch("https://team42-crm.herokuapp.com/auth/login", {
       method: "post",
       mode: "cors",
@@ -29,7 +27,6 @@ function Login() {
       .then((response) => response.json())
       .then((data) => {
         if (data.success === true) {
-          console.log(data);
           localStorage.setItem("loggedIn", true);
           history.push("/");
         } else {

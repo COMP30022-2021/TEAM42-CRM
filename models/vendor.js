@@ -32,6 +32,13 @@ class Vendor {
         return newVendor
     }
 
+    async deleteByID(id) {
+        let sql = `DELETE FROM vendor WHERE vendor_id = ${id};`
+
+        const [result, _] = await mysql.execute(sql);
+        return result
+    }
+
     // static findByID(id) {
     //     let sql = `SELECT * FROM customer WHERE id = ${id}`
     //     return mysql.execute((sql))

@@ -47,7 +47,7 @@ exports.login = async (req, res) => {
 
 exports.register = async function (req, res) {
     try {
-        const {firstName, lastName, email, password} = req.body;
+        const {name, email, password} = req.body;
 
         let [authentication,] = await Authentication.findEmployeeByEmail(req.body.email);
         console.log(authentication)
@@ -60,8 +60,7 @@ exports.register = async function (req, res) {
             });
         } else {
             const newEmployee = new Authentication(
-                firstName,
-                lastName,
+                name,
                 email,
                 password,
             );
@@ -73,8 +72,7 @@ exports.register = async function (req, res) {
                     newEmployee.save().then((employee) => {
                         res.json({
                             employee: {
-                                givenName: newEmployee.firstName,
-                                familyName: newEmployee.lastName,
+                                name: newEmployee.name,
                                 email: newEmployee.email,
                                 password: newEmployee.password,
                             },

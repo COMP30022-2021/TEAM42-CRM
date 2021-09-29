@@ -4,17 +4,17 @@ const app = require('./app.js')
 const mysql = require('./config/mysql');
 // jest.setTimeout(20000)
 describe("POST /auth/login", () => {
-  let server;
+  // let server;
   let request;
 
   beforeAll((done)=>{
-    server = app.listen(5000, ()=>console.log("Listening on 5000"))
+    // server = app.listen(5000, ()=>console.log("Listening on 5000"))
     request = supertest(app)
     done()
   })
 
   afterAll(async ()=>{
-    await server.close()
+    // await server.close()
     await mysql.end()
   })
   describe("given a username and password", () => {

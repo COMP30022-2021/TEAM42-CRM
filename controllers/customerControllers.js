@@ -20,13 +20,33 @@ exports.getCustomerById = async (req, res) => {
 
 exports.createNewCustomer = async (req, res) => {
     try {
-        let { first_name, last_name, email, phone, address } = req.body;
-        let customer = new Customer(first_name, last_name, email, phone, address);
+        let { businessID, firstName, lastName, email, phone, address } = req.body;
+        let newCustomer = new Customer(businessID, firstName, lastName, email, phone, address);
 
-        customer = await customer.save();
-        console.log(customer);
-        res.status(201).json({ "message": {customer}})
+        newCustomer.save().then((customer) => {
+            res.status(200).json({
+                status_code: 0,
+                status_message: "Success",
+                customer: {
+                    businessID: newCustomer.businessID,
+                    customerID: customer.insertId,
+                    email: newCustomer.email,
+                }
+            });
+        });
     } catch (err) {
         console.log(err);
+        if(err.code == 1062) {
+            res.status(200).json({
+                status_code: 401,
+                status_message: "Error: Duplicate Entry Error"
+            })
+        } else {
+            res.status(200).json({
+                status_code: 400,
+                status_message: "Error: Internal Server Error"
+            })
+        }
+
     }
 }

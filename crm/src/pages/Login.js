@@ -1,32 +1,41 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
+import { useHistory } from "react-router-dom";
 
 import Header from "../Components/SignIns/SignInHeader";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Helmet from "react-helmet";
 
-function Login({ setLogIn }) {
+function Login() {
+  const history = useHistory();
   const [email, setText1] = useState("");
   const [password, setText2] = useState("");
 
   const attemptLogin = () => {
     console.log(email);
+    console.log(password);
     fetch("https://team42-crm.herokuapp.com/auth/login", {
       method: "post",
-      mode: "no-cors",
-      headers: {
-        Accept: "application/json",
+      mode: "cors",
+      headers: new Headers({
         "Content-Type": "application/json",
-        "Access-Control-Allow-Origin" : "*",
-        "Access-Control-Allow-Credentials" : true
-      },
+        Accept: "application/json",
+      }),
       body: JSON.stringify({
         email: email,
         password: password,
       }),
     })
-      .then(response => response.json())
-      .then(data => console.log(data));
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.success === true) {
+          console.log(data);
+          localStorage.setItem("loggedIn", true);
+          history.push("/");
+        } else {
+          alert(data.error);
+        }
+      });
   };
 
   // useEffect(() => {
@@ -89,15 +98,13 @@ function Login({ setLogIn }) {
 
         <p2 style={{ top: "53%", left: "13%" }}>Forgot Password</p2>
 
-        <Link to="/">
-          <button
-            className="button2"
-            onClick={() => attemptLogin()}
-            style={{ width: "65%", margin: 10, left: "15%", top: "64%" }}
-          >
-            <p>Sign in</p>
-          </button>
-        </Link>
+        <button
+          className="button2"
+          onClick={() => attemptLogin()}
+          style={{ width: "65%", margin: 10, left: "15%", top: "64%" }}
+        >
+          <p>Sign in</p>
+        </button>
 
         <p2
           style={{

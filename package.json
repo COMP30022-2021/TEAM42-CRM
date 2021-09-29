@@ -25,6 +25,7 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "concurrently": "^6.2.1",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "fetch": "^1.1.0",
     "mysql2": "^2.3.0",
@@ -32,6 +33,9 @@
     "nodemon": "^2.0.12",
     "react-icons": "^4.2.0",
     "react-sizeme": "^3.0.2"
+  },
+  "engines": {
+    "node": "14.x.x"
   },
   "devDependencies": {
     "dotenv": "^10.0.0",

@@ -1,21 +1,27 @@
 const express = require("express");
 const path = require('path');
+const cors = require('cors');
+const bodyParser = require("body-parser");
 
 if (process.env.NODE_ENV !== 'production') require('dotenv').config()
 
 const app = express()
 
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-
+app.use(cors())
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 // port for backend running
 const port = process.env.PORT || 5000;
 
 // define routes
+app.use("/contact", require("./routes/contactRoutes"));
+
 app.use("/customer", require("./routes/customerRoutes"));
 
 app.use("/auth", require("./routes/authenticationRoutes"));
+
+app.use("/business", require("./routes/businessRoutes"));
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('crm/build'));
@@ -25,7 +31,17 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 // start the server listening for requests
-app.listen(port, (err) => {
-    if (err) return console.log(err);
-    console.log("Server is running on port: ", port)
-});
+// app.listen(port, (err) => {
+//     if (err) return console.log(err);
+//     console.log("Server is running on port: ", port)
+// });
+
+app.get('/products/:id', function (req, res, next) {
+    res.json({msg: 'This is CORS-enabled for all origins!'});
+    next();
+})
+
+app.listen(port, function () {
+    console.log('CORS-enabled web server listening on port', port)
+})
+

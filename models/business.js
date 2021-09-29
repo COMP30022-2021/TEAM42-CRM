@@ -21,7 +21,7 @@ class Business {
   }
 
   static findByName(name) {
-    let sql = `SELECT * FROM business WHERE name = ${name}`
+    let sql = `SELECT * FROM business WHERE name = '${name}'`
     return mysql.execute((sql))
   }
 }

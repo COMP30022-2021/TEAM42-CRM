@@ -3,6 +3,7 @@ const Authentication = require("../models/authentication");
 
 exports.login = async (req, res) => {
     try {
+        console.log(req.body);
         let [authentication,] = await Authentication.findEmployeeByEmail(req.body.email);
         console.log(authentication);
 
@@ -44,7 +45,10 @@ exports.register = async function (req, res) {
         console.log(authentication.length)
         //If the email already exist, can not create an account
         if (authentication.length !== 0) {
-            res.status(409).json({error: "Email already registered"});
+            res.status(409).json({
+                status_code: 401,
+                status_message: "Error: Email already registered"
+            });
         } else {
             const newEmployee = new Authentication(
                 firstName,
@@ -72,5 +76,9 @@ exports.register = async function (req, res) {
         }
     } catch (err) {
         console.log(err);
+        res.status(200).json({
+            status_code: 400,
+            status_message: "Error: Internal Server Error"
+        })
     }
 };

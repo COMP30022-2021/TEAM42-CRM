@@ -5,13 +5,13 @@ exports.createNewVendor = async (req, res) => {
         let { businessID, firstName, lastName, email, phone, address } = req.body;
         let newVendor = new Vendor(businessID, firstName, lastName, email, phone, address);
 
-        newVendor.save().then((customer) => {
+        newVendor.save().then((vendor) => {
             res.status(200).json({
                 status_code: 0,
                 status_message: "Success",
-                customer: {
+                vendor: {
                     businessID: newVendor.businessID,
-                    customerID: customer.insertId,
+                    vendorID: vendor.insertId,
                     email: newVendor.email,
                 }
             });

@@ -20,8 +20,8 @@ exports.getCustomerById = async (req, res) => {
 
 exports.createNewCustomer = async (req, res) => {
     try {
-        let { businessID, firstName, lastName, email, phone, address } = req.body;
-        let newCustomer = new Customer(businessID, firstName, lastName, email, phone, address);
+        let { businessID, name, email, phone, address } = req.body;
+        let newCustomer = new Customer(businessID, name, email, phone, address);
 
         newCustomer.save().then((customer) => {
             res.status(200).json({

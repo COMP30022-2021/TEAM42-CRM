@@ -1,10 +1,9 @@
 const mysql = require('../config/mysql');
 
 class Vendor {
-    constructor(businessID, firstName, lastName, email, phone, address) {
+    constructor(businessID, name, email, phone, address) {
         this.businessID = businessID
-        this.firstName = firstName
-        this.lastName = lastName
+        this.name = name
         this.email = email
         this.phone = phone
         this.address = address
@@ -21,8 +20,7 @@ class Vendor {
         address
         )VALUES(
         '${this.businessID}', 
-        '${this.firstName}', 
-        '${this.lastName}', 
+        '${this.name}', 
         '${this.email}', 
         '${this.phone}', 
         '${this.address}'

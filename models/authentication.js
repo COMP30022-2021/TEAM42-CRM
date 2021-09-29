@@ -1,9 +1,8 @@
 const mysql = require('../config/mysql');
 
 class Authentication {
-    constructor(firstName, lastName, email, password) {
-        this.firstName = firstName
-        this.lastName = lastName
+    constructor(name, email, password) {
+        this.name = name
         this.email = email
         this.password = password
     }
@@ -11,13 +10,11 @@ class Authentication {
     async save() {
         let sql = `
         INSERT INTO employee(
-        first_name, 
-        last_name, 
+        name,
         email, 
         password 
         )VALUES(
-        '${this.firstName}', 
-        '${this.lastName}', 
+        '${this.name}', 
         '${this.email}', 
         '${this.password}' 
         )`

@@ -21,21 +21,11 @@ exports.signupbusiness = async function (req, res) {
 
       const newEmployee = new Authentication(
         "",
-        "",
         email,
         password,
       );
 
-      newBusiness.save().then((business) => {
-        res.json({
-          business: {
-            status_code: 0,
-            status_message: "Success",
-            name: newBusiness.name,
-            dateEstablished: newBusiness.dateEstablished,
-          },
-        });
-      });
+      await newBusiness.save();
 
 
       //Encrypt the user's password
@@ -43,18 +33,29 @@ exports.signupbusiness = async function (req, res) {
         bcrypt.hash(newEmployee.password, salt, (err, hash) => {
           if (err) throw err;
           newEmployee.password = hash;
-          newEmployee.save().then((employee) => {
-            res.json({
-              employee: {
-                email: newEmployee.email,
-                password: newEmployee.password,
-              },
-            });
-          });
+          newEmployee.save();
         });
       });
     }
+
+    res.status(200).json({
+      status_code: 0,
+      status_message: "Success",
+      business: {
+        name: name,
+        dateEstablished: dateEstablished,
+      },
+      employee: {
+        email: email,
+        password: password,
+      },
+    });
+
   } catch (err) {
     console.log(err);
+    res.status(200).json({
+      status_code: 400,
+      status_message: "Error: Internal Server Error"
+    })
   }
 };

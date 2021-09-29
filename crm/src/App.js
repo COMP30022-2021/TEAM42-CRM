@@ -10,6 +10,7 @@ import ContactDisplay from "./pages/ContactDisplay";
 import customer from "./res/images/Customer.jpg";
 import employee from "./res/images/Employee.jfif";
 import vendor from "./res/images/external_vendor.jpg";
+import { Settings } from "./pages/Settings";
 
 const contacts = [
   {
@@ -93,6 +94,12 @@ function App() {
             <Redirect to="/login" />
           )
         }
+      />
+
+      <Route
+        exact
+        path="/settings"
+        render={() => (loggedIn ? <Settings /> : <Redirect to="/login" />)}
       />
     </div>
   );

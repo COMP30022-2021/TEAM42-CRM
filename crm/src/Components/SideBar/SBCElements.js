@@ -27,14 +27,22 @@ export default function SBCElements({ path }) {
       <SideBarElement>
         <RiDashboardLine
           className="icon"
-          style={{color: path === undefined ? "#9FBF8E" : "#cfd7e3", top: "28%",left: "83%",}}
+          style={{
+            color: path === undefined ? "#9FBF8E" : "#cfd7e3",
+            top: "28%",
+            left: "83%",
+          }}
         />
       </SideBarElement>
 
       <SideBarElement>
         <MdPermContactCalendar
           className="icon"
-          style={{color: path === "/contacts" ? "#9FBF8E" : "#cfd7e3", top: "34%",left: "83%",}}
+          style={{
+            color: path === "/contacts" ? "#9FBF8E" : "#cfd7e3",
+            top: "34%",
+            left: "83%",
+          }}
         />
       </SideBarElement>
 
@@ -43,7 +51,14 @@ export default function SBCElements({ path }) {
       </SideBarElement>
 
       <SideBarElement>
-        <FiSettings className="icon" style={{ bottom: "10%", left: "83%" }} />
+        <FiSettings
+          className="icon"
+          style={{
+            color: path === "/settings" ? "#9FBF8E" : "#cfd7e3",
+            bottom: "10%",
+            left: "83%",
+          }}
+        />
       </SideBarElement>
 
       <SideBarElement>

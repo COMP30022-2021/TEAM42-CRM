@@ -28,6 +28,9 @@ function Login() {
       .then((data) => {
         if (data.success === true) {
           localStorage.setItem("loggedIn", true);
+          localStorage.setItem("businessID", data.businessID);
+          localStorage.setItem("employeeID", data.employee.employee_id);
+          console.log(data.businessID, data.employee.employee_id);
           history.push("/");
         } else {
           alert(data.error);

@@ -32,6 +32,13 @@ class Authentication {
         return result
     }
 
+    async deleteByID(id) {
+        let sql = `DELETE FROM employee WHERE employee_id = ${id};`
+
+        const [result, _] = await mysql.execute(sql);
+        return result
+    }
+
     static findEmployeeByEmail(email) {
         let sql = `SELECT * FROM employee WHERE email = '${email}'`
         return mysql.execute((sql))

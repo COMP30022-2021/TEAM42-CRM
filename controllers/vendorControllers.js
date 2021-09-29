@@ -32,3 +32,24 @@ exports.createNewVendor = async (req, res) => {
 
     }
 }
+
+exports.deleteVendor = async (req, res) => {
+    try {
+        const vendorId = req.params.id;
+        const newVendor = new Vendor();
+
+        let result = newVendor.deleteByID(vendorId);
+
+        console.log(result);
+        res.status(200).json({
+            status_code: 0,
+            status_message: "Success: Vendor Delete",
+        });
+    } catch (err) {
+        console.log(err);
+        res.status(200).json({
+            status_code: 400,
+            status_message: "Error: Internal Server Error"
+        })
+    }
+}

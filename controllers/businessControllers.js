@@ -12,7 +12,10 @@ exports.signupbusiness = async function (req, res) {
 
     //If the business name already exist, can not create an account
     if (business.length !== 0) {
-      res.status(409).json({error: "Business name is already registered"});
+      res.status(409).json({
+        status_code: 409 ,
+        error: "Business name is already registered"
+      });
     } else {
       const newBusiness = new Business(
         name,
@@ -36,25 +39,26 @@ exports.signupbusiness = async function (req, res) {
           newEmployee.save();
         });
       });
-    }
 
-    res.status(200).json({
-      status_code: 0,
-      status_message: "Success",
-      business: {
-        name: name,
-        dateEstablished: dateEstablished,
-      },
-      employee: {
-        email: email,
-        password: password,
-      },
-    });
+      res.status(200).json({
+        status_code: 200,
+        status_message: "Success",
+        business: {
+          name: name,
+          dateEstablished: dateEstablished,
+        },
+        employee: {
+          email: email,
+          password: password,
+        },
+      });
+
+    }
 
   } catch (err) {
     console.log(err);
-    res.status(200).json({
-      status_code: 400,
+    res.status(409).json({
+      status_code: 409,
       status_message: "Error: Internal Server Error"
     })
   }

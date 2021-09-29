@@ -8,7 +8,7 @@ exports.login = async (req, res) => {
         console.log(authentication);
 
         if (authentication.length === 0) {
-            res.status(200).json({
+            res.status(409).json({
                 status_code: 409,
                 success: false,
                 status_message: "Error: This email is not registered"
@@ -19,7 +19,7 @@ exports.login = async (req, res) => {
                 console.log(authentication[0].password)
                 if (isMatch) {
                     res.status(200).json({
-                        status_code: 0,
+                        status_code: 200,
                         status_message: "Success",
                         success: true,
                         businessID: authentication[0].business_id,
@@ -100,7 +100,7 @@ exports.changePassword = async (req, res) => {
         if (authentication.length === 0) {
             res.status(409).json({
                 status_code: 409,
-                status_message: "This Employee ID Not Exists",
+                status_message: "This Employee ID Not Exist",
             });
         }else {
             bcrypt.compare(oldPassword, authentication[0].password, (err, isMatch) => {

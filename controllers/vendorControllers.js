@@ -7,7 +7,7 @@ exports.createNewVendor = async (req, res) => {
 
         newVendor.save().then((vendor) => {
             res.status(200).json({
-                status_code: 0,
+                status_code: 200,
                 status_message: "Success",
                 vendor: {
                     businessID: newVendor.businessID,
@@ -19,12 +19,12 @@ exports.createNewVendor = async (req, res) => {
     } catch (err) {
         console.log(err);
         if(err.code == 1062) {
-            res.status(200).json({
+            res.status(401).json({
                 status_code: 401,
                 status_message: "Error: Duplicate Entry Error"
             })
         } else {
-            res.status(200).json({
+            res.status(400).json({
                 status_code: 400,
                 status_message: "Error: Internal Server Error"
             })
@@ -42,12 +42,12 @@ exports.deleteVendor = async (req, res) => {
 
         console.log(result);
         res.status(200).json({
-            status_code: 0,
+            status_code: 200,
             status_message: "Success: Vendor Delete",
         });
     } catch (err) {
         console.log(err);
-        res.status(200).json({
+        res.status(400).json({
             status_code: 400,
             status_message: "Error: Internal Server Error"
         })

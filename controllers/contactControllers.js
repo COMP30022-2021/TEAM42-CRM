@@ -7,7 +7,7 @@ exports.getAllContact = async (req, res, next) => {
             status_code: 0,
             status_message: "Success",
             contacts
-    })
+        })
     } catch (err) {
         console.log(err);
         res.status(200).json({

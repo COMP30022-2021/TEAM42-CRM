@@ -82,3 +82,50 @@ exports.register = async function (req, res) {
         })
     }
 };
+
+exports.changePassword = async (req, res) => {
+    try {
+        const {employeeID, oldPassword, newPassword} = req.body;
+
+        let [authentication,] = await Authentication.findEmployeeByID(employeeID);
+        console.log(authentication);
+
+        if (authentication.length === 0) {
+            res.status(409).json({
+                status_code: 409,
+                status_message: "This Employee ID Not Exists",
+            });
+        }else {
+            bcrypt.compare(oldPassword, authentication[0].password, (err, isMatch) => {
+                console.log(oldPassword);
+                console.log(authentication[0].password)
+                if (isMatch) {
+                    bcrypt.genSalt(10, (err, salt) => {
+                        bcrypt.hash(newPassword, salt, (err, hash) => {
+                            if (err) throw err;
+                            const newAuth = new Authentication();
+                            newAuth.password = hash
+                            let result = newAuth.updatePassword(employeeID);
+                            console.log(result);
+                            res.status(200).json({
+                                status_code: 0,
+                                status_message: "Success: Password Change",
+                            });
+                        });
+                    });
+                } else {
+                    res.status(409).json({
+                        status_code: 409,
+                        status_message: "Error: Old Password Is Not Correct",
+                    });
+                }
+            });
+        }
+    } catch (err) {
+        console.log(err);
+        res.status(200).json({
+            status_code: 400,
+            status_message: "Error: Internal Server Error"
+        })
+    }
+}

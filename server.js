@@ -16,11 +16,9 @@ const port = process.env.PORT || 5000;
 
 // define routes
 app.use("/contact", require("./routes/contactRoutes"));
-
+app.use("/vendor", require("./routes/vendorRoutes"));
 app.use("/customer", require("./routes/customerRoutes"));
-
 app.use("/auth", require("./routes/authenticationRoutes"));
-
 app.use("/business", require("./routes/businessRoutes"));
 
 if (process.env.NODE_ENV === 'production') {

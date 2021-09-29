@@ -15,8 +15,6 @@ function ChangePassword({ setBlur }) {
     else if (repeatPassword === "") alert("Add Repeat Password");
     else if (newPassword !== repeatPassword) alert("Passwords do not match");
     else {
-      console.log(localStorage.getItem("businessID"));
-      console.log(localStorage.getItem("employeeID"));
       fetch("https://team42-crm.herokuapp.com/auth/change/password", {
         method: "post",
         mode: "cors",

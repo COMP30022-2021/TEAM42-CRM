@@ -18,7 +18,7 @@ function SignUpBusiness() {
     else if (email === "") alert("Add Business Email");
     if (password !== repeatPassword) alert("Passwords do not match");
     else {
-      fetch("https://team42-crm.herokuapp.com/auth/signupbusiness", {
+      fetch("https://team42-crm.herokuapp.com/business/signupbusiness", {
         method: "post",
         mode: "cors",
         headers: new Headers({
@@ -28,12 +28,18 @@ function SignUpBusiness() {
         body: JSON.stringify({
           email: email,
           password: password,
-          businessName: businessName,
+          name: businessName,
+          dateEstablished: new Date(),
         }),
       })
         .then((response) => response.json())
-        .then((data) => console.log(data));
-      // history.push("/login");
+        .then((data) => {
+          if (data.error) alert(data.error);
+          else {
+            alert("Business Sucessfully Registered!");
+            history.push("/login");
+          }
+        });
     }
   };
 

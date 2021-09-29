@@ -1,6 +1,5 @@
 import React from "react";
 import Header from "../SignIns/SignInHeader";
-import { useState } from "react";
 import { GrClose } from "react-icons/gr";
 import EmployeeInner from "../AddContact/EmployeeInner";
 
@@ -31,7 +30,8 @@ export default function UpdateEmployee({ setEditMode, contact }) {
 
         <button
           className="deleteButton"
-          style={{width: "25%",left: "50%",top: "83.5%",}}>
+          style={{ width: "25%", left: "50%", top: "83.5%" }}
+        >
           <p>Delete Employee</p>
         </button>
 

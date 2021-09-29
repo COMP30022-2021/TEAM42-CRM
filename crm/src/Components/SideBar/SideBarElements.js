@@ -61,10 +61,27 @@ export default function SideBarElements({ path }) {
         <FcStatistics className="icon" style={{ top: "40%", left: "11%" }} />
       </SideBarElement>
 
-      <SideBarElement>
-        <h3 style={{ bottom: "8%", left: "25%" }}>Setting</h3>
-        <FiSettings className="icon" style={{ bottom: "10%", left: "11%" }} />
-      </SideBarElement>
+      <Link to="/settings">
+        <SideBarElement>
+          <h3
+            style={{
+              color: path === "/settings" ? "#9FBF8E" : "#cfd7e3",
+              bottom: "8%",
+              left: "25%",
+            }}
+          >
+            Setting
+          </h3>
+          <FiSettings
+            className="icon"
+            style={{
+              color: path === "/settings" ? "#9FBF8E" : "#cfd7e3",
+              bottom: "10%",
+              left: "11%",
+            }}
+          />
+        </SideBarElement>
+      </Link>
 
       <Link to="/login" onClick={() => localStorage.setItem("loggedIn", false)}>
         <SideBarElement>

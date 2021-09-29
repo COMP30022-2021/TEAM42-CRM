@@ -25,9 +25,7 @@ jobs:
     - name: Build
       run: |
         npm ci
-        # npx webpack
         npm test
-        npm run build
       env:
         MYSQL_HOST: us-cdbr-east-04.cleardb.com
         MYSQL_USER: b01eb9170bdd13

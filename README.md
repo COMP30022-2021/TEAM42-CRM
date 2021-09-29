@@ -1,6 +1,6 @@
 # TEAM42-CRM
 
-## Connectionn Locally
+## Connection Locally
 
 Start the project locally:
 

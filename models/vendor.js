@@ -1,12 +1,15 @@
 const mysql = require('../config/mysql');
 
 class Vendor {
-    constructor(businessID, name, email, phone, address) {
+    constructor(businessID, name, email, phone, address, rate, tags, gender) {
         this.businessID = businessID
         this.name = name
         this.email = email
         this.phone = phone
         this.address = address
+        this.rate = rate
+        this.tags = tags
+        this.gender = gender
     }
 
     async save() {
@@ -16,13 +19,19 @@ class Vendor {
         name,
         email, 
         phone, 
-        address
+        address,
+        unit_cost,
+        tag,
+        gender
         )VALUES(
         '${this.businessID}', 
         '${this.name}', 
         '${this.email}', 
         '${this.phone}', 
-        '${this.address}'
+        '${this.address}',
+        '${this.rate}', 
+        '${this.tags}', 
+        '${this.gender}'
         )`
 
         const [newVendor, _] = await mysql.execute(sql);

@@ -2,8 +2,8 @@ const Vendor = require('../models/vendor')
 
 exports.createNewVendor = async (req, res) => {
     try {
-        let { businessID, name, email, phone, address } = req.body;
-        let newVendor = new Vendor(businessID, name, email, phone, address);
+        let { businessID, name, email, phone, address, rate, tags, gender } = req.body;
+        let newVendor = new Vendor(businessID, name, email, phone, address, rate, tags, gender);
 
         newVendor.save().then((vendor) => {
             res.status(200).json({

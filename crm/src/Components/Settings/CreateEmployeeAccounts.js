@@ -28,7 +28,7 @@ export default function CreateEmployeeAccounts() {
         }}
       >
         <Header text={"CreateEmployeeAccounts"} top_a={"0%"} width_a={916} />
-        <p1 style={{ top: "16%", left: "8%" }}>Employee Name:</p1>
+        <div className="pone" style={{ top: "16%", left: "8%" }}>Employee Name:</div>
 
         <input
           className="search-bar"
@@ -45,7 +45,7 @@ export default function CreateEmployeeAccounts() {
           onChange={(e) => setText1(e.target.value)}
         />
 
-        <p1 style={{ top: "36%", left: "8%" }}>Employee Email adress:</p1>
+        <div className="pone" style={{ top: "36%", left: "8%" }}>Employee Email adress:</div>
 
         <input
           className="search-bar"
@@ -62,9 +62,9 @@ export default function CreateEmployeeAccounts() {
           onChange={(e) => setText2(e.target.value)}
         />
 
-        <p1 style={{ top: "56%", left: "8%" }}>
+        <div className="pone" style={{ top: "56%", left: "8%" }}>
           Date when Employee started with comapny:
-        </p1>
+        </div>
 
         <input
           className="search-bar"
@@ -81,7 +81,7 @@ export default function CreateEmployeeAccounts() {
           onChange={(e) => setText5(e.target.value)}
         />
 
-        <p1 style={{ top: "16%", left: "56.5%" }}>Employee Password:</p1>
+        <div className="pone" style={{ top: "16%", left: "56.5%" }}>Employee Password:</div>
 
         <input
           className="search-bar"
@@ -99,7 +99,7 @@ export default function CreateEmployeeAccounts() {
           onChange={(e) => setText3(e.target.value)}
         />
 
-        <p1 style={{ top: "36%", left: "56.5%" }}>Repeat Employee Password:</p1>
+        <div className="pone" style={{ top: "36%", left: "56.5%" }}>Repeat Employee Password:</div>
 
         <input
           className="search-bar"
@@ -117,7 +117,7 @@ export default function CreateEmployeeAccounts() {
           onChange={(e) => setText4(e.target.value)}
         />
 
-        <p1 style={{ top: "56%", left: "56.5%" }}>Manager privaliges:</p1>
+        <div className="pone" style={{ top: "56%", left: "56.5%" }}>Manager privaliges:</div>
 
         <input
           style={{
@@ -140,7 +140,7 @@ export default function CreateEmployeeAccounts() {
         />
 
         <Header text={"CreateEmployeeAccounts"} top_a={"0%"} width_a={916} />
-        <p1 style={{ top: "16%", left: "8%" }}>Employee Name:</p1>
+        <div className="pone" style={{ top: "16%", left: "8%" }}>Employee Name:</div>
 
         <input
           className="search-bar"
@@ -157,7 +157,7 @@ export default function CreateEmployeeAccounts() {
           onChange={(e) => setText1(e.target.value)}
         />
 
-        <p1 style={{ top: "36%", left: "8%" }}>Employee Email adress:</p1>
+        <div className="pone" style={{ top: "36%", left: "8%" }}>Employee Email adress:</div>
 
         <input
           className="search-bar"
@@ -174,9 +174,9 @@ export default function CreateEmployeeAccounts() {
           onChange={(e) => setText2(e.target.value)}
         />
 
-        <p1 style={{ top: "56%", left: "8%" }}>
+        <div className="pone" style={{ top: "56%", left: "8%" }}>
           Date when Employee started with comapny:
-        </p1>
+        </div>
 
         <input
           className="search-bar"
@@ -193,7 +193,7 @@ export default function CreateEmployeeAccounts() {
           onChange={(e) => setText5(e.target.value)}
         />
 
-        <p1 style={{ top: "16%", left: "56.5%" }}>Employee Password:</p1>
+        <div className="pone" style={{ top: "16%", left: "56.5%" }}>Employee Password:</div>
 
         <input
           className="search-bar"
@@ -211,7 +211,7 @@ export default function CreateEmployeeAccounts() {
           onChange={(e) => setText3(e.target.value)}
         />
 
-        <p1 style={{ top: "36%", left: "56.5%" }}>Repeat Employee Password:</p1>
+        <div className="pone" style={{ top: "36%", left: "56.5%" }}>Repeat Employee Password:</div>
 
         <input
           className="search-bar"
@@ -229,7 +229,7 @@ export default function CreateEmployeeAccounts() {
           onChange={(e) => setText4(e.target.value)}
         />
 
-        <p1 style={{ top: "56%", left: "56.5%" }}>Manager privaliges:</p1>
+        <div className="pone" style={{ top: "56%", left: "56.5%" }}>Manager privaliges:</div>
 
         <input
           style={{

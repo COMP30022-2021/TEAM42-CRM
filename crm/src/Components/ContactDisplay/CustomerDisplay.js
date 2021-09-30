@@ -37,50 +37,50 @@ export default function CustomerDisplay({ contact, setEditMode }) {
       >
        <img src={contact.image} className="contactImage" alt="user" /> 
 
-        <p1 className="contactTitle">{contact.Name}</p1>
+        <div className="contactTitle">{contact.Name}</div>
 
-        <p1 className="contactSubtitle">Role: Customer</p1>
+        <div className="contactSubtitle">Role: Customer</div>
 
         <IoIosMan
           style={{ position: "absolute", left: "15%", top: "51.25%" }}
         />
-        <p1 className="p3" style={{ left: "17%", top: "51%" }}>
+        <div className="p3" style={{ left: "17%", top: "51%" }}>
           {contact.Gender}{" "}
-        </p1>
+        </div>
 
         <ImPhone style={{ position: "absolute", left: "15%", top: "56.25%" }} />
-        <p1
+        <div
           className="p3"
           style={{ position: "absolute", left: "17%", top: "56%" }}
         >
           {contact.Phone}{" "}
-        </p1>
+        </div>
 
         <MdEmail style={{ position: "absolute", left: "15%", top: "61.25%" }} />
-        <p1 className="p3" style={{ left: "17%", top: "61%" }}>
+        <div className="p3" style={{ left: "17%", top: "61%" }}>
           {contact.Email}{" "}
-        </p1>
+        </div>
 
         <TiLocation
           style={{ position: "absolute", left: "15%", top: "66.25%" }}
         />
-        <p1 className="p3" style={{ left: "17%", top: "66%" }}>
+        <div className="p3" style={{ left: "17%", top: "66%" }}>
           {contact.Address}{" "}
-        </p1>
+        </div>
 
         <FaBirthdayCake
           style={{ position: "absolute", left: "15%", top: "71.25%" }}
         />
-        <p1 className="p3" style={{ left: "17%", top: "71%" }}>
+        <div className="p3" style={{ left: "17%", top: "71%" }}>
           Born {contact.DateOfBirth}{" "}
-        </p1>
+        </div>
 
         <ImCalendar
           style={{ position: "absolute", left: "15%", top: "76.25%" }}
         />
-        <p1 className="p3" style={{ left: "17%", top: "76%" }}>
+        <div className="p3" style={{ left: "17%", top: "76%" }}>
           First Visited - {contact.FirstVisit}{" "}
-        </p1>
+        </div>
 
         <button
           className="button3"

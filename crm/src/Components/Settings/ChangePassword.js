@@ -42,7 +42,7 @@ function ChangePassword({ setBlur }) {
     <div style={{ background: "#265573", width: "100%", height: "100%" }}>
       <div className="changePassword">
         <Header text={"Change Password"} top_a={"0%"} width_a={"100%"} />
-        <p1 style={{ top: "15%", left: "15%" }}>Old Password:</p1>
+        <div className="pone" style={{ top: "15%", left: "15%" }}>Old Password:</div>
 
         <input
           className="inputChangePassword"
@@ -53,7 +53,7 @@ function ChangePassword({ setBlur }) {
           onChange={(e) => setOldPassword(e.target.value)}
         ></input>
 
-        <p1 style={{ top: "33%", left: "15%" }}>New Password:</p1>
+        <div className="pone" style={{ top: "33%", left: "15%" }}>New Password:</div>
 
         <input
           className="inputChangePassword"
@@ -64,7 +64,7 @@ function ChangePassword({ setBlur }) {
           onChange={(e) => setNewPassword(e.target.value)}
         ></input>
 
-        <p1 style={{ top: "51%", left: "15%" }}>Repeat New Password:</p1>
+        <div className="pone" style={{ top: "51%", left: "15%" }}>Repeat New Password:</div>
 
         <input
           className="inputChangePassword"

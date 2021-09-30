@@ -17,9 +17,9 @@ export default function VendorFilterBar() {
     return (
         <div className="filterBar">
         
-        <p1 className="p3" style={{ left: "10%", top: "5%" }}>
+        <div className="p3" style={{ left: "10%", top: "5%" }}>
           Gender:
-        </p1>
+        </div>
 
         <button
           className="buttonFilter"
@@ -39,9 +39,9 @@ export default function VendorFilterBar() {
             ><p style={{ color: "#109CF1" }}>Female</p>
         </button>
 
-        <p1 className="p3" style={{ left: "10%", top: "25%" }}>
+        <div className="p3" style={{ left: "10%", top: "25%" }}>
           Tags:
-        </p1>
+        </div>
           
         <input style={{top:"30%",left:"10%",width:"30%"}} class="numInput" type="text" min={0}></input>
 
@@ -56,9 +56,9 @@ export default function VendorFilterBar() {
           
         <input style={{top:"43%",left:"10%",width:"30%"}} class="numInput" type="number" min={0}></input>
 
-        <p1 className="p3" style={{ left: "10%", top: "38%" }}>
+        <div className="p3" style={{ left: "10%", top: "38%" }}>
           Postcode:
-        </p1>
+        </div>
 
         <button
           className="buttonAdd"

@@ -20,7 +20,7 @@ export default function AddEngagement({ setBlur }) {
         <Helmet bodyAttributes={{ style: "background-color : #ffffff" }} />
 
         <Header text={"Add Engagement"} top_a={"0%"} width_a={"100%"} />
-        <p1 style={{ top: "16%", left: "15%" }}>Date:</p1>
+        <div classname="pone" style={{ top: "16%", left: "15%" }}>Date:</div>
 
         <input
           className="search-bar2"
@@ -31,7 +31,7 @@ export default function AddEngagement({ setBlur }) {
           onChange={(e) => setText1(e.target.value)}
         ></input>
 
-        <p1 style={{ top: "36%", left: "15%" }}>Purpose:</p1>
+        <div classname="pone" style={{ top: "36%", left: "15%" }}>Purpose:</div>
 
         <input
           className="search-bar2"
@@ -42,7 +42,7 @@ export default function AddEngagement({ setBlur }) {
           onChange={(e) => setText2(e.target.value)}
         ></input>
 
-        <p1 style={{ top: "56%", left: "15%" }}>Rating:</p1>
+        <div classname="pone" style={{ top: "56%", left: "15%" }}>Rating:</div>
 
         <input
           className="search-bar2"

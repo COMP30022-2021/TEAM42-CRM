@@ -3,9 +3,9 @@ import React from "react";
 export default function FilterBar() {
   return (
     <div className="filterBar">
-      <p1 className="p3" style={{ left: "10%", top: "5%" }}>
+      <div className="p3" style={{ left: "10%", top: "5%" }}>
         Gender:
-      </p1>
+      </div>
 
       <button
         className="buttonFilter"
@@ -20,35 +20,35 @@ export default function FilterBar() {
         <p className="pText">Female</p>
       </button>
 
-      <p1 className="p3" style={{ left: "10%", top: "25%" }}>
+      <div className="p3" style={{ left: "10%", top: "25%" }}>
         Age:
-      </p1>
+      </div>
 
-      <p1 className="p3" style={{ left: "10%", top: "30%" }}>
+      <div className="p3" style={{ left: "10%", top: "30%" }}>
         From
-      </p1>
+      </div>
       <input
         style={{ top: "30%", left: "24%", width: "10%" }}
         class="numInput"
         type="number"
         min={0}
       ></input>
-      <p1 className="p3" style={{ left: "38%", top: "30%" }}>
+      <div className="p3" style={{ left: "38%", top: "30%" }}>
         to
-      </p1>
+      </div>
       <input
         style={{ top: "30%", left: "44%", width: "10%" }}
         class="numInput"
         type="number"
         min={0}
       ></input>
-      <p1 className="p3" style={{ left: "58%", top: "30%" }}>
+      <div className="p3" style={{ left: "58%", top: "30%" }}>
         years old.
-      </p1>
+      </div>
 
-      <p1 className="p3" style={{ left: "10%", top: "38%" }}>
+      <div className="p3" style={{ left: "10%", top: "38%" }}>
         Postcode:
-      </p1>
+      </div>
 
       <input
         style={{ top: "43%", left: "10%", width: "30%" }}

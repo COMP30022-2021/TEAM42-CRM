@@ -29,7 +29,7 @@ export default function AddExternalVendor({ setBlur }) {
     setIsMale,
   };
 
-  const attemptSignUp = () => {
+  const addContact = () => {
     if (vendorName === "") alert("Add vendor's Name");
     else if (vendorEmail === "") alert("Add vendor's Email");
     else if (vendorAddress === "") alert("Add vendor's Addres");
@@ -70,7 +70,7 @@ export default function AddExternalVendor({ setBlur }) {
 
         <button
           className="buttonCustomer"
-          onClick={() => attemptSignUp()}
+          onClick={() => addContact()}
           style={{ width: "35%", left: "32%", top: "81%" }}
         >
           <p>Add Vendor</p>

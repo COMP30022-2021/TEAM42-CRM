@@ -41,7 +41,7 @@ export default function AddCustomer({ setBlur }) {
     setIsMale,
   };
 
-  const attemptSignUp = () => {
+  const addContact = () => {
     if (customerName === "") alert("Add Customer's Name");
     else if (customerEmail === "") alert("Add Customer's Email");
     else if (customerAddress === "") alert("Add Customer's Addres");
@@ -83,7 +83,7 @@ export default function AddCustomer({ setBlur }) {
 
         <button
           className="buttonCustomer"
-          onClick={() => attemptSignUp()}
+          onClick={() => addContact()}
           style={{ width: "35%", left: "32%", top: "81%" }}
         >
           <p>Add Customer</p>

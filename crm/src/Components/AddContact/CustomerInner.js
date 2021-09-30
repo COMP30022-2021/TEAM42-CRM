@@ -100,15 +100,3 @@ export default function CustomerInner({ values }) {
     </div>
   );
 }
-
-CustomerInner.defaultProps = {
-  contact: {
-    name: "",
-    email: "",
-    address: "",
-    dob: "",
-    first_visit: "",
-    phoneNumber: "",
-    gender: "",
-  },
-};

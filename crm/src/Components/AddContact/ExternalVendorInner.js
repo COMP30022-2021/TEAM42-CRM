@@ -100,15 +100,3 @@ export default function ExternalVendorInner({ values }) {
     </div>
   );
 }
-
-ExternalVendorInner.defaultProps = {
-  contact: {
-    Name: "",
-    Gender: false,
-    Email: "",
-    Phone: "",
-    Address: "",
-    tags: "",
-    cost: "",
-  },
-};

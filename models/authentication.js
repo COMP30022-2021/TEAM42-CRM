@@ -1,22 +1,43 @@
 const mysql = require('../config/mysql');
 
 class Authentication {
-    constructor(name, email, password) {
+    constructor(businessID, name, email, password, address, birthday, gender, phone, startDate, role) {
+        this.businessID = businessID
         this.name = name
         this.email = email
         this.password = password
+        this.address = address
+        this.birthday = birthday
+        this.gender = gender
+        this.phone = phone
+        this.startDate = startDate
+        this.role = role
     }
 
     async save() {
         let sql = `
         INSERT INTO employee(
+        business_id,
         name,
         email, 
-        password 
+        password,
+        address,
+        birthday,
+        gender,
+        phone,
+        date_joined,
+        role
         )VALUES(
+        '${this.businessID}', 
         '${this.name}', 
         '${this.email}', 
-        '${this.password}' 
+        '${this.password}',
+        '${this.address}', 
+        '${this.birthday}', 
+        '${this.gender}',
+        '${this.phone}', 
+        '${this.startDate}', 
+        '${this.role}' 
         )`
         console.log(sql)
         const [newEmployee, _] = await mysql.execute(sql);

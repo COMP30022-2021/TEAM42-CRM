@@ -37,47 +37,47 @@ export default function ExternalVendorDisplay({ contact, setEditMode }) {
       >
         <img src={contact.image} className="contactImage" alt="User" />
 
-        <div className="contactTitle">{contact.Name}</div>
+        <p1 className="contactTitle">{contact.Name}</p1>
 
-        <div className="contactSubtitle">Role: External Vendor</div>
+        <p1 className="contactSubtitle">Role: External Vendor</p1>
 
         <IoIosMan
           style={{ position: "absolute", left: "15%", top: "51.25%" }}
         />
-        <div className="p3" style={{ left: "17%", top: "51%" }}>
+        <p1 className="p3" style={{ left: "17%", top: "51%" }}>
           {contact.Gender}{" "}
-        </div>
+        </p1>
 
         <ImPhone style={{ position: "absolute", left: "15%", top: "56.25%" }} />
-        <div className="p3" style={{ left: "17%", top: "56%" }}>
+        <p1 className="p3" style={{ left: "17%", top: "56%" }}>
           {contact.Phone}{" "}
-        </div>
+        </p1>
 
         <MdEmail style={{ position: "absolute", left: "15%", top: "61.25%" }} />
-        <div className="p3" style={{ left: "17%", top: "61%" }}>
+        <p1 className="p3" style={{ left: "17%", top: "61%" }}>
           {contact.Email}{" "}
-        </div>
+        </p1>
 
         <TiLocation
           style={{ position: "absolute", left: "15%", top: "66.25%" }}
         />
-        <div className="p3" style={{ left: "17%", top: "66%" }}>
+        <p1 className="p3" style={{ left: "17%", top: "66%" }}>
           {contact.Address}{" "}
-        </div>
+        </p1>
 
         <ImPriceTags
           style={{ position: "absolute", left: "15%", top: "71.25%" }}
         />
-        <div className="p3" style={{ left: "17%", top: "71%" }}>
+        <p1 className="p3" style={{ left: "17%", top: "71%" }}>
           Tags: {contact.tags}{" "}
-        </div>
+        </p1>
 
         <BiDollar
           style={{ position: "absolute", left: "15%", top: "76.25%" }}
         />
-        <div className="p3" style={{ left: "17%", top: "76%" }}>
+        <p1 className="p3" style={{ left: "17%", top: "76%" }}>
           {contact.cost}{" "}
-        </div>
+        </p1>
 
         <button
           className="button3"

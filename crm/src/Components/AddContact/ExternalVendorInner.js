@@ -3,7 +3,7 @@ import React from "react";
 export default function ExternalVendorInner({ values }) {
   return (
     <div>
-      <div className="pone" style={{ top: "16%", left: "9%" }}>Name</div>
+      <p1 style={{ top: "16%", left: "9%" }}>Name</p1>
       <input
         className="addInput"
         style={{ top: "23%", left: "9%" }}
@@ -13,7 +13,7 @@ export default function ExternalVendorInner({ values }) {
         onChange={(e) => values.setName(e.target.value)}
       ></input>
 
-      <div className="pone" style={{ top: "34%", left: "9%" }}>Email Address</div>
+      <p1 style={{ top: "34%", left: "9%" }}>Email Address</p1>
 
       <input
         className="addInput"
@@ -24,7 +24,7 @@ export default function ExternalVendorInner({ values }) {
         onChange={(e) => values.setEmail(e.target.value)}
       ></input>
 
-      <div className="pone" style={{ top: "52%", left: "9%" }}>Rate</div>
+      <p1 style={{ top: "52%", left: "9%" }}>Rate</p1>
 
       <input
         className="addInput"
@@ -35,7 +35,7 @@ export default function ExternalVendorInner({ values }) {
         onChange={(e) => values.setVendorCost(e.target.value)}
       ></input>
 
-      <div className="pone" style={{ top: "16%", left: "55.5%" }}>Address</div>
+      <p1 style={{ top: "16%", left: "55.5%" }}>Address</p1>
 
       <input
         className="addInput"
@@ -46,7 +46,7 @@ export default function ExternalVendorInner({ values }) {
         onChange={(e) => values.setAddress(e.target.value)}
       ></input>
 
-      <div className="pone" style={{ top: "34%", left: "55.5%" }}>Tags</div>
+      <p1 style={{ top: "34%", left: "55.5%" }}>Tags</p1>
 
       <input
         className="addInput"
@@ -57,7 +57,7 @@ export default function ExternalVendorInner({ values }) {
         onChange={(e) => values.setTags(e.target.value)}
       ></input>
 
-      <div className="pone" style={{ top: "53%", left: "55.5%" }}>Phone Number</div>
+      <p1 style={{ top: "53%", left: "55.5%" }}>Phone Number</p1>
 
       <input
         className="addInput"
@@ -68,8 +68,8 @@ export default function ExternalVendorInner({ values }) {
         onChange={(e) => values.setPhone(e.target.value)}
       ></input>
 
-      <div className="pone" style={{ top: "70%", left: "9%" }}>Male</div>
-      <div className="pone" style={{ top: "70%", left: "20%" }}>Female</div>
+      <p1 style={{ top: "70%", left: "9%" }}>Male</p1>
+      <p1 style={{ top: "70%", left: "20%" }}>Female</p1>
       <input
         style={{
           position: "absolute",

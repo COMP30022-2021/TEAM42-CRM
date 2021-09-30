@@ -33,7 +33,7 @@ function Login() {
           console.log(data.businessID, data.employee.employee_id);
           history.push("/");
         } else {
-          alert(data.error);
+          alert(data.status_message);
         }
       });
   };

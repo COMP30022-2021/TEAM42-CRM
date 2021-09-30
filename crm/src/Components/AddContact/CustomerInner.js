@@ -93,9 +93,9 @@ export default function CustomerInner({ values }) {
           top: "70%",
         }}
         type="checkbox"
-        checked={values.isFemale}
-        value={values.isFemale}
-        onChange={(e) => values.setIsFemale(e.currentTarget.checked)}
+        checked={!values.isMale}
+        value={!values.isMale}
+        onChange={(e) => values.setIsMale(!e.currentTarget.checked)}
       />
     </div>
   );

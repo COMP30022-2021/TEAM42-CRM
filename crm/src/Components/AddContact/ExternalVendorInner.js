@@ -1,15 +1,6 @@
 import React from "react";
-import { useState } from "react";
 
-export default function ExternalVendorInner({ contact }) {
-  const [vendorName, setText1] = useState(contact.Name);
-  const [vendorEmail, setText2] = useState(contact.Email);
-  const [vendorAddress, setText3] = useState(contact.Address);
-  const [vendorTags, setText4] = useState(contact.tags);
-  const [vendorCost, setText5] = useState(contact.cost);
-  const [vendorNumber, setText6] = useState(contact.Phone);
-  const [vendorGender, setGender] = useState(contact.Gender);
-
+export default function ExternalVendorInner({ values }) {
   return (
     <div>
       <p1 style={{ top: "16%", left: "9%" }}>Name</p1>
@@ -18,8 +9,8 @@ export default function ExternalVendorInner({ contact }) {
         style={{ top: "23%", left: "9%" }}
         type="text"
         placeholder="Enter Vendor's Name"
-        value={vendorName}
-        onChange={(e) => setText1(e.target.value)}
+        value={values.vendorName}
+        onChange={(e) => values.setName(e.target.value)}
       ></input>
 
       <p1 style={{ top: "34%", left: "9%" }}>Email Address</p1>
@@ -29,8 +20,8 @@ export default function ExternalVendorInner({ contact }) {
         style={{ top: "41%", left: "9%" }}
         type="text"
         placeholder="Enter Vendor's Email Address"
-        value={vendorEmail}
-        onChange={(e) => setText2(e.target.value)}
+        value={values.vendorEmail}
+        onChange={(e) => values.setEmail(e.target.value)}
       ></input>
 
       <p1 style={{ top: "52%", left: "9%" }}>Rate</p1>
@@ -40,8 +31,8 @@ export default function ExternalVendorInner({ contact }) {
         style={{ top: "59%", left: "9%" }}
         type="text"
         placeholder="Enter Vendor's Rate"
-        value={vendorCost}
-        onChange={(e) => setText5(e.target.value)}
+        value={values.vendorCost}
+        onChange={(e) => values.setVendorCost(e.target.value)}
       ></input>
 
       <p1 style={{ top: "16%", left: "55.5%" }}>Address</p1>
@@ -51,8 +42,8 @@ export default function ExternalVendorInner({ contact }) {
         style={{ top: "23%", left: "55.5%" }}
         type="text"
         placeholder="Enter Vendor's Address"
-        value={vendorAddress}
-        onChange={(e) => setText3(e.target.value)}
+        value={values.vendorAddress}
+        onChange={(e) => values.setAddress(e.target.value)}
       ></input>
 
       <p1 style={{ top: "34%", left: "55.5%" }}>Tags</p1>
@@ -62,8 +53,8 @@ export default function ExternalVendorInner({ contact }) {
         style={{ top: "41%", left: "55.5%" }}
         type="text"
         placeholder="Enter Vendor's Tags"
-        value={vendorTags}
-        onChange={(e) => setText4(e.target.value)}
+        value={values.vendorTags}
+        onChange={(e) => values.setTags(e.target.value)}
       ></input>
 
       <p1 style={{ top: "53%", left: "55.5%" }}>Phone Number</p1>
@@ -73,8 +64,8 @@ export default function ExternalVendorInner({ contact }) {
         style={{ top: "59%", left: "55.5%" }}
         type="text"
         placeholder="Enter Vendor's Phone Number"
-        value={vendorNumber}
-        onChange={(e) => setText6(e.target.value)}
+        value={values.vendorNumber}
+        onChange={(e) => values.setPhone(e.target.value)}
       ></input>
 
       <p1 style={{ top: "70%", left: "9%" }}>Male</p1>
@@ -88,9 +79,9 @@ export default function ExternalVendorInner({ contact }) {
           top: "70%",
         }}
         type="checkbox"
-        checked={vendorGender}
-        value={vendorGender}
-        onChange={(e) => setGender(e.currentTarget.checked)}
+        checked={values.vendorIsMale}
+        value={values.vendorIsMale}
+        onChange={(e) => values.setIsMale(e.currentTarget.checked)}
       />
 
       <input
@@ -102,9 +93,9 @@ export default function ExternalVendorInner({ contact }) {
           top: "70%",
         }}
         type="checkbox"
-        checked={vendorGender}
-        value={vendorGender}
-        onChange={(e) => setGender(e.currentTarget.checked)}
+        checked={!values.vendorIsMale}
+        value={!values.vendorIsMale}
+        onChange={(e) => values.setIsMale(!e.currentTarget.checked)}
       />
     </div>
   );

@@ -23,7 +23,6 @@ export default function AddCustomer({ setBlur }) {
   const [dateFirstVisit, setFirstVisit] = useState(date);
   const [customerPhone, setPhone] = useState("");
   const [customerIsMale, setIsMale] = useState(false);
-  const [customerIsFemale, setIsFemale] = useState(false);
 
   const properties = {
     customerName,
@@ -40,8 +39,6 @@ export default function AddCustomer({ setBlur }) {
     setPhone,
     customerIsMale,
     setIsMale,
-    customerIsFemale,
-    setIsFemale,
   };
 
   const attemptSignUp = () => {
@@ -50,7 +47,6 @@ export default function AddCustomer({ setBlur }) {
     else if (customerAddress === "") alert("Add Customer's Addres");
     else if (customerDOB === "") alert("Add Customer's DOB");
     else if (customerPhone === "") alert("Add Customer's Phone Number");
-    else if (customerIsMale === customerIsFemale) alert("Select a gender");
     else {
       fetch("https://team42-crm.herokuapp.com/customer/create", {
         method: "post",

@@ -3,7 +3,7 @@ import React from "react";
 export default function CustomerInner({ values }) {
   return (
     <div>
-      <p1 style={{ top: "16%", left: "9%" }}>Name</p1>
+      <div classname="pone" style={{ top: "16%", left: "9%" }}>Name</div>
       <input
         className="addInput"
         style={{ top: "23%", left: "9%" }}
@@ -13,7 +13,7 @@ export default function CustomerInner({ values }) {
         onChange={(e) => values.setName(e.target.value)}
       ></input>
 
-      <p1 style={{ top: "34%", left: "9%" }}>Email Address</p1>
+      <div classname="pone" style={{ top: "34%", left: "9%" }}>Email Address</div>
 
       <input
         className="addInput"
@@ -24,7 +24,7 @@ export default function CustomerInner({ values }) {
         onChange={(e) => values.setEmail(e.target.value)}
       ></input>
 
-      <p1 style={{ top: "52%", left: "9%" }}>First Visit</p1>
+      <div classname="pone" style={{ top: "52%", left: "9%" }}>First Visit</div>
 
       <input
         className="addInput"
@@ -35,7 +35,7 @@ export default function CustomerInner({ values }) {
         onChange={(e) => values.setFirstVisit(e.target.value)}
       ></input>
 
-      <p1 style={{ top: "16%", left: "55.5%" }}>Address</p1>
+      <div classname="pone" style={{ top: "16%", left: "55.5%" }}>Address</div>
 
       <input
         className="addInput"
@@ -46,7 +46,7 @@ export default function CustomerInner({ values }) {
         onChange={(e) => values.setAddress(e.target.value)}
       ></input>
 
-      <p1 style={{ top: "34%", left: "55.5%" }}>Date of Birth</p1>
+      <div classname="pone" style={{ top: "34%", left: "55.5%" }}>Date of Birth</div>
 
       <input
         className="addInput"
@@ -57,7 +57,7 @@ export default function CustomerInner({ values }) {
         onChange={(e) => values.setDOB(e.target.value)}
       ></input>
 
-      <p1 style={{ top: "53%", left: "55.5%" }}>Phone Number</p1>
+      <div classname="pone" style={{ top: "53%", left: "55.5%" }}>Phone Number</div>
 
       <input
         className="addInput"
@@ -68,8 +68,8 @@ export default function CustomerInner({ values }) {
         onChange={(e) => values.setPhone(e.target.value)}
       ></input>
 
-      <p1 style={{ top: "70%", left: "9%" }}>Male</p1>
-      <p1 style={{ top: "70%", left: "20%" }}>Female</p1>
+      <div classname="pone" style={{ top: "70%", left: "9%" }}>Male</div>
+      <div classname="pone" style={{ top: "70%", left: "20%" }}>Female</div>
       <input
         style={{
           position: "absolute",

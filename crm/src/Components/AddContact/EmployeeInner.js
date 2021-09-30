@@ -3,9 +3,7 @@ import React from "react";
 export default function EmployeeInner({ values }) {
   return (
     <div>
-      <div className="pone" style={{ top: "16%", left: "8%" }}>Name</div>
-
-
+      <p1 style={{ top: "16%", left: "9%" }}>Name</p1>
       <input
         className="addInput"
         style={{ top: "23%", left: "9%" }}
@@ -15,7 +13,7 @@ export default function EmployeeInner({ values }) {
         onChange={(e) => values.setName(e.target.value)}
       ></input>
 
-      <div className="pone" style={{ top: "36%", left: "8%" }}>Email Address</div>
+      <p1 style={{ top: "34%", left: "9%" }}>Email Address</p1>
 
       <input
         className="addInput"
@@ -26,7 +24,7 @@ export default function EmployeeInner({ values }) {
         onChange={(e) => values.setEmail(e.target.value)}
       ></input>
 
-      <div className="pone" style={{ top: "56%", left: "8%" }}>Start Date</div>
+      <p1 style={{ top: "52%", left: "9%" }}>Start Date</p1>
 
       <input
         className="addInput"
@@ -37,7 +35,7 @@ export default function EmployeeInner({ values }) {
         onChange={(e) => values.setStart(e.target.value)}
       ></input>
 
-      <div className="pone" style={{ top: "16%", left: "56.5%" }}>Address</div>
+      <p1 style={{ top: "16%", left: "55.5%" }}>Address</p1>
 
       <input
         className="addInput"
@@ -48,7 +46,7 @@ export default function EmployeeInner({ values }) {
         onChange={(e) => values.setAddress(e.target.value)}
       ></input>
 
-      <div className="pone" style={{ top: "36%", left: "56.5%" }}>Date of Birth</div>
+      <p1 style={{ top: "34%", left: "55.5%" }}>Date of Birth</p1>
 
       <input
         className="addInput"
@@ -59,7 +57,7 @@ export default function EmployeeInner({ values }) {
         onChange={(e) => values.setDOB(e.target.value)}
       ></input>
 
-      <div className="pone" style={{ top: "56%", left: "56.5%" }}>Phone Number</div>
+      <p1 style={{ top: "53%", left: "55.5%" }}>Phone Number</p1>
 
       <input
         className="addInput"
@@ -70,9 +68,8 @@ export default function EmployeeInner({ values }) {
         onChange={(e) => values.setPhone(e.target.value)}
       ></input>
 
-      <div className="pone" style={{ top: "76%", left: "8%" }}>Male</div>
-      <div className="pone" style={{ top: "76%", left: "20%" }}>Female</div>
-
+      <p1 style={{ top: "70%", left: "9%" }}>Male</p1>
+      <p1 style={{ top: "70%", left: "20%" }}>Female</p1>
       <input
         style={{
           position: "absolute",

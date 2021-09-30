@@ -1,12 +1,14 @@
 const mysql = require('../config/mysql');
 
 class Customer {
-    constructor(businessID, name, email, phone, address) {
+    constructor(businessID, name, email, phone, address, firstVisit, birthday) {
         this.businessID = businessID
         this.name = name
         this.email = email
         this.phone = phone
         this.address = address
+        this.firstVisit = firstVisit
+        this.birthday = birthday
     }
 
     async save() {
@@ -16,15 +18,19 @@ class Customer {
         name,
         email, 
         phone, 
-        address
+        address,
+        first_visit,
+        birthday
         )VALUES(
         '${this.businessID}', 
         '${this.name}', 
         '${this.email}', 
         '${this.phone}', 
-        '${this.address}'
+        '${this.address}',
+        '${this.firstVisit}',
+        '${this.birthday}'
         )`
-
+        console.log(sql);
         const [newCustomer, _] = await mysql.execute(sql);
         return newCustomer
     }

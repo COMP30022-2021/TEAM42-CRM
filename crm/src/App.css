@@ -191,7 +191,41 @@ p1 {
   color: #000000;
 }
 
+.pone {
+  position: absolute;
+  height: 28px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 28px;
+
+  text-align: center;
+
+  color: #000000;
+}
+
 p2 {
+  position: absolute;
+  width: 114px;
+  height: 28px;
+  left: 0px;
+  top: 0px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 28px;
+  /* or 200% */
+
+  text-decoration-line: underline;
+
+  color: #0075ff;
+}
+
+.ptwo {
   position: absolute;
   width: 114px;
   height: 28px;
@@ -686,3 +720,5 @@ p2 {
   height: 9%;
   width: 70%;
 }
+
+

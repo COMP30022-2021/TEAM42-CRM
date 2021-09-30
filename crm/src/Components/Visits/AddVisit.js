@@ -26,7 +26,7 @@ export default function AddVisit({ setBlur }) {
         <Helmet bodyAttributes={{ style: "background-color : #ffffff" }} />
 
         <Header text={"Add Visit"} top_a={"0%"} width_a={"100%"} />
-        <div classname="pone" style={{ top: "16%", left: "14%" }}>Total amount:</div>
+        <div className="pone" style={{ top: "16%", left: "14%" }}>Total amount:</div>
 
         <input
           className="search-bar2"
@@ -37,7 +37,7 @@ export default function AddVisit({ setBlur }) {
           onChange={(e) => setTotalAmount(e.target.value)}
         ></input>
 
-        <div classname="pone" style={{ top: "36%", left: "15%" }}>ID of Item:</div>
+        <div className="pone" style={{ top: "36%", left: "15%" }}>ID of Item:</div>
 
         <input
           className="search-bar2"
@@ -56,7 +56,7 @@ export default function AddVisit({ setBlur }) {
           <p>Add Item</p>
         </button>
 
-        <div classname="pone" style={{ top: "56%", left: "15%" }}>Number of People:</div>
+        <div className="pone" style={{ top: "56%", left: "15%" }}>Number of People:</div>
 
         <input
           className="search-bar2"

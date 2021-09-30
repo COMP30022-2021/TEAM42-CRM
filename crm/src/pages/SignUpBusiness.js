@@ -51,7 +51,7 @@ function SignUpBusiness() {
         </Helmet>
 
         <Header text={"Sign up your Business"} top_a={"0%"} width_a={"100%"} />
-        <p1 style={{ top: "16%", left: "8%" }}>Business Name</p1>
+        <div className = "pone" style={{ top: "16%", left: "8%" }}>Business Name</div>
 
         <input
           className="signUpInput"
@@ -62,7 +62,7 @@ function SignUpBusiness() {
           onChange={(e) => setText1(e.target.value)}
         />
 
-        <p1 style={{ top: "36%", left: "8%" }}>Email Address</p1>
+        <div className = "pone" style={{ top: "36%", left: "8%" }}>Email Address</div>
 
         <input
           className="signUpInput"
@@ -73,7 +73,7 @@ function SignUpBusiness() {
           onChange={(e) => setEmail(e.target.value)}
         />
 
-        <p1 style={{ top: "16%", left: "56.5%" }}>Admin Password</p1>
+        <div className = "pone" style={{ top: "16%", left: "56.5%" }}>Admin Password</div>
         <input
           className="signUpInput"
           style={{ left: "56%", top: "23%" }}
@@ -83,7 +83,7 @@ function SignUpBusiness() {
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        <p1 style={{ top: "36%", left: "56.5%" }}>Repeat Password</p1>
+        <div className = "pone" style={{ top: "36%", left: "56.5%" }}>Repeat Password</div>
 
         <input
           className="signUpInput"
@@ -105,7 +105,7 @@ function SignUpBusiness() {
           <p>Sign up now</p>
         </button>
 
-        <p1
+        <div className = "pone"
           style={{
             top: "75%",
             left: "41%",
@@ -114,7 +114,7 @@ function SignUpBusiness() {
           }}
         >
           Already a user?&nbsp;
-        </p1>
+        </div>
 
         <Link to="/login">
           <p2 style={{ top: "75%", left: "50.5%", fontSize: 12 }}>

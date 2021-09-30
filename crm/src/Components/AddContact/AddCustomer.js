@@ -65,11 +65,13 @@ export default function AddCustomer({ setBlur }) {
           name: customerName,
           phone: customerPhone,
           address: customerAddress,
+          firstVisit: dateFirstVisit,
+          birthday: customerDOB,
+          gender: customerIsMale ? 1 : 0,
         }),
       })
         .then((response) => response.json())
         .then((data) => {
-          console.log(data.status_code);
           if (data.status_code === 200) alert("Customer Added Successfully");
           window.location.reload();
         });

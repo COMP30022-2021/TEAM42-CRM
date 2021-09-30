@@ -23,7 +23,7 @@ exports.signupbusiness = async function (req, res) {
       );
 
       const newEmployee = new Authentication(
-        "",
+        "Admin",
         email,
         password,
       );

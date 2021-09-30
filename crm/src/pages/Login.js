@@ -62,7 +62,7 @@ function Login() {
         <Helmet bodyAttributes={{ style: "background-color : #ffffff" }} />
 
         <Header text={"Sign in"} top_a={"0%"} width_a={476.15} />
-        <p1 style={{ top: "16%", left: "15%" }}>Email Address</p1>
+        <div className = "pone" style={{ top: "16%", left: "15%" }}>Email Address</div>
 
         <input
           className="search-bar"
@@ -79,7 +79,7 @@ function Login() {
           onChange={(e) => setText1(e.target.value)}
         />
 
-        <p1 style={{ top: "36%", left: "15%" }}>Password</p1>
+        <div className = "pone" style={{ top: "36%", left: "15%" }}>Password</div>
 
         <input
           className="search-bar"
@@ -96,7 +96,7 @@ function Login() {
           onChange={(e) => setText2(e.target.value)}
         />
 
-        <p2 style={{ top: "53%", left: "13%" }}>Forgot Password</p2>
+        <div classname="ptwo" style={{ top: "53%", left: "13%" }}>Forgot Password</div>
 
         <button
           className="button2"
@@ -106,7 +106,7 @@ function Login() {
           <p>Sign in</p>
         </button>
 
-        <p2
+        <div classname="ptwo"
           style={{
             top: "79%",
             left: "15%",
@@ -116,10 +116,10 @@ function Login() {
           }}
         >
           New business?
-        </p2>
+        </div>
 
         <Link to="/signup">
-          <p2 style={{ top: "79%", left: "27%", "font-size": 12 }}>Sign Up</p2>
+          <div classname="ptwo" style={{ top: "79%", left: "27%", "font-size": 12 }}>Sign Up</div>
         </Link>
 
         <Header text={""} top_a={"100%"} width_a={476.15} />

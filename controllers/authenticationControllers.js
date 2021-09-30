@@ -90,6 +90,8 @@ exports.register = async function (req, res) {
                 );
                 newEmployee.save().then((employee) => {
                     res.json({
+                        status_code: 0,
+                        status_message: "Success",
                         employee: {
                             employeeID: employee.insertId,
                             name: newEmployee.name,

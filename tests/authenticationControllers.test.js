@@ -104,4 +104,12 @@ describe("Changed the password of a existing employee", () => {
     })
 })
 
+describe("Delete an employee", () => {
+    test("should respond with a 200 status code if the password is changed", async () => {
+        const response = await request.get("/auth/delete/0").send({})
+        expect(response.statusCode).toBe(200)
+    })
+
+})
+
 

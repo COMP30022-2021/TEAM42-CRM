@@ -57,3 +57,51 @@ describe("Logging in with a username and password", () => {
     })
 })
 
+describe("Register a existing employee", () => {
+    test("should respond with a 409 status code since register is done", async () => {
+        const response = await request.post("/auth/register").send({
+            name: "customer-test1",
+            phone:"12345",
+            address:"test add",
+            businessID:1,
+            email: "mock_for_test",
+            gender:1,
+            birthday: "1990-09-11",
+            startDate: "1990-01-11",
+            isManager: true,
+            contactOnly:false
+        })
+        expect(response.statusCode).toBe(409)
+    })
+})
+
+describe("Changed the password of a existing employee", () => {
+    test("should respond with a 200 status code if the password is changed", async () => {
+        const response = await request.post("/auth/change/password").send({
+            employeeID: 255,
+            oldPassword:"admin",
+            newPassword:"admin"
+        })
+        expect(response.statusCode).toBe(200)
+    })
+
+    test("should respond with a 409 status code if the password is wrong", async () => {
+        const response = await request.post("/auth/change/password").send({
+            employeeID: 255,
+            oldPassword:"Wrong password",
+            newPassword:"admin"
+        })
+        expect(response.statusCode).toBe(409)
+    })
+
+    test("should respond with a 409 status code if employeeID is not existed", async () => {
+        const response = await request.post("/auth/change/password").send({
+            employeeID: -1,
+            oldPassword:"Wrong password",
+            newPassword:"admin"
+        })
+        expect(response.statusCode).toBe(409)
+    })
+})
+
+

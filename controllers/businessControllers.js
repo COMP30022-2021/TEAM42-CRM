@@ -22,20 +22,16 @@ exports.signupbusiness = async function (req, res) {
         dateEstablished,
       );
 
-      const newEmployee = new Authentication(
-        "Admin",
-        email,
-        password,
-      );
 
-      await newBusiness.save();
-
+      let businessID = await newBusiness.save();
 
       //Encrypt the user's password
       bcrypt.genSalt(10, (err, salt) => {
-        bcrypt.hash(newEmployee.password, salt, (err, hash) => {
+        bcrypt.hash(password, salt, (err, hash) => {
           if (err) throw err;
-          newEmployee.password = hash;
+          const newEmployee = new Authentication(
+              businessID.insertId, "Admin", email, hash, "", "", "", "", "", "Admin"
+          );
           newEmployee.save();
         });
       });
@@ -45,9 +41,12 @@ exports.signupbusiness = async function (req, res) {
         status_message: "Success",
         business: {
           name: name,
+          businessID: businessID.insertId,
           dateEstablished: dateEstablished,
         },
-        employee: {
+        admin: {
+          name: "Admin",
+          role: "Admin",
           email: email,
           password: password,
         },

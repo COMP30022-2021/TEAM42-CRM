@@ -47,7 +47,7 @@ exports.login = async (req, res) => {
 
 exports.register = async function (req, res) {
     try {
-        const {name, email, password} = req.body;
+        const { businessID, name, email , address, birthday, gender, phone, startDate, isManager, contactOnly} = req.body;
 
         let [authentication,] = await Authentication.findEmployeeByEmail(req.body.email);
         console.log(authentication)
@@ -56,30 +56,49 @@ exports.register = async function (req, res) {
         if (authentication.length !== 0) {
             res.status(409).json({
                 status_code: 401,
-                status_message: "Error: Email already registered"
+                status_message: "Error: Email Already Registered"
             });
         } else {
-            const newEmployee = new Authentication(
-                name,
-                email,
-                password,
-            );
-            //Encrypt the user's password
-            bcrypt.genSalt(10, (err, salt) => {
-                bcrypt.hash(newEmployee.password, salt, (err, hash) => {
-                    if (err) throw err;
-                    newEmployee.password = hash;
-                    newEmployee.save().then((employee) => {
-                        res.json({
-                            employee: {
-                                name: newEmployee.name,
-                                email: newEmployee.email,
-                                password: newEmployee.password,
-                            },
+            let role = "Employee";
+            let password = 0;
+            if (isManager == true) {
+                role = "Manager"
+            }
+            if (contactOnly == false) {
+                //Encrypt the user's password
+                await bcrypt.genSalt(10, (err, salt) => {
+                    bcrypt.hash("admin", salt, (err, hash) => {
+                        if (err) throw err;
+                        const newEmployee = new Authentication(
+                            businessID, name, email, hash, address, birthday, gender, phone, startDate, role
+                        );
+                        newEmployee.save().then((employee) => {
+                            res.json({
+                                employee: {
+                                    employeeID: employee.insertId,
+                                    name: newEmployee.name,
+                                    email: newEmployee.email,
+                                    password: hash,
+                                },
+                            });
                         });
                     });
                 });
-            });
+            } else {
+                const newEmployee = new Authentication(
+                    businessID, name, email, password, address, birthday, gender, phone, startDate, role
+                );
+                newEmployee.save().then((employee) => {
+                    res.json({
+                        employee: {
+                            employeeID: employee.insertId,
+                            name: newEmployee.name,
+                            email: newEmployee.email,
+                            password: password,
+                        },
+                    });
+                });
+            }
         }
     } catch (err) {
         console.log(err);

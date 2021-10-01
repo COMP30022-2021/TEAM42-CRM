@@ -1,5 +1,6 @@
 /node_modules/
 /.idea
+/coverage/
 
 # dotenv environment variables file
 .env

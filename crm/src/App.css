@@ -528,6 +528,13 @@ p2 {
 }
 
 .logInBox {
+  background: #fffcfc;
+  width: 33%;
+  height: 55%;
+  position: absolute;
+  left: 50%;
+  top: 52.5%;
+  transform: translate(-50%, -50%);
   filter: drop-shadow(6px 6px 8px rgba(0, 0, 0, 0.25));
 }
 
@@ -725,7 +732,7 @@ p2 {
   background-color: rgba(0, 0, 0, 0.25);
   width: 100%;
   left: 65%;
-  font-size: 65%;
+  font-size: 9px;
   position: absolute;
   color: #2a8dbb;
   outline: none;

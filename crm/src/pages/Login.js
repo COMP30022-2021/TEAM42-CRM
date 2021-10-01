@@ -38,31 +38,18 @@ function Login() {
       });
   };
 
-  // useEffect(() => {
-  //
-  // }, []);
-
   return (
     <div>
-      <div
-        className="logInBox"
-        style={{
-          background: "#FFFCFC",
-          width: 476.15,
-          height: 400,
-          position: "absolute",
-          left: "50%",
-          top: "52.5%",
-          transform: "translate(-50%, -50%)",
-        }}
-      >
+      <div className="logInBox">
         <Helmet>
           <title>Lynk - Login</title>
         </Helmet>
         <Helmet bodyAttributes={{ style: "background-color : #ffffff" }} />
 
-        <Header text={"Sign in"} top_a={"0%"} width_a={476.15} />
-        <div className = "pone" style={{ top: "16%", left: "15%" }}>Email Address</div>
+        <Header text={"Sign in"} top_a={"0%"} width_a={"100%"} />
+        <div className="pone" style={{ top: "16%", left: "15%" }}>
+          Email Address
+        </div>
 
         <input
           className="search-bar"
@@ -79,7 +66,9 @@ function Login() {
           onChange={(e) => setText1(e.target.value)}
         />
 
-        <div className = "pone" style={{ top: "36%", left: "15%" }}>Password</div>
+        <div className="pone" style={{ top: "36%", left: "15%" }}>
+          Password
+        </div>
 
         <input
           className="search-bar"
@@ -96,7 +85,9 @@ function Login() {
           onChange={(e) => setText2(e.target.value)}
         />
 
-        <div classname="ptwo" style={{ top: "53%", left: "13%" }}>Forgot Password</div>
+        <div classname="ptwo" style={{ top: "53%", left: "13%" }}>
+          Forgot Password
+        </div>
 
         <button
           className="button2"
@@ -106,7 +97,8 @@ function Login() {
           <p>Sign in</p>
         </button>
 
-        <div className="ptwo"
+        <div
+          className="ptwo"
           style={{
             top: "79%",
             left: "15%",
@@ -119,10 +111,15 @@ function Login() {
         </div>
 
         <Link to="/signup">
-          <div className="ptwo" style={{ top: "79%", left: "31%", "font-size": 12 }}>Sign Up</div>
+          <div
+            className="ptwo"
+            style={{ top: "79%", left: "28%", "font-size": 12 }}
+          >
+            Sign Up
+          </div>
         </Link>
 
-        <Header text={""} top_a={"100%"} width_a={476.15} />
+        <Header text={""} top_a={"100%"} width_a={"100%"} />
       </div>
     </div>
   );

@@ -106,7 +106,7 @@ function Login() {
           <p>Sign in</p>
         </button>
 
-        <div classname="ptwo"
+        <div className="ptwo"
           style={{
             top: "79%",
             left: "15%",
@@ -119,7 +119,7 @@ function Login() {
         </div>
 
         <Link to="/signup">
-          <div classname="ptwo" style={{ top: "79%", left: "27%", "font-size": 12 }}>Sign Up</div>
+          <div className="ptwo" style={{ top: "79%", left: "31%", "font-size": 12 }}>Sign Up</div>
         </Link>
 
         <Header text={""} top_a={"100%"} width_a={476.15} />

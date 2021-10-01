@@ -6,7 +6,7 @@ exports.getAllContact = async (req, res, next) => {
         let uriObj = url.parse(req.url, true)
         if (uriObj.query.sort) {
             let sort = uriObj.query.sort;
-            if (sort == "name") {
+            if (sort === "name" || sort === "email" || sort === "gender" || sort === "role") {
                 console.log(sort);
                 let [contacts, _] = await Customer.findAllWithSort(req.params.businessID, sort);
                 res.status(200).json({

@@ -28,6 +28,8 @@ export default function ContactPage({ contacts }) {
         <Helmet>
           <title>Lynk - Contacts</title>
         </Helmet>
+        <SortDropdown value={value} setValue={setValue} />
+
         <Contacts contacts={contacts} sortBy={value} />
 
         <SearchBar onClick={setBlur} width="66%" />

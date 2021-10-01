@@ -174,6 +174,7 @@ p {
   line-height: 0px;
   font-size: 11px;
   color: #109cf1;
+  cursor: pointer;
 }
 
 p1 {
@@ -449,6 +450,7 @@ p2 {
   margin: 10;
   top: 88%;
   line-height: 13px;
+  cursor: pointer;
 }
 
 .addButton {
@@ -459,6 +461,7 @@ p2 {
   margin: 10;
   top: 88%;
   line-height: 13px;
+  cursor: pointer;
 }
 
 .button4 {
@@ -484,6 +487,7 @@ p2 {
   background: #ffffff;
   height: 10%;
   margin: 10;
+  cursor: pointer;
 }
 
 .buttonAdd {
@@ -491,6 +495,7 @@ p2 {
   background: #ffffff;
   height: 3.5%;
   margin: 10;
+  cursor: pointer;
 }
 
 .block {
@@ -699,6 +704,7 @@ p2 {
   border-radius: 50.5px;
   border: none;
   margin: 10;
+  cursor: pointer;
 }
 
 .deleteButton {
@@ -707,6 +713,7 @@ p2 {
   border-radius: 50.5px;
   border: none;
   margin: 10;
+  cursor: pointer;
 }
 
 .changePassword {

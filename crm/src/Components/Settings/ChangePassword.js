@@ -42,34 +42,40 @@ function ChangePassword({ setBlur }) {
     <div style={{ background: "#265573", width: "100%", height: "100%" }}>
       <div className="changePassword">
         <Header text={"Change Password"} top_a={"0%"} width_a={"100%"} />
-        <div className="pone" style={{ top: "15%", left: "15%" }}>Old Password:</div>
+        <div className="pone" style={{ top: "15%", left: "15%" }}>
+          Old Password:
+        </div>
 
         <input
           className="inputChangePassword"
           style={{ top: "23%" }}
-          type="text"
+          type="password"
           placeholder="Enter Old Password"
           value={oldPassword}
           onChange={(e) => setOldPassword(e.target.value)}
         ></input>
 
-        <div className="pone" style={{ top: "33%", left: "15%" }}>New Password:</div>
+        <div className="pone" style={{ top: "33%", left: "15%" }}>
+          New Password:
+        </div>
 
         <input
           className="inputChangePassword"
           style={{ top: "41%" }}
-          type="text"
+          type="password"
           placeholder="Enter New Password"
           value={newPassword}
           onChange={(e) => setNewPassword(e.target.value)}
         ></input>
 
-        <div className="pone" style={{ top: "51%", left: "15%" }}>Repeat New Password:</div>
+        <div className="pone" style={{ top: "51%", left: "15%" }}>
+          Repeat New Password:
+        </div>
 
         <input
           className="inputChangePassword"
           style={{ top: "59%" }}
-          type="text"
+          type="password"
           placeholder="Repeat your new password"
           value={repeatPassword}
           onChange={(e) => setRepeatPassword(e.target.value)}

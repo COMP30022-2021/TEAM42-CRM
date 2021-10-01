@@ -10,6 +10,7 @@ export const SortDropdown = ({ value, setValue }) => {
         position: "absolute",
         left: "8%",
         top: "9.8%",
+        width: "5%",
         zIndex: 5,
       }}
     >

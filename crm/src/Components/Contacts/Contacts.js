@@ -2,18 +2,20 @@ import React from "react";
 import { Contact } from "./Contact";
 import ContactsHeader from "./ContactsHeader";
 
-export default function Contacts() {
+export default function Contacts({ sortBy }) {
   const [contacts, setContacts] = React.useState([]);
 
   React.useEffect(() => {
     loadContacts();
-  }, []);
+  }, [sortBy]);
 
   const loadContacts = async () => {
+    console.log(lowerCaseFirstLetter(sortBy.value));
     await fetch(
       "https://team42-crm.herokuapp.com/contact/" +
         localStorage.getItem("businessID") +
-        "?sort=name",
+        "?sort=" +
+        lowerCaseFirstLetter(sortBy.value),
       {
         method: "get",
         mode: "cors",
@@ -45,4 +47,8 @@ export default function Contacts() {
       ))}
     </div>
   );
+}
+
+function lowerCaseFirstLetter(string) {
+  return string.charAt(0).toLowerCase() + string.slice(1);
 }

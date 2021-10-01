@@ -721,4 +721,12 @@ p2 {
   width: 70%;
 }
 
-
+.dropdown {
+  background-color: rgba(0, 0, 0, 0.25);
+  width: 100%;
+  left: 65%;
+  font-size: 65%;
+  position: absolute;
+  color: #2a8dbb;
+  outline: none;
+}

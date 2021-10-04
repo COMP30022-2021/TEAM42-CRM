@@ -3,6 +3,7 @@ import SpecificSetting from "./SpecificSetting";
 import { FaKey } from "react-icons/fa";
 import { IoMdPersonAdd } from "react-icons/io";
 import { AiFillDelete } from "react-icons/ai";
+import {IoIosAddCircle} from "react-icons/io"
 
 export default function SettingsMainComponent({ setChangePassword }) {
   return (
@@ -27,6 +28,10 @@ export default function SettingsMainComponent({ setChangePassword }) {
       <SpecificSetting
         name={"Delete Employee Account"}
         icon={<AiFillDelete className="iconSettings" size="40%" />}
+      />
+      <SpecificSetting
+        name={"Add new Item to the System"}
+        icon={<IoIosAddCircle className="iconSettings" size="40%" />}
       />
     </div>
   );

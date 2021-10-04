@@ -8,9 +8,12 @@ import { FiLogOut, FiSettings } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import user from "../../res/images/user_cropped.jpg";
 
+import logo from "../../res/images/Logos/Logo_Design5.png";
+
 export default function SideBarElements({ path }) {
   return (
     <div>
+      <img src={logo} className="sideBarLogo"></img>
       <SideBarUser image={user} />
       <Link to="/">
         <div>

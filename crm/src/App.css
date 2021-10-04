@@ -206,7 +206,12 @@ p1 {
 
   color: #000000;
 }
-
+ul {
+  text-align: left;
+  color: #0b293b;
+  margin-left: 8%;
+  font-size: 15px;
+}
 p2 {
   position: absolute;
   width: 114px;
@@ -395,7 +400,7 @@ p2 {
 
 .signUpInput {
   position: absolute;
-  background: #f0ebeb;
+  background: #f5f1f1;
   border: 0;
   height: 7%;
   width: 35%;
@@ -530,17 +535,6 @@ p2 {
   background: #265573;
   box-shadow: 6px 1px 18px rgba(0, 0, 0, 0.06);
   z-index: 10;
-}
-
-.logInBox {
-  background: #fffcfc;
-  width: 33%;
-  height: 55%;
-  position: absolute;
-  left: 50%;
-  top: 52.5%;
-  transform: translate(-50%, -50%);
-  filter: drop-shadow(6px 6px 8px rgba(0, 0, 0, 0.25));
 }
 
 .signUp {
@@ -690,7 +684,7 @@ p2 {
 }
 
 .addInput {
-  background: #f3efef;
+  background: #f5f1f1;
   border: 0;
   height: 28px;
   width: 35%;
@@ -729,10 +723,89 @@ p2 {
 .inputChangePassword {
   position: absolute;
   left: 15%;
-  background: #f0ebeb;
+  background: #f5f1f1;
   border: 0;
   height: 9%;
   width: 70%;
+}
+
+.logInBox {
+  background: #ffffff;
+  width: 33%;
+  height: 55%;
+  position: absolute;
+  left: 65%;
+  top: 36%;
+  /* transform: translate(-50%, -50%); */
+  filter: drop-shadow(6px 6px 8px rgba(0, 0, 0, 0.25));
+}
+
+.inputLogIn {
+  background: #f5f1f1;
+  border: 0;
+  height: 9%;
+  width: 70%;
+  position: absolute;
+  left: 15%;
+  text-indent: 1%;
+}
+
+.loginHeader {
+  width: 100%;
+  height: 32%;
+  position: absolute;
+  /* background-color: #265573; */
+}
+
+.infoPanel {
+  height: 63% !important;
+
+  display: flex;
+  flex-direction: column;
+  background-color: #9fbf8e;
+  transition: 0.8s ease;
+  filter: drop-shadow(6px 6px 8px rgba(0, 0, 0, 0.25));
+  border-radius: 6px;
+}
+
+.toggle-menu {
+  height: 50px;
+  border-top-right-radius: 10rem;
+  border-bottom-right-radius: 9rem;
+  width: 10px;
+  position: absolute;
+  outline: none;
+  z-index: 1;
+  background-color: rgba(64, 194, 133, 0.693);
+  border-color: rgba(64, 194, 133, 0.693);
+  border-left: 0;
+}
+
+.infoHeader {
+  width: 100%;
+  text-align: center;
+  font-size: 28px;
+  font-weight: 900;
+  color: #0b293b;
+  text-decoration: underline;
+  text-decoration-color: #0b293b;
+}
+
+.infoText {
+  text-align: left;
+  color: #0b293b;
+  margin: 8%;
+  font-size: 15px;
+  margin-top: 3%;
+  margin-bottom: 0%;
+}
+
+.loginImage {
+  width: 18%;
+  height: 100%;
+  position: absolute;
+  left: 5%;
+  filter: drop-shadow(6px 6px 8px rgba(0, 0, 0, 0.25));
 }
 
 .dropdown {

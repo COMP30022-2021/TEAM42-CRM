@@ -13,8 +13,9 @@ export const InfoPanel = ({ height, children }) => {
   };
 
   React.useEffect(() => {
-    setX(0);
+    setX(-width);
   }, []);
+
   return (
     <div style={{ top: "34%", height: "100%", position: "absolute" }}>
       <div

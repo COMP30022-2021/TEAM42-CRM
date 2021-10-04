@@ -30,7 +30,6 @@ export const LoginBox = () => {
           localStorage.setItem("loggedIn", true);
           localStorage.setItem("businessID", data.businessID);
           localStorage.setItem("employeeID", data.employee.employee_id);
-          console.log(data.businessID, data.employee.employee_id);
           history.push("/");
         } else {
           alert(data.status_message);
@@ -54,6 +53,11 @@ export const LoginBox = () => {
           placeholder="Enter Email Address"
           value={email}
           onChange={(e) => setText1(e.target.value)}
+          onKeyPress={(event) => {
+            if (event.key === "Enter") {
+              attemptLogin();
+            }
+          }}
         />
 
         <input
@@ -63,6 +67,11 @@ export const LoginBox = () => {
           placeholder="Enter Password"
           value={password}
           onChange={(e) => setText2(e.target.value)}
+          onKeyPress={(event) => {
+            if (event.key === "Enter") {
+              attemptLogin();
+            }
+          }}
         />
 
         <div className="ptwo" style={{ top: "60%", left: "17%" }}>

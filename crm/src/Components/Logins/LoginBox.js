@@ -46,9 +46,6 @@ export const LoginBox = () => {
         </Helmet>
 
         <Header text={"Sign in"} top_a={"0%"} width_a={"100%"} />
-        <div className="pone" style={{ top: "16%", left: "15%" }}>
-          Email Address
-        </div>
 
         <input
           className="inputLogIn"
@@ -59,10 +56,6 @@ export const LoginBox = () => {
           onChange={(e) => setText1(e.target.value)}
         />
 
-        <div className="pone" style={{ top: "36%", left: "15%" }}>
-          Password
-        </div>
-
         <input
           className="inputLogIn"
           style={{ top: "44%" }}
@@ -72,14 +65,14 @@ export const LoginBox = () => {
           onChange={(e) => setText2(e.target.value)}
         />
 
-        <div className="ptwo" style={{ top: "54%", left: "13%" }}>
+        <div className="ptwo" style={{ top: "60%", left: "17%" }}>
           Forgot Password
         </div>
 
         <button
           className="button2"
           onClick={() => attemptLogin()}
-          style={{ width: "65%", margin: 10, left: "15%", top: "64.5%" }}
+          style={{ width: "65%", margin: 10, left: "15%", top: "70%" }}
         >
           <p>Sign in</p>
         </button>
@@ -87,7 +80,7 @@ export const LoginBox = () => {
         <div
           className="ptwo"
           style={{
-            top: "80%",
+            top: "85%",
             left: "15%",
             color: "black",
             "text-decoration-line": "None",
@@ -100,7 +93,7 @@ export const LoginBox = () => {
         <Link to="/signup">
           <div
             className="ptwo"
-            style={{ top: "80%", left: "28.5%", "font-size": 12 }}
+            style={{ top: "85%", left: "28.5%", "font-size": 12 }}
           >
             Sign Up
           </div>

@@ -539,12 +539,14 @@ p2 {
 }
 
 .signUpInput {
-  position: absolute;
-  background: #f5f1f1;
-  border: 0;
-  height: 9%;
+  background: none;
+  height: 14%;
   width: 35%;
+  position: absolute;
+  left: 15%;
   text-indent: 5%;
+  border-color: #265573;
+  border-radius: 25px;
 }
 
 .contactDisplay {
@@ -739,13 +741,14 @@ p2 {
 }
 
 .inputLogIn {
-  background: #f5f1f1;
-  border: 0;
-  height: 9%;
+  background: none;
+  height: 14%;
   width: 70%;
   position: absolute;
   left: 15%;
-  text-indent: 1%;
+  text-indent: 5%;
+  border-color: #265573;
+  border-radius: 25px;
 }
 
 .loginHeader {

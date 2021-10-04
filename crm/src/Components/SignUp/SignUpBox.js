@@ -51,52 +51,38 @@ export const SignUpBox = () => {
         </Helmet>
 
         <Header text={"Sign up your Business"} top_a={"0%"} width_a={"100%"} />
-        <div className="pone" style={{ top: "16%", left: "8%" }}>
-          Business Name
-        </div>
 
         <input
           className="signUpInput"
-          style={{ top: "23%", left: "8%" }}
+          style={{ top: "23%", left: "10%" }}
           type="text"
           placeholder="Enter Business Name"
           value={businessName}
           onChange={(e) => setText1(e.target.value)}
         />
 
-        <div className="pone" style={{ top: "36%", left: "8%" }}>
-          Email Address
-        </div>
-
         <input
           className="signUpInput"
-          style={{ top: "43%", left: "8%" }}
+          style={{ top: "43%", left: "10%" }}
           type="text"
           placeholder="Enter Business Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
 
-        <div className="pone" style={{ top: "16%", left: "56.5%" }}>
-          Admin Password
-        </div>
         <input
           className="signUpInput"
-          style={{ left: "56%", top: "23%" }}
+          style={{ left: "55%", top: "23%" }}
           type="password"
           placeholder="Enter Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        <div className="pone" style={{ top: "36%", left: "56.5%" }}>
-          Repeat Password
-        </div>
-
         <input
           className="signUpInput"
           style={{
-            left: "56%",
+            left: "55%",
             top: "43%",
           }}
           type="password"
@@ -108,7 +94,7 @@ export const SignUpBox = () => {
         <button
           className="signUpButton"
           onClick={attemptSignUp}
-          style={{ left: "32%", top: "60%" }}
+          style={{ left: "32%", top: "70%" }}
         >
           <p>Sign up now</p>
         </button>
@@ -116,7 +102,7 @@ export const SignUpBox = () => {
         <div
           className="pone"
           style={{
-            top: "75%",
+            top: "85%",
             left: "39%",
             color: "black",
             fontSize: 12,
@@ -126,7 +112,7 @@ export const SignUpBox = () => {
         </div>
 
         <Link to="/login">
-          <p2 style={{ top: "75%", left: "49%", fontSize: 12 }}>
+          <p2 style={{ top: "85%", left: "49%", fontSize: 12 }}>
             Back to login
           </p2>
         </Link>

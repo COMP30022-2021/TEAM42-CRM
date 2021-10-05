@@ -30,7 +30,6 @@ export const LoginBox = () => {
           localStorage.setItem("loggedIn", true);
           localStorage.setItem("businessID", data.businessID);
           localStorage.setItem("employeeID", data.employee.employee_id);
-          console.log(data.businessID, data.employee.employee_id);
           history.push("/");
         } else {
           alert(data.status_message);
@@ -46,9 +45,6 @@ export const LoginBox = () => {
         </Helmet>
 
         <Header text={"Sign in"} top_a={"0%"} width_a={"100%"} />
-        <div className="pone" style={{ top: "16%", left: "15%" }}>
-          Email Address
-        </div>
 
         <input
           className="inputLogIn"
@@ -57,11 +53,12 @@ export const LoginBox = () => {
           placeholder="Enter Email Address"
           value={email}
           onChange={(e) => setText1(e.target.value)}
+          onKeyPress={(event) => {
+            if (event.key === "Enter") {
+              attemptLogin();
+            }
+          }}
         />
-
-        <div className="pone" style={{ top: "36%", left: "15%" }}>
-          Password
-        </div>
 
         <input
           className="inputLogIn"
@@ -70,16 +67,21 @@ export const LoginBox = () => {
           placeholder="Enter Password"
           value={password}
           onChange={(e) => setText2(e.target.value)}
+          onKeyPress={(event) => {
+            if (event.key === "Enter") {
+              attemptLogin();
+            }
+          }}
         />
 
-        <div className="ptwo" style={{ top: "54%", left: "13%" }}>
+        <div className="ptwo" style={{ top: "60%", left: "17%" }}>
           Forgot Password
         </div>
 
         <button
           className="button2"
           onClick={() => attemptLogin()}
-          style={{ width: "65%", margin: 10, left: "15%", top: "64.5%" }}
+          style={{ width: "65%", margin: 10, left: "15%", top: "70%" }}
         >
           <p>Sign in</p>
         </button>
@@ -87,7 +89,7 @@ export const LoginBox = () => {
         <div
           className="ptwo"
           style={{
-            top: "80%",
+            top: "85%",
             left: "15%",
             color: "black",
             "text-decoration-line": "None",
@@ -100,7 +102,7 @@ export const LoginBox = () => {
         <Link to="/signup">
           <div
             className="ptwo"
-            style={{ top: "80%", left: "28.5%", "font-size": 12 }}
+            style={{ top: "85%", left: "28.5%", "font-size": 12 }}
           >
             Sign Up
           </div>

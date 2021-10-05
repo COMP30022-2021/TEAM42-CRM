@@ -6,14 +6,17 @@ import { RiDashboardLine } from "react-icons/ri";
 import { FiLogOut, FiSettings } from "react-icons/fi";
 import user from "../../res/images/user_cropped.jpg";
 
+import logo from "../../res/images/Logos/Logo_Design5.png";
+
 export default function SBCElements({ path }) {
   return (
     <div>
+      <img src={logo} className="SBCLogo"></img>
       <img
         src={user}
         style={{
           position: "absolute",
-          top: "12%",
+          top: "15%",
           left: "86%",
           borderRadius: "50%",
           width: 46,

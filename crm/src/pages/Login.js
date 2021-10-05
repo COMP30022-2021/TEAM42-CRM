@@ -1,5 +1,5 @@
 import React from "react";
-import Helmet from "react-helmet";
+
 import { InfoPanel } from "../Components/Logins/InfoPanel";
 import image from "../res/images/background4.jpg";
 
@@ -18,8 +18,6 @@ function Login() {
         overflow: "hidden",
       }}
     >
-      <Helmet bodyAttributes={{ style: "background-color : #265573" }} />
-
       <LoginHeader />
       <LoginBox />
       <InfoPanel width="50" height="150" />

@@ -7,7 +7,7 @@ export const SideBarUser = ({ image }) => {
         src={image}
         style={{
           position: "absolute",
-          top: "12%",
+          top: "15%",
           left: "13.8%",
           borderRadius: "50%",
           width: 46,
@@ -17,10 +17,13 @@ export const SideBarUser = ({ image }) => {
         }}
         alt="User"
       />
-      <h3 className = "userDesign" style={{top: "7.5%", left: "30%",fontSize: "14px" }}>
+      <h3
+        className="userDesign"
+        style={{ top: "10.5%", left: "30%", fontSize: "14px" }}
+      >
         Katrina Hofer
       </h3>
-      <h3 style={{ top: "10.5%", left: "30%", fontSize: "11px" }}>
+      <h3 style={{ top: "13.5%", left: "30%", fontSize: "11px" }}>
         k.hofer@gmail.com
       </h3>
     </div>

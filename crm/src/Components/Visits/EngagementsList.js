@@ -13,9 +13,10 @@ export default function EngagementsList({ engagements }) {
       }}
     >
       <div className="block" style={{ position: "sticky", zIndex: 1 }}>
-        <h4 style={{ left: "18%", top: "12%" }}>Date</h4>
-        <h4 style={{ left: "50%", top: "12%" }}>Purpos</h4>
-        <h4 style={{ left: "76%", top: "12%" }}>Rating</h4>
+        <h4 style={{ left: "15%", top: "12%" }}>Date</h4>
+        <h4 style={{ left: "40%", top: "12%" }}>Purpos</h4>
+        <h4 style={{ left: "65%", top: "12%" }}>Rating</h4>
+        <h4 style={{ left: "85%", top: "12%" }}>Staff_ID</h4>
       </div>
       {engagements.map((engagement) => (
         <EngagementListElement engagement={engagement} />

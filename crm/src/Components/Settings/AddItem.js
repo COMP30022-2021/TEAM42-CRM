@@ -1,7 +1,6 @@
 import React from "react";
 import Header from "../SignIns/SignInHeader";
 import { GrClose } from "react-icons/gr";
-
 import { useState } from "react";
 
 function AddItem({ setBlur }) {

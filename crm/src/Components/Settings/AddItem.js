@@ -22,7 +22,7 @@ function AddItem({ setBlur }) {
           className="inputChangePassword"
           style={{ top: "23%" }}
           type="text"
-          placeholder="Enter the name of the new item"
+          placeholder="Enter Item Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
         ></input>
@@ -35,7 +35,7 @@ function AddItem({ setBlur }) {
           className="inputChangePassword"
           style={{ top: "41%" }}
           type="text"
-          placeholder="Enter the ID of the item"
+          placeholder="Enter Item ID"
           value={ID}
           onChange={(e) => setID(e.target.value)}
         ></input>
@@ -48,7 +48,7 @@ function AddItem({ setBlur }) {
           className="inputChangePassword"
           style={{ top: "59%" }}
           type="text"
-          placeholder="Enter the price of the Item"
+          placeholder="Enter Item Price"
           value={price}
           onChange={(e) => setPrice(e.target.value)}
         ></input>

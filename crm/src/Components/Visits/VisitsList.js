@@ -17,8 +17,10 @@ export default function ContactList({ visits }) {
         <h4 style={{ left: "32%", top: "12%" }}>Items</h4>
         <h4 style={{ left: "52%", top: "12%" }}># People</h4>
         <h4 style={{ left: "70%", top: "12%" }}>Price</h4>
-        <h4 style={{ left: "90%", top: "12%" }}>Staff-ID</h4>
+        <h4 style={{ left: "90%", top: "12%" }}>StaffID</h4>
+        &nbsp;
       </div>
+
       {visits.map((visit) => (
         <VisitsListElement visit={visit} />
       ))}

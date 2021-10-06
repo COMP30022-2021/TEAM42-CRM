@@ -7,6 +7,7 @@ import { SideBar } from "../Components/SideBar/SideBar";
 import SideBarCollapsed from "../Components/SideBar/SBC";
 import AddPopUp from "../Components/AddContact/AddPopUp.js";
 import ChangePassword from "../Components/Settings/ChangePassword";
+import AddItem from "../Components/Settings/AddItem";
 import { useLocation } from "react-router";
 
 export const Settings = () => {
@@ -15,12 +16,16 @@ export const Settings = () => {
   const location = useLocation();
 
   const [changePassword, setChangePassword] = React.useState(false);
+  const [addItem, setAddItem] = React.useState(false);
+  const [addEmployee, setAddEmployee] = React.useState(false);
+
+  const blurred = blur || changePassword || addEmployee || addItem;
   return (
     <div>
       <div
         className="Page"
         style={{
-          filter: blur || changePassword ? "blur(2px)" : "",
+          filter: blurred ? "blur(2px)" : "",
         }}
       >
         <Helmet>
@@ -28,7 +33,11 @@ export const Settings = () => {
         </Helmet>
 
         <SearchBar onClick={setBlur} width="95%" />
-        <SettingsMainComponent setChangePassword={setChangePassword} />
+        <SettingsMainComponent
+          setChangePassword={setChangePassword}
+          setAddItem={setAddItem}
+          setAddEmployee={setAddEmployee}
+        />
       </div>
       {sbc ? (
         <SideBarCollapsed setSBC={setSBC} path={location.pathname} />
@@ -37,6 +46,8 @@ export const Settings = () => {
       )}
       {blur && <AddPopUp setBlur={setBlur} />}
       {changePassword && <ChangePassword setBlur={setChangePassword} />}
+      {addItem && <AddItem setBlur={setAddItem} />}
+      {addEmployee && <AddPopUp setBlur={setAddEmployee} initialMode={1} />}
     </div>
   );
 };

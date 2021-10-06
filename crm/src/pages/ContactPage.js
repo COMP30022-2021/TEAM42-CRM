@@ -30,7 +30,7 @@ export default function ContactPage({ contacts }) {
         </Helmet>
         <SortDropdown value={value} setValue={setValue} />
 
-        <Contacts contacts={contacts} sortBy={value} />
+        <Contacts contacts={contacts} sortBy={value} setBlur={setBlur} />
 
         <SearchBar onClick={setBlur} width="66%" />
         <Filters />

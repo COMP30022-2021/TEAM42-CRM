@@ -1,15 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Header from "../SignIns/SignInHeader";
-import { Link } from "react-router-dom";
-import Helmet from "react-helmet";
 import { GrClose } from "react-icons/gr";
 import VisitsList from "./VisitsList";
 
-export default function VisitsCompleteHistory() {
-  const [Total, setContacts] = useState({
+export default function VisitsCompleteHistory({ setVisitHistory }) {
+  const Total = {
     NumberVisits: "100",
     Revenue: "500",
-  });
+  };
 
   const visits = [
     {
@@ -33,29 +31,25 @@ export default function VisitsCompleteHistory() {
       price: 90.5,
       staffID: 4,
     },
-    
-    
   ];
   return (
     <div>
-      <div
-        className="completeHistory"
-        style={{
-          date: "#FFFCFC",
-          item: 476.15,
-          people: 400,
-          price: "absolute",
-        }}
-      >
-        <Helmet bodyAttributes={{ style: "background-color : #ffffff" }} />
-
+      <div className="completeHistory">
         <Header text={"Contact History"} top_a={"0%"} width_a={"100%"} />
+        <Header text={""} top_a={"100%"} width_a={"100%"} />
 
         <VisitsList visits={visits} />
 
-        <GrClose style={{ position: "absolute", left: "92%", top: "2.5%" }} />
+        <GrClose
+          style={{
+            position: "absolute",
+            left: "92%",
+            top: "1.5%",
+            cursor: "pointer",
+          }}
+          onClick={() => setVisitHistory(false)}
+        />
 
-        <Header text={""} top_a={"100%"} width_a={"100%"} />
         <p
           className="p9"
           style={{ position: "absolute", top: "99.5%", left: "10%" }}

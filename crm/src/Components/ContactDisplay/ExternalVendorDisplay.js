@@ -1,6 +1,7 @@
 import React from "react";
 import EngagementTable from "./EngagementTable";
 import AddEngagement from "../Visits/AddEngagement";
+import EngagementCompleteHistory from "../Visits/EngagementCompleteHistory";
 
 import { IoIosMan } from "react-icons/io";
 import { ImPhone } from "react-icons/im";
@@ -11,8 +12,10 @@ import { ImPriceTags } from "react-icons/im";
 import { EditContact } from "./EditContact";
 
 export default function ExternalVendorDisplay({ contact, setEditMode }) {
-  const [blur, setBlur] = React.useState(false);
+  const [addEngagement, setAddEngagement] = React.useState(false);
+  const [engagementHistory, setEngagementHistory] = React.useState(false);
 
+  const blurred = addEngagement || engagementHistory;
   const nextContact = () => {
     alert("next contact please");
   };
@@ -22,7 +25,7 @@ export default function ExternalVendorDisplay({ contact, setEditMode }) {
   };
 
   const addVisit = () => {
-    setBlur(true);
+    setAddEngagement(true);
   };
 
   return (
@@ -32,7 +35,7 @@ export default function ExternalVendorDisplay({ contact, setEditMode }) {
         style={{
           filter:
             "drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.25))" +
-            (blur ? "blur(2px)" : ""),
+            (blurred ? "blur(2px)" : ""),
         }}
       >
         <img src={contact.image} className="contactImage" alt="User" />
@@ -118,14 +121,19 @@ export default function ExternalVendorDisplay({ contact, setEditMode }) {
         <p
           className="p8"
           style={{ left: "78.75%", top: "81.25%" }}
-          onClick={() => setBlur(true)}
+          onClick={() => setEngagementHistory(true)}
         >
           View Complete History
         </p>
 
         <EditContact setEditMode={setEditMode} />
       </div>
-      {blur && <AddEngagement setBlur={setBlur} />}
+      {addEngagement && <AddEngagement setAddEngagement={setAddEngagement} />}
+      {engagementHistory && (
+        <EngagementCompleteHistory
+          setEngagementHistory={setEngagementHistory}
+        />
+      )}
     </div>
   );
 }

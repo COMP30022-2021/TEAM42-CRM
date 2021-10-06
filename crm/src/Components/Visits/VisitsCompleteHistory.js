@@ -5,7 +5,7 @@ import Helmet from "react-helmet";
 import { GrClose } from "react-icons/gr";
 import VisitsList from "./VisitsList";
 
-export default function VisitsCompleteHistory() {
+export default function VisitsCompleteHistory({ setVisitHistory }) {
   const [Total, setContacts] = useState({
     NumberVisits: "100",
     Revenue: "500",
@@ -33,27 +33,22 @@ export default function VisitsCompleteHistory() {
       price: 90.5,
       staffID: 4,
     },
-    
-    
   ];
   return (
     <div>
-      <div
-        className="completeHistory"
-        style={{
-          date: "#FFFCFC",
-          item: 476.15,
-          people: 400,
-          price: "absolute",
-        }}
-      >
-        <Helmet bodyAttributes={{ style: "background-color : #ffffff" }} />
-
+      <div className="completeHistory">
         <Header text={"Contact History"} top_a={"0%"} width_a={"100%"} />
-
         <VisitsList visits={visits} />
 
-        <GrClose style={{ position: "absolute", left: "92%", top: "2.5%" }} />
+        <GrClose
+          style={{
+            position: "absolute",
+            left: "92%",
+            top: "1.5%",
+            cursor: "pointer",
+          }}
+          onClick={() => setVisitHistory(false)}
+        />
 
         <Header text={""} top_a={"100%"} width_a={"100%"} />
         <p

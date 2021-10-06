@@ -1,6 +1,7 @@
 import React from "react";
 import VisitTable from "./VisitTable";
 import AddVisit from "../Visits/AddVisit";
+import VisitCompleteHistory from "../Visits/VisitsCompleteHistory";
 
 import { IoIosMan } from "react-icons/io";
 import { ImPhone } from "react-icons/im";
@@ -11,17 +12,17 @@ import { ImCalendar } from "react-icons/im";
 import { EditContact } from "./EditContact";
 
 export default function CustomerDisplay({ contact, setEditMode }) {
-  const [blur, setBlur] = React.useState(false);
+  const [addVisit, setAddVisit] = React.useState(false);
+  const [visitHistory, setVisitHistory] = React.useState(false);
+
+  const blurred = addVisit || visitHistory;
+  console.log(visitHistory);
   const nextContact = () => {
     alert("next contact please");
   };
 
   const previousContact = () => {
     alert("previous contact please");
-  };
-
-  const addVisit = () => {
-    setBlur(true);
   };
 
   return (
@@ -31,11 +32,11 @@ export default function CustomerDisplay({ contact, setEditMode }) {
         style={{
           filter:
             "drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.25))" +
-            (blur ? "blur(2px)" : ""),
+            (blurred ? "addVisit(2px)" : ""),
           position: "fixed",
         }}
       >
-       <img src={contact.image} className="contactImage" alt="user" /> 
+        <img src={contact.image} className="contactImage" alt="user" />
 
         <div className="contactTitle">{contact.Name}</div>
 
@@ -45,7 +46,7 @@ export default function CustomerDisplay({ contact, setEditMode }) {
           style={{ position: "absolute", left: "15%", top: "51.25%" }}
         />
         <div className="p3" style={{ left: "17%", top: "51%" }}>
-          {contact.Gender}{" "}
+          {contact.Gender}
         </div>
 
         <ImPhone style={{ position: "absolute", left: "15%", top: "56.25%" }} />
@@ -53,33 +54,33 @@ export default function CustomerDisplay({ contact, setEditMode }) {
           className="p3"
           style={{ position: "absolute", left: "17%", top: "56%" }}
         >
-          {contact.Phone}{" "}
+          {contact.Phone}
         </div>
 
         <MdEmail style={{ position: "absolute", left: "15%", top: "61.25%" }} />
         <div className="p3" style={{ left: "17%", top: "61%" }}>
-          {contact.Email}{" "}
+          {contact.Email}
         </div>
 
         <TiLocation
           style={{ position: "absolute", left: "15%", top: "66.25%" }}
         />
         <div className="p3" style={{ left: "17%", top: "66%" }}>
-          {contact.Address}{" "}
+          {contact.Address}
         </div>
 
         <FaBirthdayCake
           style={{ position: "absolute", left: "15%", top: "71.25%" }}
         />
         <div className="p3" style={{ left: "17%", top: "71%" }}>
-          Born {contact.DateOfBirth}{" "}
+          Born {contact.DateOfBirth}
         </div>
 
         <ImCalendar
           style={{ position: "absolute", left: "15%", top: "76.25%" }}
         />
         <div className="p3" style={{ left: "17%", top: "76%" }}>
-          First Visited - {contact.FirstVisit}{" "}
+          First Visited - {contact.FirstVisit}
         </div>
 
         <button
@@ -93,14 +94,14 @@ export default function CustomerDisplay({ contact, setEditMode }) {
         <button
           className="button3"
           onClick={() => previousContact()}
-          style={{left: "8%",}}
+          style={{ left: "8%" }}
         >
           <p className="pText">Previous</p>
         </button>
 
         <button
           className="addButton"
-          onClick={() => addVisit()}
+          onClick={() => setAddVisit(true)}
           style={{
             left: "44%",
           }}
@@ -120,13 +121,20 @@ export default function CustomerDisplay({ contact, setEditMode }) {
           <VisitTable />
         </div>
 
-        <p className="p8" style={{ left: "78.75%", top: "81.25%" }}>
+        <p
+          className="p8"
+          style={{ left: "78.75%", top: "81.25%" }}
+          onClick={() => setVisitHistory(true)}
+        >
           View Complete History
         </p>
 
         <EditContact setEditMode={setEditMode} />
       </div>
-      {blur && <AddVisit setBlur={setBlur} />}
+      {addVisit && <AddVisit setAddVisit={setAddVisit} />}
+      {visitHistory && (
+        <VisitCompleteHistory setVisitHistory={setVisitHistory} />
+      )}
     </div>
   );
 }

@@ -18,12 +18,14 @@ export const Settings = () => {
   const [changePassword, setChangePassword] = React.useState(false);
   const [addItem, setAddItem] = React.useState(false);
   const [addEmployee, setAddEmployee] = React.useState(false);
+
+  const blurred = blur || changePassword || addEmployee || addItem;
   return (
     <div>
       <div
         className="Page"
         style={{
-          filter: blur || changePassword ? "blur(2px)" : "",
+          filter: blurred ? "blur(2px)" : "",
         }}
       >
         <Helmet>

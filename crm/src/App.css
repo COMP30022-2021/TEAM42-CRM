@@ -836,3 +836,29 @@ p2 {
   color: #2a8dbb;
   outline: none;
 }
+
+.noContacts {
+  height: 25px;
+  /* height: 9%; */
+  width: 100%;
+
+  background: #b8b5b5;
+  border-radius: 4px;
+  filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.25));
+  margin-bottom: 0.2%;
+  cursor: pointer;
+  text-align: center;
+}
+
+.noContactsText {
+  font-family: Poppins, sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 25px;
+  letter-spacing: 0.01em;
+  font-style: italic;
+  /* color: #ffffff; */
+  color: black;
+  margin: 0;
+  display: inline-block;
+}

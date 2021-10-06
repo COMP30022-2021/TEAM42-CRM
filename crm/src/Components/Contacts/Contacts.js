@@ -2,7 +2,7 @@ import React from "react";
 import { Contact } from "./Contact";
 import ContactsHeader from "./ContactsHeader";
 
-export default function Contacts({ sortBy }) {
+export default function Contacts({ sortBy, setBlur }) {
   const [contacts, setContacts] = React.useState([]);
 
   React.useEffect(() => {
@@ -42,9 +42,21 @@ export default function Contacts({ sortBy }) {
     >
       <ContactsHeader />
 
-      {contacts.map((contact) => (
-        <Contact contact={contact} />
-      ))}
+      {contacts.length > 0 ? (
+        contacts.map((contact) => <Contact contact={contact} />)
+      ) : (
+        <div className="noContacts">
+          <p className="noContactsText">No contacts to show.&nbsp;</p>
+          <p
+            className="noContactsText"
+            style={{ color: "#2a8dbb", textDecoration: "underline" }}
+            onClick={() => setBlur(true)}
+          >
+            Click here
+          </p>
+          <p className="noContactsText">&nbsp;to add a new contact.</p>
+        </div>
+      )}
     </div>
   );
 }

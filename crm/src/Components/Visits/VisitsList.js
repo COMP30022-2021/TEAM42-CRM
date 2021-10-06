@@ -12,16 +12,15 @@ export default function ContactList({ visits }) {
         overflowY: "scroll",
       }}
     >
-      <div
-        className="block"
-        style={{ position: "sticky", zIndex: 1, marginBottom: 0 }}
-      >
+      <div className="block" style={{ position: "sticky", zIndex: 1 }}>
         <h4 style={{ left: "12.5%", top: "12%" }}>Date</h4>
         <h4 style={{ left: "32%", top: "12%" }}>Items</h4>
         <h4 style={{ left: "52%", top: "12%" }}># People</h4>
         <h4 style={{ left: "70%", top: "12%" }}>Price</h4>
-        <h4 style={{ left: "90%", top: "12%" }}>Staff-ID</h4>
+        <h4 style={{ left: "90%", top: "12%" }}>StaffID</h4>
+        &nbsp;
       </div>
+
       {visits.map((visit) => (
         <VisitsListElement visit={visit} />
       ))}

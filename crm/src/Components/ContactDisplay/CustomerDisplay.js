@@ -32,7 +32,7 @@ export default function CustomerDisplay({ contact, setEditMode }) {
         style={{
           filter:
             "drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.25))" +
-            (blurred ? "addVisit(2px)" : ""),
+            (blurred ? "blur(2px)" : ""),
           position: "fixed",
         }}
       >

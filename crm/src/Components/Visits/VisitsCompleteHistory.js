@@ -1,15 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Header from "../SignIns/SignInHeader";
-import { Link } from "react-router-dom";
-import Helmet from "react-helmet";
 import { GrClose } from "react-icons/gr";
 import VisitsList from "./VisitsList";
 
 export default function VisitsCompleteHistory({ setVisitHistory }) {
-  const [Total, setContacts] = useState({
+  const Total = {
     NumberVisits: "100",
     Revenue: "500",
-  });
+  };
 
   const visits = [
     {
@@ -38,6 +36,8 @@ export default function VisitsCompleteHistory({ setVisitHistory }) {
     <div>
       <div className="completeHistory">
         <Header text={"Contact History"} top_a={"0%"} width_a={"100%"} />
+        <Header text={""} top_a={"100%"} width_a={"100%"} />
+
         <VisitsList visits={visits} />
 
         <GrClose
@@ -50,7 +50,6 @@ export default function VisitsCompleteHistory({ setVisitHistory }) {
           onClick={() => setVisitHistory(false)}
         />
 
-        <Header text={""} top_a={"100%"} width_a={"100%"} />
         <p
           className="p9"
           style={{ position: "absolute", top: "99.5%", left: "10%" }}

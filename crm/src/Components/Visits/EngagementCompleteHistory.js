@@ -14,37 +14,28 @@ export default function EngagementCompleteHistory() {
         {
           date: "23/08/2029",
           purpos:"Repair",
-          rating:"5"
+          rating:"5",
+          staff_ID: 3,
         },
         {
           date: "16/05/2019",
           purpos:"Payment",
-          rating:"3"
+          rating:"3",
+          staff_ID: 7,
         },
         {
           date: "11/05/2018",
           purpos:"Help",
-          rating:"9"
+          rating:"9",
+          staff_ID: 2,
         },
       ];
 
     return (
     <div>
-      <div
-        className="logInBox"
-        style={{
-          background: "#FFFCFC",
-          width: 476.15,
-          height: 400,
-          position: "absolute",
-          left: "50%",
-          top: "52.5%",
-          transform: "translate(-50%, -50%)",
-        }}
-      >
+      <div className="completeHistory">
         <Helmet bodyAttributes={{ style: "background-color : #ffffff" }} />
-
-        <Header text={"Engagement History"} top_a={"0%"} width_a={476.15}/>
+        <Header text={"Engagement History"} top_a={"0%"} width_a={"100%"}/>
         
         <EngagementsList engagements={engagements}/>
         
@@ -52,7 +43,7 @@ export default function EngagementCompleteHistory() {
           style={{ position: "absolute", left: "92%", top: "2.5%" }}
         />
 
-        <Header text={""} top_a={"100%"} width_a={476.15} />
+        <Header text={""} top_a={"100%"} width_a={"100%"} />
         <p className="p9" style={{position: "absolute",top:"99.5%",left:"10%"}}>Number of engagements: {Total.Number}</p> 
       </div>
     </div>

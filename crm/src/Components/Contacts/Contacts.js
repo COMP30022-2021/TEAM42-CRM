@@ -49,7 +49,7 @@ export default function Contacts({ sortBy, setBlur }) {
           <p className="noContactsText">No contacts to show.&nbsp;</p>
           <p
             className="noContactsText"
-            style={{ color: "#2a8dbb", textDecoration: "underline" }}
+            style={{ color: "#0075ff", textDecoration: "underline" }}
             onClick={() => setBlur(true)}
           >
             Click here

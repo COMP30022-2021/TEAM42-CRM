@@ -23,10 +23,10 @@ export default function StatisticsSubComponent1({left,top}) {
             <div className="pStatsDescription" style={{left: "10%", top:"85%"}}>Least sold item:</div>
             <div className="pStats" style={{left: "60%", top:"85%"}}>{info.LeastSold}</div>
 
-            <button className="addButton" style style={{top:"5%",left:"70%"}}>
+            <button className="addButton" style style={{top:"5%",left:"85%"}}>
                 <div style={{color:"#ffffff"}}>Add Filters</div>
             </button>
-            <button className="addButton" style style={{top:"5%",left:"85%"}}>
+            <button className="addButton" style style={{top:"16%",left:"85%"}}>
                 <div style={{color:"#ffffff"}}>Clear Filters</div>
             </button>
         </div>

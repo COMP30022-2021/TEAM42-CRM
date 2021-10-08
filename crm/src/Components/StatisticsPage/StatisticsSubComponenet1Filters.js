@@ -1,4 +1,5 @@
 import React from 'react'
+import { GrClose } from "react-icons/gr";
 
 export default function StatisticsSubComponenet1Filters() {
     return (
@@ -21,6 +22,7 @@ export default function StatisticsSubComponenet1Filters() {
         <input style={{top:"35%",left:"10%",width:"42%"}} class="numInput" type="date" min={0}></input>
         <div className="p3" style={{ left: "54%", top: "35%" }}></div>
 
+        <GrClose style={{ position: "absolute", left: "92%", top: "2.5%" }} cursor="pointer"/>
         </div>
       );
 }

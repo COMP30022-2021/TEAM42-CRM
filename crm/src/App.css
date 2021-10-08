@@ -872,3 +872,45 @@ p2 {
   top: 50%;
   transform: translate(-50%, -50%);
 }
+
+.statisticsDisplay {
+  background: #fffcfc;
+  width: 44%;
+  height: 41%;
+  position: absolute;
+  filter: drop-shadow(6px 6px 8px rgba(0, 0, 0, 0.25));
+}
+
+.pStatsHeading {
+  position: absolute;
+  font-family: Poppins, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 36px;
+  letter-spacing: 0.01em;
+  color: #000000;
+}
+
+.pStatsDescription {
+  position: absolute;
+  font-family: Poppins, sans-serif;
+  font-style: italic;
+  font-weight: normal;
+  font-size: 22px;
+  line-height: 26px;
+  letter-spacing: 0.01em;
+  color: #000000;
+}
+
+.pStats {
+  position: absolute;
+  font-family: Poppins, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 26px;
+  letter-spacing: 0.01em;
+  color: #000000;
+}
+

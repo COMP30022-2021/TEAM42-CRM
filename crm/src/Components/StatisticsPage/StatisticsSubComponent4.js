@@ -1,36 +1,34 @@
 import React from 'react'
 import Chart from "react-google-charts";
 
-export default function StatisticsSubComponent3({left,top}) {
-    const info = {
-        first: 9000,
-        second: 15000,
-        third: 12000,
-        foourth: 10000,
-    }
-    const year = 2018
+export default function StatisticsSubComponent4({left,top}) {
+    const data =[
+        ['Quarter', 'ID:1', 'ID:2'],
+        [1, 10, 5],
+        [2, 23, 15],
+        [3, 17, 9],
+        [4, 18, 10],
+    ]
+    
     return (
         <div className="statisticsDisplay" style={{left: left, top: top}}>
             <Chart
-            left={"2.5%"}
-            width={'91%'}
+            width={'92%'}
             height={'100%'}
-            chartType="Bar"
+            chartType="LineChart"
             loader={<div>Loading Chart</div>}
-            data={[
-                ['Quarter', 'Sales'],
-                ['First', info.first],
-                ['Second', info.second],
-                ['Third', info.third],
-                ['Fourth', info.foourth],
-            ]}
+            data={data}
             options={{
-                // Material design options
-                chart: {
-                title: 'Company Performance in different quarters',
+                hAxis: {
+                title: 'Quarter',
+                },
+                vAxis: {
+                title: 'Number of Items sold',
+                },
+                series: {
+                1: { curveType: 'function' },
                 },
             }}
-            // For tests
             rootProps={{ 'data-testid': '2' }}
             />
 

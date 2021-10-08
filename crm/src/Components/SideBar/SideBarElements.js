@@ -59,10 +59,20 @@ export default function SideBarElements({ path }) {
         </SideBarElement>
       </Link>
 
-      <SideBarElement>
-        <h3 style={{ top: "38%", left: "25%" }}>Statistics</h3>
-        <FcStatistics className="icon" style={{ top: "40%", left: "11%" }} />
-      </SideBarElement>
+      <Link to="/statistics">
+        <SideBarElement>
+          <h3
+            style={{
+              color: path === "/statictics" ? "#9FBF8E" : "#cfd7e3",
+              top: "38%",
+              left: "25%",
+            }}
+          >
+            Statistics
+          </h3>
+          <FcStatistics className="icon" style={{ top: "40%", left: "11%" }} />
+        </SideBarElement>
+      </Link>
 
       <Link to="/settings">
         <SideBarElement>

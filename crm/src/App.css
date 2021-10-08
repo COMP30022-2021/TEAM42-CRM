@@ -873,34 +873,44 @@ p2 {
   transform: translate(-50%, -50%);
 }
 
+.statisticsPage {
+  position: absolute;
+  top: 15%;
+  left: 7%;
+  width: 92%;
+  height: 100%;
+}
+
 .statisticsDisplay {
   background: #fffcfc;
-  width: 44%;
-  height: 41%;
+  width: 45%;
+  height: 38%;
   position: absolute;
-  filter: drop-shadow(6px 6px 8px rgba(0, 0, 0, 0.25));
+  filter: drop-shadow(6px 6px 8px rgba(0, 0.25, 0.25, 0.25));
 }
 
 .pStatsHeading {
-  position: absolute;
   font-family: Poppins, sans-serif;
   font-style: normal;
   font-weight: bold;
-  font-size: 32px;
-  line-height: 36px;
+  font-size: 22px;
   letter-spacing: 0.01em;
-  color: #000000;
+  color: #265573;
+  text-align: center;
+  width: 100%;
+  margin-top: 4%;
 }
 
 .pStatsDescription {
-  position: absolute;
   font-family: Poppins, sans-serif;
   font-style: italic;
   font-weight: normal;
-  font-size: 22px;
-  line-height: 26px;
+  font-size: 16px;
   letter-spacing: 0.01em;
   color: #000000;
+  padding-left: 10%;
+  text-align: left;
+  margin-top: 3%;
 }
 
 .pStats {
@@ -908,9 +918,21 @@ p2 {
   font-family: Poppins, sans-serif;
   font-style: normal;
   font-weight: bold;
-  font-size: 22px;
-  line-height: 26px;
+  font-size: 16px;
   letter-spacing: 0.01em;
   color: #000000;
+
+  padding-left: 60%;
+  text-align: left;
 }
 
+.statButtons {
+  position: absolute;
+  background: #265573;
+  height: 15%;
+  width: 20%;
+  margin: 10;
+  top: 88%;
+  line-height: 13px;
+  cursor: pointer;
+}

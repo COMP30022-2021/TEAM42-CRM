@@ -11,6 +11,7 @@ import customer from "./res/images/Customer.jpg";
 import employee from "./res/images/Employee.jfif";
 import vendor from "./res/images/external_vendor.jpg";
 import { Settings } from "./pages/Settings";
+import { Statistics } from "./pages/Statistics";
 
 const contacts = [
   {
@@ -100,6 +101,12 @@ function App() {
         exact
         path="/settings"
         render={() => (loggedIn ? <Settings /> : <Redirect to="/login" />)}
+      />
+
+      <Route
+        exact
+        path="/statistics"
+        render={() => (loggedIn ? <Statistics /> : <Redirect to="/login" />)}
       />
     </div>
   );

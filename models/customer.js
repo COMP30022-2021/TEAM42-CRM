@@ -54,6 +54,11 @@ class Customer {
         let sql = `SELECT * FROM customer`
         return mysql.execute((sql))
     }
+
+    static getNumberOfEmployees() {
+        let sql = `SELECT COUNT(DISTINCT customer_id) FROM customer`
+        return mysql.execute((sql))
+    }
 }
 
 module.exports = Customer;

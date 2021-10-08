@@ -18,7 +18,7 @@ exports.createNewVendor = async (req, res) => {
         });
     } catch (err) {
         console.log(err);
-        if(err.code == 1062) {
+        if(err.code === 1062) {
             res.status(401).json({
                 status_code: 401,
                 status_message: "Error: Vendor Already Exists"

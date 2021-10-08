@@ -45,6 +45,11 @@ class Vendor {
         return result
     }
 
+    static getNumberOfEmployees() {
+        let sql = `SELECT COUNT(DISTINCT vendor_id) FROM vendor`
+        return mysql.execute((sql))
+    }
+
     // static findByID(id) {
     //     let sql = `SELECT * FROM customer WHERE id = ${id}`
     //     return mysql.execute((sql))

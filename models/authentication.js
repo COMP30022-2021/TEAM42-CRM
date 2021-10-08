@@ -66,6 +66,11 @@ class Authentication {
         let sql = `SELECT * FROM employee WHERE employee_id = ${employeeID}`
         return mysql.execute((sql))
     }
+
+    static getNumberOfEmployees() {
+        let sql = `SELECT COUNT(DISTINCT employee_id) FROM employee`
+        return mysql.execute((sql))
+    }
 }
 
 module.exports = Authentication;

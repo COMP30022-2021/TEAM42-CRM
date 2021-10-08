@@ -61,10 +61,10 @@ exports.register = async function (req, res) {
         } else {
             let role = "Employee";
             let password = 0;
-            if (isManager == true) {
+            if (isManager === true) {
                 role = "Manager"
             }
-            if (contactOnly == false) {
+            if (contactOnly === false) {
                 //Encrypt the user's password
                 await bcrypt.genSalt(10, (err, salt) => {
                     bcrypt.hash("admin", salt, (err, hash) => {

@@ -3,6 +3,7 @@ const Vendor = require('../models/vendor')
 const Customer = require('../models/customer')
 const Employee = require('../models/authentication')
 const url = require('url');
+const redis = require('../config/redis')
 
 exports.getAllContact = async (req, res, next) => {
     const session = req.session;
@@ -65,12 +66,58 @@ exports.getSingleContact = async (req, res, next) => {
                 })
                 return
             }
+            //save to redis
+            if (contact.length !== 0) {
+                let jsonObj = {
+                    id: id,
+                    name: contact[0].name,
+                    gender: contact[0].gender,
+                    role: role,
+                    phone: contact[0].phone,
+                    email: contact[0].email
+                }
+                let jsonString = JSON.stringify(jsonObj);
+                let timestamp = Date.now()
+                console.log(jsonString);
+                console.log(timestamp)
+                redis.zadd('business_test', Date.now(), jsonString)
+            }
+
             res.status(200).json({
                 status_code: 200,
                 status_message: "Success",
                 contact
             })
         }
+    } catch (err) {
+        console.log(err);
+        res.status(400).json({
+            status_code: 400,
+            status_message: "Error: Internal Server Error"
+        })
+    }
+}
+
+exports.getRecentContact = async (req, res, next) => {
+    let businessID = req.params.businessID;
+    try {
+        // query redis for data
+        let result = redis.zrevrange("business_test", 0, 20, (err, reply) => {
+            if (err) {
+                console.log(err);
+            } else {
+                let data = [];
+                for (var i = 0; i < reply.length; i++) {
+                    data.push(JSON.parse(reply[i]));
+                }
+                console.log(data)
+                res.status(200).json({
+                    status_code: 200,
+                    status_message: "Success",
+                    data
+                })
+            }
+        });
     } catch (err) {
         console.log(err);
         res.status(400).json({

@@ -45,8 +45,17 @@ class Customer {
         return result
     }
 
-    static findByID(id) {
-        let sql = `SELECT * FROM customer WHERE id = ${id}`
+    static getByID(id) {
+        let sql = `SELECT 
+        business_id,
+        name,
+        email, 
+        phone, 
+        address,
+        first_visit,
+        birthday,
+        gender 
+        FROM customer WHERE customer_id = ${id}`
         return mysql.execute((sql))
     }
 

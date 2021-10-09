@@ -1,5 +1,6 @@
 const bcrypt = require("bcryptjs");
 const Authentication = require("../models/authentication");
+const redis = require("../config/redis")
 
 exports.login = async (req, res) => {
     try {
@@ -18,6 +19,11 @@ exports.login = async (req, res) => {
                 console.log(req.body.password);
                 console.log(authentication[0].password)
                 if (isMatch) {
+                    // add session for login
+                    const session = req.session;
+                    session.bussiness_id = authentication[0].business_id;
+                    session.employee_id = authentication[0].employee_id;
+
                     res.status(200).json({
                         status_code: 200,
                         status_message: "Success",

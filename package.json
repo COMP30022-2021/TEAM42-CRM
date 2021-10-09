@@ -26,16 +26,20 @@
     "babel-jest": "^26.6.0",
     "bcryptjs": "^2.4.3",
     "concurrently": "^6.2.1",
+    "connect-redis": "^6.0.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "express-session": "^1.17.2",
     "fetch": "^1.1.0",
+    "ioredis": "^4.27.10",
     "jest-html-reporter": "^3.4.1",
     "mysql2": "^2.3.0",
     "node-fetch": "^3.0.0",
     "nodemon": "^2.0.12",
     "react-dropdown": "^1.9.2",
     "react-icons": "^4.2.0",
-    "react-sizeme": "^3.0.2"
+    "react-sizeme": "^3.0.2",
+    "redis": "^3.1.2"
   },
   "engines": {
     "node": "14.x.x"

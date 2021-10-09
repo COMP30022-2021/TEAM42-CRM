@@ -2,6 +2,15 @@ const Customer = require('../models/contact')
 const url = require('url');
 
 exports.getAllContact = async (req, res, next) => {
+    const session = req.session;
+    if (!session.employee_id) {
+        console.log("not login")
+        res.status(401).json({
+            status_code: 401,
+            status_message: "Unauthorised: Please Login First",
+        })
+        return;
+    }
     try {
         let uriObj = url.parse(req.url, true)
         if (uriObj.query.sort) {

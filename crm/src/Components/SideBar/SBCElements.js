@@ -50,7 +50,14 @@ export default function SBCElements({ path }) {
       </SideBarElement>
 
       <SideBarElement>
-        <FcStatistics className="icon" style={{ top: "40%", left: "83%" }} />
+        <FcStatistics
+          className="icon"
+          style={{
+            color: path === "/statictics" ? "#9FBF8E" : "#cfd7e3",
+            top: "40%",
+            left: "83%",
+          }}
+        />
       </SideBarElement>
 
       <SideBarElement>

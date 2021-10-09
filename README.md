@@ -14,6 +14,8 @@ Start the project locally:
   -   MYSQL_USER=b01eb9170bdd13
   -   MYSQL_DATABASE=heroku_c2fca39d7a7384f
   -   MYSQL_PASSWORD=fd7ba9ac
+  -   REDIS_URL=redis://:p8a9a536e37e24dcb479b2badb88bf9dc7808ed53900c90a23d5f3d88519eb8f6@ec2-54-156-199-127.compute-1.amazonaws.com:32020
+  -   SESSION_SECRET_KEY=team42-crm
 
 4. in ./Team42-CRM/, run: npm run dev
 

@@ -62,6 +62,23 @@ class Authentication {
         return mysql.execute((sql))
     }
 
+    static getByID(id) {
+        let sql = `SELECT 
+        business_id,
+        name,
+        email, 
+        password,
+        address,
+        birthday,
+        gender,
+        phone,
+        date_joined,
+        role
+        FROM employee WHERE employee_id = ${id}`
+        return mysql.execute((sql))
+    }
+
+    // this can get password back, not recommend for normal search api
     static findEmployeeByID(employeeID) {
         let sql = `SELECT * FROM employee WHERE employee_id = ${employeeID}`
         return mysql.execute((sql))

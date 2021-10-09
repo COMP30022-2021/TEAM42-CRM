@@ -8,4 +8,7 @@ router.route("/all/:businessID").get(contactControllers.getAllContact);
 // contact routes for one
 router.route("/single").get(contactControllers.getSingleContact);
 
+// contact routes for recent contacts
+router.route("/recent/:businessID").get(contactControllers.getRecentContact);
+
 module.exports = router;

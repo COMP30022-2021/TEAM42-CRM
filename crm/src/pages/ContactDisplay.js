@@ -13,37 +13,84 @@ import ExternalVendorDisplay from "../Components/ContactDisplay/ExternalVendorDi
 import EmployeeDisplay from "../Components/ContactDisplay/EmployeeDisplay";
 import UpdateContact from "../Components/UpdateContacts/UpdateContact";
 
-export default function ContactDisplay({ contacts }) {
+export default function ContactDisplay() {
   const [sbc, setSBC] = React.useState(true);
   const [blur, setBlur] = React.useState(false);
   const [editMode, setEditMode] = React.useState(false);
 
   const location = useLocation();
   const id = parseInt(useRouteMatch().params.id);
-  const contact = contacts.filter((contact) => id === contact.id)[0];
+
+  const [contact, setContact] = React.useState(null);
+
+  React.useEffect(() => {
+    loadContact();
+  }, []);
+
+  const loadContact = async () => {
+    const path = location.pathname.split("/");
+    console.log(
+      "https://team42-crm.herokuapp.com/contact/single?role=" +
+        lowerCaseFirstLetter(path[2]) +
+        "&id=" +
+        path[4]
+    );
+    await fetch(
+      "https://team42-crm.herokuapp.com/contact/single?role=" +
+        lowerCaseFirstLetter(path[2]) +
+        "&id=" +
+        path[4],
+      {
+        method: "get",
+        mode: "cors",
+        headers: new Headers({
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        }),
+      }
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data.contact[0]);
+        if (data.status_code === 200) {
+          console.log("hi");
+          setContact(data);
+          console.log(contact);
+        }
+      });
+  };
 
   return (
     <div>
-      <div
-        className="Page"
-        style={{
-          filter: editMode || blur ? "blur(2px)" : "",
-        }}
-      >
-        <Helmet>
+      {contact === null ? (
+        <div>Loading</div>
+      ) : (
+        <div
+          className="Page"
+          style={{
+            filter: editMode || blur ? "blur(2px)" : "",
+          }}
+        >
+          {/* <Helmet>
           <title>Lynk - {contact.Name}</title>
-        </Helmet>
-        <ContactList contacts={contacts} />
+        </Helmet> */}
 
-        <SearchBar width="95%" onClick={setBlur} />
-        {contact.Role === "Employee" ? (
-          <EmployeeDisplay contact={contact} setEditMode={setEditMode} />
-        ) : contact.Role === "Customer" ? (
-          <CustomerDisplay contact={contact} setEditMode={setEditMode} />
-        ) : (
-          <ExternalVendorDisplay contact={contact} setEditMode={setEditMode} />
-        )}
-      </div>
+          {/* <ContactList contacts={contact} /> */}
+          <SearchBar width="95%" onClick={setBlur} />
+
+          {contact[0] !== undefined &&
+            (contact.role === "Employee" || contact.Role === "Manager" ? (
+              <EmployeeDisplay contact={contact} setEditMode={setEditMode} />
+            ) : contact.role === "Customer" ? (
+              <CustomerDisplay contact={contact} setEditMode={setEditMode} />
+            ) : (
+              <ExternalVendorDisplay
+                contact={contact}
+                setEditMode={setEditMode}
+              />
+            ))}
+        </div>
+      )}
       {sbc ? (
         <SideBarCollapsed setSBC={setSBC} path={location.pathname} />
       ) : (
@@ -55,4 +102,8 @@ export default function ContactDisplay({ contacts }) {
       {blur && <AddPopUp setBlur={setBlur} />}
     </div>
   );
+}
+
+function lowerCaseFirstLetter(string) {
+  return string.charAt(0).toLowerCase() + string.slice(1);
 }

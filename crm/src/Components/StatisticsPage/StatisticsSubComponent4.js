@@ -1,7 +1,7 @@
 import React from "react";
 import Chart from "react-google-charts";
 
-export default function StatisticsSubComponent4({ left, top }) {
+export default function StatisticsSubComponent4({ left, top, dashboard }) {
   const data = [
     ["Quarter", "ID:1", "ID:2"],
     [1, 10, 5],
@@ -11,7 +11,16 @@ export default function StatisticsSubComponent4({ left, top }) {
   ];
 
   return (
-    <div className="statisticsDisplay" style={{ left: left, top: top }}>
+    <div
+      className="statisticsDisplay"
+      style={{
+        left: left,
+        top: top,
+        filter: dashboard
+          ? ""
+          : "drop-shadow(6px 6px 8px rgba(0, 0.25, 0.25, 0.25))",
+      }}
+    >
       <Chart
         width={"100%%"}
         height={"100%"}
@@ -37,6 +46,7 @@ export default function StatisticsSubComponent4({ left, top }) {
             bold: true,
             italic: false,
           },
+          backgroundColor: { fill: dashboard ? "#f5f6f8" : "ffffff" },
           legend: { position: "right", alignment: "center" },
 
           is3D: true,
@@ -53,3 +63,7 @@ export default function StatisticsSubComponent4({ left, top }) {
     </div>
   );
 }
+
+StatisticsSubComponent4.defaultProp = {
+  dashboard: false,
+};

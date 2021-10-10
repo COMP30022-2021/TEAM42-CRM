@@ -1,14 +1,23 @@
 import React from "react";
 import Chart from "react-google-charts";
 
-export default function StatisticsSubCompoent2({ left, top }) {
+export default function StatisticsSubCompoent2({ left, top, dashboard }) {
   const info = {
     NumberEmployee: 100,
     NumberExternalVendor: 150,
     NumberCutomers: 200,
   };
   return (
-    <div className="statisticsDisplay" style={{ left: left, top: top }}>
+    <div
+      className="statisticsDisplay"
+      style={{
+        left: left,
+        top: top,
+        filter: dashboard
+          ? ""
+          : "drop-shadow(6px 6px 8px rgba(0, 0.25, 0.25, 0.25))",
+      }}
+    >
       <Chart
         width={"100%"}
         height={"100%"}
@@ -31,6 +40,7 @@ export default function StatisticsSubCompoent2({ left, top }) {
             italic: false,
           },
           legend: { position: "right", alignment: "center" },
+          backgroundColor: { fill: dashboard ? "#f5f6f8" : "#ffffff" },
 
           is3D: true,
         }}
@@ -39,3 +49,7 @@ export default function StatisticsSubCompoent2({ left, top }) {
     </div>
   );
 }
+
+StatisticsSubCompoent2.defaultProp = {
+  dashboard: false,
+};

@@ -8,6 +8,7 @@ export default function StatisticsSubComponent3({ left, top }) {
     third: 12000,
     foourth: 10000,
   };
+  
   return (
     <div className="statisticsDisplay" style={{ left: left, top: top }}>
       <Chart

@@ -6,12 +6,6 @@ export default function Contacts({ sortBy, setBlur }) {
   const [contacts, setContacts] = React.useState([]);
 
   const loadContacts = async () => {
-    console.log(
-      "https://team42-crm.herokuapp.com/contact/" +
-        localStorage.getItem("businessID") +
-        "?sort=" +
-        lowerCaseFirstLetter(sortBy.value)
-    );
     await fetch(
       "https://team42-crm.herokuapp.com/contact/all/" +
         localStorage.getItem("businessID") +

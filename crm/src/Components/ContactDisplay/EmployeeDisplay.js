@@ -15,7 +15,7 @@ import vendor from "../../res/images/external_vendor.jpg";
 export default function EmployeeDisplay({ contact, setEditMode }) {
   const image =
     contact.gender === 0
-      ? contact.role === "employee"
+      ? contact.role === "Employee"
         ? employee
         : customer
       : vendor;

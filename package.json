@@ -37,6 +37,7 @@
     "node-fetch": "^3.0.0",
     "nodemon": "^2.0.12",
     "react-dropdown": "^1.9.2",
+    "react-google-charts": "^3.0.15",
     "react-icons": "^4.2.0",
     "react-sizeme": "^3.0.2",
     "redis": "^3.1.2"

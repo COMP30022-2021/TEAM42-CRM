@@ -12,6 +12,7 @@ import employee from "./res/images/Employee.jfif";
 import vendor from "./res/images/external_vendor.jpg";
 import { Settings } from "./pages/Settings";
 import { Statistics } from "./pages/Statistics";
+import StatisticsMainComponent from "./Components/StatisticsPage/StatisticsMainComponent";
 
 const contacts = [
   {

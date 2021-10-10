@@ -12,7 +12,7 @@ export default function StatisticsSubComponent3({ left, top }) {
     <div className="statisticsDisplay" style={{ left: left, top: top }}>
       <Chart
         left={"2.5%"}
-        width={"100%"}
+        width={"88%"}
         height={"100%"}
         chartType="Bar"
         loader={<div>Loading Chart</div>}

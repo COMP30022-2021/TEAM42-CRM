@@ -12,6 +12,7 @@ import employee from "./res/images/Employee.jfif";
 import vendor from "./res/images/external_vendor.jpg";
 import { Settings } from "./pages/Settings";
 import { Statistics } from "./pages/Statistics";
+import StatisticsMainComponent from "./Components/StatisticsPage/StatisticsMainComponent";
 
 const contacts = [
   {
@@ -55,60 +56,61 @@ const contacts = [
 function App() {
   const [loggedIn, setloggedIn] = React.useState(true);
   return (
-    <div className="App" style={{ background: "#000000" }}>
-      <Route
-        exact
-        path="/contacts"
-        render={() =>
-          loggedIn ? (
-            <ContactPage contacts={contacts} />
-          ) : (
-            <Redirect to="/login" />
-          )
-        }
-      />
-      <Route
-        exact
-        path="/"
-        render={() =>
-          loggedIn ? (
-            <Dashboard contacts={contacts} />
-          ) : (
-            <Redirect to="/login" />
-          )
-        }
-      />
-      <Route
-        exact
-        path="/login"
-        render={() => <Login setLogIn={setloggedIn} />}
-      />
-      <Route exact path="/signup" render={() => <SignUpBusiness />} />
+    <StatisticsMainComponent/>
+    // <div className="App" style={{ background: "#000000" }}>
+    //   <Route
+    //     exact
+    //     path="/contacts"
+    //     render={() =>
+    //       loggedIn ? (
+    //         <ContactPage contacts={contacts} />
+    //       ) : (
+    //         <Redirect to="/login" />
+    //       )
+    //     }
+    //   />
+    //   <Route
+    //     exact
+    //     path="/"
+    //     render={() =>
+    //       loggedIn ? (
+    //         <Dashboard contacts={contacts} />
+    //       ) : (
+    //         <Redirect to="/login" />
+    //       )
+    //     }
+    //   />
+    //   <Route
+    //     exact
+    //     path="/login"
+    //     render={() => <Login setLogIn={setloggedIn} />}
+    //   />
+    //   <Route exact path="/signup" render={() => <SignUpBusiness />} />
 
-      <Route
-        exact
-        path="/contacts/:role/:name/:id"
-        render={() =>
-          loggedIn ? (
-            <ContactDisplay contacts={contacts} />
-          ) : (
-            <Redirect to="/login" />
-          )
-        }
-      />
+    //   <Route
+    //     exact
+    //     path="/contacts/:role/:name/:id"
+    //     render={() =>
+    //       loggedIn ? (
+    //         <ContactDisplay contacts={contacts} />
+    //       ) : (
+    //         <Redirect to="/login" />
+    //       )
+    //     }
+    //   />
 
-      <Route
-        exact
-        path="/settings"
-        render={() => (loggedIn ? <Settings /> : <Redirect to="/login" />)}
-      />
+    //   <Route
+    //     exact
+    //     path="/settings"
+    //     render={() => (loggedIn ? <Settings /> : <Redirect to="/login" />)}
+    //   />
 
-      <Route
-        exact
-        path="/statistics"
-        render={() => (loggedIn ? <Statistics /> : <Redirect to="/login" />)}
-      />
-    </div>
+    //   <Route
+    //     exact
+    //     path="/statistics"
+    //     render={() => (loggedIn ? <Statistics /> : <Redirect to="/login" />)}
+    //   />
+    // </div>
   );
 }
 

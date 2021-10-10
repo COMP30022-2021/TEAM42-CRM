@@ -94,7 +94,7 @@ describe("Changed the password of a existing employee", () => {
     expect(response.statusCode).toBe(409);
   });
 
-  test("should respond with a 409 status code if employeeID is not existed", async () => {
+  test("should respond with a 409 status code if employeeID is not in the system", async () => {
     const response = await request.post("/auth/change/password").send({
       employeeID: -1,
       oldPassword: "Wrong password",

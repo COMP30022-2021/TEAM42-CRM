@@ -8,9 +8,7 @@ import SearchBar from "../Components/SearchBar";
 import ContactList from "../Components/ContactDisplay/ContactsList";
 import AddPopUp from "../Components/AddContact/AddPopUp.js";
 
-import CustomerDisplay from "../Components/ContactDisplay/CustomerDisplay";
-import ExternalVendorDisplay from "../Components/ContactDisplay/ExternalVendorDisplay";
-import EmployeeDisplay from "../Components/ContactDisplay/EmployeeDisplay";
+import { ContactAssigner } from "../Components/ContactDisplay/ContactAssigner";
 import UpdateContact from "../Components/UpdateContacts/UpdateContact";
 
 export default function ContactDisplay() {
@@ -19,16 +17,12 @@ export default function ContactDisplay() {
   const [editMode, setEditMode] = React.useState(false);
 
   const location = useLocation();
-  const id = parseInt(useRouteMatch().params.id);
+  const path = location.pathname.split("/");
 
-  const [contact, setContact] = React.useState(null);
-
-  React.useEffect(() => {
-    loadContact();
-  }, []);
+  const [displayContact, setDisplayContact] = React.useState();
+  const [loading, setLoading] = React.useState(true);
 
   const loadContact = async () => {
-    const path = location.pathname.split("/");
     console.log(
       "https://team42-crm.herokuapp.com/contact/single?role=" +
         lowerCaseFirstLetter(path[2]) +
@@ -51,53 +45,48 @@ export default function ContactDisplay() {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data.contact[0]);
         if (data.status_code === 200) {
-          console.log("hi");
-          setContact(data);
-          console.log(contact);
+          setDisplayContact(data.contact[0]);
+          setLoading(false);
         }
       });
   };
 
+  React.useEffect(() => {
+    loadContact();
+  }, []);
+
   return (
     <div>
-      {contact === null ? (
-        <div>Loading</div>
-      ) : (
-        <div
-          className="Page"
-          style={{
-            filter: editMode || blur ? "blur(2px)" : "",
-          }}
-        >
-          {/* <Helmet>
-          <title>Lynk - {contact.Name}</title>
-        </Helmet> */}
+      <div
+        className="Page"
+        style={{
+          filter: editMode || blur ? "blur(2px)" : "",
+        }}
+      >
+        <Helmet>
+          <title>Lynk - {path[3]}</title>
+        </Helmet>
 
-          {/* <ContactList contacts={contact} /> */}
-          <SearchBar width="95%" onClick={setBlur} />
+        {/* <ContactList contacts={contact} /> */}
+        <SearchBar width="95%" onClick={setBlur} />
 
-          {contact[0] !== undefined &&
-            (contact.role === "Employee" || contact.Role === "Manager" ? (
-              <EmployeeDisplay contact={contact} setEditMode={setEditMode} />
-            ) : contact.role === "Customer" ? (
-              <CustomerDisplay contact={contact} setEditMode={setEditMode} />
-            ) : (
-              <ExternalVendorDisplay
-                contact={contact}
-                setEditMode={setEditMode}
-              />
-            ))}
-        </div>
-      )}
+        {!loading && (
+          <ContactAssigner
+            contact={displayContact}
+            role={path[2]}
+            setEditMode={setEditMode}
+          />
+        )}
+      </div>
+      )
       {sbc ? (
         <SideBarCollapsed setSBC={setSBC} path={location.pathname} />
       ) : (
         <SideBar setSBC={setSBC} path={location.pathname} />
       )}
       {editMode && (
-        <UpdateContact setEditMode={setEditMode} contact={contact} />
+        <UpdateContact setEditMode={setEditMode} contact={displayContact} />
       )}
       {blur && <AddPopUp setBlur={setBlur} />}
     </div>

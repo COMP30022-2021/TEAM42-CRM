@@ -376,7 +376,7 @@ p2 {
   /* height: 60px; */
   height: 9%;
   width: 860px;
-  left: 69px;
+  left: 5%;
   top: 0px;
   /* white */
   position: fixed;
@@ -515,6 +515,8 @@ p2 {
 
 .side-bar {
   height: 100%;
+  position: absolute;
+  top: 0%;
   display: flex;
   flex-direction: column;
   border-radius: 0;

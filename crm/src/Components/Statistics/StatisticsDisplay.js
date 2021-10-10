@@ -1,20 +1,12 @@
 import React from "react";
-import statistics from "../../res/images/pie_chart.png";
+import StatisticsSubComponent2 from "../StatisticsPage/StatisticsSubComponent2";
+import StatisticsSubComponent4 from "../StatisticsPage/StatisticsSubComponent4";
 
 export const StatisticsDisplay = () => {
   return (
-    <div style={{}}>
-      <img
-        src={statistics}
-        style={{
-          position: "absolute",
-          left: "70%",
-          top: "15%",
-          width: "29%",
-          height: "40%",
-        }}
-        alt="statistics"
-      />
+    <div style={{ position: "absolute", height: "100%", width: "70%" }}>
+      <StatisticsSubComponent2 left="97%" top="15%" dashboard={true} />
+      <StatisticsSubComponent4 left="97%" top="60%" dashboard={true} />
     </div>
   );
 };

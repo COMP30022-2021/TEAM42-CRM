@@ -5,14 +5,9 @@ import ContactsHeader from "./ContactsHeader";
 export default function Contacts({ sortBy, setBlur }) {
   const [contacts, setContacts] = React.useState([]);
 
-  React.useEffect(() => {
-    loadContacts();
-  }, [sortBy]);
-
   const loadContacts = async () => {
-    console.log(lowerCaseFirstLetter(sortBy.value));
     await fetch(
-      "https://team42-crm.herokuapp.com/contact/" +
+      "https://team42-crm.herokuapp.com/contact/all/" +
         localStorage.getItem("businessID") +
         "?sort=" +
         lowerCaseFirstLetter(sortBy.value),
@@ -26,8 +21,16 @@ export default function Contacts({ sortBy, setBlur }) {
       }
     )
       .then((response) => response.json())
-      .then((data) => setContacts(data.contacts));
+      .then((data) => {
+        if (data.status_code === 200) {
+          setContacts(data.contacts);
+        }
+      });
   };
+
+  React.useEffect(() => {
+    loadContacts();
+  }, [sortBy]);
 
   return (
     <div
@@ -43,7 +46,9 @@ export default function Contacts({ sortBy, setBlur }) {
       <ContactsHeader />
 
       {contacts.length > 0 ? (
-        contacts.map((contact) => <Contact contact={contact} />)
+        contacts.map((contact, index) => (
+          <Contact key={index} contact={contact} />
+        ))
       ) : (
         <div className="noContacts">
           <p className="noContactsText">No contacts to show.&nbsp;</p>

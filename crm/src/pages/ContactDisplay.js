@@ -8,19 +8,53 @@ import SearchBar from "../Components/SearchBar";
 import ContactList from "../Components/ContactDisplay/ContactsList";
 import AddPopUp from "../Components/AddContact/AddPopUp.js";
 
-import CustomerDisplay from "../Components/ContactDisplay/CustomerDisplay";
-import ExternalVendorDisplay from "../Components/ContactDisplay/ExternalVendorDisplay";
-import EmployeeDisplay from "../Components/ContactDisplay/EmployeeDisplay";
+import { ContactAssigner } from "../Components/ContactDisplay/ContactAssigner";
 import UpdateContact from "../Components/UpdateContacts/UpdateContact";
 
-export default function ContactDisplay({ contacts }) {
+export default function ContactDisplay() {
   const [sbc, setSBC] = React.useState(true);
   const [blur, setBlur] = React.useState(false);
   const [editMode, setEditMode] = React.useState(false);
 
   const location = useLocation();
-  const id = parseInt(useRouteMatch().params.id);
-  const contact = contacts.filter((contact) => id === contact.id)[0];
+  const path = location.pathname.split("/");
+
+  const [displayContact, setDisplayContact] = React.useState();
+  const [loading, setLoading] = React.useState(true);
+
+  const loadContact = async () => {
+    console.log(
+      "https://team42-crm.herokuapp.com/contact/single?role=" +
+        lowerCaseFirstLetter(path[2]) +
+        "&id=" +
+        path[4]
+    );
+    await fetch(
+      "https://team42-crm.herokuapp.com/contact/single?role=" +
+        lowerCaseFirstLetter(path[2]) +
+        "&id=" +
+        path[4],
+      {
+        method: "get",
+        mode: "cors",
+        headers: new Headers({
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        }),
+      }
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.status_code === 200) {
+          setDisplayContact(data.contact[0]);
+          setLoading(false);
+        }
+      });
+  };
+
+  React.useEffect(() => {
+    loadContact();
+  }, []);
 
   return (
     <div>
@@ -31,28 +65,34 @@ export default function ContactDisplay({ contacts }) {
         }}
       >
         <Helmet>
-          <title>Lynk - {contact.Name}</title>
+          <title>Lynk - {path[3]}</title>
         </Helmet>
-        <ContactList contacts={contacts} />
 
+        {/* <ContactList contacts={contact} /> */}
         <SearchBar width="95%" onClick={setBlur} />
-        {contact.Role === "Employee" ? (
-          <EmployeeDisplay contact={contact} setEditMode={setEditMode} />
-        ) : contact.Role === "Customer" ? (
-          <CustomerDisplay contact={contact} setEditMode={setEditMode} />
-        ) : (
-          <ExternalVendorDisplay contact={contact} setEditMode={setEditMode} />
+
+        {!loading && (
+          <ContactAssigner
+            contact={displayContact}
+            role={path[2]}
+            setEditMode={setEditMode}
+          />
         )}
       </div>
+      )
       {sbc ? (
         <SideBarCollapsed setSBC={setSBC} path={location.pathname} />
       ) : (
         <SideBar setSBC={setSBC} path={location.pathname} />
       )}
       {editMode && (
-        <UpdateContact setEditMode={setEditMode} contact={contact} />
+        <UpdateContact setEditMode={setEditMode} contact={displayContact} />
       )}
       {blur && <AddPopUp setBlur={setBlur} />}
     </div>
   );
+}
+
+function lowerCaseFirstLetter(string) {
+  return string.charAt(0).toLowerCase() + string.slice(1);
 }

@@ -936,3 +936,45 @@ p2 {
   line-height: 13px;
   cursor: pointer;
 }
+
+.UploadPicture {
+  text-align: center;
+  height: "100px";
+  width: "100px";
+}
+
+.addPictureContainer {
+  background: #fffcfc;
+  width: 30%;
+  height: 30%;
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+  filter: drop-shadow(6px 6px 8px rgba(0, 0, 0, 0.25));
+}
+
+.buttonPicture1 {
+  position: absolute;
+  background: #265573;
+  border-radius: 50.5px;
+  border: none;
+  margin: 10;
+  transform: translate(-50%, -50%);
+  width: 40%;
+  height: 15%;
+  bottom: 0%;  
+}
+
+.buttonPicture {
+  position: absolute;
+  background: #265573;
+  border-radius: 50.5px;
+  border: none;
+  margin: 10;
+  transform: translate(-50%, -50%);
+  width: 40%;
+  height: 15%;
+  bottom: 0%;
+  left: 50%;
+}

@@ -17,8 +17,8 @@ export default function StatisticsSubComponent4({ left, top, dashboard }) {
         left: left,
         top: top,
         filter: dashboard
-          ? ""
-          : "drop-shadow(6px 6px 8px rgba(0, 0.25, 0.25, 0.25))",
+          ? "drop-shadow(0px 0px 0px rgba(0, 0.25, 0.25, 0.25))"
+          : "",
       }}
     >
       <Chart

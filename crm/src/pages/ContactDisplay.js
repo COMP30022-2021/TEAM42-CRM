@@ -4,7 +4,7 @@ import { useLocation } from "react-router";
 
 import SideBarCollapsed from "../Components/SideBar/SBC";
 import { SideBar } from "../Components/SideBar/SideBar";
-import SearchBar from "../Components/SearchBar";
+import SearchBar from "../Components/SearchBar/SearchBar";
 import ContactList from "../Components/ContactDisplay/ContactsList";
 import AddPopUp from "../Components/AddContact/AddPopUp.js";
 
@@ -66,7 +66,7 @@ export default function ContactDisplay() {
         </Helmet>
 
         <ContactList setLoading={setLoading} />
-        <SearchBar width="95%" onClick={setBlur} />
+        <SearchBar width={95} onClick={setBlur} />
 
         {!loading && (
           <ContactAssigner

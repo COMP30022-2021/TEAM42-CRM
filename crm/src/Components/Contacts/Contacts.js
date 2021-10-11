@@ -21,14 +21,21 @@ export default function Contacts({ sortBy, setBlur, setLoading }) {
     } else if (filter === "vendors") {
       return contacts.filter((contact) => contact.role === "vendor");
     } else if (search) {
-      const regEx = new RegExp(
-        /search=(?<searchName>\w+)/.exec(filter).groups.searchName,
-        "i"
-      );
-      return contacts.filter((contact) => regEx.test(contact.name));
+      const pattern = /search=(?<searchName>\w+)@(?<email>\w+)/.exec(filter);
+      const regEx = new RegExp(pattern.groups.searchName, "i");
+      return searchContact(regEx, contacts, pattern.groups.email);
     } else return contacts;
   };
 
+  const searchContact = (regEx, contacts, on) => {
+    if (on === "Name") {
+      return contacts.filter((contact) => regEx.test(contact.name));
+    } else if (on === "Email") {
+      return contacts.filter((contact) => regEx.test(contact.email));
+    } else {
+      return contacts.filter((contact) => regEx.test(contact.phone));
+    }
+  };
   const loadContacts = async () => {
     setLoading(true);
     await fetch(

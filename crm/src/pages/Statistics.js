@@ -2,7 +2,7 @@ import React from "react";
 import { Helmet } from "react-helmet";
 
 import StatisticsMainComponent from "../Components/StatisticsPage/StatisticsMainComponent";
-import SearchBar from "../Components/SearchBar";
+import SearchBar from "../Components/SearchBar/SearchBar";
 import { SideBar } from "../Components/SideBar/SideBar";
 import SideBarCollapsed from "../Components/SideBar/SBC";
 import AddPopUp from "../Components/AddContact/AddPopUp.js";
@@ -27,7 +27,7 @@ export const Statistics = () => {
           <title>Lynk - Statistics</title>
         </Helmet>
         <StatisticsMainComponent />
-        <SearchBar onClick={setBlur} width="100%" />
+        <SearchBar onClick={setBlur} width={95} />
       </div>
       {sbc ? (
         <SideBarCollapsed setSBC={setSBC} path={location.pathname} />

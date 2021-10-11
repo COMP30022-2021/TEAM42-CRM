@@ -1,6 +1,6 @@
 import React from "react";
 import { SideBarElement } from "./SideBarElement";
-import { FcStatistics } from "react-icons/fc";
+import { ImStatsDots } from "react-icons/im";
 import { MdPermContactCalendar } from "react-icons/md";
 import { RiDashboardLine } from "react-icons/ri";
 import { FiLogOut, FiSettings } from "react-icons/fi";
@@ -42,7 +42,7 @@ export default function SBCElements({ path }) {
         <MdPermContactCalendar
           className="icon"
           style={{
-            color: path === "/contacts" ? "#9FBF8E" : "#cfd7e3",
+            color: path === "/contacts/all" ? "#9FBF8E" : "#cfd7e3",
             top: "34%",
             left: "83%",
           }}
@@ -50,11 +50,11 @@ export default function SBCElements({ path }) {
       </SideBarElement>
 
       <SideBarElement>
-        <FcStatistics
+        <ImStatsDots
           className="icon"
           style={{
-            color: path === "/statictics" ? "#9FBF8E" : "#cfd7e3",
-            top: "40%",
+            color: path === "/statistics" ? "#9FBF8E" : "#cfd7e3",
+            top: "51%",
             left: "83%",
           }}
         />

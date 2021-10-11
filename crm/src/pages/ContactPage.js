@@ -25,7 +25,7 @@ export default function ContactPage({ contacts }) {
       <div
         className="Page"
         style={{
-          filter: loading ? "blur(2px)" : "",
+          filter: blurred ? "blur(2px)" : "",
         }}
       >
         <Helmet>

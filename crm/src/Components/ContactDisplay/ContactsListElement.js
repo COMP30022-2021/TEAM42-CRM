@@ -1,21 +1,31 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import customer from "../../res/images/Customer.jpg";
+import employee from "../../res/images/Employee.jfif";
+import vendor from "../../res/images/external_vendor.jpg";
+
 export default function ContactsListElement({ contact }) {
+  const image =
+    contact.gender === 0
+      ? contact.role === "employee"
+        ? employee
+        : customer
+      : vendor;
   return (
     <Link
       to={
         "/contacts/" +
-        contact.Role.replace(/ /g, "") +
+        contact.role.replace(/ /g, "") +
         "/" +
-        contact.Name.replace(/ /g, "") +
+        contact.name.replace(/ /g, "") +
         "/" +
         contact.id
       }
     >
       <div className="block">
         <img
-          src={contact.image}
+          src={image}
           style={{
             position: "absolute",
             top: "50%",
@@ -29,9 +39,15 @@ export default function ContactsListElement({ contact }) {
           alt="User"
         />
         <h4
-          style={{ left: "25%", top: "0%", transform: "translate(-0%, -0%)" }}
+          style={{
+            left: "25%",
+            top: "0%",
+            transform: "translate(-0%, -0%)",
+            width: "70%",
+            textAlign: "left",
+          }}
         >
-          {contact.Name}
+          {contact.name}
         </h4>
       </div>
     </Link>

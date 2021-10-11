@@ -13,11 +13,18 @@ import { Link } from "react-router-dom";
 import user from "../../res/images/user_cropped.jpg";
 
 import logo from "../../res/images/Logos/Logo_Design5.png";
+import { useHistory } from "react-router";
 
 export default function SideBarElements({ path }) {
+  const history = useHistory();
+
   return (
     <div>
-      <img src={logo} className="sideBarLogo"></img>
+      <img
+        src={logo}
+        className="sideBarLogo"
+        onClick={() => history.push("")}
+      ></img>
       <SideBarUser image={user} />
       <Link to="/">
         <div>

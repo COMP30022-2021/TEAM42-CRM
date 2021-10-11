@@ -35,7 +35,7 @@ export default function ContactList() {
 
   return (
     <div className="contactList">
-      <div className="block" style={{ position: "sticky", zIndex: 1 }}>
+      <div className="block" style={{ position: "sticky", zIndex: 1, top: 0 }}>
         <h4 style={{ left: "20%", top: "12%" }}>Name</h4>
       </div>
       {contacts.map((contact) => (

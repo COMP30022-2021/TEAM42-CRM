@@ -40,14 +40,18 @@ export const Contact = ({ contact }) => {
           }}
           alt="User"
         />
-        <h4 style={{ left: "14%", top: "12%" }}>{contact.name}</h4>
+        <h4
+          style={{ left: "21%", top: "12%", textAlign: "left", width: "25%" }}
+        >
+          {contact.name}
+        </h4>
         <h4 style={{ left: "30%", top: "12%" }}>
           {contact.gender === 1 ? "Male" : "Female"}
         </h4>
         <h4 style={{ left: "49%", top: "12%" }}>
           {capitalizeFirstLetter(contact.role)}
         </h4>
-        <h4 style={{ left: "70%", top: "12%" }}>{contact.email}</h4>
+        <h4 style={{ left: "69%", top: "12%" }}>{contact.email}</h4>
         <h4 style={{ left: "88%", top: "12%" }}>{contact.phone}</h4>
       </div>
     </Link>

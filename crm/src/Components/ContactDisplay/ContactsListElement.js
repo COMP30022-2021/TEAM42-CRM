@@ -23,7 +23,7 @@ export default function ContactsListElement({ contact }) {
         contact.id
       }
     >
-      <div className="block">
+      <div className="block" style={{ marginBottom: "0.6%" }}>
         <img
           src={image}
           style={{

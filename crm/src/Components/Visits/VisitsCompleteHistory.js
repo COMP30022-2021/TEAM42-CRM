@@ -35,7 +35,7 @@ export default function VisitsCompleteHistory({ setVisitHistory }) {
   return (
     <div>
       <div className="completeHistory">
-        <Header text={"Contact History"} top_a={"0%"} width_a={"100%"} />
+        <Header text={"Visit History"} top_a={"0%"} width_a={"100%"} />
         <Header text={""} top_a={"100%"} width_a={"100%"} />
 
         <VisitsList visits={visits} />

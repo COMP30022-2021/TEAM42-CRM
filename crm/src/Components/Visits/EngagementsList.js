@@ -14,7 +14,7 @@ export default function EngagementsList({ engagements }) {
     >
       <div
         className="block"
-        style={{ position: "sticky", zIndex: 1, marginBottom: 0 }}
+        style={{ position: "sticky", zIndex: 1, marginBottom: "0.2%", top: 0 }}
       >
         <h4 style={{ left: "15%", top: "12%" }}>Date</h4>
         <h4 style={{ left: "40%", top: "12%" }}>Purpose</h4>

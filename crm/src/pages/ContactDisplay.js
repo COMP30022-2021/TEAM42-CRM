@@ -1,6 +1,6 @@
 import React from "react";
 import Helmet from "react-helmet";
-import { useLocation, useRouteMatch } from "react-router";
+import { useLocation } from "react-router";
 
 import SideBarCollapsed from "../Components/SideBar/SBC";
 import { SideBar } from "../Components/SideBar/SideBar";
@@ -10,6 +10,7 @@ import AddPopUp from "../Components/AddContact/AddPopUp.js";
 
 import { ContactAssigner } from "../Components/ContactDisplay/ContactAssigner";
 import UpdateContact from "../Components/UpdateContacts/UpdateContact";
+import Loading from "../Components/Loading";
 
 export default function ContactDisplay() {
   const [sbc, setSBC] = React.useState(true);
@@ -22,6 +23,7 @@ export default function ContactDisplay() {
   const [displayContact, setDisplayContact] = React.useState();
   const [loading, setLoading] = React.useState(true);
 
+  const blurred = editMode || blur || loading;
   const loadContact = async () => {
     console.log(
       "https://team42-crm.herokuapp.com/contact/single?role=" +
@@ -29,6 +31,7 @@ export default function ContactDisplay() {
         "&id=" +
         path[4]
     );
+    setLoading(true);
     await fetch(
       "https://team42-crm.herokuapp.com/contact/single?role=" +
         lowerCaseFirstLetter(path[2]) +
@@ -54,21 +57,21 @@ export default function ContactDisplay() {
 
   React.useEffect(() => {
     loadContact();
-  }, []);
+  }, [location]);
 
   return (
     <div>
       <div
         className="Page"
         style={{
-          filter: editMode || blur ? "blur(2px)" : "",
+          filter: blurred ? "blur(2px)" : "",
         }}
       >
         <Helmet>
           <title>Lynk - {path[3]}</title>
         </Helmet>
 
-        {/* <ContactList contacts={contact} /> */}
+        <ContactList setLoading={setLoading} />
         <SearchBar width="95%" onClick={setBlur} />
 
         {!loading && (
@@ -89,6 +92,7 @@ export default function ContactDisplay() {
         <UpdateContact setEditMode={setEditMode} contact={displayContact} />
       )}
       {blur && <AddPopUp setBlur={setBlur} />}
+      {loading && <Loading />}
     </div>
   );
 }

@@ -106,10 +106,13 @@ h4 {
   line-height: 19px;
 
   letter-spacing: 0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
 
   color: #334d6e;
-
-  opacity: 0.5;
+  opacity: 0.7;
   transform: translate(-50%, -50%);
 }
 
@@ -504,6 +507,7 @@ p2 {
   border-radius: 4px;
   filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.25));
   margin-bottom: 0.2%;
+  overflow-x: hidden;
   cursor: pointer;
 }
 

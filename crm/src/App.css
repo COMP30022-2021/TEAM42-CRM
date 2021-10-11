@@ -845,7 +845,7 @@ p2 {
   /* height: 9%; */
   width: 100%;
 
-  background: #b8b5b5;
+  background: #dfdddd;
   border-radius: 4px;
   filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.25));
   margin-bottom: 0.2%;
@@ -977,7 +977,7 @@ p2 {
   transform: translate(-50%, -50%);
   width: 40%;
   height: 15%;
-  bottom: 0%;  
+  bottom: 0%;
 }
 
 .buttonPicture {

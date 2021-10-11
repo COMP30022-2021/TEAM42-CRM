@@ -1,11 +1,36 @@
 import React from "react";
+import { useLocation } from "react-router";
 import { Contact } from "./Contact";
 import ContactsHeader from "./ContactsHeader";
 
-export default function Contacts({ sortBy, setBlur }) {
+export default function Contacts({ sortBy, setBlur, setLoading }) {
   const [contacts, setContacts] = React.useState([]);
 
+  const filter = useLocation().pathname.split("/")[2];
+  const search = /search=/.test(filter);
+
+  const filterContact = (contacts) => {
+    if (filter === "all") return contacts;
+    else if (filter === "employees") {
+      console.log(1);
+      return contacts.filter(
+        (contact) => contact.role === "employee" || contact.role === "manager"
+      );
+    } else if (filter === "customers") {
+      return contacts.filter((contact) => contact.role === "customer");
+    } else if (filter === "vendors") {
+      return contacts.filter((contact) => contact.role === "vendor");
+    } else if (search) {
+      const regEx = new RegExp(
+        /search=(?<searchName>\w+)/.exec(filter).groups.searchName,
+        "i"
+      );
+      return contacts.filter((contact) => regEx.test(contact.name));
+    } else return contacts;
+  };
+
   const loadContacts = async () => {
+    setLoading(true);
     await fetch(
       "https://team42-crm.herokuapp.com/contact/all/" +
         localStorage.getItem("businessID") +
@@ -23,14 +48,15 @@ export default function Contacts({ sortBy, setBlur }) {
       .then((response) => response.json())
       .then((data) => {
         if (data.status_code === 200) {
-          setContacts(data.contacts);
+          setContacts(filterContact(data.contacts));
+          setLoading(false);
         }
       });
   };
 
   React.useEffect(() => {
     loadContacts();
-  }, [sortBy]);
+  }, [sortBy, filter]);
 
   return (
     <div

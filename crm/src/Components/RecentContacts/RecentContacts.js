@@ -51,19 +51,19 @@ export default function RecentContacts() {
           <RecentContact contact={contact} />
         ))}
 
-        <Link to="/contacts">
+        <Link to="/contacts/customers">
           <div className="button4" style={{ left: "0%", bottom: "1%" }}>
             <p>Customers</p>
           </div>
         </Link>
 
-        <Link to="/contacts">
+        <Link to="/contacts/employees">
           <div className="button4" style={{ left: "39%", bottom: "1%" }}>
             <p>Employees</p>
           </div>
         </Link>
 
-        <Link to="/contacts">
+        <Link to="/contacts/vendors">
           <div className="button4" style={{ left: "78%", bottom: "1%" }}>
             <p>External Vendors</p>
           </div>

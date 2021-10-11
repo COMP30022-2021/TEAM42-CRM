@@ -71,7 +71,7 @@ export default function AddExternalVendor({ setBlur }) {
         <button
           className="buttonCustomer"
           onClick={() => addContact()}
-          style={{ width: "35%", left: "32%", top: "81%" }}
+          style={{ width: "35%", left: "32%", top: "85%" }}
         >
           <p>Add Vendor</p>
         </button>

@@ -2,7 +2,7 @@ import React from "react";
 import { RecentContact } from "./RecentContact";
 import { Link } from "react-router-dom";
 
-export default function RecentContacts() {
+export default function RecentContacts({ setLoading }) {
   const [contacts, setContacts] = React.useState([]);
 
   const loadContacts = async () => {
@@ -22,6 +22,7 @@ export default function RecentContacts() {
       .then((data) => {
         if (data.status_code === 200) {
           setContacts(data.data);
+          setLoading(false);
         }
       });
   };

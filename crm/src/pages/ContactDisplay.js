@@ -25,12 +25,6 @@ export default function ContactDisplay() {
 
   const blurred = editMode || blur || loading;
   const loadContact = async () => {
-    console.log(
-      "https://team42-crm.herokuapp.com/contact/single?role=" +
-        lowerCaseFirstLetter(path[2]) +
-        "&id=" +
-        path[4]
-    );
     setLoading(true);
     await fetch(
       "https://team42-crm.herokuapp.com/contact/single?role=" +

@@ -2,7 +2,7 @@ import React from "react";
 import { Helmet } from "react-helmet";
 
 import SettingsMainComponent from "../Components/Settings/SettingsMainComponent";
-import SearchBar from "../Components/SearchBar";
+import SearchBar from "../Components/SearchBar/SearchBar";
 import { SideBar } from "../Components/SideBar/SideBar";
 import SideBarCollapsed from "../Components/SideBar/SBC";
 import AddPopUp from "../Components/AddContact/AddPopUp.js";
@@ -32,7 +32,7 @@ export const Settings = () => {
           <title>Lynk - Settings</title>
         </Helmet>
 
-        <SearchBar onClick={setBlur} width="95%" />
+        <SearchBar onClick={setBlur} width={95} />
         <SettingsMainComponent
           setChangePassword={setChangePassword}
           setAddItem={setAddItem}

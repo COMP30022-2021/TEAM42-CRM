@@ -379,13 +379,23 @@ p2 {
 
   /* height: 60px; */
   height: 9%;
-  width: 860px;
-  left: 5%;
+  width: 100%;
+  left: 0%;
   top: 0px;
   /* white */
   position: fixed;
 
-  background: #ffffff;
+  background: transparent;
+}
+
+.search-bar-input {
+  border: 0;
+  height: 100%;
+  top: 0px;
+  left: 5%;
+  outline: none;
+  width: 100%;
+  position: absolute;
 }
 
 .search-bar1 {
@@ -995,4 +1005,23 @@ p2 {
   height: 15%;
   bottom: 0%;
   left: 50%;
+}
+
+.searchOn {
+  position: absolute;
+  top: 50%;
+  width: 7%;
+  z-index: 5;
+  transform: translate(-50%, -50%);
+  z-index: 5000000;
+}
+
+.searchOnDropdown {
+  background-color: rgba(0, 0, 0, 0.25);
+  width: 100%;
+  left: 40%;
+  font-size: 11px;
+  position: absolute;
+  color: #2a8dbb;
+  outline: none;
 }

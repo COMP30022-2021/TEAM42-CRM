@@ -1,28 +1,28 @@
 import React from "react";
 
 import { BsSearch } from "react-icons/bs";
-import { AddButton } from "./AddContact/AddButton";
+import { AddButton } from "../AddContact/AddButton";
 import { useHistory } from "react-router-dom";
+import { SearchOn } from "./SearchOn";
 
 export default function SearchBar({ width, onClick }) {
   const [text, setText] = React.useState("");
+  const [value, setValue] = React.useState({ value: "Name", label: "Name" });
   const history = useHistory();
 
   const handleSearch = () => {
     if (text !== "") {
-      history.push("/contacts/search=" + text);
+      history.push("/contacts/search=" + text + "?on=" + value.value);
     }
   };
 
   return (
-    <div className="search-bar" style={{ width: width }}>
+    <div className="search-bar">
       <input
+        className="search-bar-input"
         style={{
-          border: 0,
-          height: "97%",
-          width: "85%",
-          top: 0,
-          outline: "none",
+          width: width + "%",
+          textIndent: width === 95 ? "15%" : "22%",
         }}
         type="text"
         placeholder="Search Contact"
@@ -39,7 +39,7 @@ export default function SearchBar({ width, onClick }) {
         style={{
           color: "#9FBF8E",
           top: "50%",
-          left: "4%",
+          left: "9%",
           transform: "translate(-50%, -50%)",
         }}
       />
@@ -47,15 +47,12 @@ export default function SearchBar({ width, onClick }) {
         onClick={onClick}
         style={{
           color: "#9FBF8E",
-          right: "3%",
+          right: width === 95 ? "4%" : "32%",
           top: "50%",
           transform: "translate(-50%, -50%)",
         }}
       />
+      <SearchOn value={value} setValue={setValue} />
     </div>
   );
 }
-
-SearchBar.defaultProps = {
-  width: 860,
-};

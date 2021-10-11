@@ -3,7 +3,7 @@ import Contacts from "../Components/Contacts/Contacts";
 import Filters from "../Components/Filters";
 import { Helmet } from "react-helmet";
 
-import SearchBar from "../Components/SearchBar";
+import SearchBar from "../Components/SearchBar/SearchBar";
 import { SideBar } from "../Components/SideBar/SideBar";
 import SideBarCollapsed from "../Components/SideBar/SBC";
 import AddPopUp from "../Components/AddContact/AddPopUp.js";
@@ -31,7 +31,6 @@ export default function ContactPage({ contacts }) {
         <Helmet>
           <title>Lynk - Contacts</title>
         </Helmet>
-        <SortDropdown value={value} setValue={setValue} />
 
         <Contacts
           contacts={contacts}
@@ -40,8 +39,8 @@ export default function ContactPage({ contacts }) {
           setLoading={setLoading}
         />
 
-        <SearchBar onClick={setBlur} width="66%" />
         <Filters />
+        <SearchBar onClick={setBlur} width={65} />
         <SortDropdown value={value} setValue={setValue} />
       </div>
       {sbc ? (

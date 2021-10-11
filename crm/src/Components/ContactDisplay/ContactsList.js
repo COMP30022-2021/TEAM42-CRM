@@ -10,7 +10,8 @@ export default function ContactList() {
   const loadContacts = async () => {
     await fetch(
       "https://team42-crm.herokuapp.com/contact/all/" +
-        localStorage.getItem("businessID"),
+        localStorage.getItem("businessID") +
+        "?sort=name",
       {
         method: "get",
         mode: "cors",

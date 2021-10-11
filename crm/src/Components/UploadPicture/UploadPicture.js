@@ -15,14 +15,11 @@ export default function UploadPicture(){
 
     return (
         <div>
-            <Header text="Upload a Picture" top_a={"20%"} width_a={"30%"} />
-            <Header text="" top_a={"56%"} width_a={"30%"} />
             <div className="addPictureContainer">
                 <div className="UploadPicture">
                 <ImageUploading value={image} onChange={onChange} maxNumber={maxNumber} dataURLKey="data_url" 
-                style={{height: "100px",width: "100px"}}>
+                style={{height: "100%",width: "100%"}}>
                     {({imageList, onImageUpload, onImageRemove,}) => (
-                    // write your building UI
                     <div className="upload__image-wrapper">
                         <button className="buttonPicture" onClick={onImageUpload}>
                         <div style={{color:"#cfd7e3"}}> Click or Drop here </div>
@@ -30,7 +27,7 @@ export default function UploadPicture(){
                         &nbsp;
                         {imageList.map((image, index) => (
                         <div key={index} className="image-item">
-                            <img src={image['data_url']} alt="" width="40%" height="40%"/>
+                            <img src={image['data_url']} alt="" width="60%" height="50%" style={{textAlign: "center"}}/>
                             <button className="buttonPicture" onClick={() => onImageRemove(index)}>
                                 <div style={{color:"#cfd7e3"}}>Remove</div></button>
                         </div>
@@ -40,10 +37,6 @@ export default function UploadPicture(){
                 </ImageUploading>
                 </div>
             </div>
-        <GrClose
-          style={{ position: "absolute", left: "62.5%", top: "21%" }}
-          cursor="pointer"
-        />
         </div>
     );
     }

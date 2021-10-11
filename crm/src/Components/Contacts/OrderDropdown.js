@@ -24,7 +24,7 @@ export const OrderDropdown = ({ value, setValue }) => {
       ...defaultStyles,
       color: "#3366BB",
       position: "absolute",
-      left: "67%",
+      left: "70%",
     }),
     menuPortal: (base) => ({ ...base, zIndex: 9999 }),
     option: (styles, state) => {

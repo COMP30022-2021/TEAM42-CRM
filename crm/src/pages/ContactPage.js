@@ -10,19 +10,22 @@ import AddPopUp from "../Components/AddContact/AddPopUp.js";
 
 import { useLocation } from "react-router";
 import { SortDropdown } from "../Components/Contacts/SortDropdown";
+import Loading from "../Components/Loading";
 
 export default function ContactPage({ contacts }) {
   const [sbc, setSBC] = React.useState(true);
   const [blur, setBlur] = React.useState(false);
   const [value, setValue] = React.useState({ value: "Name", label: "Name" });
+  const [loading, setLoading] = React.useState(true);
 
+  const blurred = blur || loading;
   const location = useLocation();
   return (
     <div>
       <div
         className="Page"
         style={{
-          filter: blur ? "blur(2px)" : "",
+          filter: loading ? "blur(2px)" : "",
         }}
       >
         <Helmet>
@@ -30,7 +33,12 @@ export default function ContactPage({ contacts }) {
         </Helmet>
         <SortDropdown value={value} setValue={setValue} />
 
-        <Contacts contacts={contacts} sortBy={value} setBlur={setBlur} />
+        <Contacts
+          contacts={contacts}
+          sortBy={value}
+          setBlur={setBlur}
+          setLoading={setLoading}
+        />
 
         <SearchBar onClick={setBlur} width="66%" />
         <Filters />
@@ -42,6 +50,7 @@ export default function ContactPage({ contacts }) {
         <SideBar setSBC={setSBC} path={location.pathname} />
       )}
       {blur && <AddPopUp setBlur={setBlur} />}
+      {loading && <Loading />}
     </div>
   );
 }

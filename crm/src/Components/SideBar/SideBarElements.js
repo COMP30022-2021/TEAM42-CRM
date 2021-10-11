@@ -37,7 +37,7 @@ export default function SideBarElements({ path }) {
         </div>
       </Link>
 
-      <Link to="/contacts">
+      <Link to="/contacts/all">
         <SideBarElement>
           <h3
             style={{

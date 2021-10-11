@@ -11,7 +11,7 @@ export default function ContactsHeader() {
       <h4 style={{ left: "10%", top: "15%" }}>Name</h4>
       <h4 style={{ left: "30%", top: "12%" }}>Gender</h4>
       <h4 style={{ left: "49%", top: "12%" }}>Role</h4>
-      <h4 style={{ left: "70%", top: "12%" }}>Email</h4>
+      <h4 style={{ left: "69%", top: "12%" }}>Email</h4>
       <h4 style={{ left: "88%", top: "12%" }}>Phone Number</h4>
     </div>
   );

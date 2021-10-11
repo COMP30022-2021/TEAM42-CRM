@@ -1,12 +1,10 @@
 import React from "react";
 import Select from "react-select";
 
-export const SortDropdown = ({ value, setValue }) => {
+export const OrderDropdown = ({ value, setValue }) => {
   const options = [
-    { value: "Name", label: "Name" },
-    { value: "Gender", label: "Gender" },
-    { value: "Role", label: "Role" },
-    { value: "Email", label: "Email" },
+    { value: "Ascending", label: "Ascending" },
+    { value: "Descending", label: "Descending" },
   ];
 
   const colourStyles = {
@@ -26,7 +24,7 @@ export const SortDropdown = ({ value, setValue }) => {
       ...defaultStyles,
       color: "#3366BB",
       position: "absolute",
-      left: "60%",
+      left: "67%",
     }),
     menuPortal: (base) => ({ ...base, zIndex: 9999 }),
     option: (styles, state) => {
@@ -42,9 +40,9 @@ export const SortDropdown = ({ value, setValue }) => {
   };
 
   return (
-    <div className="filterDrop">
+    <div className="filterDrop" style={{ left: "17.5%" }}>
       <Select
-        className="dropdown"
+        className="orderBy"
         components={{ IndicatorSeparator: () => null }}
         menuPortalTarget={document.body}
         styles={colourStyles}
@@ -63,7 +61,7 @@ export const SortDropdown = ({ value, setValue }) => {
           color: "#000000",
         }}
       >
-        Sort By:
+        Order:
       </p>
     </div>
   );

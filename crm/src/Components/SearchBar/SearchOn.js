@@ -1,8 +1,5 @@
 import React from "react";
-import Dropdown from "react-dropdown";
 import Select from "react-select";
-
-import "react-dropdown/style.css";
 
 export const SearchOn = ({ value, setValue, width }) => {
   const options = [

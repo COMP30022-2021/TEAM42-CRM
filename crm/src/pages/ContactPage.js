@@ -11,11 +11,16 @@ import AddPopUp from "../Components/AddContact/AddPopUp.js";
 import { useLocation } from "react-router";
 import { SortDropdown } from "../Components/Contacts/SortDropdown";
 import Loading from "../Components/Loading";
+import { OrderDropdown } from "../Components/Contacts/OrderDropdown";
 
 export default function ContactPage({ contacts }) {
   const [sbc, setSBC] = React.useState(true);
   const [blur, setBlur] = React.useState(false);
   const [value, setValue] = React.useState({ value: "Name", label: "Name" });
+  const [order, setOrder] = React.useState({
+    value: "Ascending",
+    label: "Ascending",
+  });
   const [loading, setLoading] = React.useState(true);
 
   const blurred = blur || loading;
@@ -41,6 +46,7 @@ export default function ContactPage({ contacts }) {
 
         <Filters />
         <SearchBar onClick={setBlur} width={65} />
+        <OrderDropdown value={order} setValue={setOrder} />
         <SortDropdown value={value} setValue={setValue} />
       </div>
       {sbc ? (

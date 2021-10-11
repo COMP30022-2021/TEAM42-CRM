@@ -844,10 +844,27 @@ p2 {
   filter: drop-shadow(6px 6px 8px rgba(0, 0, 0, 0.25));
 }
 
+.filterDrop {
+  left: 8%;
+  z-index: 5;
+  width: 25%;
+  top: 10%;
+  height: 4%;
+  position: absolute;
+}
+
 .dropdown {
-  background-color: rgba(0, 0, 0, 0.25);
-  width: 100%;
-  left: 85%;
+  width: 40%;
+  left: 3%;
+  font-size: 10px;
+  position: absolute;
+  color: #2a8dbb;
+  outline: none;
+}
+
+.orderBy {
+  width: 40%;
+  left: 3%;
   font-size: 10px;
   position: absolute;
   color: #2a8dbb;

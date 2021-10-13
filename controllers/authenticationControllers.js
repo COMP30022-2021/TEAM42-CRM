@@ -1,7 +1,7 @@
 const bcrypt = require("bcryptjs");
 const Authentication = require("../models/authentication");
 const redis = require("../config/redis")
-const transporter = require("../config/nodemailer")
+const sendMail = require("../config/nodemailer")
 
 exports.login = async (req, res) => {
     try {
@@ -24,22 +24,6 @@ exports.login = async (req, res) => {
                     const session = req.session;
                     session.bussiness_id = authentication[0].business_id;
                     session.employee_id = authentication[0].employee_id;
-
-                    let mailOption = {
-                        from: 'lynk-crm@gmail.com',
-                        to: 'lynk.crm@gmail.com',
-                        subject: 'test subject node mailer',
-                        text: "test text!"
-                    }
-
-                    transporter.sendMail(mailOption, (err, info) => {
-                        if (err) {
-                            console.log(err);
-                        } else {
-                            console.log('Mail send: ' + info);
-                        }
-                    })
-
                     res.status(200).json({
                         status_code: 200,
                         status_message: "Success",
@@ -94,6 +78,9 @@ exports.register = async function (req, res) {
                         const newEmployee = new Authentication(
                             businessID, name, email, hash, address, birthday, gender, phone, startDate, role
                         );
+
+                        sendMail(email, "Register Of A New Account", "Welcome to Lynk \nemail is: " + email + "\npassword is: admin");
+
                         newEmployee.save().then((employee) => {
                             res.json({
                                 employee: {
@@ -107,6 +94,7 @@ exports.register = async function (req, res) {
                     });
                 });
             } else {
+                // password is 0, when not creating an account
                 const newEmployee = new Authentication(
                     businessID, name, email, password, address, birthday, gender, phone, startDate, role
                 );

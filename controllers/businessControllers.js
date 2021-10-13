@@ -1,6 +1,7 @@
 const bcrypt = require("bcryptjs");
 const Business = require("../models/business");
 const Authentication = require("../models/authentication");
+const sendMail = require("../config/nodemailer")
 
 exports.signupbusiness = async function (req, res) {
   try {
@@ -22,7 +23,6 @@ exports.signupbusiness = async function (req, res) {
         dateEstablished,
       );
 
-
       let businessID = await newBusiness.save();
 
       //Encrypt the user's password
@@ -35,6 +35,8 @@ exports.signupbusiness = async function (req, res) {
           newEmployee.save();
         });
       });
+
+      sendMail(email, "New Business In Lynk!", "your new business email is: " + email)
 
       res.status(200).json({
         status_code: 200,

@@ -60,7 +60,7 @@ class Vendor {
         return mysql.execute(sql);
     }
 
-    static getNumberOfEmployees() {
+    static getNumberOfVendors() {
         let sql = `SELECT COUNT(DISTINCT vendor_id) FROM vendor`
         return mysql.execute((sql))
     }

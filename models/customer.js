@@ -64,7 +64,7 @@ class Customer {
         return mysql.execute((sql))
     }
 
-    static getNumberOfEmployees() {
+    static getNumberOfCustomers() {
         let sql = `SELECT COUNT(DISTINCT customer_id) FROM customer`
         return mysql.execute((sql))
     }

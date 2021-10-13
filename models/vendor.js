@@ -60,20 +60,10 @@ class Vendor {
         return mysql.execute(sql);
     }
 
-    static getNumberOfVendors() {
-        let sql = `SELECT COUNT(DISTINCT vendor_id) FROM vendor`
+    static getNumberOfVendors(businessID) {
+        let sql = `SELECT COUNT(DISTINCT vendor_id) as total_vendors FROM vendor WHERE business_id = ${businessID}`
         return mysql.execute((sql))
     }
-
-    // static findByID(id) {
-    //     let sql = `SELECT * FROM customer WHERE id = ${id}`
-    //     return mysql.execute((sql))
-    // }
-    //
-    // static findAll() {
-    //     let sql = `SELECT * FROM customer`
-    //     return mysql.execute((sql))
-    // }
 }
 
 module.exports = Vendor;

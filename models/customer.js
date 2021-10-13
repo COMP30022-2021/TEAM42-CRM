@@ -64,8 +64,10 @@ class Customer {
         return mysql.execute((sql))
     }
 
-    static getNumberOfCustomers() {
-        let sql = `SELECT COUNT(DISTINCT customer_id) FROM customer`
+    static getNumberOfCustomers(businessID) {
+        let sql = `SELECT COUNT(DISTINCT customer_id) as total_costumers
+                   FROM customer
+                   WHERE business_id = ${businessID}`
         return mysql.execute((sql))
     }
 }

@@ -200,3 +200,21 @@ exports.deleteEmployee = async (req, res) => {
         })
     }
 }
+
+exports.getNumberOfEmployees = async (req, res) => {
+    try {
+        let businessID = req.params.businessID;
+        let [num, _] = await Authentication.getNumberOfEmployees(businessID);
+        res.status(200).json({
+            status_code: 200,
+            status_message: "Success",
+            num
+        })
+    } catch (err) {
+        console.log(err);
+        res.status(400).json({
+            status_code: 400,
+            status_message: "Error: Internal Server Error",
+        });
+    }
+};

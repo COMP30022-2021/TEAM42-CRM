@@ -84,8 +84,8 @@ class Authentication {
         return mysql.execute((sql))
     }
 
-    static getNumberOfEmployees() {
-        let sql = `SELECT COUNT(DISTINCT employee_id) FROM employee`
+    static getNumberOfEmployees(businessID) {
+        let sql = `SELECT COUNT(DISTINCT employee_id) as total_employees FROM employee WHERE business_id = ${businessID}`
         return mysql.execute((sql))
     }
 }

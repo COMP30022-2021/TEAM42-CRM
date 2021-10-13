@@ -1,6 +1,7 @@
 const bcrypt = require("bcryptjs");
 const Authentication = require("../models/authentication");
 const redis = require("../config/redis")
+const transporter = require("../config/nodemailer")
 
 exports.login = async (req, res) => {
     try {
@@ -23,6 +24,21 @@ exports.login = async (req, res) => {
                     const session = req.session;
                     session.bussiness_id = authentication[0].business_id;
                     session.employee_id = authentication[0].employee_id;
+
+                    let mailOption = {
+                        from: 'lynk-crm@gmail.com',
+                        to: 'lynk.crm@gmail.com',
+                        subject: 'test subject node mailer',
+                        text: "test text!"
+                    }
+
+                    transporter.sendMail(mailOption, (err, info) => {
+                        if (err) {
+                            console.log(err);
+                        } else {
+                            console.log('Mail send: ' + info);
+                        }
+                    })
 
                     res.status(200).json({
                         status_code: 200,

@@ -29,11 +29,19 @@ class OrderDetail {
   // }
 
   static getAllSoldProducts(sortOrder, limit) {
-    let sql = `SELECT SUM(number_of_products) as sale
-               FROM orderDetails
+    let sql = `SELECT product_id, SUM(number_of_products) as sale
+               FROM orderdetail
                GROUP BY product_id
-               ORDER BY sale '${sortOrder}'
-               LIMIT '${limit}'`
+               ORDER BY sale
+               LIMIT ${limit}`
+    
+    if(sortOrder === "DESC") {
+      sql = `SELECT product_id, SUM(number_of_products) as sale
+             FROM orderdetail
+             GROUP BY product_id
+             ORDER BY sale DESC
+             LIMIT ${limit}`
+    }
 
     return mysql.execute((sql))
   }
@@ -48,7 +56,7 @@ class OrderDetail {
                      FROM (SELECT quarter, num * unit_price as revenue
                            FROM (SELECT QUARTER(date) as quarter, product_id, SUM(number_of_products) as num
                                  FROM orderdetail o LEFT JOIN transaction t on o.transaction_id = t.transaction_id
-                                 WHERE YEAR(date) = 2019
+                                 WHERE YEAR(date) = '${currentYear}' AND product_id = '${product_id}'
                                  GROUP BY QUARTER(date), o.product_id) a LEFT JOIN product p on a.product_id = p.product_id) b
                      GROUP BY quarter) d ON quarter = click_date`
     return mysql.execute((sql))

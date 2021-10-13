@@ -19,11 +19,6 @@ class Product {
     const [newProduct, _] = await mysql.execute(sql);
     return newProduct
   }
-
-  // static findByName(name) {
-  //   let sql = `SELECT * FROM business WHERE name = '${name}'`
-  //   return mysql.execute((sql))
-  // }
 }
 
 module.exports = Product;

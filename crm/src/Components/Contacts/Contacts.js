@@ -50,6 +50,7 @@ export default function Contacts({ sortBy, setBlur, setLoading, filters }) {
     if (contactType === "all") {
       return contacts.filter((contact) => checkGender(contact));
     }
+    return contacts;
   };
 
   const checkGender = (contact) => {

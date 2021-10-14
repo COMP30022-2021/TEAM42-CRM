@@ -94,8 +94,8 @@ export default function CustomerFilterBar({ filters, setFilters, setX }) {
         style={{ top: "84%", left: "15%", width: "30%", height: "9%" }}
         className="numInput"
         type="text"
-        value={postcode}
         onChange={(e) => setPostcode(e.target.value)}
+        value={postcode}
       ></input>
 
       <button

@@ -26,6 +26,7 @@ export default function ContactPage() {
     isMale: true,
     isFemale: false,
     postcodes: [],
+    tags: [],
     to: "",
     from: "",
     ageTo: "",

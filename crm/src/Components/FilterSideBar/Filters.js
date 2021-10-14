@@ -1,6 +1,8 @@
 import React from "react";
 import FilterBar from "./FilterBar";
-import CustomerFilter from "./CustomerFilterBar";
+import CustomerFilterBar from "./CustomerFilterBar";
+import EmployeeFilterBar from "./EmployeeFilterBar";
+import VendorFilterBar from "./VendorFilterBar";
 
 import { useLocation } from "react-router";
 import { useHistory } from "react-router-dom";
@@ -42,8 +44,20 @@ export default function Filters({ filters, setFilters }) {
       >
         {contactType === "all" ? (
           <FilterBar setFilters={setFilters} filters={filters} setX={setX} />
+        ) : contactType === "customers" ? (
+          <CustomerFilterBar
+            setFilters={setFilters}
+            filters={filters}
+            setX={setX}
+          />
+        ) : contactType === "employee" ? (
+          <EmployeeFilterBar
+            setFilters={setFilters}
+            filters={filters}
+            setX={setX}
+          />
         ) : (
-          <CustomerFilter
+          <VendorFilterBar
             setFilters={setFilters}
             filters={filters}
             setX={setX}

@@ -12,7 +12,7 @@ export default function Contacts({ sortBy, setBlur, setLoading, filters }) {
 
   const handleContacts = (contacts) => {
     if (query === "all") return handleAll(contacts);
-    if (query === "filter") return handleFilter(contacts);
+    if (query === "filter") return handleFilter(handleAll(contacts));
     else return searchContacts(contacts);
   };
 
@@ -48,6 +48,12 @@ export default function Contacts({ sortBy, setBlur, setLoading, filters }) {
 
   const handleFilter = (contacts) => {
     if (contactType === "all") {
+      return contacts.filter((contact) => checkGender(contact));
+    } else if (contactType === "customers") {
+      return contacts.filter((contact) => checkGender(contact));
+    } else if (contactType === "employees") {
+      return contacts.filter((contact) => checkGender(contact));
+    } else if (contactType === "vendors") {
       return contacts.filter((contact) => checkGender(contact));
     }
     return contacts;

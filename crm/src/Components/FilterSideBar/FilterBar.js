@@ -75,7 +75,7 @@ export default function FilterBar({ filters, setFilters, setX }) {
         style={{
           left: "50%",
           width: "40%",
-          height: "13%",
+          height: "12%",
           top: "70%",
         }}
       >

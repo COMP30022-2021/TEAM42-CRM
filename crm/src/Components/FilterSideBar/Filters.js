@@ -1,5 +1,6 @@
 import React from "react";
 import FilterBar from "./FilterBar";
+import CustomerFilter from "./CustomerFilterBar";
 
 import { useLocation } from "react-router";
 import { useHistory } from "react-router-dom";
@@ -11,7 +12,7 @@ export default function Filters({ filters, setFilters }) {
 
   const toggleMenu = () => {
     if (xPosition === "125%") {
-      setX("75%");
+      setX("70%");
     } else {
       setX("125%");
     }
@@ -24,6 +25,7 @@ export default function Filters({ filters, setFilters }) {
   const handleAdd = () => {
     if (xPosition === "125%") toggleMenu();
     else {
+      console.log(filters);
       history.push("/contacts/" + contactType + "/filter");
     }
   };
@@ -38,7 +40,15 @@ export default function Filters({ filters, setFilters }) {
         className="filterPanel"
         style={{ top: "25%", transform: `translatex(${xPosition})` }}
       >
-        <FilterBar setFilters={setFilters} filters={filters} setX={setX} />
+        {contactType === "all" ? (
+          <FilterBar setFilters={setFilters} filters={filters} setX={setX} />
+        ) : (
+          <CustomerFilter
+            setFilters={setFilters}
+            filters={filters}
+            setX={setX}
+          />
+        )}
       </div>
 
       <div

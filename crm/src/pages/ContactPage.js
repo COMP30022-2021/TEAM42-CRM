@@ -26,6 +26,10 @@ export default function ContactPage() {
     isMale: true,
     isFemale: false,
     postcodes: [],
+    to: "",
+    from: "",
+    ageTo: "",
+    ageFrom: "",
   });
 
   const blurred = blur || loading;

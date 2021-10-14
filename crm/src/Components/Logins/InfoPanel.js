@@ -1,6 +1,6 @@
 import React from "react";
 
-export const InfoPanel = ({ height, children }) => {
+export const InfoPanel = () => {
   const width = 500;
   const [xPosition, setX] = React.useState(-width);
 

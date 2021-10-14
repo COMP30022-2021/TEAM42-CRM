@@ -9,6 +9,11 @@ import user from "../../res/images/user_cropped.jpg";
 import logo from "../../res/images/Logos/Logo_Design5.png";
 
 export default function SBCElements({ path }) {
+  const url =
+    path != undefined && path.split("/")[1] === "contacts"
+      ? path.split("/").slice(0, 2).join("/")
+      : path;
+
   return (
     <div>
       <img src={logo} className="SBCLogo"></img>
@@ -31,7 +36,7 @@ export default function SBCElements({ path }) {
         <RiDashboardLine
           className="icon"
           style={{
-            color: path === undefined ? "#9FBF8E" : "#cfd7e3",
+            color: url === undefined ? "#9FBF8E" : "#cfd7e3",
             top: "28%",
             left: "83%",
           }}
@@ -42,7 +47,7 @@ export default function SBCElements({ path }) {
         <MdPermContactCalendar
           className="icon"
           style={{
-            color: path === "/contacts/all" ? "#9FBF8E" : "#cfd7e3",
+            color: url === "/contacts" ? "#9FBF8E" : "#cfd7e3",
             top: "34%",
             left: "83%",
           }}
@@ -53,7 +58,7 @@ export default function SBCElements({ path }) {
         <ImStatsDots
           className="icon"
           style={{
-            color: path === "/statistics" ? "#9FBF8E" : "#cfd7e3",
+            color: url === "/statistics" ? "#9FBF8E" : "#cfd7e3",
             top: "51%",
             left: "83%",
           }}
@@ -64,7 +69,7 @@ export default function SBCElements({ path }) {
         <FiSettings
           className="icon"
           style={{
-            color: path === "/settings" ? "#9FBF8E" : "#cfd7e3",
+            color: url === "/settings" ? "#9FBF8E" : "#cfd7e3",
             bottom: "10%",
             left: "83%",
           }}

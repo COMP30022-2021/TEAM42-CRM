@@ -12,7 +12,8 @@ export default function SearchBar({ width, onClick }) {
 
   const handleSearch = () => {
     if (text !== "") {
-      history.push("/contacts/search=" + text + "@" + value.value);
+      history.push("/contacts/all/search=" + text + "@" + value.value);
+      setText("");
     }
   };
 

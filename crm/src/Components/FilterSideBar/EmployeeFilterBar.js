@@ -74,17 +74,13 @@ export default function EmployeeFilterBar() {
         Date Joined:
         </div>
           
-        <div className="p3" style={{ left: "10%", top: "55%" }}>
-          From
-        </div>
-        <input style={{top:"55%",left:"26%",width:"42%"}} class="numInput" type="date" min={0}></input>
-        <div className="p3" style={{ left: "71%", top: "55%" }}>
-          to
-        </div>
-        <input style={{top:"60%",left:"10%",width:"42%"}} class="numInput" type="date" min={0}></input>
-        <div className="p3" style={{ left: "54%", top: "60%" }}>
-          years old.
-        </div>
+        <div className="p3" style={{ left: "10%", top: "55%" }}>Between</div>
+
+        <input style={{top:"55%",left:"30%",width:"42%"}} class="numInput" type="date" min={0}></input>
+
+        <div className="p3" style={{ left: "10%", top: "60%" }}>and</div>
+
+        <input style={{top:"60%",left:"20%",width:"42%"}} class="numInput" type="date" min={0}></input>
 
         </div>
       );

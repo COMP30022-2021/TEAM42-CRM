@@ -16,6 +16,10 @@ import logo from "../../res/images/Logos/Logo_Design5.png";
 import { useHistory } from "react-router";
 
 export default function SideBarElements({ path }) {
+  const url =
+    path != undefined && path.split("/")[1] === "contacts"
+      ? path.split("/").slice(0, 3).join("/")
+      : path;
   const history = useHistory();
 
   return (
@@ -30,7 +34,7 @@ export default function SideBarElements({ path }) {
         <div>
           <h3
             style={{
-              color: path === undefined ? "#9FBF8E" : "#cfd7e3",
+              color: url === undefined ? "#9FBF8E" : "#cfd7e3",
               top: "26%",
               left: "25%",
             }}
@@ -40,7 +44,7 @@ export default function SideBarElements({ path }) {
           <RiDashboardLine
             className="icon"
             style={{
-              color: path === undefined ? "#9FBF8E" : "#cfd7e3",
+              color: url === undefined ? "#9FBF8E" : "#cfd7e3",
               top: "28%",
               left: "11%",
             }}
@@ -48,11 +52,11 @@ export default function SideBarElements({ path }) {
         </div>
       </Link>
 
-      <Link to="/contacts/all">
+      <Link to="/contacts/all/all">
         <SideBarElement>
           <h3
             style={{
-              color: path === "/contacts/all" ? "#9FBF8E" : "#cfd7e3",
+              color: url === "/contacts/all" ? "#9FBF8E" : "#cfd7e3",
               top: "32%",
               left: "25%",
             }}
@@ -62,7 +66,7 @@ export default function SideBarElements({ path }) {
           <MdPermContactCalendar
             className="icon"
             style={{
-              color: path === "/contacts/all" ? "#9FBF8E" : "#cfd7e3",
+              color: url === "/contacts/all" ? "#9FBF8E" : "#cfd7e3",
               top: "34%",
               left: "11%",
             }}
@@ -70,11 +74,11 @@ export default function SideBarElements({ path }) {
         </SideBarElement>
       </Link>
 
-      <Link to="/contacts/employees">
+      <Link to="/contacts/employees/all">
         <SideBarElement>
           <h3
             style={{
-              color: path === "/contacts/employees" ? "#9FBF8E" : "#cfd7e3",
+              color: url === "/contacts/employees" ? "#9FBF8E" : "#cfd7e3",
               top: "36%",
               left: "35%",
             }}
@@ -84,7 +88,7 @@ export default function SideBarElements({ path }) {
           <MdSubdirectoryArrowRight
             className="icon"
             style={{
-              color: path === "/contacts/employees" ? "#9FBF8E" : "#cfd7e3",
+              color: url === "/contacts/employees" ? "#9FBF8E" : "#cfd7e3",
               top: "38%",
               left: "25%",
             }}
@@ -92,11 +96,11 @@ export default function SideBarElements({ path }) {
         </SideBarElement>
       </Link>
 
-      <Link to="/contacts/customers">
+      <Link to="/contacts/customers/all">
         <SideBarElement>
           <h3
             style={{
-              color: path === "/contacts/customers" ? "#9FBF8E" : "#cfd7e3",
+              color: url === "/contacts/customers" ? "#9FBF8E" : "#cfd7e3",
               top: "40%",
               left: "35%",
             }}
@@ -106,7 +110,7 @@ export default function SideBarElements({ path }) {
           <MdSubdirectoryArrowRight
             className="icon"
             style={{
-              color: path === "/contacts/customers" ? "#9FBF8E" : "#cfd7e3",
+              color: url === "/contacts/customers" ? "#9FBF8E" : "#cfd7e3",
               top: "42%",
               left: "25%",
             }}
@@ -114,11 +118,11 @@ export default function SideBarElements({ path }) {
         </SideBarElement>
       </Link>
 
-      <Link to="/contacts/vendors">
+      <Link to="/contacts/vendors/all">
         <SideBarElement>
           <h3
             style={{
-              color: path === "/contacts/vendors" ? "#9FBF8E" : "#cfd7e3",
+              color: url === "/contacts/vendors" ? "#9FBF8E" : "#cfd7e3",
               top: "44%",
               left: "35%",
             }}
@@ -128,7 +132,7 @@ export default function SideBarElements({ path }) {
           <MdSubdirectoryArrowRight
             className="icon"
             style={{
-              color: path === "/contacts/vendors" ? "#9FBF8E" : "#cfd7e3",
+              color: url === "/contacts/vendors" ? "#9FBF8E" : "#cfd7e3",
               top: "46%",
               left: "25%",
             }}
@@ -140,7 +144,7 @@ export default function SideBarElements({ path }) {
         <SideBarElement>
           <h3
             style={{
-              color: path === "/statistics" ? "#9FBF8E" : "#cfd7e3",
+              color: url === "/statistics" ? "#9FBF8E" : "#cfd7e3",
               top: "49%",
               left: "25%",
             }}
@@ -150,7 +154,7 @@ export default function SideBarElements({ path }) {
           <ImStatsDots
             className="icon"
             style={{
-              color: path === "/statistics" ? "#9FBF8E" : "#cfd7e3",
+              color: url === "/statistics" ? "#9FBF8E" : "#cfd7e3",
               top: "51%",
               left: "11%",
             }}
@@ -162,7 +166,7 @@ export default function SideBarElements({ path }) {
         <SideBarElement>
           <h3
             style={{
-              color: path === "/settings" ? "#9FBF8E" : "#cfd7e3",
+              color: url === "/settings" ? "#9FBF8E" : "#cfd7e3",
               bottom: "8%",
               left: "25%",
             }}
@@ -172,7 +176,7 @@ export default function SideBarElements({ path }) {
           <FiSettings
             className="icon"
             style={{
-              color: path === "/settings" ? "#9FBF8E" : "#cfd7e3",
+              color: url === "/settings" ? "#9FBF8E" : "#cfd7e3",
               bottom: "10%",
               left: "11%",
             }}

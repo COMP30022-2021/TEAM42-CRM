@@ -75,11 +75,10 @@ h2 {
 .header {
   background: rgba(159, 191, 142, 1);
   border-radius: 6px;
+  left: 0%;
   position: absolute;
-  left: 50%;
-
   height: 55px;
-  transform: translate(-50%, -25%);
+  transform: translate(-0%, -25%);
   text-align: center;
 }
 
@@ -209,6 +208,7 @@ p1 {
 
   color: #000000;
 }
+
 ul {
   text-align: left;
   color: #0b293b;
@@ -416,6 +416,33 @@ p2 {
   position: absolute;
 }
 
+.filterPanel {
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+  transition: 0.8s ease;
+  filter: drop-shadow(6px 6px 8px rgba(0, 0, 0, 0.25));
+  border-radius: 6px;
+  position: absolute;
+}
+
+.filterText {
+  position: absolute;
+  height: 28px;
+
+  font-family: Poppins, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 28px;
+
+  text-align: center;
+  color: #000000;
+}
+
 .button1 {
   position: fixed;
 
@@ -605,10 +632,10 @@ p2 {
 }
 
 .filterBar {
-  width: 25%;
-  height: 86%;
-  top: 10%;
-  left: 75%;
+  width: 30%;
+  height: 50%;
+  /* top: 10%; */
+  left: 0%;
 
   display: flex;
   flex-direction: column;
@@ -616,9 +643,10 @@ p2 {
   border-color: #265573;
   transition: 0.8s ease;
 
-  position: fixed;
+  position: absolute;
   background: #ffffff;
   box-shadow: 6px 1px 18px rgba(0, 0, 0, 0.06);
+  z-index: 100;
 }
 
 .settingsDisplay {
@@ -705,6 +733,7 @@ p2 {
   position: absolute;
   left: 0%;
   top: 0%;
+  overflow-x: hidden;
 }
 
 .addContact {
@@ -794,7 +823,7 @@ p2 {
 }
 
 .infoPanel {
-  height: 63% !important;
+  height: 63%;
 
   display: flex;
   flex-direction: column;

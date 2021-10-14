@@ -3,28 +3,37 @@ import { useLocation } from "react-router";
 import { Contact } from "./Contact";
 import ContactsHeader from "./ContactsHeader";
 
-export default function Contacts({ sortBy, setBlur, setLoading }) {
+export default function Contacts({ sortBy, setBlur, setLoading, filters }) {
   const [contacts, setContacts] = React.useState([]);
+  const [contactCopy, setContactCopy] = React.useState([]);
 
-  const filter = useLocation().pathname.split("/")[2];
-  const search = /search=/.test(filter);
+  const contactType = useLocation().pathname.split("/")[2];
+  const query = useLocation().pathname.split("/")[3];
 
-  const filterContact = (contacts) => {
-    if (filter === "all") return contacts;
-    else if (filter === "employees") {
+  const handleContacts = (contacts) => {
+    if (query === "all") return handleAll(contacts);
+    if (query === "filter") return handleFilter(handleAll(contacts));
+    else return searchContacts(contacts);
+  };
+
+  const handleAll = (contacts) => {
+    if (contactType === "employees") {
       console.log(1);
       return contacts.filter(
         (contact) => contact.role === "employee" || contact.role === "manager"
       );
-    } else if (filter === "customers") {
+    } else if (contactType === "customers") {
       return contacts.filter((contact) => contact.role === "customer");
-    } else if (filter === "vendors") {
+    } else if (contactType === "vendors") {
       return contacts.filter((contact) => contact.role === "vendor");
-    } else if (search) {
-      const pattern = /search=(?<searchName>\w+)@(?<email>\w+)/.exec(filter);
-      const regEx = new RegExp(pattern.groups.searchName, "i");
-      return searchContact(regEx, contacts, pattern.groups.email);
-    } else return contacts;
+    }
+    return contacts;
+  };
+
+  const searchContacts = (contacts) => {
+    const pattern = /search=(?<searchName>\w+)@(?<email>\w+)/.exec(query);
+    const regEx = new RegExp(pattern.groups.searchName, "i");
+    return searchContact(regEx, contacts, pattern.groups.email);
   };
 
   const searchContact = (regEx, contacts, on) => {
@@ -36,6 +45,27 @@ export default function Contacts({ sortBy, setBlur, setLoading }) {
       return contacts.filter((contact) => regEx.test(contact.phone));
     }
   };
+
+  const handleFilter = (contacts) => {
+    if (contactType === "all") {
+      return contacts.filter((contact) => checkGender(contact));
+    } else if (contactType === "customers") {
+      return contacts.filter((contact) => checkGender(contact));
+    } else if (contactType === "employees") {
+      return contacts.filter((contact) => checkGender(contact));
+    } else if (contactType === "vendors") {
+      return contacts.filter((contact) => checkGender(contact));
+    }
+    return contacts;
+  };
+
+  const checkGender = (contact) => {
+    return (
+      (contact.gender === 0 && filters.isFemale) ||
+      (contact.gender === 1 && filters.isMale)
+    );
+  };
+
   const loadContacts = async () => {
     setLoading(true);
     await fetch(
@@ -55,7 +85,7 @@ export default function Contacts({ sortBy, setBlur, setLoading }) {
       .then((response) => response.json())
       .then((data) => {
         if (data.status_code === 200) {
-          setContacts(filterContact(data.contacts));
+          setContacts(handleContacts(data.contacts));
           setLoading(false);
         }
       });
@@ -63,7 +93,7 @@ export default function Contacts({ sortBy, setBlur, setLoading }) {
 
   React.useEffect(() => {
     loadContacts();
-  }, [sortBy, filter]);
+  }, [sortBy, contactType, query === "filter" ? filters : null]);
 
   return (
     <div

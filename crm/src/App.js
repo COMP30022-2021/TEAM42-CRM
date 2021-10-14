@@ -59,7 +59,7 @@ function App() {
     <div className="App" style={{ background: "#000000" }}>
       <Route
         exact
-        path="/contacts/:search"
+        path="/contacts/:type/:query"
         render={() =>
           loggedIn ? (
             <ContactPage contacts={contacts} />

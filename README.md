@@ -39,18 +39,24 @@ the following is the connection infomation:
 
 - password: fd7ba9ac
 
+## Redis Connection
+
+Redis can be accessed through heroku cli by using the following command:
+
+- heroku redis:cli -a team42-crm -c team42-crm
+
+Redis connection:
+
+- redis://:p8a9a536e37e24dcb479b2badb88bf9dc7808ed53900c90a23d5f3d88519eb8f6@ec2-54-156-199-127.compute-1.amazonaws.com:32020
+
+## Email
+
+- email account: lynk.crm@gmail.com
+ 
+- email password: lynklynk
+
 ## Routes
 
-#### https://team42-crm.herokuapp.com/creat
-Create a new customer
-- POST
-- json in body
-
-#### https://team42-crm.herokuapp.com/customer/:id
-Search customer infomation by id(e.g. 1)
-- GET
-
-#### https://team42-crm.herokuapp.com/customer/all
-Search all customer infomation
-- GET
+#### refer to API handbook:
+https://team1-comp30022.atlassian.net/wiki/spaces/HOME/pages/52396033/API+Handbook+WIP
 

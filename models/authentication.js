@@ -67,7 +67,6 @@ class Authentication {
         business_id,
         name,
         email, 
-        password,
         address,
         birthday,
         gender,

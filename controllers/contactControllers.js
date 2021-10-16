@@ -53,12 +53,33 @@ exports.getSingleContact = async (req, res, next) => {
             let id = uriObj.query.id;
             let role = uriObj.query.role;
             let contact = null;
+            let cacheKey = role + "_" + id;
+            console.log("cache key: " + cacheKey);
+            let cached = false;
+            // check whether the cache hit
+            redis.get(cacheKey ,(err, reply) => {
+                if (reply) {
+                    console.log("cache hit: " + reply);
+                    let data = [];
+                    data.push(JSON.parse(reply));
+                    if(!res.headersSent) {
+                        console.log("send res from redis");
+                        res.status(200).json({
+                            status_code: 200,
+                            status_message: "Success",
+                            data
+                        })
+                    }
+                }
+            });
+
+            // if cache not hit, query from database
             if (role === "vendor") {
-                [contact, _] = await  Vendor.getByID(id)
-            } else if ( role === "customer" ) {
-                [contact, _] = await  Customer.getByID(id)
+                [contact, _] = await Vendor.getByID(id)
+            } else if (role === "customer") {
+                [contact, _] = await Customer.getByID(id)
             } else if (role === "employee") {
-                [contact, _] = await  Employee.getByID(id)
+                [contact, _] = await Employee.getByID(id)
             } else {
                 res.status(200).json({
                     status_code: 409,
@@ -66,6 +87,12 @@ exports.getSingleContact = async (req, res, next) => {
                 })
                 return
             }
+            // add the contact to cache
+            if (contact.length !== 0 ) {
+                redis.set(cacheKey, JSON.stringify(contact[0]), 'EX', 60);
+                console.log("cache content: " + JSON.stringify(contact[0]));
+            }
+
             //save to redis
             if (contact.length !== 0) {
                 let jsonObj = {
@@ -84,12 +111,14 @@ exports.getSingleContact = async (req, res, next) => {
                 console.log(key);
                 redis.zadd(key, Date.now(), jsonString)
             }
-
-            res.status(200).json({
-                status_code: 200,
-                status_message: "Success",
-                contact
-            })
+            if (!res.headersSent) {
+                console.log("send res from mysql");
+                res.status(200).json({
+                    status_code: 200,
+                    status_message: "Success",
+                    contact
+                })
+            }
         }
     } catch (err) {
         console.log(err);

@@ -31,6 +31,8 @@ exports.login = async (req, res) => {
                         businessID: authentication[0].business_id,
                         employee: {
                             employee_id: authentication[0].employee_id,
+                            name: authentication[0].name,
+                            email: authentication[0].email
                         },
                     });
                 } else {

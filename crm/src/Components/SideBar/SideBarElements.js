@@ -35,7 +35,7 @@ export default function SideBarElements({ path }) {
           <h3
             style={{
               color: url === undefined ? "#9FBF8E" : "#cfd7e3",
-              top: "26%",
+              top: "28%",
               left: "25%",
             }}
           >
@@ -57,7 +57,7 @@ export default function SideBarElements({ path }) {
           <h3
             style={{
               color: url === "/contacts/all" ? "#9FBF8E" : "#cfd7e3",
-              top: "32%",
+              top: "40%",
               left: "25%",
             }}
           >
@@ -67,7 +67,7 @@ export default function SideBarElements({ path }) {
             className="icon"
             style={{
               color: url === "/contacts/all" ? "#9FBF8E" : "#cfd7e3",
-              top: "34%",
+              top: "40%",
               left: "11%",
             }}
           />
@@ -79,7 +79,7 @@ export default function SideBarElements({ path }) {
           <h3
             style={{
               color: url === "/contacts/employees" ? "#9FBF8E" : "#cfd7e3",
-              top: "36%",
+              top: "44%",
               left: "35%",
             }}
           >
@@ -89,7 +89,7 @@ export default function SideBarElements({ path }) {
             className="icon"
             style={{
               color: url === "/contacts/employees" ? "#9FBF8E" : "#cfd7e3",
-              top: "38%",
+              top: "44%",
               left: "25%",
             }}
           />
@@ -101,7 +101,7 @@ export default function SideBarElements({ path }) {
           <h3
             style={{
               color: url === "/contacts/customers" ? "#9FBF8E" : "#cfd7e3",
-              top: "40%",
+              top: "48%",
               left: "35%",
             }}
           >
@@ -111,7 +111,7 @@ export default function SideBarElements({ path }) {
             className="icon"
             style={{
               color: url === "/contacts/customers" ? "#9FBF8E" : "#cfd7e3",
-              top: "42%",
+              top: "48%",
               left: "25%",
             }}
           />
@@ -123,7 +123,7 @@ export default function SideBarElements({ path }) {
           <h3
             style={{
               color: url === "/contacts/vendors" ? "#9FBF8E" : "#cfd7e3",
-              top: "44%",
+              top: "52%",
               left: "35%",
             }}
           >
@@ -133,7 +133,7 @@ export default function SideBarElements({ path }) {
             className="icon"
             style={{
               color: url === "/contacts/vendors" ? "#9FBF8E" : "#cfd7e3",
-              top: "46%",
+              top: "52%",
               left: "25%",
             }}
           />
@@ -145,7 +145,7 @@ export default function SideBarElements({ path }) {
           <h3
             style={{
               color: url === "/statistics" ? "#9FBF8E" : "#cfd7e3",
-              top: "49%",
+              top: "34%",
               left: "25%",
             }}
           >
@@ -155,7 +155,7 @@ export default function SideBarElements({ path }) {
             className="icon"
             style={{
               color: url === "/statistics" ? "#9FBF8E" : "#cfd7e3",
-              top: "51%",
+              top: "34%",
               left: "11%",
             }}
           />
@@ -167,7 +167,7 @@ export default function SideBarElements({ path }) {
           <h3
             style={{
               color: url === "/settings" ? "#9FBF8E" : "#cfd7e3",
-              bottom: "8%",
+              bottom: "10%",
               left: "25%",
             }}
           >
@@ -186,7 +186,7 @@ export default function SideBarElements({ path }) {
 
       <Link to="/login" onClick={() => localStorage.setItem("loggedIn", false)}>
         <SideBarElement>
-          <h3 style={{ bottom: "2%", left: "25%" }}>Logout</h3>
+          <h3 style={{ bottom: "4%", left: "25%" }}>Logout</h3>
           <FiLogOut className="icon" style={{ bottom: "4%", left: "11%" }} />
         </SideBarElement>
       </Link>

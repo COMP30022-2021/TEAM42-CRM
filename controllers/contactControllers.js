@@ -78,9 +78,11 @@ exports.getSingleContact = async (req, res, next) => {
                 }
                 let jsonString = JSON.stringify(jsonObj);
                 let timestamp = Date.now()
+                let key = "business_" + contact[0].business_id;
                 console.log(jsonString);
-                console.log(timestamp)
-                redis.zadd('business_test', Date.now(), jsonString)
+                console.log(timestamp);
+                console.log(key);
+                redis.zadd(key, Date.now(), jsonString)
             }
 
             res.status(200).json({
@@ -101,8 +103,10 @@ exports.getSingleContact = async (req, res, next) => {
 exports.getRecentContact = async (req, res, next) => {
     let businessID = req.params.businessID;
     try {
+        //
+        let key = "business_" + businessID;
         // query redis for data
-        let result = redis.zrevrange("business_test", 0, 20, (err, reply) => {
+        let result = redis.zrevrange(key, 0, 20, (err, reply) => {
             if (err) {
                 console.log(err);
             } else {

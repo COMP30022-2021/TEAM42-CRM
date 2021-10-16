@@ -52,8 +52,8 @@ class Customer {
         email, 
         phone, 
         address,
-        first_visit,
-        birthday,
+        DATE(first_visit) AS first_visit,
+        DATE(birthday) AS birthday,
         gender 
         FROM customer WHERE customer_id = ${id}`
         return mysql.execute((sql))

@@ -69,10 +69,10 @@ class Authentication {
         email, 
         password,
         address,
-        birthday,
+        DATE(birthday) AS birthday,
         gender,
         phone,
-        date_joined,
+        DATE(date_joined) AS date_joined,
         role
         FROM employee WHERE employee_id = ${id}`
         return mysql.execute((sql))

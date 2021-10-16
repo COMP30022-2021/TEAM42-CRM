@@ -48,26 +48,31 @@ exports.getAllContact = async (req, res, next) => {
 
 exports.getSingleContact = async (req, res, next) => {
     try {
+        let start = Date.now()
+        console.log("start: " + start );
         let uriObj = url.parse(req.url, true)
         if (uriObj.query.id && uriObj.query.role) {
             let id = uriObj.query.id;
             let role = uriObj.query.role;
             let contact = null;
             let cacheKey = role + "_" + id;
-            console.log("cache key: " + cacheKey);
-            let cached = false;
+            //console.log("cache key: " + cacheKey);
             // check whether the cache hit
             redis.get(cacheKey ,(err, reply) => {
                 if (reply) {
                     console.log("cache hit: " + reply);
-                    let data = [];
-                    data.push(JSON.parse(reply));
+                    let contact = [];
+                    contact.push(JSON.parse(reply));
+                    let redis_end = Date.now()
+                    console.log("redis_end: " + redis_end );
+                    console.log("redis_diff: " + (redis_end - start));
+
                     if(!res.headersSent) {
                         console.log("send res from redis");
                         res.status(200).json({
                             status_code: 200,
                             status_message: "Success",
-                            data
+                            contact
                         })
                     }
                 }
@@ -87,6 +92,10 @@ exports.getSingleContact = async (req, res, next) => {
                 })
                 return
             }
+
+            let sql_end = Date.now()
+            console.log("sql_end: " + sql_end );
+            console.log("sql_diff: " + (sql_end - start));
             // add the contact to cache
             if (contact.length !== 0 ) {
                 redis.set(cacheKey, JSON.stringify(contact[0]), 'EX', 60);

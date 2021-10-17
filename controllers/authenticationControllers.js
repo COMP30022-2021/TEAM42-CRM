@@ -115,15 +115,15 @@ exports.register = async function (req, res) {
             sendMail(
               email,
               "Register Of A New Account",
-              "Welcome to Lynk \nemail is: " + email + "\npassword is: admin"
+              "Welcome to Lynk \nemail is: " +
+                email +
+                "\npassword is: admin" +
+                ",\nYou have been registered as an employee at Lynk. You can login now using \
+              the following details.\n Email: " +
+                email +
+                "\nTemporary Password: admin.\n\
+                It is recommended that you change your password by Logging in -> Settings -> Change Password.\n\nLynk - Founded in 2021 - is a Contact Relationship Manager that is  specifically designed for restaurants. It empowers restaurant managers and staff to efficiently manage their contacts as well as keep track of contact activity. Additionally, the CRM displays key statistics that can used to by the restaurant management to assist in decision making."
             );
-            //      +
-            //     ",\nYou have been registered as an employee at Lynk. You can login now using \
-            //   the following details.\n Email: " +
-            //     email +
-            //     "\nTemporary Password: admin.\n\
-            //     It is recommended that you change your password by Logging in -> Settings -> Change Password.\n\nLynk - Founded in 2021 - is a Contact Relationship Manager that is  specifically designed for restaurants. It empowers restaurant managers and staff to efficiently manage their contacts as well as keep track of contact activity. Additionally, the CRM displays key statistics that can used to by the restaurant management to assist in decision making."
-            // );
             newEmployee.save().then((employee) => {
               res.json({
                 employee: {

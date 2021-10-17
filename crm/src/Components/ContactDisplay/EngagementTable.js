@@ -3,7 +3,7 @@ import EngagementElement from "./EngagementElement";
 
 export default function EngagementTable() {
   const total = {
-    engagement: "9",
+    engagement: "18",
   };
 
   const engagements = [

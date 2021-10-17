@@ -14,6 +14,7 @@ import { EditContact } from "./EditContact";
 import customer from "../../res/images/Customer.jpg";
 import employee from "../../res/images/Employee.jfif";
 import vendor from "../../res/images/external_vendor.jpg";
+import moffat from "../../res/images/moffat.jpg";
 
 export default function ExternalVendorDisplay({ contact, setEditMode }) {
   const [addEngagement, setAddEngagement] = React.useState(false);
@@ -21,8 +22,10 @@ export default function ExternalVendorDisplay({ contact, setEditMode }) {
 
   const blurred = addEngagement || engagementHistory;
   const image =
-    contact.gender === 0
-      ? contact.role === "employee"
+    contact.name === "Alistair Moffat"
+      ? moffat
+      : contact.gender === 0
+      ? contact.role === "Employee"
         ? employee
         : customer
       : vendor;

@@ -4,11 +4,16 @@ import { Link } from "react-router-dom";
 import customer from "../../res/images/Customer.jpg";
 import employee from "../../res/images/Employee.jfif";
 import vendor from "../../res/images/external_vendor.jpg";
-
+import moffat from "../../res/images/moffat.jpg";
+import leon from "../../res/images/leon_sterling.jfif";
 export default function ContactsListElement({ contact }) {
   const image =
-    contact.gender === 0
-      ? contact.role === "employee"
+    contact.name === "Alistair Moffat"
+      ? moffat
+      : contact.name === "Leon Sterling"
+      ? leon
+      : contact.gender === 0
+      ? contact.role === "Employee"
         ? employee
         : customer
       : vendor;

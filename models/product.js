@@ -8,7 +8,7 @@ class Product {
 
   async save() {
     let sql = `
-        INSERT INTO Order(
+        INSERT INTO product(
         name, 
         unit_price
         )VALUES(

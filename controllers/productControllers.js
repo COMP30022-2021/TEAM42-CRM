@@ -5,11 +5,11 @@ exports.createNewProduct = async (req, res) => {
     let { name, unit_price } = req.body;
     let newProduct = new Product(name, unit_price);
 
-    newProduct.save().then((vendor) => {
+    newProduct.save().then((product) => {
       res.status(200).json({
         status_code: 200,
         status_message: "Success",
-        vendor: {
+        product: {
           name: newProduct.name,
           unit_price: newProduct.unit_price,
         }
@@ -20,7 +20,7 @@ exports.createNewProduct = async (req, res) => {
     if(err.code === 1062) {
       res.status(401).json({
         status_code: 401,
-        status_message: "Error: Vendor Already Exists"
+        status_message: "Error: Product Already Exists"
       })
     } else {
       res.status(400).json({

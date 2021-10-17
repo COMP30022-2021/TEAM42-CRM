@@ -2,6 +2,7 @@ const bcrypt = require("bcryptjs");
 const Authentication = require("../models/authentication");
 const redis = require("../config/redis")
 const sendMail = require("../config/nodemailer")
+const url = require('url');
 
 exports.login = async (req, res) => {
     try {
@@ -176,6 +177,23 @@ exports.deleteEmployee = async (req, res) => {
         const newEmployee = new Authentication();
 
         let result = newEmployee.deleteByID(employeeId);
+        let uriObj = url.parse(req.url, true)
+        const businessId = uriObj.query.businessID;
+        let key = "business_" + businessId;
+        redis.zrevrange(key, 0, 20, (err, reply) => {
+            if (err) {
+                console.log(err);
+            } else {
+                for (let i = 0; i < reply.length; i++) {
+                    let data = JSON.parse(reply[i]);
+                    if (data.role === "employee" && data.id === employeeId) {
+                        console.log(data);
+                        redis.zrem(key, reply[i]);
+                        return;
+                    }
+                }
+            }
+        });
 
         console.log(result);
         res.status(200).json({

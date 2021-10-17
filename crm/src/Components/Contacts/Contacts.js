@@ -5,7 +5,6 @@ import ContactsHeader from "./ContactsHeader";
 
 export default function Contacts({ sortBy, setBlur, setLoading, filters }) {
   const [contacts, setContacts] = React.useState([]);
-  const [contactCopy, setContactCopy] = React.useState([]);
 
   const contactType = useLocation().pathname.split("/")[2];
   const query = useLocation().pathname.split("/")[3];

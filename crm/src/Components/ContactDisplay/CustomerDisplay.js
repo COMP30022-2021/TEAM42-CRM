@@ -34,6 +34,7 @@ export default function CustomerDisplay({ contact, setEditMode }) {
   const previousContact = () => {
     alert("previous contact please");
   };
+  console.log(contact);
 
   return (
     <div>
@@ -83,14 +84,14 @@ export default function CustomerDisplay({ contact, setEditMode }) {
           style={{ position: "absolute", left: "15%", top: "71.25%" }}
         />
         <div className="p3" style={{ left: "17%", top: "71%" }}>
-          Born {contact.birthday.split("T")[0]}
+          Born {contact.birthday}
         </div>
 
         <ImCalendar
           style={{ position: "absolute", left: "15%", top: "76.25%" }}
         />
         <div className="p3" style={{ left: "17%", top: "76%" }}>
-          First Visited - {contact.first_visit.split("T")[0]}
+          First Visited - {contact.first_visit}
         </div>
 
         <button

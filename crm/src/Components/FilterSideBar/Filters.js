@@ -50,7 +50,7 @@ export default function Filters({ filters, setFilters }) {
             filters={filters}
             setX={setX}
           />
-        ) : contactType === "employee" ? (
+        ) : contactType === "employees" ? (
           <EmployeeFilterBar
             setFilters={setFilters}
             filters={filters}

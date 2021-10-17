@@ -6,6 +6,10 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import Helmet from "react-helmet";
 
+import customer from "../../res/images/Customer.jpg";
+import employee from "../../res/images/Employee.jfif";
+import vendor from "../../res/images/external_vendor.jpg";
+
 export const LoginBox = () => {
   const history = useHistory();
   const [email, setText1] = useState("");
@@ -30,6 +34,8 @@ export const LoginBox = () => {
           localStorage.setItem("loggedIn", true);
           localStorage.setItem("businessID", data.businessID);
           localStorage.setItem("employeeID", data.employee.employee_id);
+          localStorage.setItem("employeeName", data.employee.name);
+          localStorage.setItem("employeeEmail", data.employee.email);
           history.push("/");
         } else {
           alert(data.status_message);

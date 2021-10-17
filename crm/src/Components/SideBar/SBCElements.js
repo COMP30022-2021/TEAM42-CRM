@@ -4,6 +4,8 @@ import { ImStatsDots } from "react-icons/im";
 import { MdPermContactCalendar } from "react-icons/md";
 import { RiDashboardLine } from "react-icons/ri";
 import { FiLogOut, FiSettings } from "react-icons/fi";
+
+import no_profile from "../../res/images/no_profile_pic.png";
 import user from "../../res/images/user_cropped.jpg";
 
 import logo from "../../res/images/Logos/Logo_Design5.png";
@@ -14,11 +16,16 @@ export default function SBCElements({ path }) {
       ? path.split("/").slice(0, 2).join("/")
       : path;
 
+  const image =
+    localStorage.getItem("employeeName") === "Katrina Hofer"
+      ? user
+      : no_profile;
+
   return (
     <div>
       <img src={logo} className="SBCLogo"></img>
       <img
-        src={user}
+        src={image}
         style={{
           position: "absolute",
           top: "15%",

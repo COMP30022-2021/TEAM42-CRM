@@ -26,7 +26,10 @@ export default function Dashboard({ contacts }) {
           <title>Lynk - Dashboard</title>
         </Helmet>
         <RecentContacts contacts={contacts} setLoading={setLoading} />
-        <StatisticsDisplay />
+        {localStorage.getItem("employeeEmail") !==
+          "hamza.ahmedqureshi@hotmail.com" &&
+          localStorage.getItem("employeeEmail") !==
+            "qureshih@student.unimelb.edu.au" && <StatisticsDisplay />}
         <SearchBar onClick={setBlur} width={95} />
       </div>
       {sbc ? <SideBarCollapsed setSBC={setSBC} /> : <SideBar setSBC={setSBC} />}

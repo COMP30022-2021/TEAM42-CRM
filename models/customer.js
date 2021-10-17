@@ -60,8 +60,8 @@ class Customer {
         return mysql.execute((sql))
     }
 
-    static findAll() {
-        let sql = `SELECT * FROM customer`
+    static findAll(businessID) {
+        let sql = `SELECT * FROM customer WHERE business_id = ${businessID}`
         return mysql.execute((sql))
     }
 

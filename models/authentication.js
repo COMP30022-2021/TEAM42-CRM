@@ -88,6 +88,11 @@ class Authentication {
         let sql = `SELECT COUNT(DISTINCT employee_id) as total_employees FROM employee WHERE business_id = ${businessID}`
         return mysql.execute((sql))
     }
+
+    static findAll(businessID) {
+        let sql = `SELECT * FROM employee WHERE business_id = ${businessID}`
+        return mysql.execute((sql))
+    }
 }
 
 module.exports = Authentication;

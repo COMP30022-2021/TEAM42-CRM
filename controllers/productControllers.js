@@ -2,14 +2,15 @@ const Product = require('../models/product')
 
 exports.createNewProduct = async (req, res) => {
   try {
-    let { name, unit_price } = req.body;
-    let newProduct = new Product(name, unit_price);
+    let { product_id, name, unit_price } = req.body;
+    let newProduct = new Product(product_id, name, unit_price);
 
     newProduct.save().then((product) => {
       res.status(200).json({
         status_code: 200,
         status_message: "Success",
         product: {
+          product_id: newProduct.product_id,
           name: newProduct.name,
           unit_price: newProduct.unit_price,
         }

@@ -1,7 +1,8 @@
 const mysql = require('../config/mysql');
 
 class Product {
-  constructor(name, unit_price) {
+  constructor(product_id, name, unit_price) {
+    this.product_id = product_id
     this.name = name
     this.unit_price = unit_price
   }
@@ -9,10 +10,12 @@ class Product {
   async save() {
     let sql = `
         INSERT INTO product(
+        product_id,
         name, 
         unit_price
         )VALUES(
-        '${this.name}', 
+        '${this.product_id}',
+        '${this.name}',
         '${this.unit_price}'
         )`
 

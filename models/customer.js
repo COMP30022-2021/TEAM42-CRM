@@ -48,6 +48,7 @@ class Customer {
     static getByID(id) {
         let sql = `SELECT 
         business_id,
+        customer_id,
         name,
         email, 
         phone, 

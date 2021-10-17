@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import Header from "../SignIns/SignInHeader";
 import { GrClose } from "react-icons/gr";
 import ExternalVendorInner from "../AddContact/ExternalVendorInner";
+import { useHistory } from "react-router-dom";
 
 export default function UpdateExternalVendor({ setEditMode, contact }) {
+  const history = useHistory();
+
   const [vendorName, setName] = useState(contact.name);
   const [vendorEmail, setEmail] = useState(contact.email);
   const [vendorAddress, setAddress] = useState(contact.address);
@@ -28,7 +31,31 @@ export default function UpdateExternalVendor({ setEditMode, contact }) {
     vendorIsMale,
     setIsMale,
   };
-  console.log("hi");
+
+  const handleDelete = () => {
+    fetch(
+      "https://team42-crm.herokuapp.com/vendor/delete/" + contact.vendor_id,
+      {
+        method: "get",
+        mode: "cors",
+        headers: new Headers({
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        }),
+      }
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        if (data.status_code === 200) {
+          alert("Contact Deleted");
+          history.push("/contacts/all/all");
+        } else {
+          alert(data.status_message);
+        }
+      });
+  };
+
   return (
     <div className="addContact">
       <Header text={"Update Vendor Contact"} top_a={"0%"} width_a={"100%"} />
@@ -39,14 +66,15 @@ export default function UpdateExternalVendor({ setEditMode, contact }) {
         className="buttonCustomer"
         style={{ width: "25%", left: "23%", top: "81%" }}
       >
-        <p>Update Vendor</p>
+        <p>Update Contact</p>
       </button>
 
       <button
         className="deleteButton"
         style={{ width: "25%", left: "52%", top: "81%" }}
+        onClick={handleDelete}
       >
-        <p>Delete Vendor</p>
+        <p>Delete Contact</p>
       </button>
 
       <GrClose

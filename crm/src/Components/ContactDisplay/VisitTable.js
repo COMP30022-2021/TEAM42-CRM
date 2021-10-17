@@ -25,7 +25,7 @@ export default function VisitTable() {
   return (
     <div style={{ width: "100%", height: "100%", background: "#F8F2F2" }}>
       <div style={{ width: "100%", height: "80%" }}>
-        <h1 class="center">Recent Visits</h1>
+        <h1 className="center">Recent Visits</h1>
         <p
           className="p6"
           style={{ position: "absolute", top: "12%", left: "17%" }}
@@ -39,7 +39,7 @@ export default function VisitTable() {
           Money paid:
         </p>
         {visits.map((visit, index) => (
-          <VisitTableElement visit={visit} index={index} />
+          <VisitTableElement visit={visit} index={index} key={index} />
         ))}
       </div>
       <div style={{ width: "100%", height: "20%", background: "#DAD1D1" }}>

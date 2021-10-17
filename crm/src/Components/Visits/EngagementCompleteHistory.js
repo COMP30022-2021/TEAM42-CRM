@@ -4,7 +4,7 @@ import { GrClose } from "react-icons/gr";
 import EngagementsList from "./EngagementsList";
 
 export default function EngagementCompleteHistory({ setEngagementHistory }) {
-  const Total = { Number: "100" };
+  const Total = { Number: "18" };
 
   const engagements = [
     {

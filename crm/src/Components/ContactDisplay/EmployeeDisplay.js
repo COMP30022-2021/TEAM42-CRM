@@ -11,10 +11,16 @@ import { EditContact } from "./EditContact";
 import customer from "../../res/images/Customer.jpg";
 import employee from "../../res/images/Employee.jfif";
 import vendor from "../../res/images/external_vendor.jpg";
+import moffat from "../../res/images/moffat.jpg";
+import leon from "../../res/images/leon_sterling.jfif";
 
 export default function EmployeeDisplay({ contact, setEditMode }) {
   const image =
-    contact.gender === 0
+    contact.name === "Alistair Moffat"
+      ? moffat
+      : contact.name === "Leon Sterling"
+      ? leon
+      : contact.gender === 0
       ? contact.role === "Employee"
         ? employee
         : customer
@@ -34,7 +40,9 @@ export default function EmployeeDisplay({ contact, setEditMode }) {
 
       <div className="contactTitle">{contact.name}</div>
 
-      <div className="contactSubtitle">Role: {contact.role}</div>
+      <div className="contactSubtitle">
+        Role: {contact.role} {contact.name === "Leon Sterling" ? " (#1)" : ""}
+      </div>
 
       <IoIosMan style={{ position: "absolute", left: "15%", top: "51.25%" }} />
       <div className="p3" style={{ left: "17.2%", top: "51%" }}>

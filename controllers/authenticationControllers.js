@@ -1,9 +1,9 @@
 const bcrypt = require("bcryptjs");
 const Authentication = require("../models/authentication");
 
-const redis = require("../config/redis")
-const sendMail = require("../config/nodemailer")
-const url = require('url');
+const redis = require("../config/redis");
+const sendMail = require("../config/nodemailer");
+const url = require("url");
 
 exports.login = async (req, res) => {
   try {
@@ -114,8 +114,17 @@ exports.register = async function (req, res) {
 
             sendMail(
               email,
-              "Register Of A New Account",
-              "Welcome to Lynk \nemail is: " + email + "\npassword is: admin"
+              "New Registration! Welcome to Lynk",
+              "You have been registered as an employee at Lynk. You can login now using \
+              the following details.\n Email: " +
+                email +
+                "\nTemporary Password: admin.\n\
+              It is recommended that you change your password by Logging in -> Settings -> Change Password.\n\n\
+              Lynk - Founded in 2021 - is a Contact Relationship Manager that is \
+              specifically designed for restaurants. It empowers restaurant managers and staff \
+              to efficiently manage their contacts as well as keep track of contact activity. \
+              Additionally, the CRM displays key statistics that can used to by the restaurant \
+              management to assist in decision making."
             );
 
             newEmployee.save().then((employee) => {
@@ -223,24 +232,24 @@ exports.deleteEmployee = async (req, res) => {
     const employeeId = req.params.id;
     const newEmployee = new Authentication();
 
-        let result = newEmployee.deleteByID(employeeId);
-        let uriObj = url.parse(req.url, true)
-        const businessId = uriObj.query.businessID;
-        let key = "business_" + businessId;
-        redis.zrevrange(key, 0, 20, (err, reply) => {
-            if (err) {
-                console.log(err);
-            } else {
-                for (let i = 0; i < reply.length; i++) {
-                    let data = JSON.parse(reply[i]);
-                    if (data.role === "employee" && data.id === employeeId) {
-                        console.log(data);
-                        redis.zrem(key, reply[i]);
-                        return;
-                    }
-                }
-            }
-        });
+    let result = newEmployee.deleteByID(employeeId);
+    let uriObj = url.parse(req.url, true);
+    const businessId = uriObj.query.businessID;
+    let key = "business_" + businessId;
+    redis.zrevrange(key, 0, 20, (err, reply) => {
+      if (err) {
+        console.log(err);
+      } else {
+        for (let i = 0; i < reply.length; i++) {
+          let data = JSON.parse(reply[i]);
+          if (data.role === "employee" && data.id === employeeId) {
+            console.log(data);
+            redis.zrem(key, reply[i]);
+            return;
+          }
+        }
+      }
+    });
 
     console.log(result);
     res.status(200).json({
@@ -275,19 +284,19 @@ exports.getNumberOfEmployees = async (req, res) => {
 };
 
 exports.findAll = async (req, res) => {
-    try {
-        let businessID = req.params.businessID;
-        let [employees, _] = await Authentication.findAll(businessID);
-        res.status(200).json({
-            status_code: 200,
-            status_message: "Success",
-            employees
-        })
-    } catch (err) {
-        console.log(err);
-        res.status(400).json({
-            status_code: 400,
-            status_message: "Error: Internal Server Error",
-        });
-    }
-}
+  try {
+    let businessID = req.params.businessID;
+    let [employees, _] = await Authentication.findAll(businessID);
+    res.status(200).json({
+      status_code: 200,
+      status_message: "Success",
+      employees,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(400).json({
+      status_code: 400,
+      status_message: "Error: Internal Server Error",
+    });
+  }
+};

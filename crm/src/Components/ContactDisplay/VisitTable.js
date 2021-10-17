@@ -3,7 +3,7 @@ import VisitTableElement from "./VisitTableElement";
 
 export default function VisitTable() {
   const total = {
-    visits: "9",
+    visits: "18",
     spent: "365.70",
   };
 

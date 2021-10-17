@@ -5,7 +5,7 @@ import VisitsList from "./VisitsList";
 
 export default function VisitsCompleteHistory({ setVisitHistory }) {
   const Total = {
-    NumberVisits: "100",
+    NumberVisits: "18",
     Revenue: "500",
   };
 

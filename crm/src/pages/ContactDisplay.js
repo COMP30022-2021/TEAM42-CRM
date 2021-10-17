@@ -61,9 +61,11 @@ export default function ContactDisplay() {
           filter: blurred ? "blur(2px)" : "",
         }}
       >
-        <Helmet>
-          <title>Lynk - {path[3]}</title>
-        </Helmet>
+        {!loading && (
+          <Helmet>
+            <title>Lynk - {displayContact.name}</title>
+          </Helmet>
+        )}
 
         <ContactList setLoading={setLoading} />
         <SearchBar width={95} onClick={setBlur} />

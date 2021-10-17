@@ -1,6 +1,13 @@
 import React from "react";
 
-export const SideBarUser = ({ image }) => {
+import no_profile from "../../res/images/no_profile_pic.png";
+import user from "../../res/images/user_cropped.jpg";
+
+export const SideBarUser = () => {
+  const image =
+    localStorage.getItem("employeeName") === "Katrina Hofer"
+      ? user
+      : no_profile;
   return (
     <div>
       <img
@@ -21,10 +28,10 @@ export const SideBarUser = ({ image }) => {
         className="userDesign"
         style={{ top: "12.5%", left: "30%", fontSize: "14px" }}
       >
-        Katrina Hofer
+        {localStorage.getItem("employeeName")}
       </h3>
       <h3 style={{ top: "15.5%", left: "30%", fontSize: "11px" }}>
-        k.hofer@gmail.com
+        {localStorage.getItem("employeeEmail")}
       </h3>
     </div>
   );

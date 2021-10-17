@@ -35,21 +35,14 @@ export default function UpdateEmployee({ setEditMode, contact }) {
     setCreateAccount,
   };
 
-  console.log(employeeDOB);
   return (
     <div style={{ background: "#265573", width: "100%", height: "100%" }}>
-      <div
-        style={{
-          background: "#FFFCFC",
-          width: 916,
-          height: 524,
-          position: "absolute",
-          left: "50%",
-          top: "52.5%",
-          transform: "translate(-50%, -50%)",
-        }}
-      >
-        <Header text={"Update Employee Contact"} top_a={"0%"} width_a={916} />
+      <div className="addContact">
+        <Header
+          text={"Update Employee Contact"}
+          top_a={"0%"}
+          width_a={"100%"}
+        />
 
         <EmployeeInner values={properties} />
 
@@ -73,7 +66,7 @@ export default function UpdateEmployee({ setEditMode, contact }) {
           cursor="pointer"
         />
 
-        <Header text={""} top_a={"100%"} width_a={916} />
+        <Header text={""} top_a={"100%"} width_a={"100%"} />
       </div>
     </div>
   );

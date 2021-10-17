@@ -83,14 +83,14 @@ export default function CustomerDisplay({ contact, setEditMode }) {
           style={{ position: "absolute", left: "15%", top: "71.25%" }}
         />
         <div className="p3" style={{ left: "17%", top: "71%" }}>
-          Born {contact.birthday}
+          Born {contact.birthday.split("T")[0]}
         </div>
 
         <ImCalendar
           style={{ position: "absolute", left: "15%", top: "76.25%" }}
         />
         <div className="p3" style={{ left: "17%", top: "76%" }}>
-          First Visited - {contact.first_visit}
+          First Visited - {contact.first_visit.split("T")[0]}
         </div>
 
         <button

@@ -27,6 +27,7 @@ export default function EmployeeDisplay({ contact, setEditMode }) {
     alert("previous contact please");
   };
 
+  console.log(contact);
   return (
     <div className="contactDisplay">
       <img src={image} className="contactImage" alt="user" />

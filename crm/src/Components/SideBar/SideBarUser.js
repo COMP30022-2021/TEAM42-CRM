@@ -26,11 +26,25 @@ export const SideBarUser = () => {
       />
       <h3
         className="userDesign"
-        style={{ top: "12.5%", left: "30%", fontSize: "14px" }}
+        style={{
+          top: "12.5%",
+          left: "30%",
+          fontSize: "14px",
+        }}
       >
         {localStorage.getItem("employeeName")}
       </h3>
-      <h3 style={{ top: "15.5%", left: "30%", fontSize: "11px" }}>
+      <h3
+        style={{
+          top: "15.5%",
+          left: "30%",
+          fontSize: "11px",
+          whiteSpace: "wrap",
+          wordWrap: "break-word",
+          width: "60%",
+          textAlign: "left",
+        }}
+      >
         {localStorage.getItem("employeeEmail")}
       </h3>
     </div>

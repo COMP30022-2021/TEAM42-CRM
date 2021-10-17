@@ -47,9 +47,9 @@ exports.signupbusiness = async function (req, res) {
         "Welcome to Lynk! Account Registration Successful",
         "Congratulations on successfully registering " +
           name +
-          "on Lynk!\nYour can now login in with " +
+          " on Lynk!\nYour can now login in with " +
           email +
-          "on https://team42-crm.herokuapp.com/ to take your business to the next level\n\n\
+          " on https://team42-crm.herokuapp.com/ to take your business to the next level\n\n\
           Lynk - Founded in 2021 - is a Contact Relationship Manager that is \
           specifically designed for restaurants. It empowers restaurant managers and staff \
           to efficiently manage their contacts as well as keep track of contact activity. \

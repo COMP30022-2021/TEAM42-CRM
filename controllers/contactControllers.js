@@ -44,7 +44,7 @@ exports.getAllContact = async (req, res, next) => {
             status_message: "Error: Internal Server Error"
         })
     }
-}
+};
 
 exports.getSingleContact = async (req, res, next) => {
     try {
@@ -136,7 +136,7 @@ exports.getSingleContact = async (req, res, next) => {
             status_message: "Error: Internal Server Error"
         })
     }
-}
+};
 
 exports.getRecentContact = async (req, res, next) => {
     let businessID = req.params.businessID;
@@ -167,4 +167,22 @@ exports.getRecentContact = async (req, res, next) => {
             status_message: "Error: Internal Server Error"
         })
     }
-}
+};
+
+exports.getContactProportion = async (req, res) => {
+    try {
+        let businessID = req.params.businessID;
+        let [proportion, _] = await Contact.getContactProportion(businessID);
+        res.status(200).json({
+            status_code: 200,
+            status_message: "Success",
+            proportion
+        })
+    } catch (err) {
+        console.log(err);
+        res.status(400).json({
+            status_code: 400,
+            status_message: "Error: Internal Server Error",
+        });
+    }
+};

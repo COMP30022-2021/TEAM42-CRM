@@ -48,6 +48,7 @@ class Vendor {
     static getByID(id) {
         let sql = `SELECT 
         business_id,
+        vendor_id,
         name,
         email, 
         phone, 
@@ -62,6 +63,11 @@ class Vendor {
 
     static getNumberOfVendors(businessID) {
         let sql = `SELECT COUNT(DISTINCT vendor_id) as total_vendors FROM vendor WHERE business_id = ${businessID}`
+        return mysql.execute((sql))
+    }
+
+    static findAll(businessID) {
+        let sql = `SELECT * FROM vendor WHERE business_id = ${businessID}`
         return mysql.execute((sql))
     }
 }

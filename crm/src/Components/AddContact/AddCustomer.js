@@ -84,7 +84,7 @@ export default function AddCustomer({ setBlur }) {
         <button
           className="buttonCustomer"
           onClick={() => addContact()}
-          style={{ width: "35%", left: "32%", top: "85%" }}
+          style={{ width: "35%", left: "32%", top: "82%" }}
         >
           <p>Add Customer</p>
         </button>

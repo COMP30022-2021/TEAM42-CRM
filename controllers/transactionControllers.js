@@ -69,3 +69,21 @@ exports.getOneYearRevenueByQuarterInYear = async (req, res) => {
     });
   }
 };
+
+exports.getOneCustomerTransactionHistory = async (req, res) => {
+  try {
+    let customerID = req.params.customerID
+    let [history, _] = await transaction.getOneCustomertransactionHistory(customerID);
+    res.status(200).json({
+      status_code: 200,
+      status_message: "Success",
+      history
+    })
+  } catch (err) {
+    console.log(err);
+    res.status(400).json({
+      status_code: 400,
+      status_message: "Error: Internal Server Error",
+    });
+  }
+};

@@ -1,4 +1,6 @@
 const Vendor = require('../models/vendor')
+const redis = require("../config/redis")
+const url = require('url');
 
 exports.createNewVendor = async (req, res) => {
     try {
@@ -39,7 +41,23 @@ exports.deleteVendor = async (req, res) => {
         const newVendor = new Vendor();
 
         let result = newVendor.deleteByID(vendorId);
-
+        let uriObj = url.parse(req.url, true)
+        const businessId = uriObj.query.businessID;
+        let key = "business_" + businessId;
+        redis.zrevrange(key, 0, 20, (err, reply) => {
+            if (err) {
+                console.log(err);
+            } else {
+                for (let i = 0; i < reply.length; i++) {
+                    let data = JSON.parse(reply[i]);
+                    if (data.role === "vendor" && data.id === vendorId) {
+                        console.log(data);
+                        redis.zrem(key, reply[i]);
+                        return;
+                    }
+                }
+            }
+        });
         console.log(result);
         res.status(200).json({
             status_code: 200,

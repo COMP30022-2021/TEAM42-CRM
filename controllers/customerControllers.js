@@ -1,4 +1,6 @@
 const Customer = require("../models/customer");
+const redis = require("../config/redis")
+const url = require('url');
 
 exports.createNewCustomer = async (req, res) => {
   try {
@@ -56,7 +58,23 @@ exports.deleteCustomer = async (req, res) => {
     const newCustomer = new Customer();
 
     let result = newCustomer.deleteByID(customerId);
-
+    let uriObj = url.parse(req.url, true)
+    const businessId = uriObj.query.businessID;
+    let key = "business_" + businessId;
+    redis.zrevrange(key, 0, 20, (err, reply) => {
+      if (err) {
+        console.log(err);
+      } else {
+        for (let i = 0; i < reply.length; i++) {
+          let data = JSON.parse(reply[i]);
+          if (data.role === "customer" && data.id === customerId) {
+            console.log(data);
+            redis.zrem(key, reply[i]);
+            return;
+          }
+        }
+      }
+    });
     console.log(result);
     res.status(200).json({
       status_code: 200,

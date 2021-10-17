@@ -6,7 +6,6 @@ import { AiFillDelete } from "react-icons/ai";
 import { IoIosAddCircle } from "react-icons/io";
 
 export default function SettingsMainComponent(props) {
-  console.log(props);
   return (
     <div className="settingsDisplay">
       <div className="block" style={{ height: "76px", cursor: "default" }}>

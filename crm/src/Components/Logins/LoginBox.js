@@ -74,7 +74,7 @@ export const LoginBox = () => {
           }}
         />
 
-        <div className="ptwo" style={{ top: "60%", left: "17%" }}>
+        <div className="ptwo" style={{ top: "60%", left: "17%", fontSize: 13 }}>
           Forgot Password
         </div>
 
@@ -102,7 +102,7 @@ export const LoginBox = () => {
         <Link to="/signup">
           <div
             className="ptwo"
-            style={{ top: "85%", left: "28.5%", "font-size": 12 }}
+            style={{ top: "85%", left: "31.5%", "font-size": 12 }}
           >
             Sign Up
           </div>

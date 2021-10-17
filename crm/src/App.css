@@ -406,6 +406,7 @@ p2 {
   position: fixed;
   background: "#F0EBEB";
   border: 0;
+  text-indent: 2px;
 }
 
 .search-bar2 {
@@ -414,6 +415,7 @@ p2 {
   position: fixed;
   background: #f0ebeb;
   border: 0;
+  text-indent: 2%;
 }
 
 .numInput {

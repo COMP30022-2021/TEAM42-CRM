@@ -16,14 +16,6 @@ function sendMail(toMail, subject, text) {
     to: toMail,
     subject: subject,
     text: text,
-    html: '<p>{text}</p> <img src="cid:logo"/>',
-    attachments: [
-      {
-        filename: "Logo_Design5.png",
-        path: "../crm/src/res/images/Logos/Logo_Design5.png",
-        cid: "logo",
-      },
-    ],
   };
 
   transporter.sendMail(mailOption, (err, info) => {

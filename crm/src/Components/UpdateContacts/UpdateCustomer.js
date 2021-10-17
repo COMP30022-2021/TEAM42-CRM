@@ -35,7 +35,10 @@ export default function UpdateCustomer({ setEditMode, contact }) {
 
   const handleDelete = () => {
     fetch(
-      "https://team42-crm.herokuapp.com/customer/delete/" + contact.customer_id,
+      "https://team42-crm.herokuapp.com/customer/delete/" +
+        contact.customer_id +
+        "?businessID=" +
+        localStorage.getItem("businessID"),
       {
         method: "get",
         mode: "cors",

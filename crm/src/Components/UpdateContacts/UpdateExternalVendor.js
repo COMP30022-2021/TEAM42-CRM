@@ -34,7 +34,10 @@ export default function UpdateExternalVendor({ setEditMode, contact }) {
 
   const handleDelete = () => {
     fetch(
-      "https://team42-crm.herokuapp.com/vendor/delete/" + contact.vendor_id,
+      "https://team42-crm.herokuapp.com/vendor/delete/" +
+        contact.vendor_id +
+        "?businessID=" +
+        localStorage.getItem("businessID"),
       {
         method: "get",
         mode: "cors",
@@ -86,15 +89,3 @@ export default function UpdateExternalVendor({ setEditMode, contact }) {
     </div>
   );
 }
-
-UpdateExternalVendor.defaultProps = {
-  contact: {
-    Name: "",
-    Gender: "",
-    Email: "",
-    Phone: "",
-    Address: "",
-    DateOfBirth: "",
-    DateJoined: "",
-  },
-};

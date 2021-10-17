@@ -209,7 +209,6 @@ p1 {
   color: #000000;
 }
 
-
 ul {
   text-align: left;
   color: #0b293b;
@@ -376,6 +375,7 @@ p2 {
 }
 
 .search-bar {
+  font-family: Poppins, sans-serif;
   position: absolute;
 
   /* height: 60px; */
@@ -390,6 +390,7 @@ p2 {
 }
 
 .search-bar-input {
+  font-family: Poppins, sans-serif;
   border: 0;
   height: 100%;
   top: 0px;
@@ -400,17 +401,21 @@ p2 {
 }
 
 .search-bar1 {
+  font-family: Poppins, sans-serif;
   position: absolute;
   position: fixed;
   background: "#F0EBEB";
   border: 0;
+  text-indent: 2px;
 }
 
 .search-bar2 {
+  font-family: Poppins, sans-serif;
   position: absolute;
   position: fixed;
   background: #f0ebeb;
   border: 0;
+  text-indent: 2%;
 }
 
 .numInput {
@@ -735,6 +740,7 @@ p2 {
   left: 0%;
   top: 0%;
   overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 .addContact {
@@ -968,27 +974,26 @@ p2 {
 
 .pStatsDescription {
   font-family: Poppins, sans-serif;
-  font-style: italic;
   font-weight: normal;
   font-size: 16px;
   letter-spacing: 0.01em;
-  color: #000000;
   padding-left: 10%;
   text-align: left;
   margin-top: 3%;
+
+  color: #1a2c44;
 }
 
 .pStats {
   position: absolute;
   font-family: Poppins, sans-serif;
-  font-style: normal;
-  font-weight: bold;
+  font-style: bold;
   font-size: 16px;
   letter-spacing: 0.01em;
-  color: #000000;
 
   padding-left: 60%;
   text-align: left;
+  color: #1a2c44;
 }
 
 .statButtons {
@@ -1065,11 +1070,21 @@ p2 {
 }
 
 .searchOnDropdown {
+  font-family: Poppins, sans-serif;
   background-color: rgba(0, 0, 0, 0.25);
   width: 100%;
   left: 40%;
-  font-size: 11px;
+  font-size: 10px;
   position: absolute;
   color: #2a8dbb;
   outline: none;
+}
+
+.chartTitle {
+  color: #265573;
+  font-family: Poppins, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  top: 0%;
+  margin-top: 3%;
 }

@@ -38,7 +38,11 @@ export default function EngagementTable() {
           Purpose:
         </p>
         {engagements.map((engagement, index) => (
-          <EngagementElement engagement={engagement} index={index} />
+          <EngagementElement
+            engagement={engagement}
+            index={index}
+            key={index}
+          />
         ))}
       </div>
 

@@ -14,7 +14,7 @@ const getDate = () => {
   );
 };
 
-export default function AddEmployee({ setBlur }) {
+export default function AddEmployee({ setBlur, initialCreate }) {
   const date = getDate();
   const [employeeName, setName] = useState("");
   const [employeeEmail, setEmail] = useState("");
@@ -24,8 +24,9 @@ export default function AddEmployee({ setBlur }) {
   const [employeePhone, setPhone] = useState("");
   const [isMale, setIsMale] = useState(false);
   const [isManager, setIsManager] = useState(false);
-  const [createAccount, setCreateAccount] = useState(false);
+  const [createAccount, setCreateAccount] = useState(initialCreate);
 
+  console.log(initialCreate);
   const properties = {
     employeeName,
     setName,
@@ -107,3 +108,7 @@ export default function AddEmployee({ setBlur }) {
     </div>
   );
 }
+
+AddEmployee.defaultProps = {
+  initialCreate: true,
+};

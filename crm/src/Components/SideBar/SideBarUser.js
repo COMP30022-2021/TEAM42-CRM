@@ -19,11 +19,11 @@ export const SideBarUser = ({ image }) => {
       />
       <h3
         className="userDesign"
-        style={{ top: "10.5%", left: "30%", fontSize: "14px" }}
+        style={{ top: "12.5%", left: "30%", fontSize: "14px" }}
       >
         Katrina Hofer
       </h3>
-      <h3 style={{ top: "13.5%", left: "30%", fontSize: "11px" }}>
+      <h3 style={{ top: "15.5%", left: "30%", fontSize: "11px" }}>
         k.hofer@gmail.com
       </h3>
     </div>

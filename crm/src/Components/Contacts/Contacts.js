@@ -3,21 +3,30 @@ import { useLocation } from "react-router";
 import { Contact } from "./Contact";
 import ContactsHeader from "./ContactsHeader";
 
-export default function Contacts({ sortBy, setBlur, setLoading, filters }) {
+export default function Contacts({
+  sortBy,
+  setBlur,
+  setLoading,
+  filters,
+  order,
+}) {
   const [contacts, setContacts] = React.useState([]);
 
   const contactType = useLocation().pathname.split("/")[2];
   const query = useLocation().pathname.split("/")[3];
 
   const handleContacts = (contacts) => {
-    if (query === "all") return handleAll(contacts);
+    if (query === "all") return handleOrder(handleAll(contacts));
     if (query === "filter") return handleFilter(handleAll(contacts));
     else return searchContacts(contacts);
   };
 
+  const handleOrder = (contacts) => {
+    return order.label === "Ascending" ? contacts : contacts.reverse();
+  };
+
   const handleAll = (contacts) => {
     if (contactType === "employees") {
-      console.log(1);
       return contacts.filter(
         (contact) => contact.role === "employee" || contact.role === "manager"
       );
@@ -93,6 +102,10 @@ export default function Contacts({ sortBy, setBlur, setLoading, filters }) {
   React.useEffect(() => {
     loadContacts();
   }, [sortBy, contactType, query, query === "filter" ? filters : null]);
+
+  React.useEffect(() => {
+    setContacts([...contacts.reverse()]);
+  }, [order]);
 
   return (
     <div

@@ -56,41 +56,41 @@ export default function CustomerDisplay({ contact, setEditMode }) {
         <IoIosMan
           style={{ position: "absolute", left: "15%", top: "51.25%" }}
         />
-        <div className="p3" style={{ left: "17%", top: "51%" }}>
+        <div className="p3" style={{ left: "17.2%", top: "51%" }}>
           {contact.gender === 1 ? "Male" : "Female"}
         </div>
 
         <ImPhone style={{ position: "absolute", left: "15%", top: "56.25%" }} />
         <div
           className="p3"
-          style={{ position: "absolute", left: "17%", top: "56%" }}
+          style={{ position: "absolute", left: "17.2%", top: "56%" }}
         >
           {contact.phone}
         </div>
 
         <MdEmail style={{ position: "absolute", left: "15%", top: "61.25%" }} />
-        <div className="p3" style={{ left: "17%", top: "61%" }}>
+        <div className="p3" style={{ left: "17.2%", top: "61%" }}>
           {contact.email}
         </div>
 
         <TiLocation
           style={{ position: "absolute", left: "15%", top: "66.25%" }}
         />
-        <div className="p3" style={{ left: "17%", top: "66%" }}>
+        <div className="p3" style={{ left: "17.2%", top: "66%" }}>
           {contact.address}
         </div>
 
         <FaBirthdayCake
           style={{ position: "absolute", left: "15%", top: "71.25%" }}
         />
-        <div className="p3" style={{ left: "17%", top: "71%" }}>
+        <div className="p3" style={{ left: "17.2%", top: "71%" }}>
           Born {contact.birthday}
         </div>
 
         <ImCalendar
           style={{ position: "absolute", left: "15%", top: "76.25%" }}
         />
-        <div className="p3" style={{ left: "17%", top: "76%" }}>
+        <div className="p3" style={{ left: "17.2%", top: "76%" }}>
           First Visited - {contact.first_visit}
         </div>
 

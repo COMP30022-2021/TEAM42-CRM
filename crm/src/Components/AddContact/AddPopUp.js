@@ -9,7 +9,12 @@ export default function AddPopUp({ setBlur, initialMode }) {
   return (
     <div>
       {mode === 0 && <ChooseContact setBlur={setBlur} setMode={setMode} />}
-      {mode === 1 && <AddEmployee setBlur={setBlur} />}
+      {mode === 1 && (
+        <AddEmployee
+          setBlur={setBlur}
+          initialCreate={initialMode === 0 ? false : true}
+        />
+      )}
       {mode === 2 && <AddCustomer setBlur={setBlur} />}
       {mode === 3 && <AddExternalVendor setBlur={setBlur} />}
     </div>

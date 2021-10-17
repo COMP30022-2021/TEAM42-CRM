@@ -103,7 +103,7 @@ export const SignUpBox = () => {
           className="pone"
           style={{
             top: "85%",
-            left: "39%",
+            left: "34%",
             color: "black",
             fontSize: 12,
           }}
@@ -112,7 +112,7 @@ export const SignUpBox = () => {
         </div>
 
         <Link to="/login">
-          <p2 style={{ top: "85%", left: "49%", fontSize: 12 }}>
+          <p2 style={{ top: "85%", left: "49.5%", fontSize: 12 }}>
             Back to login
           </p2>
         </Link>

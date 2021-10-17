@@ -4,20 +4,26 @@ import UploadPicture from "../UploadPicture/UploadPicture";
 export default function EmployeeInner({ values }) {
   return (
     <div>
-      <div className="pone" style={{ top: "13%", left: "9%" }}>Profile Picture</div>
-      <UploadPicture/>
+      <div className="pone" style={{ top: "13%", left: "9%" }}>
+        Profile Picture
+      </div>
+      <UploadPicture />
 
-      <div className="pone" style={{ top: "47%", left: "9%" }}>Name</div>
+      <div className="pone" style={{ top: "47%", left: "9%" }}>
+        Name
+      </div>
       <input
         className="addInput"
         style={{ top: "54%", left: "9%" }}
         type="text"
-        placeholder="Enter employee's Name"
+        placeholder="Enter Employee's Name"
         value={values.employeeName}
         onChange={(e) => values.setName(e.target.value)}
       ></input>
 
-      <div className="pone" style={{ top: "64%", left: "9%" }}>Email Address</div>
+      <div className="pone" style={{ top: "64%", left: "9%" }}>
+        Email Address
+      </div>
 
       <input
         className="addInput"
@@ -28,7 +34,9 @@ export default function EmployeeInner({ values }) {
         onChange={(e) => values.setEmail(e.target.value)}
       ></input>
 
-      <div className="pone" style={{ top: "64%", left: "55.5%" }}>Start Date</div>
+      <div className="pone" style={{ top: "64%", left: "55.5%" }}>
+        Start Date
+      </div>
 
       <input
         className="addInput"
@@ -39,7 +47,9 @@ export default function EmployeeInner({ values }) {
         onChange={(e) => values.setStart(e.target.value)}
       ></input>
 
-      <div className="pone" style={{ top: "13%", left: "55.5%" }}>Address</div>
+      <div className="pone" style={{ top: "13%", left: "55.5%" }}>
+        Address
+      </div>
 
       <input
         className="addInput"
@@ -50,7 +60,9 @@ export default function EmployeeInner({ values }) {
         onChange={(e) => values.setAddress(e.target.value)}
       ></input>
 
-      <div className="pone" style={{ top: "30%", left: "55.5%" }}>Date of Birth</div>
+      <div className="pone" style={{ top: "30%", left: "55.5%" }}>
+        Date of Birth
+      </div>
 
       <input
         className="addInput"
@@ -61,7 +73,9 @@ export default function EmployeeInner({ values }) {
         onChange={(e) => values.setDOB(e.target.value)}
       ></input>
 
-      <div className="pone" style={{ top: "47%", left: "55.5%" }}>Phone Number</div>
+      <div className="pone" style={{ top: "47%", left: "55.5%" }}>
+        Phone Number
+      </div>
 
       <input
         className="addInput"
@@ -72,8 +86,12 @@ export default function EmployeeInner({ values }) {
         onChange={(e) => values.setPhone(e.target.value)}
       ></input>
 
-      <div className="pone" style={{ top: "16%", left: "34%" }}>Male</div>
-      <div className="pone" style={{ top: "24%", left: "34%" }}>Female</div>
+      <div className="pone" style={{ top: "16%", left: "34%" }}>
+        Male
+      </div>
+      <div className="pone" style={{ top: "24%", left: "34%" }}>
+        Female
+      </div>
       <input
         style={{
           position: "absolute",
@@ -102,8 +120,12 @@ export default function EmployeeInner({ values }) {
         onChange={(e) => values.setIsMale(!e.currentTarget.checked)}
       />
 
-      <div className="pone" style={{ top: "32%", left: "34%" }}>Is Manager?</div>
-      <div className="pone" style={{ top: "40%", left: "34%" }}>Create Account?</div>
+      <div className="pone" style={{ top: "32%", left: "34%" }}>
+        Is Manager?
+      </div>
+      <div className="pone" style={{ top: "40%", left: "34%" }}>
+        Create Account?
+      </div>
       <input
         style={{
           position: "absolute",

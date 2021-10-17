@@ -19,6 +19,11 @@ class Product {
     const [newProduct, _] = await mysql.execute(sql);
     return newProduct
   }
+
+  static findAll() {
+    let sql = `SELECT * FROM product`
+    return mysql.execute((sql))
+  }
 }
 
 module.exports = Product;

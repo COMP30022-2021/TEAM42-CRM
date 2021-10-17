@@ -11,4 +11,6 @@ router.route("/single").get(contactControllers.getSingleContact);
 // contact routes for recent contacts
 router.route("/recent/:businessID").get(contactControllers.getRecentContact);
 
+router.route("/proportion/:businessID").get(contactControllers.getContactProportion);
+
 module.exports = router;

@@ -26,10 +26,12 @@ export default function UploadPicture(){
                         </button>
                         &nbsp;
                         {imageList.map((image, index) => (
-                        <div key={index} className="image-item">
-                            <img src={image['data_url']} alt="" width="60%" height="50%" style={{textAlign: "center"}}/>
-                            <button className="buttonPicture" onClick={() => onImageRemove(index)}>
-                                <div style={{color:"#cfd7e3"}}>Remove</div></button>
+                        <div style={{"text-align":"center"}}>
+                            <div key={index} className="image-item">
+                                <img src={image['data_url']} alt="" width="40%" height="40%" style={{textAlign: "center"}}/>
+                                <button className="buttonPicture" onClick={() => onImageRemove(index)}>
+                                    <div style={{color:"#cfd7e3"}}>Remove</div></button>
+                            </div>
                         </div>
                         ))}
                     </div>

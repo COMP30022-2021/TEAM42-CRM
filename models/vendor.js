@@ -48,6 +48,7 @@ class Vendor {
     static getByID(id) {
         let sql = `SELECT 
         business_id,
+        vendor_id,
         name,
         email, 
         phone, 

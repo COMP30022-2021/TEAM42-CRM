@@ -66,6 +66,7 @@ class Authentication {
         let sql = `SELECT 
         business_id,
         name,
+        employee_id,
         email, 
         address,
         birthday,

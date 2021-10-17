@@ -48,7 +48,7 @@ export default function SBCElements({ path }) {
           className="icon"
           style={{
             color: url === "/contacts" ? "#9FBF8E" : "#cfd7e3",
-            top: "34%",
+            top: "40%",
             left: "83%",
           }}
         />
@@ -59,7 +59,7 @@ export default function SBCElements({ path }) {
           className="icon"
           style={{
             color: url === "/statistics" ? "#9FBF8E" : "#cfd7e3",
-            top: "51%",
+            top: "34%",
             left: "83%",
           }}
         />

@@ -53,7 +53,7 @@ body {
 }
 
 h1 {
-  font-family: Poppins;
+  font-family: Poppins, sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 17px;
@@ -88,8 +88,8 @@ h3 {
   font-style: normal;
   font-weight: 500;
   font-size: 13px;
-  line-height: 19px;
-
+  margin: 0%;
+  padding: 0;
   letter-spacing: 0.01em;
 
   color: #cfd7e3;
@@ -138,7 +138,7 @@ h5 {
   left: "50%";
   top: "52.5%";
   transform: "translate(-50%, -50%)";
-  font-family: Roboto;
+  font-family: Poppins, sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
@@ -183,7 +183,7 @@ p1 {
   position: absolute;
   height: 28px;
 
-  font-family: Roboto;
+  font-family: Poppins, sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
@@ -198,7 +198,7 @@ p1 {
   position: absolute;
   height: 28px;
 
-  font-family: Roboto;
+  font-family: Poppins, sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
@@ -223,7 +223,7 @@ p2 {
   left: 0px;
   top: 0px;
 
-  font-family: Roboto;
+  font-family: Poppins, sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
@@ -242,7 +242,7 @@ p2 {
   left: 0px;
   top: 0px;
 
-  font-family: Roboto;
+  font-family: Poppins, sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
@@ -341,7 +341,7 @@ p2 {
 }
 
 .p9 {
-  font-family: Poppins;
+  font-family: Poppins, sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 13px;
@@ -662,7 +662,7 @@ p2 {
 
 .pSettings {
   position: absolute;
-  font-family: Poppins;
+  font-family: Poppins, sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 16px;

@@ -56,7 +56,7 @@ export default function ExternalVendorInner({ values }) {
         className="addInput"
         style={{ top: "20%", left: "55.5%" }}
         type="text"
-        placeholder="Enter in form: 123 Firststreet, Melbourne VIC 3000"
+        placeholder="Enter Vendors's Address"
         value={values.vendorAddress}
         onChange={(e) => values.setAddress(e.target.value)}
       ></input>

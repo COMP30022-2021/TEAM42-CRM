@@ -83,7 +83,7 @@ export default function ExternalVendorInner({ values }) {
         style={{ top: "54%", left: "55.5%" }}
         type="text"
         placeholder="Enter Vendor's Phone Number"
-        value={values.vendorNumber}
+        value={values.vendorPhone}
         onChange={(e) => values.setPhone(e.target.value)}
       ></input>
 

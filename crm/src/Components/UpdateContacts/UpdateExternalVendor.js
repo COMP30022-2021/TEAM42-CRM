@@ -6,15 +6,15 @@ import { useHistory } from "react-router-dom";
 
 export default function UpdateExternalVendor({ setEditMode, contact }) {
   const history = useHistory();
-
   const [vendorName, setName] = useState(contact.name);
   const [vendorEmail, setEmail] = useState(contact.email);
   const [vendorAddress, setAddress] = useState(contact.address);
   const [vendorTags, setTags] = useState(contact.tags);
-  const [vendorCost, setVendorCost] = useState(contact.cost);
+  const [vendorCost, setVendorCost] = useState(contact.rate);
   const [vendorPhone, setPhone] = useState(contact.phone);
   const [vendorIsMale, setIsMale] = useState(contact.gender === 1);
 
+  console.log(contact, "hi");
   const properties = {
     vendorName,
     setName,

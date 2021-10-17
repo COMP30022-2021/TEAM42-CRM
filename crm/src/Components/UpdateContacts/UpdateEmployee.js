@@ -1,9 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../SignIns/SignInHeader";
 import { GrClose } from "react-icons/gr";
 import EmployeeInner from "../AddContact/EmployeeInner";
 
 export default function UpdateEmployee({ setEditMode, contact }) {
+  const [employeeName, setName] = useState(contact.name);
+  const [employeeEmail, setEmail] = useState(contact.email);
+  const [employeeAddress, setAddress] = useState(contact.address);
+  const [employeeDOB, setDOB] = useState(contact.birthday.slice(0, 10));
+  const [dateStart, setStart] = useState(contact.date_joined.slice(0, 10));
+  const [employeePhone, setPhone] = useState(contact.phone);
+  const [isMale, setIsMale] = useState(contact.gender === 1);
+  const [isManager, setIsManager] = useState(contact.Role === "Manager");
+  const [createAccount, setCreateAccount] = useState(false);
+
+  const properties = {
+    employeeName,
+    setName,
+    employeeEmail,
+    setEmail,
+    employeeAddress,
+    setAddress,
+    employeeDOB,
+    setDOB,
+    dateStart,
+    setStart,
+    employeePhone,
+    setPhone,
+    isMale,
+    setIsMale,
+    isManager,
+    setIsManager,
+    createAccount,
+    setCreateAccount,
+  };
+
+  console.log(employeeDOB);
   return (
     <div style={{ background: "#265573", width: "100%", height: "100%" }}>
       <div
@@ -19,7 +51,7 @@ export default function UpdateEmployee({ setEditMode, contact }) {
       >
         <Header text={"Update Employee Contact"} top_a={"0%"} width_a={916} />
 
-        <EmployeeInner contact={contact} />
+        <EmployeeInner values={properties} />
 
         <button
           className="buttonCustomer"

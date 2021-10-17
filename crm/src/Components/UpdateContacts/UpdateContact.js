@@ -6,13 +6,13 @@ import UpdateExternalVendor from "./UpdateExternalVendor";
 export default function UpdateContact({ setEditMode, contact }) {
   return (
     <div>
-      {contact.Role === "Employee" && (
+      {contact.role === "Employee" && (
         <UpdateEmployee setEditMode={setEditMode} contact={contact} />
       )}
-      {contact.Role === "Customer" && (
+      {contact.role === "Customer" && (
         <UpdateCustomer setEditMode={setEditMode} contact={contact} />
       )}
-      {contact.Role === "External Vendor" && (
+      {contact.role === "External Vendor" && (
         <UpdateExternalVendor setEditMode={setEditMode} contact={contact} />
       )}
     </div>

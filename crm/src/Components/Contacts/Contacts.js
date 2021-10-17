@@ -93,7 +93,7 @@ export default function Contacts({ sortBy, setBlur, setLoading, filters }) {
 
   React.useEffect(() => {
     loadContacts();
-  }, [sortBy, contactType, query === "filter" ? filters : null]);
+  }, [sortBy, contactType, query, query === "filter" ? filters : null]);
 
   return (
     <div

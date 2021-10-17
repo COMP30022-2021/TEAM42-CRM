@@ -52,7 +52,6 @@ export default function UpdateEmployee({ setEditMode, contact }) {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         if (data.status_code === 0) {
           alert("Contact Deleted");
           history.push("/contacts/all/all");

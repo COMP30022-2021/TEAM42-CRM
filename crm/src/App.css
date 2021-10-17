@@ -209,7 +209,6 @@ p1 {
   color: #000000;
 }
 
-
 ul {
   text-align: left;
   color: #0b293b;
@@ -376,6 +375,7 @@ p2 {
 }
 
 .search-bar {
+  font-family: Poppins, sans-serif;
   position: absolute;
 
   /* height: 60px; */
@@ -390,6 +390,7 @@ p2 {
 }
 
 .search-bar-input {
+  font-family: Poppins, sans-serif;
   border: 0;
   height: 100%;
   top: 0px;
@@ -400,6 +401,7 @@ p2 {
 }
 
 .search-bar1 {
+  font-family: Poppins, sans-serif;
   position: absolute;
   position: fixed;
   background: "#F0EBEB";
@@ -407,6 +409,7 @@ p2 {
 }
 
 .search-bar2 {
+  font-family: Poppins, sans-serif;
   position: absolute;
   position: fixed;
   background: #f0ebeb;
@@ -735,6 +738,7 @@ p2 {
   left: 0%;
   top: 0%;
   overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 .addContact {
@@ -1065,10 +1069,11 @@ p2 {
 }
 
 .searchOnDropdown {
+  font-family: Poppins, sans-serif;
   background-color: rgba(0, 0, 0, 0.25);
   width: 100%;
   left: 40%;
-  font-size: 11px;
+  font-size: 10px;
   position: absolute;
   color: #2a8dbb;
   outline: none;

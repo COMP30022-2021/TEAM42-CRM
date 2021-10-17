@@ -46,7 +46,6 @@ export default function UpdateExternalVendor({ setEditMode, contact }) {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         if (data.status_code === 200) {
           alert("Contact Deleted");
           history.push("/contacts/all/all");

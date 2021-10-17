@@ -38,6 +38,7 @@ exports.login = async (req, res) => {
                 employee_id: authentication[0].employee_id,
                 name: authentication[0].name,
                 email: authentication[0].email,
+                role: authentication[0].role,
               },
             });
           } else {
@@ -121,7 +122,6 @@ exports.register = async function (req, res) {
                   employeeID: employee.insertId,
                   name: newEmployee.name,
                   email: newEmployee.email,
-                  role: newEmployee.role,
                   password: hash,
                 },
               });

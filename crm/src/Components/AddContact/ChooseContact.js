@@ -11,9 +11,15 @@ export const ChooseContact = ({ setBlur, setMode }) => {
       <Header text={"Add New Contact"} top_a={"0%"} width_a={"100%"} />
 
       <button
-        className="buttonCustomer"
+        className={
+          localStorage.getItem("employeeRole") === "Employee"
+            ? "buttonCustomerDisabled"
+            : "buttonCustomer"
+        }
         style={{ width: "65%", left: "15%", top: "22%" }}
-        onClick={() => setMode(1)}
+        onClick={() => {
+          if (localStorage.getItem("employeeRole") !== "Employee") setMode(1);
+        }}
       >
         <p>Add Employee</p>
       </button>

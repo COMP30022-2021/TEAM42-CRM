@@ -772,6 +772,14 @@ p2 {
   cursor: pointer;
 }
 
+.buttonCustomerDisabled {
+  position: absolute;
+  background: #484a4b;
+  border-radius: 50.5px;
+  border: none;
+  margin: 10;
+}
+
 .deleteButton {
   position: absolute;
   background: red;

@@ -31,11 +31,13 @@ export const LoginBox = () => {
       .then((response) => response.json())
       .then((data) => {
         if (data.success === true) {
+          console.log(data);
           localStorage.setItem("loggedIn", true);
           localStorage.setItem("businessID", data.businessID);
           localStorage.setItem("employeeID", data.employee.employee_id);
           localStorage.setItem("employeeName", data.employee.name);
           localStorage.setItem("employeeEmail", data.employee.email);
+          localStorage.setItem("employeeRole", data.employee.role);
           history.push("/");
         } else {
           alert(data.status_message);

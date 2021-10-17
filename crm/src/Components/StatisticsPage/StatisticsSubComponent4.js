@@ -27,6 +27,7 @@ export default function StatisticsSubComponent4({ left, top, dashboard }) {
           },
           series: {
             1: { curveType: "function" },
+            2: { curveType: "function" },
           },
           chartArea: { left: "15%", width: "60%", height: "60%", top: "20%" },
           backgroundColor: { fill: "ffffff" },

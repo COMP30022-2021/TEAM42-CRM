@@ -48,24 +48,24 @@ export default function RecentContacts({ setLoading }) {
           </h1>
         </div>
 
-        {contacts.slice(0, 5).map((contact) => (
+        {contacts.slice(0, 8).map((contact) => (
           <RecentContact contact={contact} />
         ))}
 
         <Link to="/contacts/customers/all">
-          <div className="button4" style={{ left: "0%", bottom: "1%" }}>
+          <div className="button4" style={{ left: "0%", bottom: "4%" }}>
             <p>Customers</p>
           </div>
         </Link>
 
         <Link to="/contacts/employees/all">
-          <div className="button4" style={{ left: "39%", bottom: "1%" }}>
+          <div className="button4" style={{ left: "39%", bottom: "4%" }}>
             <p>Employees</p>
           </div>
         </Link>
 
         <Link to="/contacts/vendors/all">
-          <div className="button4" style={{ left: "78%", bottom: "1%" }}>
+          <div className="button4" style={{ left: "78%", bottom: "4%" }}>
             <p>External Vendors</p>
           </div>
         </Link>

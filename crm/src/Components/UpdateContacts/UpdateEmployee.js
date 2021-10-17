@@ -40,7 +40,10 @@ export default function UpdateEmployee({ setEditMode, contact }) {
 
   const handleDelete = () => {
     fetch(
-      "https://team42-crm.herokuapp.com/auth/delete/" + contact.employee_id,
+      "https://team42-crm.herokuapp.com/auth/delete/" +
+        contact.employee_id +
+        "?businessID=" +
+        localStorage.getItem("businessID"),
       {
         method: "get",
         mode: "cors",

@@ -60,6 +60,15 @@ class Transaction {
                       ON click_date = quarter`
     return mysql.execute((sql))
   }
+
+  static getOneCustomerTransactionHistory(customerID) {
+    let sql = `SELECT *
+               FROM ((transaction LEFT JOIN customer c on transaction.customer_id = c.customer_id)
+                  LEFT JOIN orderdetail on orderdetail.transaction_id = transaction.transaction_id)
+                  LEFT JOIN product on product.product_id = orderdetail.product_id
+               WHERE c.customer_id = ${customerID}`
+    return mysql.execute((sql))
+  }
 }
 
 module.exports = Transaction;

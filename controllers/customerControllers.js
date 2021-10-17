@@ -88,3 +88,21 @@ exports.getNumberOfCustomers = async (req, res) => {
     });
   }
 };
+
+exports.findAll = async (req, res) => {
+  try {
+    let businessID = req.params.businessID;
+    let [customers, _] = await Customer.findAll(businessID);
+    res.status(200).json({
+      status_code: 200,
+      status_message: "Success",
+      customers
+    })
+  } catch (err) {
+    console.log(err);
+    res.status(400).json({
+      status_code: 400,
+      status_message: "Error: Internal Server Error",
+    });
+  }
+}

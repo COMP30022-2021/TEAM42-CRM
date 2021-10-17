@@ -65,6 +65,11 @@ class Vendor {
         let sql = `SELECT COUNT(DISTINCT vendor_id) as total_vendors FROM vendor WHERE business_id = ${businessID}`
         return mysql.execute((sql))
     }
+
+    static findAll(businessID) {
+        let sql = `SELECT * FROM vendor WHERE business_id = ${businessID}`
+        return mysql.execute((sql))
+    }
 }
 
 module.exports = Vendor;

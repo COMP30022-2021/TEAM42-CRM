@@ -18,4 +18,6 @@ router.route("/delete/:id").get(authenControllers.deleteEmployee);
 
 router.route("/getNumberOfEmployees:businessID").get(authenControllers.getNumberOfEmployees);
 
+router.route("/findAll:businessID").get(authenControllers.findAll);
+
 module.exports = router;

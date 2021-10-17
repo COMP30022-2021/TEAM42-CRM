@@ -8,16 +8,7 @@ export default function StatisticsSubCompoent2({ left, top, dashboard }) {
     NumberCutomers: 200,
   };
   return (
-    <div
-      className="statisticsDisplay"
-      style={{
-        left: left,
-        top: top,
-        filter: dashboard
-          ? "drop-shadow(0px 0px 0px rgba(0, 0.25, 0.25, 0.25))"
-          : "",
-      }}
-    >
+    <div className="statisticsDisplay" style={{ left: left, top: top }}>
       <Chart
         width={"100%"}
         height={"100%"}
@@ -31,7 +22,7 @@ export default function StatisticsSubCompoent2({ left, top, dashboard }) {
         ]}
         options={{
           title: "Percentage Distribution of Contacts",
-          chartArea: { left: "15%", width: "90%", height: "80%", top: "20%" },
+          chartArea: { left: "15%", width: "90%", height: "75%", top: "20%" },
           titleTextStyle: {
             color: "#265573",
             fontName: "Poppins",
@@ -40,7 +31,7 @@ export default function StatisticsSubCompoent2({ left, top, dashboard }) {
             italic: false,
           },
           legend: { position: "right", alignment: "center" },
-          backgroundColor: { fill: dashboard ? "#f5f6f8" : "#ffffff" },
+          backgroundColor: { fill: "#ffffff" },
 
           is3D: true,
         }}

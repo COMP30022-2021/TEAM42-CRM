@@ -11,16 +11,7 @@ export default function StatisticsSubComponent4({ left, top, dashboard }) {
   ];
 
   return (
-    <div
-      className="statisticsDisplay"
-      style={{
-        left: left,
-        top: top,
-        filter: dashboard
-          ? "drop-shadow(0px 0px 0px rgba(0, 0.25, 0.25, 0.25))"
-          : "",
-      }}
-    >
+    <div className="statisticsDisplay" style={{ left: left, top: top }}>
       <Chart
         width={"100%%"}
         height={"100%"}
@@ -39,6 +30,8 @@ export default function StatisticsSubComponent4({ left, top, dashboard }) {
           },
           title: "Items Popularity Over Time",
           chartArea: { left: "15%", width: "60%", height: "60%", top: "20%" },
+          borderRadius: 4,
+
           titleTextStyle: {
             color: "#265573",
             fontName: "Poppins",
@@ -46,7 +39,7 @@ export default function StatisticsSubComponent4({ left, top, dashboard }) {
             bold: true,
             italic: false,
           },
-          backgroundColor: { fill: dashboard ? "#f5f6f8" : "ffffff" },
+          backgroundColor: { fill: "ffffff" },
           legend: { position: "right", alignment: "center" },
 
           is3D: true,
@@ -54,12 +47,16 @@ export default function StatisticsSubComponent4({ left, top, dashboard }) {
         rootProps={{ "data-testid": "2" }}
       />
 
-      <button className="statButtons" style={{ top: "5%", left: "78%" }}>
-        <div style={{ color: "#ffffff" }}>Add Filters</div>
-      </button>
-      <button className="statButtons" style={{ top: "22%", left: "78%" }}>
-        <div style={{ color: "#ffffff" }}>Clear Filters</div>
-      </button>
+      {!dashboard && (
+        <button className="statButtons" style={{ top: "5%", left: "78%" }}>
+          <div style={{ color: "#ffffff" }}>Add Filters</div>
+        </button>
+      )}
+      {!dashboard && (
+        <button className="statButtons" style={{ top: "22%", left: "78%" }}>
+          <div style={{ color: "#ffffff" }}>Clear Filters</div>
+        </button>
+      )}
     </div>
   );
 }

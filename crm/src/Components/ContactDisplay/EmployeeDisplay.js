@@ -27,6 +27,7 @@ export default function EmployeeDisplay({ contact, setEditMode }) {
     alert("previous contact please");
   };
 
+  console.log(contact);
   return (
     <div className="contactDisplay">
       <img src={image} className="contactImage" alt="user" />
@@ -61,14 +62,14 @@ export default function EmployeeDisplay({ contact, setEditMode }) {
         style={{ position: "absolute", left: "15%", top: "71.25%" }}
       />
       <div className="p3" style={{ left: "17%", top: "71%" }}>
-        Born {contact.birthday}
+        Born {contact.birthday.slice(0, 10)}
       </div>
 
       <ImCalendar
         style={{ position: "absolute", left: "15%", top: "76.25%" }}
       />
       <div className="p3" style={{ left: "17%", top: "76%" }}>
-        Joined {contact.date_joined}
+        Joined {contact.date_joined.slice(0, 10)}
       </div>
 
       <button

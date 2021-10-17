@@ -83,7 +83,11 @@ export default function ContactDisplay() {
         <SideBar setSBC={setSBC} path={location.pathname} />
       )}
       {editMode && (
-        <UpdateContact setEditMode={setEditMode} contact={displayContact} />
+        <UpdateContact
+          setEditMode={setEditMode}
+          contact={displayContact}
+          type={path[2]}
+        />
       )}
       {blur && <AddPopUp setBlur={setBlur} />}
       {loading && <Loading />}

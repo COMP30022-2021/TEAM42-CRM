@@ -49,6 +49,7 @@ export default function ContactPage() {
 
         <Contacts
           sortBy={value}
+          order={order}
           setBlur={setBlur}
           setLoading={setLoading}
           filters={filters}

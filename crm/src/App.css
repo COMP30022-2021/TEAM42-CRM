@@ -972,27 +972,26 @@ p2 {
 
 .pStatsDescription {
   font-family: Poppins, sans-serif;
-  font-style: italic;
   font-weight: normal;
   font-size: 16px;
   letter-spacing: 0.01em;
-  color: #000000;
   padding-left: 10%;
   text-align: left;
   margin-top: 3%;
+
+  color: #1a2c44;
 }
 
 .pStats {
   position: absolute;
   font-family: Poppins, sans-serif;
-  font-style: normal;
-  font-weight: bold;
+  font-style: bold;
   font-size: 16px;
   letter-spacing: 0.01em;
-  color: #000000;
 
   padding-left: 60%;
   text-align: left;
+  color: #1a2c44;
 }
 
 .statButtons {
@@ -1077,4 +1076,13 @@ p2 {
   position: absolute;
   color: #2a8dbb;
   outline: none;
+}
+
+.chartTitle {
+  color: #265573;
+  font-family: Poppins, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  top: 0%;
+  margin-top: 3%;
 }

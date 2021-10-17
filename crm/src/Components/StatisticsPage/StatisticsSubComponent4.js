@@ -3,7 +3,7 @@ import Chart from "react-google-charts";
 
 export default function StatisticsSubComponent4({ left, top, dashboard }) {
   const data = [
-    ["Quarter", "ID:1", "ID:2"],
+    ["Quarter", "Chocolate Chip Cookies", "Peanut Butter Cookies"],
     [1, 10, 5],
     [2, 23, 15],
     [3, 17, 9],
@@ -28,24 +28,14 @@ export default function StatisticsSubComponent4({ left, top, dashboard }) {
           series: {
             1: { curveType: "function" },
           },
-          title: "Items Popularity Over Time",
           chartArea: { left: "15%", width: "60%", height: "60%", top: "20%" },
-          borderRadius: 4,
-
-          titleTextStyle: {
-            color: "#265573",
-            fontName: "Poppins",
-            fontSize: 18,
-            bold: true,
-            italic: false,
-          },
           backgroundColor: { fill: "ffffff" },
-          legend: { position: "right", alignment: "center" },
-
+          legend: { position: "right", alignment: "end" },
           is3D: true,
         }}
         rootProps={{ "data-testid": "2" }}
       />
+      <h2 class="chartTitle">Item Sales Per Quarter</h2>
 
       {!dashboard && (
         <button className="statButtons" style={{ top: "5%", left: "78%" }}>

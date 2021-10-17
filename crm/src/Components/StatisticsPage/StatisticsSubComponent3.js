@@ -24,23 +24,17 @@ export default function StatisticsSubComponent3({ left, top, dashboard }) {
           ["Fourth", info.foourth],
         ]}
         options={{
-          chart: {
-            title: "Company Performance Per Quarter",
-          },
+          chart: { title: "." },
           chartArea: { left: "15%", width: "55%", height: "10%", top: "50%" },
-          titleTextStyle: {
-            color: "#265573",
-            fontName: "Poppins",
-            fontSize: 18,
-            bold: true,
-            italic: false,
-          },
+          titlePosition: "none",
           legend: { position: "right", alignment: "end" },
           backgroundColor: { fill: dashboard ? "#f5f6f8" : "#ffffff" },
           is3D: true,
         }}
         rootProps={{ "data-testid": "3" }}
       />
+
+      <h2 class="chartTitle">Total Sales Per Quarter</h2>
 
       <button className="statButtons" style={{ top: "5%", left: "78%" }}>
         <div style={{ color: "#ffffff" }}>Add Filters</div>

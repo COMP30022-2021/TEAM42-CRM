@@ -1,6 +1,7 @@
 const supertest = require("supertest");
 const app = require("../app.js");
 const mysql = require("../config/mysql");
+const redis = require("../config/redis");
 
 let request;
 
@@ -11,6 +12,7 @@ beforeAll((done) => {
 
 afterAll(async () => {
   await mysql.end();
+  await redis.end();
 });
 
 describe("Getting all contacts for business_id 1", () => {

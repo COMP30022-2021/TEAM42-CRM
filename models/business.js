@@ -24,6 +24,13 @@ class Business {
     let sql = `SELECT * FROM business WHERE name = '${name}'`
     return mysql.execute((sql))
   }
+
+  async deleteByID(id) {
+    let sql = `DELETE FROM business WHERE business_id = ${id};`
+
+    const [result, _] = await mysql.execute(sql);
+    return result
+  }
 }
 
 module.exports = Business;

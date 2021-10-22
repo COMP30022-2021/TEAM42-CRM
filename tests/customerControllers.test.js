@@ -45,21 +45,6 @@ describe("Adding a customer and then deleting", () => {
     console.log(addedID);
     expect(response.statusCode).toBe(200);
   });
-
-  test("Second addition should give 401 error code", async () => {
-    const response = await request.post("/customer/create").send({
-      "name": "TESTCUSTOMER1",
-      "firstVisit": "1897-9-20",
-      "birthday": "1897-9-20",
-      "phone":"12345",
-      "address":"test add",
-      "businessID":455,
-      "gender":1,
-      "email": "TESTCUSTOMER@qq.com"
-    });
-    expect(response.statusCode).toBe(401);
-  });
-
   test("Deletion gives statusCode 200", async () => {
     let addedID = addedResponse.body.customer.customerID;
     const response = await request.get("/customer/delete/" + addedID );

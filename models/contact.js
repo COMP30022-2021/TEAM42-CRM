@@ -30,6 +30,15 @@ class Contact {
         ) a ORDER BY a.${sort}, a.email LIMIT 1000`;
     return mysql.execute(sql);
   }
+
+  static getContactProportion(businessID) {
+    let sql = `       
+              SELECT COUNT(distinct employee_id) as total_employees, COUNT(distinct vendor_id) as total_vendors, COUNT(distinct customer_id) as customers
+              FROM (employee LEFT JOIN customer c on employee.business_id = c.business_id)
+                  LEFT JOIN vendor on vendor.business_id = employee.business_id
+              WHERE c.business_id = ${businessID}`;
+    return mysql.execute(sql);
+  }
 }
 
 module.exports = Contact;

@@ -1,58 +1,102 @@
 import React from "react";
 import Helmet from "react-helmet";
-import { useLocation, useRouteMatch } from "react-router";
+import { useLocation } from "react-router";
 
 import SideBarCollapsed from "../Components/SideBar/SBC";
 import { SideBar } from "../Components/SideBar/SideBar";
-import SearchBar from "../Components/SearchBar";
+import SearchBar from "../Components/SearchBar/SearchBar";
 import ContactList from "../Components/ContactDisplay/ContactsList";
 import AddPopUp from "../Components/AddContact/AddPopUp.js";
 
-import CustomerDisplay from "../Components/ContactDisplay/CustomerDisplay";
-import ExternalVendorDisplay from "../Components/ContactDisplay/ExternalVendorDisplay";
-import EmployeeDisplay from "../Components/ContactDisplay/EmployeeDisplay";
+import { ContactAssigner } from "../Components/ContactDisplay/ContactAssigner";
 import UpdateContact from "../Components/UpdateContacts/UpdateContact";
+import Loading from "../Components/Loading";
 
-export default function ContactDisplay({ contacts }) {
+export default function ContactDisplay() {
   const [sbc, setSBC] = React.useState(true);
   const [blur, setBlur] = React.useState(false);
   const [editMode, setEditMode] = React.useState(false);
 
   const location = useLocation();
-  const id = parseInt(useRouteMatch().params.id);
-  const contact = contacts.filter((contact) => id === contact.id)[0];
+  const path = location.pathname.split("/");
+
+  const [displayContact, setDisplayContact] = React.useState();
+  const [loading, setLoading] = React.useState(true);
+
+  const blurred = editMode || blur || loading;
+  const loadContact = async () => {
+    setLoading(true);
+    await fetch(
+      "https://team42-crm.herokuapp.com/contact/single?role=" +
+        lowerCaseFirstLetter(path[2]) +
+        "&id=" +
+        path[4],
+      {
+        method: "get",
+        mode: "cors",
+        headers: new Headers({
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        }),
+      }
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.status_code === 200) {
+          setDisplayContact(data.contact[0]);
+          setLoading(false);
+        }
+      });
+  };
+
+  React.useEffect(() => {
+    loadContact();
+  }, [location]);
 
   return (
     <div>
       <div
         className="Page"
         style={{
-          filter: editMode || blur ? "blur(2px)" : "",
+          filter: blurred ? "blur(2px)" : "",
         }}
       >
-        <Helmet>
-          <title>Lynk - {contact.Name}</title>
-        </Helmet>
-        <ContactList contacts={contacts} />
+        {!loading && (
+          <Helmet>
+            <title>Lynk - {displayContact.name}</title>
+          </Helmet>
+        )}
 
-        <SearchBar width="95%" onClick={setBlur} />
-        {contact.Role === "Employee" ? (
-          <EmployeeDisplay contact={contact} setEditMode={setEditMode} />
-        ) : contact.Role === "Customer" ? (
-          <CustomerDisplay contact={contact} setEditMode={setEditMode} />
-        ) : (
-          <ExternalVendorDisplay contact={contact} setEditMode={setEditMode} />
+        <ContactList setLoading={setLoading} />
+        <SearchBar width={95} onClick={setBlur} />
+
+        {!loading && (
+          <ContactAssigner
+            contact={displayContact}
+            role={path[2]}
+            setEditMode={setEditMode}
+          />
         )}
       </div>
+      )
       {sbc ? (
         <SideBarCollapsed setSBC={setSBC} path={location.pathname} />
       ) : (
         <SideBar setSBC={setSBC} path={location.pathname} />
       )}
       {editMode && (
-        <UpdateContact setEditMode={setEditMode} contact={contact} />
+        <UpdateContact
+          setEditMode={setEditMode}
+          contact={displayContact}
+          type={path[2]}
+        />
       )}
       {blur && <AddPopUp setBlur={setBlur} />}
+      {loading && <Loading />}
     </div>
   );
+}
+
+function lowerCaseFirstLetter(string) {
+  return string.charAt(0).toLowerCase() + string.slice(1);
 }

@@ -1,61 +1,56 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Header from "../SignIns/SignInHeader";
-import Helmet from "react-helmet";
-import {GrClose} from "react-icons/gr"
-import EngagementListElement from "./EngagementListElement";
+import { GrClose } from "react-icons/gr";
 import EngagementsList from "./EngagementsList";
 
-export default function EngagementCompleteHistory() {
-    const [Total, setContacts] = useState({
-        Number: "100",
-      });
+export default function EngagementCompleteHistory({ setEngagementHistory }) {
+  const Total = { Number: "18" };
 
-      const engagements = [
-        {
-          date: "23/08/2029",
-          purpos:"Repair",
-          rating:"5"
-        },
-        {
-          date: "16/05/2019",
-          purpos:"Payment",
-          rating:"3"
-        },
-        {
-          date: "11/05/2018",
-          purpos:"Help",
-          rating:"9"
-        },
-      ];
+  const engagements = [
+    {
+      date: "23/08/2029",
+      purpos: "Repair",
+      rating: "5",
+      staff_ID: 3,
+    },
+    {
+      date: "16/05/2019",
+      purpos: "Payment",
+      rating: "3",
+      staff_ID: 7,
+    },
+    {
+      date: "11/05/2018",
+      purpos: "Help",
+      rating: "9",
+      staff_ID: 2,
+    },
+  ];
 
-    return (
+  return (
     <div>
-      <div
-        className="logInBox"
-        style={{
-          background: "#FFFCFC",
-          width: 476.15,
-          height: 400,
-          position: "absolute",
-          left: "50%",
-          top: "52.5%",
-          transform: "translate(-50%, -50%)",
-        }}
-      >
-        <Helmet bodyAttributes={{ style: "background-color : #ffffff" }} />
+      <div className="completeHistory">
+        <Header text={"Engagement History"} top_a={"0%"} width_a={"100%"} />
+        <Header text={""} top_a={"100%"} width_a={"100%"} />
 
-        <Header text={"Engagement History"} top_a={"0%"} width_a={476.15}/>
-        
-        <EngagementsList engagements={engagements}/>
-        
+        <EngagementsList engagements={engagements} />
+
         <GrClose
-          style={{ position: "absolute", left: "92%", top: "2.5%" }}
+          style={{
+            position: "absolute",
+            left: "92%",
+            top: "1.5%",
+            cursor: "pointer",
+          }}
+          onClick={() => setEngagementHistory(false)}
         />
-
-        <Header text={""} top_a={"100%"} width_a={476.15} />
-        <p className="p9" style={{position: "absolute",top:"99.5%",left:"10%"}}>Number of engagements: {Total.Number}</p> 
+        <p
+          className="p9"
+          style={{ position: "absolute", top: "99.5%", left: "10%" }}
+        >
+          Total # of visits: {Total.Number}
+        </p>
       </div>
     </div>
   );
 }
-

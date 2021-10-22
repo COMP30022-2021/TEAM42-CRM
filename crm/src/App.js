@@ -11,6 +11,8 @@ import customer from "./res/images/Customer.jpg";
 import employee from "./res/images/Employee.jfif";
 import vendor from "./res/images/external_vendor.jpg";
 import { Settings } from "./pages/Settings";
+import { Statistics } from "./pages/Statistics";
+import StatisticsMainComponent from "./Components/StatisticsPage/StatisticsMainComponent";
 
 const contacts = [
   {
@@ -57,7 +59,7 @@ function App() {
     <div className="App" style={{ background: "#000000" }}>
       <Route
         exact
-        path="/contacts"
+        path="/contacts/:type/:query"
         render={() =>
           loggedIn ? (
             <ContactPage contacts={contacts} />
@@ -100,6 +102,12 @@ function App() {
         exact
         path="/settings"
         render={() => (loggedIn ? <Settings /> : <Redirect to="/login" />)}
+      />
+
+      <Route
+        exact
+        path="/statistics"
+        render={() => (loggedIn ? <Statistics /> : <Redirect to="/login" />)}
       />
     </div>
   );

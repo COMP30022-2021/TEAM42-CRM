@@ -16,4 +16,8 @@ router.route("/change/password").post(authenControllers.changePassword);
 // get to delete a existing employee
 router.route("/delete/:id").get(authenControllers.deleteEmployee);
 
+router.route("/getNumberOfEmployees:businessID").get(authenControllers.getNumberOfEmployees);
+
+router.route("/findAll:businessID").get(authenControllers.findAll);
+
 module.exports = router;

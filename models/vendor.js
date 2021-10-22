@@ -45,15 +45,31 @@ class Vendor {
         return result
     }
 
-    // static findByID(id) {
-    //     let sql = `SELECT * FROM customer WHERE id = ${id}`
-    //     return mysql.execute((sql))
-    // }
-    //
-    // static findAll() {
-    //     let sql = `SELECT * FROM customer`
-    //     return mysql.execute((sql))
-    // }
+    static getByID(id) {
+        let sql = `SELECT 
+        business_id,
+        vendor_id,
+        name,
+        email, 
+        phone, 
+        address,
+        unit_cost AS rate,
+        tag AS tags,
+        gender 
+        FROM vendor WHERE vendor_id = ${id};`
+
+        return mysql.execute(sql);
+    }
+
+    static getNumberOfVendors(businessID) {
+        let sql = `SELECT COUNT(DISTINCT vendor_id) as total_vendors FROM vendor WHERE business_id = ${businessID}`
+        return mysql.execute((sql))
+    }
+
+    static findAll(businessID) {
+        let sql = `SELECT * FROM vendor WHERE business_id = ${businessID}`
+        return mysql.execute((sql))
+    }
 }
 
 module.exports = Vendor;

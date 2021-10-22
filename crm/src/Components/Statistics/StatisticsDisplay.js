@@ -1,20 +1,23 @@
 import React from "react";
-import statistics from "../../res/images/pie_chart.png";
+import { Link } from "react-router-dom";
+
+import StatisticsSubComponent2 from "../StatisticsPage/StatisticsSubComponent2";
+import StatisticsSubComponent4 from "../StatisticsPage/StatisticsSubComponent4";
 
 export const StatisticsDisplay = () => {
   return (
-    <div style={{}}>
-      <img
-        src={statistics}
+    <Link to="/statistics">
+      <div
         style={{
           position: "absolute",
-          left: "70%",
-          top: "15%",
-          width: "29%",
-          height: "40%",
+          height: "100%",
+          width: "70%",
+          left: "68%",
         }}
-        alt="statistics"
-      />
-    </div>
+      >
+        <StatisticsSubComponent2 left="0%" top="15%" dashboard={true} />
+        <StatisticsSubComponent4 left="0%" top="58%" dashboard={true} />
+      </div>
+    </Link>
   );
 };

@@ -1,6 +1,7 @@
 import React from "react";
 import VisitTable from "./VisitTable";
 import AddVisit from "../Visits/AddVisit";
+import VisitCompleteHistory from "../Visits/VisitsCompleteHistory";
 
 import { IoIosMan } from "react-icons/io";
 import { ImPhone } from "react-icons/im";
@@ -10,8 +11,22 @@ import { FaBirthdayCake } from "react-icons/fa";
 import { ImCalendar } from "react-icons/im";
 import { EditContact } from "./EditContact";
 
+import customer from "../../res/images/Customer.jpg";
+import employee from "../../res/images/Employee.jfif";
+import vendor from "../../res/images/external_vendor.jpg";
+
 export default function CustomerDisplay({ contact, setEditMode }) {
-  const [blur, setBlur] = React.useState(false);
+  const [addVisit, setAddVisit] = React.useState(false);
+  const [visitHistory, setVisitHistory] = React.useState(false);
+
+  const blurred = addVisit || visitHistory;
+  const image =
+    contact.gender === 0
+      ? contact.role === "employee"
+        ? employee
+        : customer
+      : vendor;
+
   const nextContact = () => {
     alert("next contact please");
   };
@@ -19,10 +34,7 @@ export default function CustomerDisplay({ contact, setEditMode }) {
   const previousContact = () => {
     alert("previous contact please");
   };
-
-  const addVisit = () => {
-    setBlur(true);
-  };
+  console.log(contact);
 
   return (
     <div>
@@ -31,55 +43,55 @@ export default function CustomerDisplay({ contact, setEditMode }) {
         style={{
           filter:
             "drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.25))" +
-            (blur ? "blur(2px)" : ""),
+            (blurred ? "blur(2px)" : ""),
           position: "fixed",
         }}
       >
-       <img src={contact.image} className="contactImage" alt="user" /> 
+        <img src={image} className="contactImage" alt="user" />
 
-        <div className="contactTitle">{contact.Name}</div>
+        <div className="contactTitle">{contact.name}</div>
 
         <div className="contactSubtitle">Role: Customer</div>
 
         <IoIosMan
           style={{ position: "absolute", left: "15%", top: "51.25%" }}
         />
-        <div className="p3" style={{ left: "17%", top: "51%" }}>
-          {contact.Gender}{" "}
+        <div className="p3" style={{ left: "17.2%", top: "51%" }}>
+          {contact.gender === 1 ? "Male" : "Female"}
         </div>
 
         <ImPhone style={{ position: "absolute", left: "15%", top: "56.25%" }} />
         <div
           className="p3"
-          style={{ position: "absolute", left: "17%", top: "56%" }}
+          style={{ position: "absolute", left: "17.2%", top: "56%" }}
         >
-          {contact.Phone}{" "}
+          {contact.phone}
         </div>
 
         <MdEmail style={{ position: "absolute", left: "15%", top: "61.25%" }} />
-        <div className="p3" style={{ left: "17%", top: "61%" }}>
-          {contact.Email}{" "}
+        <div className="p3" style={{ left: "17.2%", top: "61%" }}>
+          {contact.email}
         </div>
 
         <TiLocation
           style={{ position: "absolute", left: "15%", top: "66.25%" }}
         />
-        <div className="p3" style={{ left: "17%", top: "66%" }}>
-          {contact.Address}{" "}
+        <div className="p3" style={{ left: "17.2%", top: "66%" }}>
+          {contact.address}
         </div>
 
         <FaBirthdayCake
           style={{ position: "absolute", left: "15%", top: "71.25%" }}
         />
-        <div className="p3" style={{ left: "17%", top: "71%" }}>
-          Born {contact.DateOfBirth}{" "}
+        <div className="p3" style={{ left: "17.2%", top: "71%" }}>
+          Born {contact.birthday}
         </div>
 
         <ImCalendar
           style={{ position: "absolute", left: "15%", top: "76.25%" }}
         />
-        <div className="p3" style={{ left: "17%", top: "76%" }}>
-          First Visited - {contact.FirstVisit}{" "}
+        <div className="p3" style={{ left: "17.2%", top: "76%" }}>
+          First Visited - {contact.first_visit}
         </div>
 
         <button
@@ -93,14 +105,14 @@ export default function CustomerDisplay({ contact, setEditMode }) {
         <button
           className="button3"
           onClick={() => previousContact()}
-          style={{left: "8%",}}
+          style={{ left: "8%" }}
         >
           <p className="pText">Previous</p>
         </button>
 
         <button
           className="addButton"
-          onClick={() => addVisit()}
+          onClick={() => setAddVisit(true)}
           style={{
             left: "44%",
           }}
@@ -120,13 +132,20 @@ export default function CustomerDisplay({ contact, setEditMode }) {
           <VisitTable />
         </div>
 
-        <p className="p8" style={{ left: "78.75%", top: "81.25%" }}>
+        <p
+          className="p8"
+          style={{ left: "78.75%", top: "81.25%" }}
+          onClick={() => setVisitHistory(true)}
+        >
           View Complete History
         </p>
 
         <EditContact setEditMode={setEditMode} />
       </div>
-      {blur && <AddVisit setBlur={setBlur} />}
+      {addVisit && <AddVisit setAddVisit={setAddVisit} />}
+      {visitHistory && (
+        <VisitCompleteHistory setVisitHistory={setVisitHistory} />
+      )}
     </div>
   );
 }

@@ -45,13 +45,30 @@ class Customer {
         return result
     }
 
-    static findByID(id) {
-        let sql = `SELECT * FROM customer WHERE id = ${id}`
+    static getByID(id) {
+        let sql = `SELECT 
+        business_id,
+        customer_id,
+        name,
+        email, 
+        phone, 
+        address,
+        first_visit,
+        birthday,
+        gender 
+        FROM customer WHERE customer_id = ${id}`
         return mysql.execute((sql))
     }
 
-    static findAll() {
-        let sql = `SELECT * FROM customer`
+    static findAll(businessID) {
+        let sql = `SELECT * FROM customer WHERE business_id = ${businessID}`
+        return mysql.execute((sql))
+    }
+
+    static getNumberOfCustomers(businessID) {
+        let sql = `SELECT COUNT(DISTINCT customer_id) as total_costumers
+                   FROM customer
+                   WHERE business_id = ${businessID}`
         return mysql.execute((sql))
     }
 }

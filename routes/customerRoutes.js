@@ -8,4 +8,8 @@ router.route("/create").post(customerControllers.createNewCustomer);
 // get to delete a existing customer
 router.route("/delete/:id").get(customerControllers.deleteCustomer);
 
+router.route("/getNumberOfCustomers:businessID").get(customerControllers.getNumberOfCustomers);
+
+router.route("/findAll:businessID").get(customerControllers.findAll);
+
 module.exports = router;

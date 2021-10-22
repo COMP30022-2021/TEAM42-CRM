@@ -1,18 +1,83 @@
 import React from "react";
+import { useLocation } from "react-router";
 import { Contact } from "./Contact";
 import ContactsHeader from "./ContactsHeader";
 
-export default function Contacts({ sortBy }) {
+export default function Contacts({
+  sortBy,
+  setBlur,
+  setLoading,
+  filters,
+  order,
+}) {
   const [contacts, setContacts] = React.useState([]);
 
-  React.useEffect(() => {
-    loadContacts();
-  }, [sortBy]);
+  const contactType = useLocation().pathname.split("/")[2];
+  const query = useLocation().pathname.split("/")[3];
+
+  const handleContacts = (contacts) => {
+    if (query === "all") return handleOrder(handleAll(contacts));
+    if (query === "filter") return handleFilter(handleAll(contacts));
+    else return searchContacts(contacts);
+  };
+
+  const handleOrder = (contacts) => {
+    return order.label === "Ascending" ? contacts : contacts.reverse();
+  };
+
+  const handleAll = (contacts) => {
+    if (contactType === "employees") {
+      return contacts.filter(
+        (contact) => contact.role === "employee" || contact.role === "manager"
+      );
+    } else if (contactType === "customers") {
+      return contacts.filter((contact) => contact.role === "customer");
+    } else if (contactType === "vendors") {
+      return contacts.filter((contact) => contact.role === "vendor");
+    }
+    return contacts;
+  };
+
+  const searchContacts = (contacts) => {
+    const pattern = /search=(?<searchName>\w+)@(?<email>\w+)/.exec(query);
+    const regEx = new RegExp(pattern.groups.searchName, "i");
+    return searchContact(regEx, contacts, pattern.groups.email);
+  };
+
+  const searchContact = (regEx, contacts, on) => {
+    if (on === "Name") {
+      return contacts.filter((contact) => regEx.test(contact.name));
+    } else if (on === "Email") {
+      return contacts.filter((contact) => regEx.test(contact.email));
+    } else {
+      return contacts.filter((contact) => regEx.test(contact.phone));
+    }
+  };
+
+  const handleFilter = (contacts) => {
+    if (contactType === "all") {
+      return contacts.filter((contact) => checkGender(contact));
+    } else if (contactType === "customers") {
+      return contacts.filter((contact) => checkGender(contact));
+    } else if (contactType === "employees") {
+      return contacts.filter((contact) => checkGender(contact));
+    } else if (contactType === "vendors") {
+      return contacts.filter((contact) => checkGender(contact));
+    }
+    return contacts;
+  };
+
+  const checkGender = (contact) => {
+    return (
+      (contact.gender === 0 && filters.isFemale) ||
+      (contact.gender === 1 && filters.isMale)
+    );
+  };
 
   const loadContacts = async () => {
-    console.log(lowerCaseFirstLetter(sortBy.value));
+    setLoading(true);
     await fetch(
-      "https://team42-crm.herokuapp.com/contact/" +
+      "https://team42-crm.herokuapp.com/contact/all/" +
         localStorage.getItem("businessID") +
         "?sort=" +
         lowerCaseFirstLetter(sortBy.value),
@@ -26,8 +91,21 @@ export default function Contacts({ sortBy }) {
       }
     )
       .then((response) => response.json())
-      .then((data) => setContacts(data.contacts));
+      .then((data) => {
+        if (data.status_code === 200) {
+          setContacts(handleContacts(data.contacts));
+          setLoading(false);
+        }
+      });
   };
+
+  React.useEffect(() => {
+    loadContacts();
+  }, [sortBy, contactType, query, query === "filter" ? filters : null]);
+
+  React.useEffect(() => {
+    setContacts([...contacts.reverse()]);
+  }, [order]);
 
   return (
     <div
@@ -42,9 +120,23 @@ export default function Contacts({ sortBy }) {
     >
       <ContactsHeader />
 
-      {contacts.map((contact) => (
-        <Contact contact={contact} />
-      ))}
+      {contacts.length > 0 ? (
+        contacts.map((contact, index) => (
+          <Contact key={index} contact={contact} />
+        ))
+      ) : (
+        <div className="noContacts">
+          <p className="noContactsText">No contacts to show.&nbsp;</p>
+          <p
+            className="noContactsText"
+            style={{ color: "#0075ff", textDecoration: "underline" }}
+            onClick={() => setBlur(true)}
+          >
+            Click here
+          </p>
+          <p className="noContactsText">&nbsp;to add a new contact.</p>
+        </div>
+      )}
     </div>
   );
 }

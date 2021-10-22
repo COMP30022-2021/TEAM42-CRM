@@ -73,7 +73,7 @@ exports.getOneYearRevenueByQuarterInYear = async (req, res) => {
 exports.getOneCustomerTransactionHistory = async (req, res) => {
   try {
     let customerID = req.params.customerID
-    let [history, _] = await transaction.getOneCustomertransactionHistory(customerID);
+    let [history, _] = await transaction.getOneCustomerTransactionHistory(customerID);
     res.status(200).json({
       status_code: 200,
       status_message: "Success",

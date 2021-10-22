@@ -182,23 +182,8 @@ describe("Register many employees twice, and then delete", () => {
     console.log("Just deleted " + addedEmployeeAccountID);
     expect(response.statusCode).toBe(200);
   });
-
 });
 
-
-describe("Getting Number of Employees for Business 1", () => {
-  test("should give status code 200 ", async () => {
-    const response = await request.get("/auth/getNumberOfEmployees1");
-    expect(response.statusCode).toBe(200);
-  });
-});
-
-describe("Getting Number of Employees for Business 1", () => {
-  test("should give status code 200 ", async () => {
-    const response = await request.get("/auth/getNumberOfEmployees1");
-    expect(response.statusCode).toBe(200);
-  });
-});
 
 // describe("Getting Number of Employees for Business 1", () => {
 //   test("should give status code 200 ", async () => {

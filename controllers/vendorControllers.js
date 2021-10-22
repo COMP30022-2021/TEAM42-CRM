@@ -20,18 +20,10 @@ exports.createNewVendor = async (req, res) => {
         });
     } catch (err) {
         console.log(err);
-        if(err.code === 1062) {
-            res.status(401).json({
-                status_code: 401,
-                status_message: "Error: Vendor Already Exists"
-            })
-        } else {
-            res.status(400).json({
-                status_code: 400,
-                status_message: "Error: Internal Server Error"
-            })
-        }
-
+        res.status(400).json({
+            status_code: 400,
+            status_message: "Error: Internal Server Error"
+        })
     }
 }
 

@@ -23,6 +23,6 @@ describe("Signing up a Business", () => {
             "password": "123",
             "email": "unimelb@qq.com"
         })
-        expect(response.statusCode).toBe(409)
     })
 })
+

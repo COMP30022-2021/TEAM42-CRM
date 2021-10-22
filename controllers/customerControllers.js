@@ -89,23 +89,23 @@ exports.deleteCustomer = async (req, res) => {
   }
 };
 
-exports.getNumberOfCustomers = async (req, res) => {
-  try {
-    let businessID = req.params.businessID;
-    let [num, _] = await Customer.getNumberOfCustomers(businessID);
-    res.status(200).json({
-      status_code: 200,
-      status_message: "Success",
-      num
-    })
-  } catch (err) {
-    console.log(err);
-    res.status(400).json({
-      status_code: 400,
-      status_message: "Error: Internal Server Error",
-    });
-  }
-};
+// exports.getNumberOfCustomers = async (req, res) => {
+//   try {
+//     let businessID = req.params.businessID;
+//     let [num, _] = await Customer.getNumberOfCustomers(businessID);
+//     res.status(200).json({
+//       status_code: 200,
+//       status_message: "Success",
+//       num
+//     })
+//   } catch (err) {
+//     console.log(err);
+//     res.status(400).json({
+//       status_code: 400,
+//       status_message: "Error: Internal Server Error",
+//     });
+//   }
+// };
 
 exports.findAll = async (req, res) => {
   try {

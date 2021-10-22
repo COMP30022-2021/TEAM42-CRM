@@ -65,12 +65,12 @@ class Customer {
         return mysql.execute((sql))
     }
 
-    static getNumberOfCustomers(businessID) {
-        let sql = `SELECT COUNT(DISTINCT customer_id) as total_costumers
-                   FROM customer
-                   WHERE business_id = ${businessID}`
-        return mysql.execute((sql))
-    }
+    // static getNumberOfCustomers(businessID) {
+    //     let sql = `SELECT COUNT(DISTINCT customer_id) as total_costumers
+    //                FROM customer
+    //                WHERE business_id = ${businessID}`
+    //     return mysql.execute((sql))
+    // }
 }
 
 module.exports = Customer;

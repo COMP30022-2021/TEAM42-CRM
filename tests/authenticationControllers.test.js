@@ -11,7 +11,7 @@ beforeAll((done) => {
 
 afterAll(async () => {
   await mysql.end();
-  await redis.end();
+  await redis.end(true);
 });
 
 describe("Logging in with a username and password", () => {
@@ -58,23 +58,6 @@ describe("Logging in with a username and password", () => {
   });
 });
 
-describe("Register a existing employee", () => {
-  test("should respond with a 409 status code since register is done", async () => {
-    const response = await request.post("/auth/register").send({
-      name: "customer-test1",
-      phone: "12345",
-      address: "test add",
-      businessID: 1,
-      email: "mock_for_test",
-      gender: 1,
-      birthday: "1990-09-11",
-      startDate: "1990-01-11",
-      isManager: true,
-      contactOnly: false,
-    });
-    expect(response.statusCode).toBe(409);
-  });
-});
 
 describe("Changed the password of a existing employee", () => {
   test("should respond with a 200 status code if the password is changed", async () => {
@@ -105,9 +88,130 @@ describe("Changed the password of a existing employee", () => {
   });
 });
 
-describe("Delete an employee", () => {
-  test("should respond with a 200 status code if employee is in the system", async () => {
-    const response = await request.get("/auth/delete/0").send({});
+describe("Register many employees twice, and then delete", () => {
+  let addedResponseManager;
+  test("Adding Manager should respond with a 200 status code", async () => {
+    const response = await request.post("/auth/register").send({
+      "name": "TESTMANAGER",
+      "phone":"12345",
+      "address":"test add",
+      "businessID":455,
+      "email": "TESTMANAGER@qq.com",
+      "gender":1,
+      "birthday": "1990-09-11",
+      "startDate": "1990-01-11",
+      "isManager":true,
+      "contactOnly":true
+    });
+    addedResponseManager = response;
+    expect(response.statusCode).toBe(200);
+  });
+
+  test("Adding Manager again should give 409 error code", async () => {
+    const response = await request.post("/auth/register").send({
+      "name": "TESTMANAGER",
+      "phone":"12345",
+      "address":"test add",
+      "businessID":455,
+      "email": "TESTMANAGER@qq.com",
+      "gender":1,
+      "birthday": "1990-09-11",
+      "startDate": "1990-01-11",
+      "isManager":true,
+      "contactOnly":true
+    });
+    expect(response.statusCode).toBe(409);
+  });
+
+  test("Deleting Manager gives statusCode 200", async () => {
+    let addedIDManager = addedResponseManager.body.employee.employeeID;
+    const response = await request.get("/auth/delete/" + addedIDManager );
+    console.log("Just deleted " + addedIDManager);
+    expect(response.statusCode).toBe(200);
+  });
+
+
+  let addedResponseEmployeeContact;
+  test("Adding employee without account should respond with a 200 status code", async () => {
+    const response = await request.post("/auth/register").send({
+      "name": "TESTEMPLOYEECONTACT",
+      "phone":"12345",
+      "address":"test add",
+      "businessID":455,
+      "email": "TESTEMPLOYEECONTACT@qq.com",
+      "gender":1,
+      "birthday": "1990-09-11",
+      "startDate": "1990-01-11",
+      "isManager":false,
+      "contactOnly":true
+    });
+    addedResponseEmployeeContact = response;
+    expect(response.statusCode).toBe(200);
+  });
+
+  test("Deleting Employee gives statusCode 200", async () => {
+    let addedEmployeeContactID = addedResponseEmployeeContact.body.employee.employeeID;
+    const response = await request.get("/auth/delete/" + addedEmployeeContactID );
+    console.log("Just deleted " + addedEmployeeContactID);
+    expect(response.statusCode).toBe(200);
+  });
+
+  let addedResponseEmployeeAccount;
+  test("Adding employee with account should respond with a 200 status code", async () => {
+    const response = await request.post("/auth/register").send({
+      "name": "TESTEMPLOYEEACCT",
+      "phone":"12345",
+      "address":"test add",
+      "businessID":455,
+      "email": "TESTEMPLOYEEACCT@qq.com",
+      "gender":1,
+      "birthday": "1990-09-11",
+      "startDate": "1990-01-11",
+      "isManager":false,
+      "contactOnly":false
+    });
+    addedResponseEmployeeAccount = response;
+    expect(response.statusCode).toBe(200);
+  });
+
+
+
+  test("Deleting Employee gives statusCode 200", async () => {
+    let addedEmployeeAccountID = addedResponseEmployeeAccount.body.employee.employeeID;
+    const response = await request.get("/auth/delete/" + addedEmployeeAccountID );
+    console.log("Just deleted " + addedEmployeeAccountID);
+    expect(response.statusCode).toBe(200);
+  });
+
+});
+
+
+describe("Getting Number of Employees for Business 1", () => {
+  test("should give status code 200 ", async () => {
+    const response = await request.get("/auth/getNumberOfEmployees1");
     expect(response.statusCode).toBe(200);
   });
 });
+
+describe("Getting Number of Employees for Business 1", () => {
+  test("should give status code 200 ", async () => {
+    const response = await request.get("/auth/getNumberOfEmployees1");
+    expect(response.statusCode).toBe(200);
+  });
+});
+
+// describe("Getting Number of Employees for Business 1", () => {
+//   test("should give status code 200 ", async () => {
+//     const response = await request.get("/auth/getNumberOfEmployees1");
+//     expect(response.statusCode).toBe(200);
+//   });
+// });
+
+
+describe("Getting All Employees for Business 1", () => {
+  test("should give status code 200 ", async () => {
+    const response = await request.get("/auth/findAll1");
+    expect(response.statusCode).toBe(200);
+  });
+});
+

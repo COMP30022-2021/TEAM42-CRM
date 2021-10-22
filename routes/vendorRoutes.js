@@ -8,7 +8,7 @@ router.route("/create").post(vendorControllers.createNewVendor);
 // get to delete a existing vendor
 router.route("/delete/:id").get(vendorControllers.deleteVendor);
 
-router.route("/getNumberOfVendors:businessID").get(vendorControllers.getNumberOfVendors);
+// router.route("/getNumberOfVendors:businessID").get(vendorControllers.getNumberOfVendors);
 
 router.route("/findAll:businessID").get(vendorControllers.findAll);
 

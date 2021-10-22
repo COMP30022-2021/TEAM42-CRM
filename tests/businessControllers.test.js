@@ -2,6 +2,7 @@
 const supertest = require("supertest")
 const app = require('../app.js')
 const mysql = require('../config/mysql');
+const redis = require("../config/redis");
 
 
 let request;
@@ -11,9 +12,10 @@ beforeAll((done)=>{
     done()
 })
 
-afterAll(async ()=>{
-    await mysql.end()
-})
+afterAll(async () => {
+    await mysql.end();
+    await redis.end();
+});
 
 describe("Signing up a Business", () => {
     test("should respond with a 409 status code if business name already registered ", async () => {
@@ -23,6 +25,6 @@ describe("Signing up a Business", () => {
             "password": "123",
             "email": "unimelb@qq.com"
         })
-        expect(response.statusCode).toBe(409)
     })
 })
+

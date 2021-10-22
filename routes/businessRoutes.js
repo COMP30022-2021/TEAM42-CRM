@@ -5,4 +5,7 @@ const router = express.Router();
 // business routes
 router.route("/signupbusiness").post(businessControllers.signupbusiness);
 
+router.route("/delete/:id").get(businessControllers.deleteBusiness);
+
+
 module.exports = router;

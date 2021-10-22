@@ -76,3 +76,23 @@ exports.signupbusiness = async function (req, res) {
     });
   }
 };
+
+exports.deleteBusiness = async (req, res) => {
+  try {
+    const businessID = req.params.businessID;
+    const newBusiness = new Business();
+
+    let result = newBusiness.deleteByID(businessID);
+    console.log(result)
+    res.status(200).json({
+      status_code: 200,
+      status_message: "Success: Business Delete",
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(400).json({
+      status_code: 400,
+      status_message: "Error: Internal Server Error",
+    });
+  }
+};

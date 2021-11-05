@@ -11,25 +11,13 @@ export default function StatisticsSubComponent1({ left, top }) {
     <div className="statisticsDisplay" style={{ left: left, top: top }}>
       <div className="chartTitle">Key Statistics</div>
 
-      <div className="pStatsDescription">Revenue generated:</div>
-      <div className="pStats" style={{ top: "26%" }}>
-        ${info.Revenue}
-      </div>
+      <div className="pStatsDescription">Revenue generated: ${info.Revenue}</div>
 
-      <div className="pStatsDescription">Number of Items Sold:</div>
-      <div className="pStats" style={{ top: "42%" }}>
-        {info.NumberItems}
-      </div>
+      <div className="pStatsDescription">Number of Items Sold: {info.NumberItems}</div>
 
-      <div className="pStatsDescription">Most sold item:</div>
-      <div className="pStats" style={{ top: "58%" }}>
-        {info.MostSold}
-      </div>
+      <div className="pStatsDescription">Most sold item: {info.MostSold}</div>
 
-      <div className="pStatsDescription">Least sold item:</div>
-      <div className="pStats" style={{ top: "75%" }}>
-        {info.LeastSold}
-      </div>
+      <div className="pStatsDescription">Least sold item: {info.LeastSold}</div>
 
       <button className="statButtons" style={{ top: "5%", left: "78%" }}>
         <div style={{ color: "#ffffff" }}>Add Filters</div>

@@ -57,59 +57,81 @@ export default function StatisticsSubComponent1({ left, top }) {
         }
       });
 
-    fetch(
-      "https://team42-crm.herokuapp.com/order/getAllSoldProducts" +
-        localStorage.getItem("businessID"),
-      {
-        method: "post",
-        mode: "cors",
-        headers: new Headers({
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        }),
-        body: JSON.stringify({
-          sortOrder: "DESC",
-          limit: 1,
-        }),
-      }
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.status_code === 200) {
-          console.log(data);
-          setMostSold(data.products[0].product_id);
-          console.log(data.products[0].product_id);
-        } else {
-          alert(data.status_message);
-        }
-      });
+    // fetch(
+    //   "https://team42-crm.herokuapp.com/order/getAllSoldProducts" +
+    //     localStorage.getItem("businessID"),
+    //   {
+    //     method: "post",
+    //     mode: "cors",
+    //     headers: new Headers({
+    //       "Content-Type": "application/json",
+    //       Accept: "application/json",
+    //     }),
+    //     body: JSON.stringify({
+    //       sortOrder: "DESC",
+    //       limit: 1,
+    //     }),
+    //   }
+    // )
+    //   .then((response) => response.json())
+    //   .then((data) => {
+    //     if (data.status_code === 200) {
+    //       console.log(data);
+    //       setMostSold(data.products[0].product_id);
+    //       console.log(data.products[0].product_id);
+    //     } else {
+    //       alert(data.status_message);
+    //     }
+    //   });
+    //     method: "post",
+    //     mode: "cors",
+    //     headers: new Headers({
+    //       "Content-Type": "application/json",
+    //       Accept: "application/json",
+    //     }),
+    //     body: JSON.stringify({
+    //       sortOrder: "DESC",
+    //       limit: 1,
+    //     }),
+    //   }
+    // )
+    //   .then((response) => response.json())
+    //   .then((data) => {
+    //     if (data.status_code === 200) {
+    //       console.log(data);
+    //       setMostSold(data.products[0].product_id);
+    //       console.log(data.products[0].product_id);
+    //     } else {
+    //       alert(data.status_message);
+    //     }
+    //   });
 
-    fetch(
-      "https://team42-crm.herokuapp.com/order/getAllSoldProducts" +
-        localStorage.getItem("businessID"),
-      {
-        method: "post",
-        mode: "cors",
-        headers: new Headers({
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        }),
-        body: JSON.stringify({
-          sortOrder: "ASC",
-          limit: 1,
-        }),
-      }
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.status_code === 200) {
-          console.log(data);
-          setLeastSold(data.products[0].product_id);
-          console.log(data.products[0].product_id);
-        } else {
-          alert(data.status_message);
-        }
-      });
+    // fetch(
+    //   "https://team42-crm.herokuapp.com/order/getAllSoldProducts" +
+    //     localStorage.getItem("businessID"),
+    //   {
+    //     method: "post",
+    //     mode: "cors",
+    //     headers: new Headers({
+    //       "Content-Type": "application/json",
+    //       Accept: "application/json",
+    //     }),
+    //     body: JSON.stringify({
+    //       sortOrder: "ASC",
+    //       limit: 1,
+    //     }),
+    //   }
+    // )
+    //   .then((response) => response.json())
+    //   .then((data) => {
+    //     if (data.status_code === 200) {
+    //       console.log(data);
+    //       setLeastSold(data.products[0].product_id);
+    //       console.log(data.products[0].product_id);
+    //     } else {
+    //       alert(data.status_message);
+    //     }
+    //   });
   };
 
   React.useEffect(() => {

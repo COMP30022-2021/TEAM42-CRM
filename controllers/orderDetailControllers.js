@@ -2,15 +2,19 @@ const OrderDetail = require("../models/orderDetail");
 
 exports.getProductQuarterlyRevenueInYear = async (req, res) => {
   try {
-    let id = req.params.id
-    let {product_id, currentYear} = req.body
+    let id = req.params.id;
+    let { product_id, currentYear } = req.body;
 
-    let [product, _] = await OrderDetail.getProductQuarterlyRevenueInYear(product_id, currentYear, id);
+    let [product, _] = await OrderDetail.getProductQuarterlyRevenueInYear(
+      product_id,
+      currentYear,
+      id
+    );
     res.status(200).json({
       status_code: 200,
       status_message: "Success",
-      product
-    })
+      product,
+    });
   } catch (err) {
     console.log(err);
     res.status(400).json({
@@ -22,14 +26,19 @@ exports.getProductQuarterlyRevenueInYear = async (req, res) => {
 
 exports.getAllSoldProducts = async (req, res) => {
   try {
-    let {sortOrder, limit} = req.body
+    let id = req.params.id;
+    let { sortOrder, limit } = req.body;
 
-    let [products, _] = await OrderDetail.getAllSoldProducts(sortOrder, limit);
+    let [products, _] = await OrderDetail.getAllSoldProducts(
+      sortOrder,
+      limit,
+      id
+    );
     res.status(200).json({
       status_code: 200,
       status_message: "Success",
-      products
-    })
+      products,
+    });
   } catch (err) {
     console.log(err);
     res.status(400).json({

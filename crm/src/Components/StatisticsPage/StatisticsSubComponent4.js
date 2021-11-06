@@ -4,14 +4,7 @@ import Chart from "react-google-charts";
 //https://team42-crm.herokuapp.com/order/getProductQuarterlyRevenueInYear
 
 export default function StatisticsSubComponent4({ left, top, dashboard }) {
-  const data = [
-    ["Quarter", "1", "2", "3", "4", "5"],
-    [1, 0, 0, 0, 0, 0],
-    [2, 14.99, 3, 0, 0, 9.98],
-    [3, 0, 0, 15.99, 15.99, 0],
-    [4, 0, 0, 0, 0, 0],
-  ];
-  const [loading, setLoading] = useState(-5);
+  const [loading, setLoading] = useState(false);
   const [products, setProducts] = useState([1, 2, 3, 4, 5]);
   const [productRevenue, setProductsRevenue] = useState([
     ["Quarter", "1", "2", "3", "4", "5"],
@@ -21,6 +14,13 @@ export default function StatisticsSubComponent4({ left, top, dashboard }) {
     [4],
   ]);
 
+  const checkLoading = () => {
+    for (var i = 0; i < productRevenue.length; i++) {
+      if (productRevenue[i].length < 6) return false;
+    }
+    console.log("yes");
+    return setLoading(true);
+  };
   const loadKeyStatistic = () => {
     for (var i = 0; i < products.length; i++) {
       fetch(
@@ -47,14 +47,12 @@ export default function StatisticsSubComponent4({ left, top, dashboard }) {
             productRevenue[3].push(data.product[2].revenue);
             productRevenue[4].push(data.product[3].revenue);
             console.log(productRevenue);
-            setLoading(i);
-            console.log(loading);
+            checkLoading();
           } else {
             alert(data.status_message);
           }
         });
     }
-    console.log(loading);
   };
 
   React.useEffect(() => {
@@ -63,7 +61,7 @@ export default function StatisticsSubComponent4({ left, top, dashboard }) {
 
   return (
     <div className="statisticsDisplay" style={{ left: left, top: top }}>
-      {loading === 5 && (
+      {loading && (
         <Chart
           width={"100%%"}
           height={"100%"}

@@ -28,16 +28,17 @@ class OrderDetail {
   //   return mysql.execute((sql))
   // }
 
-  static getAllSoldProducts(sortOrder, limit) {
+  static getAllSoldProducts(sortOrder, limit, id) {
     let sql = `SELECT product_id, SUM(number_of_products) as sale
-               FROM orderdetail
+               FROM orderdetail JOIN transaction ON orderdetail.transaction_id = transaction.transaction_id
+               WHERE business_id = ${id}
                GROUP BY product_id
                ORDER BY sale
                LIMIT ${limit}`
     
     if(sortOrder === "DESC") {
       sql = `SELECT product_id, SUM(number_of_products) as sale
-             FROM orderdetail
+             FROM orderdetail JOIN transaction ON orderdetail.transaction_id = transaction.transaction_id
              GROUP BY product_id
              ORDER BY sale DESC
              LIMIT ${limit}`

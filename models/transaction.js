@@ -32,8 +32,8 @@ class Transaction {
     return newTransaction
   }
 
-  static getNumberOfTransactions() {
-    let sql = `SELECT COUNT(DISTINCT transaction_id) as total_transactions FROM transaction`
+  static getNumberOfTransactions(id) {
+    let sql = `SELECT COUNT(DISTINCT transaction_id) as total_transactions FROM transaction WHERE business_id = ${id}`
     return mysql.execute((sql))
   }
 
@@ -42,12 +42,13 @@ class Transaction {
     return mysql.execute((sql))
   }
 
-  static getTotalRevenueByDate(startDate, endDate) {
-    let sql = `SELECT SUM(total_price) FROM transaction WHERE date BETWEEN '${startDate}' AND '${endDate}'`
+  static getTotalRevenueByDate(startDate, endDate, id) {
+    let sql = `SELECT SUM(total_price) FROM transaction WHERE (date BETWEEN '${startDate}' AND '${endDate}')
+                                                               AND business_id = ${id}`
     return mysql.execute((sql))
   }
 
-  static getOneYearRevenueByQuarterInYear(currentYear) {
+  static getOneYearRevenueByQuarterInYear(currentYear, id) {
     let sql = `SELECT click_date as quarter, IFNULL(b.revenue, 0) as revenue
                FROM (SELECT 1 as click_date UNION ALL
                      SELECT 2 as click_date UNION ALL
@@ -55,7 +56,7 @@ class Transaction {
                      SELECT 4 as click_date) a LEFT JOIN 
                      (SELECT QUARTER(date) as quarter, SUM(total_price) as revenue
                       FROM transaction
-                      WHERE YEAR(date) = ${currentYear}
+                      WHERE YEAR(date) = ${currentYear} AND business_id = ${id}
                       GROUP BY QUARTER(date)) b
                       ON click_date = quarter`
     return mysql.execute((sql))

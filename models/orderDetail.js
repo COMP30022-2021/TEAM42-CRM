@@ -29,7 +29,7 @@ class OrderDetail {
   // }
 
   static getAllSoldProducts(sortOrder, limit, id) {
-    sql = `SELECT product_id, SUM(number_of_products) as sale
+    let sql = `SELECT product_id, SUM(number_of_products) as sale
             FROM orderdetail JOIN transaction ON orderdetail.transaction_id = transaction.transaction_id
             WHERE business_id = ${id}
             GROUP BY product_id

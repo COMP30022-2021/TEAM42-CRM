@@ -27,10 +27,6 @@ export default function SettingsMainComponent(props) {
         onClick={props.setAddEmployee}
       />
       <SpecificSetting
-        name={"Delete Employee Account"}
-        icon={<AiFillDelete className="iconSettings" size="40%" />}
-      />
-      <SpecificSetting
         name={"Add New Item To Menu"}
         icon={<IoIosAddCircle className="iconSettings" size="40%" />}
         onClick={props.setAddItem}

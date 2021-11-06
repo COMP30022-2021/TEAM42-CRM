@@ -8,7 +8,33 @@ function AddItem({ setBlur }) {
   const [ID, setID] = useState("");
   const [price, setPrice] = useState("");
 
-  function attemptAdd() {}
+  function attemptAdd() {
+    if (name === "") alert("Enter Product Name");
+    else if (ID == "") alert("Add Product ID");
+    else if (price === "") alert("Add Price");
+
+    fetch("https://team42-crm.herokuapp.com/product/create", {
+      method: "post",
+      mode: "cors",
+      headers: new Headers({
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      }),
+      body: JSON.stringify({
+        product_id: ID,
+        name: name,
+        unit_price: parseInt(price),
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.status_code === 200) {
+          console.log(data);
+        } else {
+          alert(data.status_message);
+        }
+      });
+  }
 
   return (
     <div style={{ background: "#265573", width: "100%", height: "100%" }}>
@@ -20,7 +46,7 @@ function AddItem({ setBlur }) {
 
         <input
           className="inputChangePassword"
-          style={{ top: "23%" }}
+          style={{ top: "20%" }}
           type="text"
           placeholder="Enter Item Name"
           value={name}
@@ -33,7 +59,7 @@ function AddItem({ setBlur }) {
 
         <input
           className="inputChangePassword"
-          style={{ top: "41%" }}
+          style={{ top: "38%" }}
           type="text"
           placeholder="Enter Item ID"
           value={ID}
@@ -46,7 +72,7 @@ function AddItem({ setBlur }) {
 
         <input
           className="inputChangePassword"
-          style={{ top: "59%" }}
+          style={{ top: "56%" }}
           type="text"
           placeholder="Enter Item Price"
           value={price}
@@ -56,7 +82,13 @@ function AddItem({ setBlur }) {
         <button
           className="button2"
           onClick={attemptAdd}
-          style={{ width: "65%", margin: 10, left: "15%", top: "72%" }}
+          style={{
+            width: "65%",
+            height: "10%",
+            margin: 10,
+            left: "15%",
+            top: "72%",
+          }}
         >
           <p>Add item</p>
         </button>

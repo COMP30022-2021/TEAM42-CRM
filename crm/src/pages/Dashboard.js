@@ -9,7 +9,7 @@ import RecentContacts from "../Components/RecentContacts/RecentContacts";
 import { StatisticsDisplay } from "../Components/Statistics/StatisticsDisplay";
 import Loading from "../Components/Loading";
 
-export default function Dashboard({ contacts }) {
+export default function Dashboard() {
   const [sbc, setSBC] = React.useState(true);
   const [blur, setBlur] = React.useState(false);
   const [loading, setLoading] = React.useState(true);
@@ -25,7 +25,7 @@ export default function Dashboard({ contacts }) {
         <Helmet>
           <title>Lynk - Dashboard</title>
         </Helmet>
-        <RecentContacts contacts={contacts} setLoading={setLoading} />
+        <RecentContacts setLoading={setLoading} />
         {localStorage.getItem("employeeEmail") !==
           "hamza.ahmedqureshi@hotmail.com" &&
           localStorage.getItem("employeeEmail") !==

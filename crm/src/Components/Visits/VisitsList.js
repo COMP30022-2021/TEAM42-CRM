@@ -21,23 +21,8 @@ export default function ContactList({ visits }) {
         &nbsp;
       </div>
 
-      {visits.map((visit) => (
-        <VisitsListElement visit={visit} />
-      ))}
-      {visits.map((visit) => (
-        <VisitsListElement visit={visit} />
-      ))}
-      {visits.map((visit) => (
-        <VisitsListElement visit={visit} />
-      ))}
-      {visits.map((visit) => (
-        <VisitsListElement visit={visit} />
-      ))}
-      {visits.map((visit) => (
-        <VisitsListElement visit={visit} />
-      ))}
-      {visits.map((visit) => (
-        <VisitsListElement visit={visit} />
+      {visits.map((visit, index) => (
+        <VisitsListElement visit={visit} key={index} />
       ))}
     </div>
   );

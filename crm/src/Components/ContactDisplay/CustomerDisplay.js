@@ -11,6 +11,7 @@ import { FaBirthdayCake } from "react-icons/fa";
 import { ImCalendar } from "react-icons/im";
 import { EditContact } from "./EditContact";
 
+import { useLocation } from "react-router";
 import customer from "../../res/images/Customer.jpg";
 import employee from "../../res/images/Employee.jfif";
 import vendor from "../../res/images/external_vendor.jpg";
@@ -18,7 +19,8 @@ import vendor from "../../res/images/external_vendor.jpg";
 export default function CustomerDisplay({ contact, setEditMode }) {
   const [addVisit, setAddVisit] = React.useState(false);
   const [visitHistory, setVisitHistory] = React.useState(false);
-
+  const location = useLocation();
+  console.log(location.pathname.split("/")[4]);
   const blurred = addVisit || visitHistory;
   const image =
     contact.gender === 0
@@ -129,7 +131,7 @@ export default function CustomerDisplay({ contact, setEditMode }) {
             height: "30%",
           }}
         >
-          <VisitTable />
+          <VisitTable customerID={location.pathname.split("/")[4]} />
         </div>
 
         <p
@@ -144,7 +146,10 @@ export default function CustomerDisplay({ contact, setEditMode }) {
       </div>
       {addVisit && <AddVisit setAddVisit={setAddVisit} />}
       {visitHistory && (
-        <VisitCompleteHistory setVisitHistory={setVisitHistory} />
+        <VisitCompleteHistory
+          setVisitHistory={setVisitHistory}
+          customerID={location.pathname.split("/")[4]}
+        />
       )}
     </div>
   );

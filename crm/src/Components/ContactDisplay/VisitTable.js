@@ -1,26 +1,50 @@
 import React from "react";
 import VisitTableElement from "./VisitTableElement";
 
-export default function VisitTable() {
-  const total = {
-    visits: "18",
-    spent: "365.70",
+export default function VisitTable({ customerID }) {
+  const [history, setHistory] = React.useState([]);
+
+  const totalRevenue = () => {
+    if (history.length === 0) return 0.0;
+    var sum = 0;
+    for (var i = 0; i < history.length; i++) {
+      sum += history[i].total_price;
+    }
+    return sum;
   };
 
-  const visits = [
-    {
-      date: "27/06/2017",
-      price: "09.50",
-    },
-    {
-      date: "23/06/2017",
-      price: "12.50",
-    },
-    {
-      date: "27/05/2017",
-      price: "56.50",
-    },
-  ];
+  const getVisitHistory = () => {
+    console.log(
+      "https://team42-crm.herokuapp.com/customer/getOneCustomerTransactionHistory" +
+        customerID
+    );
+    fetch(
+      "https://team42-crm.herokuapp.com/transaction/getOneCustomerTransactionHistory" +
+        customerID,
+      {
+        method: "get",
+        mode: "cors",
+        headers: new Headers({
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        }),
+      }
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        if (data.status_code === 200) {
+          console.log(data);
+          setHistory(data.history);
+        } else {
+          alert(data.status_message);
+        }
+      });
+  };
+
+  React.useEffect(() => {
+    getVisitHistory();
+  }, []);
 
   return (
     <div style={{ width: "100%", height: "100%", background: "#F8F2F2" }}>
@@ -38,8 +62,8 @@ export default function VisitTable() {
         >
           Money paid:
         </p>
-        {visits.map((visit, index) => (
-          <VisitTableElement visit={visit} index={index} key={index} />
+        {history.slice(0, 3).map((history, index) => (
+          <VisitTableElement visit={history} index={index} key={index} />
         ))}
       </div>
       <div style={{ width: "100%", height: "20%", background: "#DAD1D1" }}>
@@ -47,14 +71,14 @@ export default function VisitTable() {
           className="p5"
           style={{ position: "absolute", top: "84%", left: "3%" }}
         >
-          Total Visits: {total.visits}
+          Total Visits: {history.length}
         </p>
 
         <p
           className="p5"
           style={{ position: "absolute", top: "84%", left: "47%" }}
         >
-          Total amount: {total.spent}$
+          Total amount: {totalRevenue()}$
         </p>
       </div>
     </div>

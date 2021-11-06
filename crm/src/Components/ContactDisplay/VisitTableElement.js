@@ -21,7 +21,7 @@ export default function VisitTableElement({ visit, index }) {
           left: "64%",
         }}
       >
-        ${visit.price}
+        ${visit.total_price}
       </p>
     </div>
   );

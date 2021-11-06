@@ -97,22 +97,6 @@ export default function CustomerDisplay({ contact, setEditMode }) {
         </div>
 
         <button
-          className="button3"
-          onClick={() => nextContact()}
-          style={{ left: "80%" }}
-        >
-          <p className="pText">Next</p>
-        </button>
-
-        <button
-          className="button3"
-          onClick={() => previousContact()}
-          style={{ left: "8%" }}
-        >
-          <p className="pText">Previous</p>
-        </button>
-
-        <button
           className="addButton"
           onClick={() => setAddVisit(true)}
           style={{

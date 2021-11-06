@@ -130,15 +130,14 @@ export default function ExternalVendorDisplay({ contact, setEditMode }) {
           }}
         >
           <EngagementTable />
+          <p
+            className="p8"
+            style={{ right: "8%", top: "102%", fontSize: 12 }}
+            onClick={() => setEngagementHistory(true)}
+          >
+            View Complete History
+          </p>
         </div>
-
-        <p
-          className="p8"
-          style={{ left: "78.75%", top: "81.25%" }}
-          onClick={() => setEngagementHistory(true)}
-        >
-          View Complete History
-        </p>
 
         <EditContact setEditMode={setEditMode} />
       </div>

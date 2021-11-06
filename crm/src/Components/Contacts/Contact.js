@@ -1,5 +1,4 @@
 import React from "react";
-import SelectBox from "./SelectBox";
 import { Link } from "react-router-dom";
 
 import customer from "../../res/images/Customer.jpg";
@@ -25,13 +24,12 @@ export const Contact = ({ contact }) => {
       }
     >
       <div className="block">
-        <SelectBox />
         <img
           src={image}
           style={{
             position: "absolute",
             top: "50%",
-            left: "6%",
+            left: "3%",
             borderRadius: "50%",
             width: 27,
             height: 27,
@@ -41,18 +39,18 @@ export const Contact = ({ contact }) => {
           alt="User"
         />
         <h4
-          style={{ left: "21%", top: "12%", textAlign: "left", width: "25%" }}
+          style={{ left: "18%", top: "12%", textAlign: "left", width: "25%" }}
         >
           {contact.name}
         </h4>
-        <h4 style={{ left: "30%", top: "12%" }}>
+        <h4 style={{ left: "27.5%", top: "12%" }}>
           {contact.gender === 1 ? "Male" : "Female"}
         </h4>
-        <h4 style={{ left: "49%", top: "12%" }}>
+        <h4 style={{ left: "46.5%", top: "12%" }}>
           {capitalizeFirstLetter(contact.role)}
         </h4>
-        <h4 style={{ left: "69%", top: "12%" }}>{contact.email}</h4>
-        <h4 style={{ left: "88%", top: "12%" }}>{contact.phone}</h4>
+        <h4 style={{ left: "67%", top: "12%" }}>{contact.email}</h4>
+        <h4 style={{ left: "87%", top: "12%" }}>{contact.phone}</h4>
       </div>
     </Link>
   );

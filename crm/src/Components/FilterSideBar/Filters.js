@@ -70,14 +70,34 @@ export default function Filters({ filters, setFilters }) {
         style={{ left: "73%", top: "1.5%", zIndex: 1 }}
         onClick={() => handleAdd()}
       >
-        <p>{xPosition === "125%" ? "Add Filter" : "Apply Filter"}</p>
+        <p
+          style={{
+            position: "relative",
+            top: "25%",
+            left: "50%",
+            fontSize: 16,
+            transform: "translate(-50%, -50%)",
+          }}
+        >
+          {xPosition === "125%" ? "Add Filter" : "Apply Filter"}
+        </p>
       </div>
       <div
         className="button1"
         style={{ left: "86%", top: "1.5%", zIndex: 1 }}
         onClick={() => handleClear()}
       >
-        <p>Clear Filters</p>
+        <p
+          style={{
+            position: "relative",
+            top: "25%",
+            left: "50%",
+            fontSize: 16,
+            transform: "translate(-50%, -50%)",
+          }}
+        >
+          Clear Filters
+        </p>
       </div>
     </div>
   );

@@ -2,7 +2,8 @@ const transaction = require("../models/transaction");
 
 exports.getNumberOfTransactions = async (req, res) => {
   try {
-    let [num, _] = await transaction.getNumberOfTransactions();
+    let id = req.params.id
+    let [num, _] = await transaction.getNumberOfTransactions(id);
     res.status(200).json({
       status_code: 200,
       status_message: "Success",
@@ -37,7 +38,8 @@ exports.getNumberOfVisitors = async (req, res) => {
 exports.getTotalRevenueByDate = async (req, res) => {
   try {
     let {start_date, end_date} = req.body
-    let [revenue, _] = await transaction.getTotalRevenueByDate(start_date, end_date);
+    let id = req.params.id
+    let [revenue, _] = await transaction.getTotalRevenueByDate(start_date, end_date, id);
     res.status(200).json({
       status_code: 200,
       status_message: "Success",
@@ -55,7 +57,8 @@ exports.getTotalRevenueByDate = async (req, res) => {
 exports.getOneYearRevenueByQuarterInYear = async (req, res) => {
   try {
     let currentYear = req.params.year
-    let [revenue, _] = await transaction.getOneYearRevenueByQuarterInYear(currentYear);
+    let id = req.params.id
+    let [revenue, _] = await transaction.getOneYearRevenueByQuarterInYear(currentYear, id);
     res.status(200).json({
       status_code: 200,
       status_message: "Success",

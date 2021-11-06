@@ -2,9 +2,10 @@ const OrderDetail = require("../models/orderDetail");
 
 exports.getProductQuarterlyRevenueInYear = async (req, res) => {
   try {
+    let id = req.params.id
     let {product_id, currentYear} = req.body
 
-    let [product, _] = await OrderDetail.getProductQuarterlyRevenueInYear(product_id, currentYear);
+    let [product, _] = await OrderDetail.getProductQuarterlyRevenueInYear(product_id, currentYear, id);
     res.status(200).json({
       status_code: 200,
       status_message: "Success",

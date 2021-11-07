@@ -123,8 +123,8 @@ export default function EmployeeFilterBar({ filters, setFilters, setX }) {
         Date Joined:
       </div>
 
-      <div className="pone" style={{ left: "20%", top: "57.5%" }}>
-        Between
+      <div className="pone" style={{ left: "22%", top: "58%" }}>
+        After
       </div>
 
       <input
@@ -137,8 +137,8 @@ export default function EmployeeFilterBar({ filters, setFilters, setX }) {
         }
       ></input>
 
-      <div className="pone" style={{ left: "28%", top: "65%" }}>
-        and
+      <div className="pone" style={{ left: "22%", top: "67%" }}>
+        Before
       </div>
 
       <input

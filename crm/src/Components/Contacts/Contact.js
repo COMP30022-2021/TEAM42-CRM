@@ -12,7 +12,6 @@ export const Contact = ({ contact, role }) => {
         ? employee
         : customer
       : vendor;
-  console.log(role);
 
   return (
     <Link

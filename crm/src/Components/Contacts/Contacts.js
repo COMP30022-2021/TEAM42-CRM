@@ -67,11 +67,22 @@ export default function Contacts({
   };
 
   const customerFilters = (contact) => {
-    return checkGender(contact) && checkAgeFrom(contact) && checkAgeTo(contact);
+    return (
+      checkGender(contact) &&
+      checkAgeFrom(contact) &&
+      checkAgeTo(contact) &&
+      checkTo(contact.first_visit) &&
+      checkFrom(contact.first_visit)
+    );
   };
 
   const employeeFilters = (contact) => {
-    return checkGender(contact) && checkAgeFrom(contact) && checkAgeTo(contact);
+    return (
+      checkGender(contact) &&
+      checkAgeFrom(contact) &&
+      checkTo(contact.date_joined) &&
+      checkFrom(contact.date_joined)
+    );
   };
 
   const checkGender = (contact) => {
@@ -93,6 +104,15 @@ export default function Contacts({
     var age =
       new Date().getFullYear() - parseInt(contact.birthday.split("-")[0]);
     return parseInt(filters.ageTo) < age ? false : true;
+  };
+
+  const checkTo = (contactTo) => {
+    if (filters.to === "") return true;
+    return filters.to < contactTo ? false : true;
+  };
+  const checkFrom = (contactFrom) => {
+    if (filters.from === "") return true;
+    return filters.from > contactFrom ? false : true;
   };
 
   const getURL = () => {

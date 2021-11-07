@@ -5,22 +5,24 @@ import customer from "../../res/images/Customer.jpg";
 import employee from "../../res/images/Employee.jfif";
 import vendor from "../../res/images/external_vendor.jpg";
 
-export const Contact = ({ contact }) => {
+export const Contact = ({ contact, role }) => {
   const image =
     contact.gender === 0
       ? contact.role === "employee"
         ? employee
         : customer
       : vendor;
+  console.log(role);
+
   return (
     <Link
       to={
         "/contacts/" +
-        contact.role.replace(/ /g, "") +
+        role +
         "/" +
         contact.name.replace(/ /g, "") +
         "/" +
-        contact.id
+        Object.values(contact)[0]
       }
     >
       <div className="block">
@@ -47,7 +49,7 @@ export const Contact = ({ contact }) => {
           {contact.gender === 1 ? "Male" : "Female"}
         </h4>
         <h4 style={{ left: "46.5%", top: "12%" }}>
-          {capitalizeFirstLetter(contact.role)}
+          {capitalizeFirstLetter(role)}
         </h4>
         <h4 style={{ left: "67%", top: "12%" }}>{contact.email}</h4>
         <h4 style={{ left: "87%", top: "12%" }}>{contact.phone}</h4>

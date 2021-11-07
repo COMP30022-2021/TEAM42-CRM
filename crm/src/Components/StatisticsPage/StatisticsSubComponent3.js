@@ -68,7 +68,7 @@ export default function StatisticsSubComponent3({ left, top, dashboard }) {
         rootProps={{ "data-testid": "3" }}
       />
 
-      <h2 class="chartTitle">Total Sales Per Quarter</h2>
+      <h2 class="chartTitle">Total Revenue Per Quarter</h2>
     </div>
   );
 }

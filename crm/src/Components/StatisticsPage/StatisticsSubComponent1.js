@@ -57,81 +57,59 @@ export default function StatisticsSubComponent1({ left, top }) {
         }
       });
 
-    // fetch(
-    //   "https://team42-crm.herokuapp.com/order/getAllSoldProducts" +
-    //     localStorage.getItem("businessID"),
-    //   {
-    //     method: "post",
-    //     mode: "cors",
-    //     headers: new Headers({
-    //       "Content-Type": "application/json",
-    //       Accept: "application/json",
-    //     }),
-    //     body: JSON.stringify({
-    //       sortOrder: "DESC",
-    //       limit: 1,
-    //     }),
-    //   }
-    // )
-    //   .then((response) => response.json())
-    //   .then((data) => {
-    //     if (data.status_code === 200) {
-    //       console.log(data);
-    //       setMostSold(data.products[0].product_id);
-    //       console.log(data.products[0].product_id);
-    //     } else {
-    //       alert(data.status_message);
-    //     }
-    //   });
-    //     method: "post",
-    //     mode: "cors",
-    //     headers: new Headers({
-    //       "Content-Type": "application/json",
-    //       Accept: "application/json",
-    //     }),
-    //     body: JSON.stringify({
-    //       sortOrder: "DESC",
-    //       limit: 1,
-    //     }),
-    //   }
-    // )
-    //   .then((response) => response.json())
-    //   .then((data) => {
-    //     if (data.status_code === 200) {
-    //       console.log(data);
-    //       setMostSold(data.products[0].product_id);
-    //       console.log(data.products[0].product_id);
-    //     } else {
-    //       alert(data.status_message);
-    //     }
-    //   });
+    fetch(
+      "https://team42-crm.herokuapp.com/order/getAllSoldProducts" +
+        localStorage.getItem("businessID"),
+      {
+        method: "post",
+        mode: "cors",
+        headers: new Headers({
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        }),
+        body: JSON.stringify({
+          sortOrder: "DESC",
+          limit: 1,
+        }),
+      }
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.status_code === 200) {
+          console.log(data);
+          setMostSold(data.products[0].product_id);
+          console.log(data.products[0].product_id);
+        } else {
+          alert(data.status_message);
+        }
+      });
 
-    // fetch(
-    //   "https://team42-crm.herokuapp.com/order/getAllSoldProducts" +
-    //     localStorage.getItem("businessID"),
-    //   {
-    //     method: "post",
-    //     mode: "cors",
-    //     headers: new Headers({
-    //       "Content-Type": "application/json",
-    //       Accept: "application/json",
-    //     }),
-    //     body: JSON.stringify({
-    //       sortOrder: "ASC",
-    //       limit: 1,
-    //     }),
-    //   }
-    // )
-    //   .then((response) => response.json())
-    //   .then((data) => {
-    //     if (data.status_code === 200) {
-    //       console.log(data);
-    //       setLeastSold(data.products[0].product_id);
-    //       console.log(data.products[0].product_id);
-    //     } else {
-    //       alert(data.status_message);
-    //     }
-    //   });
+    fetch(
+      "https://team42-crm.herokuapp.com/order/getAllSoldProducts" +
+        localStorage.getItem("businessID"),
+      {
+        method: "post",
+        mode: "cors",
+        headers: new Headers({
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        }),
+        body: JSON.stringify({
+          sortOrder: "ASC",
+          limit: 1,
+        }),
+      }
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.status_code === 200) {
+          console.log(data);
+          setLeastSold(data.products[0].product_id);
+          console.log(data.products[0].product_id);
+        } else {
+          alert(data.status_message);
+        }
+      });
   };
 
   React.useEffect(() => {
@@ -142,15 +120,23 @@ export default function StatisticsSubComponent1({ left, top }) {
     <div className="statisticsDisplay" style={{ left: left, top: top }}>
       <div className="chartTitle">Key Statistics</div>
 
-      <div className="pStatsDescription">Revenue generated: ${revenue}</div>
+      <div style={{ position: "relative", top: "5%" }}>
+        <div className="pStatsDescription">
+          Revenue generated: <strong>${revenue}</strong>
+        </div>
 
-      <div className="pStatsDescription">
-        Number of customer interactions: {numberTransactions}
+        <div className="pStatsDescription">
+          Number of customer interactions: <strong>{numberTransactions}</strong>
+        </div>
+
+        <div className="pStatsDescription">
+          Most sold item: <strong>{mostSold}</strong>
+        </div>
+
+        <div className="pStatsDescription">
+          Least sold item: <strong>{leastSold}</strong>
+        </div>
       </div>
-
-      <div className="pStatsDescription">Most sold item: {mostSold}</div>
-
-      <div className="pStatsDescription">Least sold item: {leastSold}</div>
     </div>
   );
 }

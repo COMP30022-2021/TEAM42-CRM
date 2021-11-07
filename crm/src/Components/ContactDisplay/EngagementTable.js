@@ -24,7 +24,10 @@ export default function EngagementTable() {
   return (
     <div style={{ width: "100%", height: "100%", background: "#F8F2F2" }}>
       <div style={{ width: "100%", height: "80%" }}>
-        <h1 class="center">Recent Engagement</h1>
+        <h1 className="center" style={{ postion: "absolute", top: "10%" }}>
+          Recent Engagement
+        </h1>
+
         <p
           className="p6"
           style={{ position: "absolute", top: "12%", left: "17%" }}

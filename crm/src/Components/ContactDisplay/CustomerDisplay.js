@@ -20,7 +20,6 @@ export default function CustomerDisplay({ contact, setEditMode }) {
   const [addVisit, setAddVisit] = React.useState(false);
   const [visitHistory, setVisitHistory] = React.useState(false);
   const location = useLocation();
-  console.log(location.pathname.split("/")[4]);
   const blurred = addVisit || visitHistory;
   const image =
     contact.gender === 0
@@ -36,7 +35,6 @@ export default function CustomerDisplay({ contact, setEditMode }) {
   const previousContact = () => {
     alert("previous contact please");
   };
-  console.log(contact);
 
   return (
     <div>
@@ -116,15 +114,14 @@ export default function CustomerDisplay({ contact, setEditMode }) {
           }}
         >
           <VisitTable customerID={location.pathname.split("/")[4]} />
+          <p
+            className="p8"
+            style={{ right: "6%", top: "102%", fontSize: 12 }}
+            onClick={() => setVisitHistory(true)}
+          >
+            View Complete History
+          </p>
         </div>
-
-        <p
-          className="p8"
-          style={{ left: "78.75%", top: "81.25%" }}
-          onClick={() => setVisitHistory(true)}
-        >
-          View Complete History
-        </p>
 
         <EditContact setEditMode={setEditMode} />
       </div>

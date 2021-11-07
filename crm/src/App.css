@@ -1097,3 +1097,14 @@ p2 {
   top: 0%;
   margin-top: 3%;
 }
+
+.stats4input {
+  background: none;
+  height: 14%;
+  width: 12%;
+  position: absolute;
+  left: 80%;
+  border-color: #265573;
+  border-radius: 25px;
+  text-align: center;
+}

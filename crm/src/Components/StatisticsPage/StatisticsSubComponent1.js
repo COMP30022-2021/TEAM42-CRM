@@ -26,9 +26,7 @@ export default function StatisticsSubComponent1({ left, top }) {
       .then((response) => response.json())
       .then((data) => {
         if (data.status_code === 200) {
-          console.log(data);
           setRevenue(data.revenue[0]["SUM(total_price)"]);
-          console.log(data.revenue[0]["SUM(total_price)"]);
         } else {
           alert(data.status_message);
         }
@@ -49,9 +47,7 @@ export default function StatisticsSubComponent1({ left, top }) {
       .then((response) => response.json())
       .then((data) => {
         if (data.status_code === 200) {
-          console.log(data);
           setNumberTransactions(data.num[0].total_transactions);
-          console.log(data.num[0].total_transactions);
         } else {
           alert(data.status_message);
         }
@@ -76,9 +72,7 @@ export default function StatisticsSubComponent1({ left, top }) {
       .then((response) => response.json())
       .then((data) => {
         if (data.status_code === 200) {
-          console.log(data);
           setMostSold(data.products[0].product_id);
-          console.log(data.products[0].product_id);
         } else {
           alert(data.status_message);
         }
@@ -103,9 +97,7 @@ export default function StatisticsSubComponent1({ left, top }) {
       .then((response) => response.json())
       .then((data) => {
         if (data.status_code === 200) {
-          console.log(data);
           setLeastSold(data.products[0].product_id);
-          console.log(data.products[0].product_id);
         } else {
           alert(data.status_message);
         }

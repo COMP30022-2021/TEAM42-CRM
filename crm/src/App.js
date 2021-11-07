@@ -12,7 +12,6 @@ import employee from "./res/images/Employee.jfif";
 import vendor from "./res/images/external_vendor.jpg";
 import { Settings } from "./pages/Settings";
 import { Statistics } from "./pages/Statistics";
-import StatisticsMainComponent from "./Components/StatisticsPage/StatisticsMainComponent";
 
 const contacts = [
   {
@@ -54,6 +53,14 @@ const contacts = [
 ];
 
 function App() {
+
+  localStorage.setItem("loggedIn", true);
+  localStorage.setItem("businessID", 1);
+  localStorage.setItem("employeeID", 1);
+  localStorage.setItem("employeeName", "Hamza");
+  localStorage.setItem("employeeEmail", "hamza@gMail.com");
+  localStorage.setItem("employeeRole", "Employee");
+
   const [loggedIn, setloggedIn] = React.useState(true);
   return (
     <div className="App" style={{ background: "#000000" }}>
@@ -73,7 +80,7 @@ function App() {
         path="/"
         render={() =>
           loggedIn ? (
-            <Dashboard contacts={contacts} />
+            <Dashboard/>
           ) : (
             <Redirect to="/login" />
           )
@@ -82,7 +89,7 @@ function App() {
       <Route
         exact
         path="/login"
-        render={() => <Login setLogIn={setloggedIn} />}
+        render={() => <Login/>}
       />
       <Route exact path="/signup" render={() => <SignUpBusiness />} />
 

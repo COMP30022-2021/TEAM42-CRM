@@ -23,15 +23,10 @@ export default function StatisticsSubComponent3({ left, top, dashboard }) {
       .then((response) => response.json())
       .then((data) => {
         if (data.status_code === 200) {
-          console.log(data);
           setRevenueQ1(data.revenue[0].revenue);
-          console.log(data.revenue[0].revenue);
           setRevenueQ2(data.revenue[1].revenue);
-          console.log(data.revenue[1].revenue);
           setRevenueQ3(data.revenue[2].revenue);
-          console.log(data.revenue[2].revenue);
           setRevenueQ4(data.revenue[3].revenue);
-          console.log(data.revenue[3].revenue);
         } else {
           alert(data.status_message);
         }

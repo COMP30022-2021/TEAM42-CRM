@@ -1,79 +1,68 @@
 import React from "react";
-import { GrClose } from "react-icons/gr";
+import Select from "react-select";
 
-export default function StatisticsSubComponent4filters() {
+export const StatisticsSubComponent4filters = ({ value, setValue }) => {
+  const options = [
+    { value: "Ascending", label: "Ascending" },
+    { value: "Descending", label: "Descending" },
+  ];
+
+  const colourStyles = {
+    control: (styles) => ({
+      ...styles,
+      border: "0px solid black",
+      fontSize: 13,
+      backgroundColor: "transparent",
+      outline: "none",
+      boxShadow: "none",
+      "&:hover": {
+        border: "0px solid black",
+      },
+      color: "#2a8dbb",
+    }),
+    dropdownIndicator: (defaultStyles) => ({
+      ...defaultStyles,
+      color: "#3366BB",
+      position: "absolute",
+      left: "70%",
+    }),
+    menuPortal: (base) => ({ ...base, zIndex: 9999 }),
+    option: (styles, state) => {
+      return {
+        ...styles,
+        fontSize: 11,
+      };
+    },
+    singleValue: (provided) => ({
+      ...provided,
+      color: "#3366BB",
+    }),
+  };
+
   return (
-    <div className="filterBar">
-      <div className="p3" style={{ left: "10%", top: "5%" }}>
-        Gender:
-      </div>
-      <button
-        className="buttonFilter"
-        style={{
-          left: "6%",
-          width: "40%",
-          top: "10%",
+    <div className="filterDrop" style={{ left: "17.5%" }}>
+      <Select
+        className="orderBy"
+        components={{ IndicatorSeparator: () => null }}
+        menuPortalTarget={document.body}
+        styles={colourStyles}
+        options={options}
+        onChange={(e) => {
+          setValue(e);
         }}
-      >
-        <p style={{ color: "#109CF1" }}>Male</p>
-      </button>
-      <button
-        className="buttonFilter"
-        style={{
-          left: "54%",
-          width: "40%",
-          top: "10%",
-        }}
-      >
-        <p style={{ color: "#109CF1" }}>Female</p>
-      </button>
-
-      <div className="p3" style={{ left: "10%", top: "25%" }}>
-        Year:
-      </div>
-      <input
-        style={{ top: "30%", left: "10%", width: "30%" }}
-        class="numInput"
-        type="text"
-        min={2019}
-      ></input>
-      <button
-        className="buttonAdd"
-        style={{
-          left: "50%",
-          width: "40%",
-          top: "30%",
-          lineHeight: "13px",
-        }}
-      >
-        <p class="pButton">Set Year</p>
-      </button>
-
-      <input
-        style={{ top: "43%", left: "10%", width: "30%" }}
-        class="numInput"
-        type="number"
-        min={0}
-      ></input>
-      <div className="p3" style={{ left: "10%", top: "38%" }}>
-        Products:
-      </div>
-      <button
-        className="buttonAdd"
-        style={{
-          left: "50%",
-          width: "40%",
-          top: "43%",
-          lineHeight: "13px",
-        }}
-      >
-        <p class="pButton">Add product ID</p>
-      </button>
-
-      <GrClose
-        style={{ position: "absolute", left: "92%", top: "2.5%" }}
-        cursor="pointer"
+        value={value}
+        placeholder="Select an option"
       />
+      <p
+        style={{
+          position: "absolute",
+          left: "0%",
+          top: "-10%",
+          color: "#000000",
+        }}
+      >
+        Order:
+      </p>
     </div>
   );
-}
+};

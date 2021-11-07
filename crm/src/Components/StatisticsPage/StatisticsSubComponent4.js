@@ -1,13 +1,17 @@
 import React, { useState } from "react";
 import Chart from "react-google-charts";
+import { StatisticsSubComponent4filters } from "./StatisticsSubComponent4filters";
 
 //https://team42-crm.herokuapp.com/order/getProductQuarterlyRevenueInYear
 
 export default function StatisticsSubComponent4({ left, top }) {
   const [loading, setLoading] = useState(false);
   const [products, setProducts] = useState([]);
+  const [numItems, setNumItems] = useState(-1);
+  const [number, setNumber] = useState(5);
+
   const [productRevenue, setProductsRevenue] = useState([
-    ["Quarter", "1", "2", "3", "4", "5"],
+    ["Quarter"],
     [1],
     [2],
     [3],
@@ -16,9 +20,8 @@ export default function StatisticsSubComponent4({ left, top }) {
 
   const checkLoading = () => {
     for (var i = 0; i < productRevenue.length; i++) {
-      if (productRevenue[i].length < 6) return false;
+      if (productRevenue[i].length !== numItems) return false;
     }
-    console.log("yes");
     return setLoading(true);
   };
 
@@ -35,14 +38,17 @@ export default function StatisticsSubComponent4({ left, top }) {
         }),
         body: JSON.stringify({
           sortOrder: "DESC",
-          limit: 5,
+          limit: number,
         }),
       }
     )
       .then((response) => response.json())
       .then((data) => {
         if (data.status_code === 200) {
+          console.log(data);
+
           setProducts(data.products);
+          setNumItems(data.products.length + 1);
         } else {
           alert(data.status_message);
         }
@@ -52,7 +58,7 @@ export default function StatisticsSubComponent4({ left, top }) {
   const loadKeyStatistic = () => {
     if (products.length === 0) loadproducts();
     else {
-      console.log(products);
+      if (numItems === -1) return;
       for (var i = 0; i < products.length; i++) {
         fetch(
           "https://team42-crm.herokuapp.com/order/getProductQuarterlyRevenueInYear",
@@ -72,7 +78,7 @@ export default function StatisticsSubComponent4({ left, top }) {
           .then((response) => response.json())
           .then((data) => {
             if (data.status_code === 200) {
-              productRevenue[1].push(data.product[0]);
+              productRevenue[0].push(data.product[0]);
               productRevenue[1].push(data.product[0].revenue);
               productRevenue[2].push(data.product[1].revenue);
               productRevenue[3].push(data.product[2].revenue);
@@ -88,7 +94,16 @@ export default function StatisticsSubComponent4({ left, top }) {
 
   React.useEffect(() => {
     loadKeyStatistic();
-  }, [products]);
+  }, [products, numItems]);
+
+  React.useEffect(() => {
+    if (numItems === -1 || number < 1) return;
+    setLoading(false);
+    setProducts([]);
+    setProductsRevenue([["Quarter"], [1], [2], [3], [4]]);
+    setNumItems(-1);
+    loadKeyStatistic();
+  }, [number]);
 
   return (
     <div className="statisticsDisplay" style={{ left: left, top: top }}>
@@ -118,6 +133,14 @@ export default function StatisticsSubComponent4({ left, top }) {
           rootProps={{ "data-testid": "2" }}
         />
       )}
+      <input
+        className="stats4input"
+        style={{ top: "8%" }}
+        type="number"
+        placeholder="Enter Email Address"
+        value={number}
+        onChange={(e) => setNumber(e.target.value)}
+      />
       <h2 className="chartTitle">Item Sales Per Quarter</h2>
     </div>
   );

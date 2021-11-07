@@ -10,32 +10,31 @@ export default function Contacts({
   filters,
   order,
 }) {
+  const urls = [
+    "https://team42-crm.herokuapp.com/contact/all/" +
+      localStorage.getItem("businessID") +
+      "?sort=" +
+      lowerCaseFirstLetter(sortBy.value),
+    "https://team42-crm.herokuapp.com/customer/findall" +
+      localStorage.getItem("businessID"),
+    "https://team42-crm.herokuapp.com/vendor/findall" +
+      localStorage.getItem("businessID"),
+    "https://team42-crm.herokuapp.com/auth/findall" +
+      localStorage.getItem("businessID"),
+  ];
   const [contacts, setContacts] = React.useState([]);
 
   const contactType = useLocation().pathname.split("/")[2];
   const query = useLocation().pathname.split("/")[3];
 
   const handleContacts = (contacts) => {
-    if (query === "all") return handleOrder(handleAll(contacts));
-    if (query === "filter") return handleFilter(handleAll(contacts));
+    if (query === "all") return handleOrder(contacts);
+    if (query === "filter") return handleFilter(contacts);
     else return searchContacts(contacts);
   };
 
   const handleOrder = (contacts) => {
     return order.label === "Ascending" ? contacts : contacts.reverse();
-  };
-
-  const handleAll = (contacts) => {
-    if (contactType === "employees") {
-      return contacts.filter(
-        (contact) => contact.role === "employee" || contact.role === "manager"
-      );
-    } else if (contactType === "customers") {
-      return contacts.filter((contact) => contact.role === "customer");
-    } else if (contactType === "vendors") {
-      return contacts.filter((contact) => contact.role === "vendor");
-    }
-    return contacts;
   };
 
   const searchContacts = (contacts) => {
@@ -58,13 +57,21 @@ export default function Contacts({
     if (contactType === "all") {
       return contacts.filter((contact) => checkGender(contact));
     } else if (contactType === "customers") {
-      return contacts.filter((contact) => checkGender(contact));
+      return contacts.filter((contact) => customerFilters(contact));
     } else if (contactType === "employees") {
-      return contacts.filter((contact) => checkGender(contact));
+      return contacts.filter((contact) => employeeFilters(contact));
     } else if (contactType === "vendors") {
       return contacts.filter((contact) => checkGender(contact));
     }
     return contacts;
+  };
+
+  const customerFilters = (contact) => {
+    return checkGender(contact) && checkAgeFrom(contact) && checkAgeTo(contact);
+  };
+
+  const employeeFilters = (contact) => {
+    return checkGender(contact) && checkAgeFrom(contact) && checkAgeTo(contact);
   };
 
   const checkGender = (contact) => {
@@ -74,29 +81,56 @@ export default function Contacts({
     );
   };
 
+  const checkAgeFrom = (contact) => {
+    if (filters.ageFrom === "") return true;
+    var age =
+      new Date().getFullYear() - parseInt(contact.birthday.split("-")[0]);
+    return parseInt(filters.ageFrom) > age ? false : true;
+  };
+
+  const checkAgeTo = (contact) => {
+    if (filters.ageTo === "") return true;
+    var age =
+      new Date().getFullYear() - parseInt(contact.birthday.split("-")[0]);
+    return parseInt(filters.ageTo) < age ? false : true;
+  };
+
+  const getURL = () => {
+    if (contactType === "employees") {
+      return urls[3];
+    } else if (contactType === "customers") {
+      return urls[1];
+    } else if (contactType === "vendors") {
+      return urls[2];
+    }
+    return urls[0];
+  };
+
+  const getContactType = () => {
+    return contactType === "all" ? "contacts" : contactType;
+  };
+
+  const getRole = (contact) => {
+    return contactType === "all" ? contact.role : contactType.slice(0, -1);
+  };
+
   const loadContacts = async () => {
     setLoading(true);
-    await fetch(
-      "https://team42-crm.herokuapp.com/contact/all/" +
-        localStorage.getItem("businessID") +
-        "?sort=" +
-        lowerCaseFirstLetter(sortBy.value),
-      {
-        method: "get",
-        mode: "cors",
-        headers: new Headers({
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        }),
-      }
-    )
+    await fetch(getURL(), {
+      method: "get",
+      mode: "cors",
+      headers: new Headers({
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      }),
+    })
       .then((response) => response.json())
       .then((data) => {
         if (data.status_code === 200) {
-          setContacts(handleContacts(data.contacts));
-          setLoading(false);
+          setContacts(handleContacts(data[getContactType()]));
         }
       });
+    setLoading(false);
   };
 
   React.useEffect(() => {
@@ -106,6 +140,20 @@ export default function Contacts({
   React.useEffect(() => {
     setContacts([...contacts.reverse()]);
   }, [order]);
+
+  const checkLoading = () => {
+    if (contacts.length === 0) return false;
+    if (contactType === "all") {
+      return contacts[0].id !== undefined;
+    } else if (contactType === "customers") {
+      return contacts[0].customer_id !== undefined;
+    } else if (contactType === "employees") {
+      return contacts[0].employee_id !== undefined;
+    } else if (contactType === "vendors") {
+      return contacts[0].vendor_id !== undefined;
+    }
+    return false;
+  };
 
   return (
     <div
@@ -120,9 +168,9 @@ export default function Contacts({
     >
       <ContactsHeader />
 
-      {contacts.length > 0 ? (
+      {checkLoading() ? (
         contacts.map((contact, index) => (
-          <Contact key={index} contact={contact} />
+          <Contact key={index} contact={contact} role={getRole(contact)} />
         ))
       ) : (
         <div className="noContacts">

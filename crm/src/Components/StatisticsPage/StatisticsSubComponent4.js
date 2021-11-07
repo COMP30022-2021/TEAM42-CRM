@@ -1,13 +1,17 @@
 import React, { useState } from "react";
 import Chart from "react-google-charts";
+import { StatisticsSubComponent4filters } from "./StatisticsSubComponent4filters";
 
 //https://team42-crm.herokuapp.com/order/getProductQuarterlyRevenueInYear
 
-export default function StatisticsSubComponent4({ left, top, dashboard }) {
+export default function StatisticsSubComponent4({ left, top }) {
   const [loading, setLoading] = useState(false);
-  const [products, setProducts] = useState([1, 2, 3, 4, 5]);
+  const [products, setProducts] = useState([]);
+  const [numItems, setNumItems] = useState(-1);
+  const [number, setNumber] = useState(5);
+
   const [productRevenue, setProductsRevenue] = useState([
-    ["Quarter", "1", "2", "3", "4", "5"],
+    ["Quarter"],
     [1],
     [2],
     [3],
@@ -16,48 +20,90 @@ export default function StatisticsSubComponent4({ left, top, dashboard }) {
 
   const checkLoading = () => {
     for (var i = 0; i < productRevenue.length; i++) {
-      if (productRevenue[i].length < 6) return false;
+      if (productRevenue[i].length !== numItems) return false;
     }
-    console.log("yes");
     return setLoading(true);
   };
-  const loadKeyStatistic = () => {
-    for (var i = 0; i < products.length; i++) {
-      fetch(
-        "https://team42-crm.herokuapp.com/order/getProductQuarterlyRevenueInYear",
-        {
-          method: "post",
-          mode: "cors",
-          headers: new Headers({
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          }),
-          body: JSON.stringify({
-            product_id: products[i],
-            currentYear: 2019,
-          }),
+
+  const loadproducts = () => {
+    fetch(
+      "https://team42-crm.herokuapp.com/order/getAllSoldProducts" +
+        localStorage.getItem("businessID"),
+      {
+        method: "post",
+        mode: "cors",
+        headers: new Headers({
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        }),
+        body: JSON.stringify({
+          sortOrder: "DESC",
+          limit: number,
+        }),
+      }
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.status_code === 200) {
+          console.log(data);
+
+          setProducts(data.products);
+          setNumItems(data.products.length + 1);
+        } else {
+          alert(data.status_message);
         }
-      )
-        .then((response) => response.json())
-        .then((data) => {
-          if (data.status_code === 200) {
-            console.log(data);
-            productRevenue[1].push(data.product[0].revenue);
-            productRevenue[2].push(data.product[1].revenue);
-            productRevenue[3].push(data.product[2].revenue);
-            productRevenue[4].push(data.product[3].revenue);
-            console.log(productRevenue);
-            checkLoading();
-          } else {
-            alert(data.status_message);
+      });
+  };
+
+  const loadKeyStatistic = () => {
+    if (products.length === 0) loadproducts();
+    else {
+      if (numItems === -1) return;
+      for (var i = 0; i < products.length; i++) {
+        fetch(
+          "https://team42-crm.herokuapp.com/order/getProductQuarterlyRevenueInYear",
+          {
+            method: "post",
+            mode: "cors",
+            headers: new Headers({
+              "Content-Type": "application/json",
+              Accept: "application/json",
+            }),
+            body: JSON.stringify({
+              product_id: products[i].product_id,
+              currentYear: 2019,
+            }),
           }
-        });
+        )
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.status_code === 200) {
+              productRevenue[0].push(data.product[0]);
+              productRevenue[1].push(data.product[0].revenue);
+              productRevenue[2].push(data.product[1].revenue);
+              productRevenue[3].push(data.product[2].revenue);
+              productRevenue[4].push(data.product[3].revenue);
+              checkLoading();
+            } else {
+              alert(data.status_message);
+            }
+          });
+      }
     }
   };
 
   React.useEffect(() => {
     loadKeyStatistic();
-  }, []);
+  }, [products, numItems]);
+
+  React.useEffect(() => {
+    if (numItems === -1 || number < 1) return;
+    setLoading(false);
+    setProducts([]);
+    setProductsRevenue([["Quarter"], [1], [2], [3], [4]]);
+    setNumItems(-1);
+    loadKeyStatistic();
+  }, [number]);
 
   return (
     <div className="statisticsDisplay" style={{ left: left, top: top }}>
@@ -87,11 +133,15 @@ export default function StatisticsSubComponent4({ left, top, dashboard }) {
           rootProps={{ "data-testid": "2" }}
         />
       )}
+      <input
+        className="stats4input"
+        style={{ top: "8%" }}
+        type="number"
+        placeholder="Enter Email Address"
+        value={number}
+        onChange={(e) => setNumber(e.target.value)}
+      />
       <h2 className="chartTitle">Item Sales Per Quarter</h2>
     </div>
   );
 }
-
-StatisticsSubComponent4.defaultProp = {
-  dashboard: false,
-};

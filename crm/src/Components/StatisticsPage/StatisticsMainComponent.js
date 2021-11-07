@@ -7,9 +7,9 @@ import StatisticsSubComponent4 from "./StatisticsSubComponent4";
 export default function StatisticsMainComponent() {
   return (
     <div className="statisticsPage">
-      <StatisticsSubComponent1 left="51%" top="0%" />
+      {/* <StatisticsSubComponent1 left="51%" top="0%" />
       <StatisticsSubComponent2 left="4%" top="0%" />
-      <StatisticsSubComponent3 left="4%" top="43%" />
+      <StatisticsSubComponent3 left="4%" top="43%" /> */}
       <StatisticsSubComponent4 left="51%" top="43%" />
     </div>
   );

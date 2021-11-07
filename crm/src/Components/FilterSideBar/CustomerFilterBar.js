@@ -78,7 +78,7 @@ export default function CustomerFilterBar({ filters, setFilters, setX }) {
 
       <input
         style={{ top: "40%", left: "64%", width: "10%" }}
-        class="numInput"
+        className="numInput"
         type="text"
         value={filters.ageTo}
         onChange={(e) =>
@@ -108,7 +108,7 @@ export default function CustomerFilterBar({ filters, setFilters, setX }) {
         }}
       >
         <p
-          class="pButton"
+          className="pButton"
           style={{ fontSize: 13, color: "black" }}
           onClick={() => {
             filters.postcodes.push(postcode);
@@ -129,7 +129,7 @@ export default function CustomerFilterBar({ filters, setFilters, setX }) {
 
       <input
         style={{ top: "58%", left: "40%", width: "42%" }}
-        class="numInput"
+        className="numInput"
         type="date"
         value={filters.from}
         onChange={(e) =>
@@ -143,7 +143,7 @@ export default function CustomerFilterBar({ filters, setFilters, setX }) {
 
       <input
         style={{ top: "67%", left: "40%", width: "42%" }}
-        class="numInput"
+        className="numInput"
         type="date"
         value={filters.to}
         onChange={(e) => setFilters({ ...filters, to: e.currentTarget.value })}

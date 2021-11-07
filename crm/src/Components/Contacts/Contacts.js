@@ -56,7 +56,9 @@ export default function Contacts({
 
   const handleFilter = (contacts) => {
     if (contactType === "all") {
-      return contacts.filter((contact) => checkGender(contact));
+      return contacts.filter(
+        (contact) => checkGender(contact) && checkPostcode(contact)
+      );
     } else if (contactType === "customers") {
       return contacts.filter((contact) => customerFilters(contact));
     } else if (contactType === "employees") {
@@ -89,7 +91,7 @@ export default function Contacts({
   };
 
   const vendorFilters = (contact) => {
-    return checkGender(contact) && checkPostcode(contact);
+    return checkGender(contact) && checkPostcode(contact) && checkTags(contact);
   };
 
   const checkGender = (contact) => {
@@ -132,10 +134,10 @@ export default function Contacts({
   };
 
   const checkTags = (contact) => {
-    console.log(contact.name, contact.role);
-    if (filters.postcodes.length === 0) return true;
-    for (var i = 0; i < filters.postcodes.length; i++)
-      if (contact.address.includes(filters.postcodes[i])) return true;
+    if (filters.tags.length === 0) return true;
+    for (var i = 0; i < filters.tags.length; i++)
+      if (contact.tag.toLowerCase().includes(filters.tags[i].toLowerCase()))
+        return true;
 
     return false;
   };
@@ -200,6 +202,7 @@ export default function Contacts({
     query,
     query === "filter" ? filters : null,
     query === "filter" ? JSON.stringify(filters.postcodes) : null,
+    query === "filter" ? JSON.stringify(filters.tags) : null,
   ]);
 
   React.useEffect(() => {

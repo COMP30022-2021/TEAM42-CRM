@@ -17,7 +17,6 @@ import vendor from "../../res/images/external_vendor.jpg";
 import moffat from "../../res/images/moffat.jpg";
 
 export default function ExternalVendorDisplay({ contact, setEditMode }) {
-  console.log(contact);
   const [addEngagement, setAddEngagement] = React.useState(false);
   const [engagementHistory, setEngagementHistory] = React.useState(false);
 
@@ -30,14 +29,6 @@ export default function ExternalVendorDisplay({ contact, setEditMode }) {
         ? employee
         : customer
       : vendor;
-
-  const nextContact = () => {
-    alert("next contact please");
-  };
-
-  const previousContact = () => {
-    alert("previous contact please");
-  };
 
   const addVisit = () => {
     setAddEngagement(true);
@@ -96,22 +87,6 @@ export default function ExternalVendorDisplay({ contact, setEditMode }) {
         <div className="p3" style={{ left: "17.2%", top: "76%" }}>
           {contact.rate}
         </div>
-
-        <button
-          className="button3"
-          onClick={() => nextContact()}
-          style={{ left: "80%" }}
-        >
-          <p className="pText">Next</p>
-        </button>
-
-        <button
-          className="button3"
-          onClick={() => previousContact()}
-          style={{ left: "8%" }}
-        >
-          <p className="pText">Previous</p>
-        </button>
 
         <button
           className="addButton"

@@ -34,6 +34,16 @@ export default function Filters({ filters, setFilters }) {
 
   const handleClear = () => {
     history.push("/contacts/" + contactType + "/all");
+    setFilters({
+      isMale: true,
+      isFemale: false,
+      postcodes: [],
+      tags: [],
+      to: "",
+      from: "",
+      ageTo: "",
+      ageFrom: "",
+    });
   };
 
   return (

@@ -17,6 +17,7 @@ import vendor from "../../res/images/external_vendor.jpg";
 import moffat from "../../res/images/moffat.jpg";
 
 export default function ExternalVendorDisplay({ contact, setEditMode }) {
+  console.log(contact);
   const [addEngagement, setAddEngagement] = React.useState(false);
   const [engagementHistory, setEngagementHistory] = React.useState(false);
 

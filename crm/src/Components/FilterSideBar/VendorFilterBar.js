@@ -52,7 +52,7 @@ export default function VendorFilterBar({ filters, setFilters, setX }) {
           top: "25%",
         }}
         type="checkbox"
-        checked={filters.isFeale}
+        checked={filters.isFemale}
         value={filters.isFemale}
         onChange={(e) =>
           setFilters({ ...filters, isFemale: e.currentTarget.checked })

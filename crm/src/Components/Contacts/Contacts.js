@@ -22,6 +22,7 @@ export default function Contacts({
     "https://team42-crm.herokuapp.com/auth/findall" +
       localStorage.getItem("businessID"),
   ];
+
   const [contacts, setContacts] = React.useState([]);
 
   const contactType = useLocation().pathname.split("/")[2];
@@ -61,7 +62,7 @@ export default function Contacts({
     } else if (contactType === "employees") {
       return contacts.filter((contact) => employeeFilters(contact));
     } else if (contactType === "vendors") {
-      return contacts.filter((contact) => checkGender(contact));
+      return contacts.filter((contact) => vendorFilters(contact));
     }
     return contacts;
   };
@@ -72,7 +73,8 @@ export default function Contacts({
       checkAgeFrom(contact) &&
       checkAgeTo(contact) &&
       checkTo(contact.first_visit) &&
-      checkFrom(contact.first_visit)
+      checkFrom(contact.first_visit) &&
+      checkPostcode(contact)
     );
   };
 
@@ -81,8 +83,13 @@ export default function Contacts({
       checkGender(contact) &&
       checkAgeFrom(contact) &&
       checkTo(contact.date_joined) &&
-      checkFrom(contact.date_joined)
+      checkFrom(contact.date_joined) &&
+      checkPostcode(contact)
     );
+  };
+
+  const vendorFilters = (contact) => {
+    return checkGender(contact) && checkPostcode(contact);
   };
 
   const checkGender = (contact) => {
@@ -113,6 +120,24 @@ export default function Contacts({
   const checkFrom = (contactFrom) => {
     if (filters.from === "") return true;
     return filters.from > contactFrom ? false : true;
+  };
+
+  const checkPostcode = (contact) => {
+    console.log(contact);
+    if (filters.postcodes.length === 0) return true;
+    for (var i = 0; i < filters.postcodes.length; i++)
+      if (contact.address.includes(filters.postcodes[i])) return true;
+
+    return false;
+  };
+
+  const checkTags = (contact) => {
+    console.log(contact.name, contact.role);
+    if (filters.postcodes.length === 0) return true;
+    for (var i = 0; i < filters.postcodes.length; i++)
+      if (contact.address.includes(filters.postcodes[i])) return true;
+
+    return false;
   };
 
   const getURL = () => {
@@ -153,14 +178,6 @@ export default function Contacts({
     setLoading(false);
   };
 
-  React.useEffect(() => {
-    loadContacts();
-  }, [sortBy, contactType, query, query === "filter" ? filters : null]);
-
-  React.useEffect(() => {
-    setContacts([...contacts.reverse()]);
-  }, [order]);
-
   const checkLoading = () => {
     if (contacts.length === 0) return false;
     if (contactType === "all") {
@@ -174,6 +191,20 @@ export default function Contacts({
     }
     return false;
   };
+
+  React.useEffect(() => {
+    loadContacts();
+  }, [
+    sortBy,
+    contactType,
+    query,
+    query === "filter" ? filters : null,
+    query === "filter" ? JSON.stringify(filters.postcodes) : null,
+  ]);
+
+  React.useEffect(() => {
+    setContacts([...contacts.reverse()]);
+  }, [order]);
 
   return (
     <div

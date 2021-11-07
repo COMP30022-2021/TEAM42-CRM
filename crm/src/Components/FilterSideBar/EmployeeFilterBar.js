@@ -51,7 +51,7 @@ export default function EmployeeFilterBar({ filters, setFilters, setX }) {
           top: "22%",
         }}
         type="checkbox"
-        checked={filters.isFeale}
+        checked={filters.isFemale}
         value={filters.isFemale}
         onChange={(e) =>
           setFilters({ ...filters, isFemale: e.currentTarget.checked })

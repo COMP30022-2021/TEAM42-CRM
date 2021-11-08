@@ -2,7 +2,6 @@ import React from "react";
 import SpecificSetting from "./SpecificSetting";
 import { FaKey } from "react-icons/fa";
 import { IoMdPersonAdd } from "react-icons/io";
-import { AiFillDelete } from "react-icons/ai";
 import { IoIosAddCircle } from "react-icons/io";
 
 export default function SettingsMainComponent(props) {

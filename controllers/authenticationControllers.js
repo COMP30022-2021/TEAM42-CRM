@@ -118,7 +118,7 @@ exports.register = async function (req, res) {
                 name +
                 ",\nYou have been registered as an employee at Lynk. You can login now using the following details.\n\nEmail: " +
                 email +
-                "\nTemporary Password: admin.\n\nIt is recommended that you change your password by Logging in -> Settings -> Change Password.\n\n*Lynk - Founded in 2021 - is a Contact Relationship Manager that is specifically designed for restaurants. It empowers restaurant managers and staff to efficiently manage their contacts as well as keep track of contact activity. Additionally, the CRM displays key statistics that can used to by the restaurant management to assist in decision making."
+                "\nTemporary Password: admin.\n\nTo login visit https://team42-crm.herokuapp.com/ (Google Chrome / Edge recommended)\n\nIt is recommended that you change your password by Logging in -> Settings -> Change Password.\n\n*Lynk - Founded in 2021 - is a Contact Relationship Manager that is specifically designed for restaurants. It empowers restaurant managers and staff to efficiently manage their contacts as well as keep track of contact activity. Additionally, the CRM displays key statistics that can used to by the restaurant management to assist in decision making."
             );
             newEmployee.save().then((employee) => {
               res.json({

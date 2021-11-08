@@ -21,11 +21,13 @@ export default function SettingsMainComponent(props) {
         icon={<FaKey className="iconSettings" size="40%" />}
         onClick={props.setChangePassword}
       />
-      <SpecificSetting
-        name={"Create new Employee Account"}
-        icon={<IoMdPersonAdd className="iconSettings" size="40%" />}
-        onClick={props.setAddEmployee}
-      />
+      {localStorage.getItem("employeeRole") !== "Employee" && (
+        <SpecificSetting
+          name={"Create new Employee Account"}
+          icon={<IoMdPersonAdd className="iconSettings" size="40%" />}
+          onClick={props.setAddEmployee}
+        />
+      )}
       <SpecificSetting
         name={"Add New Item To Menu"}
         icon={<IoIosAddCircle className="iconSettings" size="40%" />}

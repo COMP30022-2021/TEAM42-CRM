@@ -25,15 +25,14 @@ export const RecentContact = ({ contact }) => {
       }
     >
       <div className="block" style={{ marginBottom: "0.25%" }}>
-        <SelectBox />
         <img src={image} className="recentContactImg" alt="User" />
         <h4
-          style={{ left: "24%", top: "12%", textAlign: "left", width: "25%" }}
+          style={{ left: "21%", top: "12%", textAlign: "left", width: "25%" }}
         >
           {contact.name}
         </h4>
-        <h4 style={{ left: "50%", top: "12%" }}>{contact.email}</h4>
-        <h4 style={{ left: "82%", top: "12%" }}>
+        <h4 style={{ left: "47%", top: "12%" }}>{contact.email}</h4>
+        <h4 style={{ left: "80%", top: "12%" }}>
           {capitalizeFirstLetter(contact.role)}
         </h4>
       </div>

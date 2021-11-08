@@ -45,8 +45,6 @@ export default function StatisticsSubComponent4({ left, top }) {
       .then((response) => response.json())
       .then((data) => {
         if (data.status_code === 200) {
-          console.log(data);
-
           setProducts(data.products);
           setNumItems(data.products.length + 1);
         } else {
@@ -139,6 +137,8 @@ export default function StatisticsSubComponent4({ left, top }) {
         type="number"
         placeholder="Enter Email Address"
         value={number}
+        min={1}
+        disabled={!loading}
         onChange={(e) => setNumber(e.target.value)}
       />
       <h2 className="chartTitle">Item Sales Per Quarter</h2>

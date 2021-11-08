@@ -3,8 +3,11 @@ import React from "react";
 export default function StatisticsSubComponent1({ left, top }) {
   const [revenue, setRevenue] = React.useState("");
   const [numberTransactions, setNumberTransactions] = React.useState("");
-  const [mostSold, setMostSold] = React.useState("");
-  const [leastSold, setLeastSold] = React.useState("");
+  const [mostSold, setMostSold] = React.useState({ product_id: "", sale: "" });
+  const [leastSold, setLeastSold] = React.useState({
+    product_id: "",
+    sale: "",
+  });
 
   const loadKeyStatistic = () => {
     fetch(
@@ -72,7 +75,7 @@ export default function StatisticsSubComponent1({ left, top }) {
       .then((response) => response.json())
       .then((data) => {
         if (data.status_code === 200) {
-          setMostSold(data.products[0].product_id);
+          setMostSold(data.products[0]);
         } else {
           alert(data.status_message);
         }
@@ -97,7 +100,7 @@ export default function StatisticsSubComponent1({ left, top }) {
       .then((response) => response.json())
       .then((data) => {
         if (data.status_code === 200) {
-          setLeastSold(data.products[0].product_id);
+          setLeastSold(data.products[0]);
         } else {
           alert(data.status_message);
         }
@@ -122,11 +125,19 @@ export default function StatisticsSubComponent1({ left, top }) {
         </div>
 
         <div className="pStatsDescription">
-          Most sold item: <strong>{mostSold}</strong>
+          Most sold item:{" "}
+          <strong>
+            {mostSold.product_id} (sold {mostSold.sale} time
+            {parseInt(mostSold.sale) > 1 ? "s" : ""})
+          </strong>
         </div>
 
         <div className="pStatsDescription">
-          Least sold item: <strong>{leastSold}</strong>
+          Least sold item:{" "}
+          <strong>
+            {leastSold.product_id} (sold {leastSold.sale} time
+            {parseInt(leastSold.sale) > 1 ? "s" : ""})
+          </strong>
         </div>
       </div>
     </div>

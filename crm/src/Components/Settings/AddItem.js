@@ -10,7 +10,7 @@ function AddItem({ setBlur }) {
 
   function attemptAdd() {
     if (name === "") alert("Enter Product Name");
-    else if (ID == "") alert("Add Product ID");
+    else if (ID === "") alert("Add Product ID");
     else if (price === "") alert("Add Price");
 
     fetch("https://team42-crm.herokuapp.com/product/create", {

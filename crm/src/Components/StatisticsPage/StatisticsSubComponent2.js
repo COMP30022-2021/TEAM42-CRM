@@ -1,15 +1,9 @@
 import React from "react";
 import Chart from "react-google-charts";
-import { NonceProvider } from "react-select";
 
 export default function StatisticsSubCompoent2({ left, top, dashboard }) {
   const [proportion, setProportion] = React.useState(null);
   const [loading, setLoading] = React.useState(true);
-  const info = {
-    NumberEmployee: 100,
-    NumberExternalVendor: 150,
-    NumberCutomers: 200,
-  };
 
   const loadData = async () => {
     await fetch(

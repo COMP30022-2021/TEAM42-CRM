@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Chart from "react-google-charts";
-import { StatisticsSubComponent4filters } from "./StatisticsSubComponent4filters";
 
 //https://team42-crm.herokuapp.com/order/getProductQuarterlyRevenueInYear
 

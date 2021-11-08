@@ -43,7 +43,7 @@ export default function StatisticsSubCompoent2({ left, top, dashboard }) {
             width={"100%"}
             height={"100%"}
             chartType="PieChart"
-            loader={<h2 class="chartTitle">Loading...</h2>}
+            loader={<h2 className="chartTitle">Loading...</h2>}
             data={[
               ["Type", "Number"],
               ["Employee", proportion.total_employees],
@@ -66,7 +66,7 @@ export default function StatisticsSubCompoent2({ left, top, dashboard }) {
             }}
             rootProps={{ "data-testid": "2" }}
           />
-          <h2 class="chartTitle">Contact Proportion</h2>
+          <h2 className="chartTitle">Contact Proportion</h2>
         </React.Fragment>
       )}
     </div>

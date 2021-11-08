@@ -48,8 +48,8 @@ export default function RecentContacts({ setLoading }) {
           </h1>
         </div>
 
-        {contacts.slice(0, 8).map((contact) => (
-          <RecentContact contact={contact} />
+        {contacts.slice(0, 8).map((contact, index) => (
+          <RecentContact contact={contact} key={index} />
         ))}
 
         <Link to="/contacts/customers/all">

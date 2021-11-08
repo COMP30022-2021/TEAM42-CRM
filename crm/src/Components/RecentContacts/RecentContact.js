@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import SelectBox from "../Contacts/SelectBox";
 
 import customer from "../../res/images/Customer.jpg";
 import employee from "../../res/images/Employee.jfif";

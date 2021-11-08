@@ -6,10 +6,6 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import Helmet from "react-helmet";
 
-import customer from "../../res/images/Customer.jpg";
-import employee from "../../res/images/Employee.jfif";
-import vendor from "../../res/images/external_vendor.jpg";
-
 export const LoginBox = () => {
   const history = useHistory();
   const [email, setText1] = useState("");

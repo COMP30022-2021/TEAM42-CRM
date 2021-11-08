@@ -104,8 +104,8 @@ export default function CustomerInner({ values }) {
           top: "21%",
         }}
         type="checkbox"
-        checked={values.isMale}
-        value={values.isMale}
+        checked={values.customerIsMale}
+        value={values.customerIsMale}
         onChange={(e) => values.setIsMale(e.currentTarget.checked)}
       />
 
@@ -118,8 +118,8 @@ export default function CustomerInner({ values }) {
           top: "31%",
         }}
         type="checkbox"
-        checked={!values.isMale}
-        value={!values.isMale}
+        checked={!values.customerIsMale}
+        value={!values.customerIsMale}
         onChange={(e) => values.setIsMale(!e.currentTarget.checked)}
       />
     </div>

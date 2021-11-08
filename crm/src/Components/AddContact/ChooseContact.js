@@ -18,8 +18,9 @@ export const ChooseContact = ({ setBlur, setMode }) => {
         }
         style={{ width: "65%", left: "15%", top: "22%" }}
         onClick={() => {
-          if (localStorage.getItem("employeeRole") !== "Employee") setMode(1);
+          setMode(1);
         }}
+        disabled={localStorage.getItem("employeeRole") === "Employee"}
       >
         <p>Add Employee</p>
       </button>

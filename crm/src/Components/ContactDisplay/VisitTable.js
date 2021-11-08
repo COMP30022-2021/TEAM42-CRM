@@ -14,10 +14,6 @@ export default function VisitTable({ customerID }) {
   };
 
   const getVisitHistory = () => {
-    console.log(
-      "https://team42-crm.herokuapp.com/customer/getOneCustomerTransactionHistory" +
-        customerID
-    );
     fetch(
       "https://team42-crm.herokuapp.com/transaction/getOneCustomerTransactionHistory" +
         customerID,
@@ -32,9 +28,7 @@ export default function VisitTable({ customerID }) {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         if (data.status_code === 200) {
-          console.log(data);
           setHistory(data.history);
         } else {
           alert(data.status_message);

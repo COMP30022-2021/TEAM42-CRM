@@ -28,14 +28,6 @@ export default function CustomerDisplay({ contact, setEditMode }) {
         : customer
       : vendor;
 
-  const nextContact = () => {
-    alert("next contact please");
-  };
-
-  const previousContact = () => {
-    alert("previous contact please");
-  };
-
   return (
     <div>
       <div

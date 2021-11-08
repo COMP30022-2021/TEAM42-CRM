@@ -53,22 +53,13 @@ const contacts = [
 ];
 
 function App() {
-
-  localStorage.setItem("loggedIn", true);
-  localStorage.setItem("businessID", 1);
-  localStorage.setItem("employeeID", 1);
-  localStorage.setItem("employeeName", "Hamza");
-  localStorage.setItem("employeeEmail", "hamza@gMail.com");
-  localStorage.setItem("employeeRole", "Employee");
-
-  const [loggedIn, setloggedIn] = React.useState(true);
   return (
     <div className="App" style={{ background: "#000000" }}>
       <Route
         exact
         path="/contacts/:type/:query"
         render={() =>
-          loggedIn ? (
+          localStorage.getItem("loggedIn") === "true" ? (
             <ContactPage contacts={contacts} />
           ) : (
             <Redirect to="/login" />
@@ -79,25 +70,21 @@ function App() {
         exact
         path="/"
         render={() =>
-          loggedIn ? (
-            <Dashboard/>
+          localStorage.getItem("loggedIn") === "true" ? (
+            <Dashboard />
           ) : (
             <Redirect to="/login" />
           )
         }
       />
-      <Route
-        exact
-        path="/login"
-        render={() => <Login/>}
-      />
+      <Route exact path="/login" render={() => <Login />} />
       <Route exact path="/signup" render={() => <SignUpBusiness />} />
 
       <Route
         exact
         path="/contacts/:role/:name/:id"
         render={() =>
-          loggedIn ? (
+          localStorage.getItem("loggedIn") === "true" ? (
             <ContactDisplay contacts={contacts} />
           ) : (
             <Redirect to="/login" />
@@ -108,13 +95,25 @@ function App() {
       <Route
         exact
         path="/settings"
-        render={() => (loggedIn ? <Settings /> : <Redirect to="/login" />)}
+        render={() =>
+          localStorage.getItem("loggedIn") === "true" ? (
+            <Settings />
+          ) : (
+            <Redirect to="/login" />
+          )
+        }
       />
 
       <Route
         exact
         path="/statistics"
-        render={() => (loggedIn ? <Statistics /> : <Redirect to="/login" />)}
+        render={() =>
+          localStorage.getItem("loggedIn") === "true" ? (
+            <Statistics />
+          ) : (
+            <Redirect to="/login" />
+          )
+        }
       />
     </div>
   );

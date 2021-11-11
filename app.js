@@ -38,6 +38,7 @@ app.use("/business", require("./routes/businessRoutes"));
 app.use("/product", require("./routes/productRoutes"));
 app.use("/order", require("./routes/orderDetailRoutes"));
 app.use("/transaction", require("./routes/transactionRoutes"));
+app.use("/engagement", require("./routes/engagementRoutes"));
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('crm/build'));

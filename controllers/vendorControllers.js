@@ -99,3 +99,20 @@ exports.findAll = async (req, res) => {
         });
     }
 };
+
+exports.updateVendor = async (req, res) => {
+    try {
+        let { email, address, tags, phone, rate, vendorID } = req.body;
+        await Vendor.updateVendor(email, address, tags, phone, rate, vendorID);
+        res.status(200).json({
+            status_code: 200,
+            status_message: "Success",
+        })
+    } catch (err) {
+        console.log(err);
+        res.status(400).json({
+            status_code: 400,
+            status_message: "Error: Internal Server Error",
+        });
+    }
+};

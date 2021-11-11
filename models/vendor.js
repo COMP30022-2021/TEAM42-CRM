@@ -38,6 +38,11 @@ class Vendor {
         return newVendor
     }
 
+    static updateVendor(email, address, tags, phone, rate, vendorID) {
+        let sql = `UPDATE vendor SET email='${email}',address='${address}',tag='${tags}',phone='${phone}',unit_cost='${rate}' WHERE vendor_id = ${vendorID}`
+        return mysql.execute(sql);
+    }
+
     async deleteByID(id) {
         let sql = `DELETE FROM vendor WHERE vendor_id = ${id};`
 

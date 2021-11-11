@@ -127,7 +127,7 @@ export default function StatisticsSubComponent1({ left, top }) {
         <div className="pStatsDescription">
           Most sold item:{" "}
           <strong>
-            {mostSold.product_id} (sold {mostSold.sale} time
+            {mostSold.name} (sold {mostSold.sale} time
             {parseInt(mostSold.sale) > 1 ? "s" : ""})
           </strong>
         </div>
@@ -135,7 +135,7 @@ export default function StatisticsSubComponent1({ left, top }) {
         <div className="pStatsDescription">
           Least sold item:{" "}
           <strong>
-            {leastSold.product_id} (sold {leastSold.sale} time
+            {leastSold.name} (sold {leastSold.sale} time
             {parseInt(leastSold.sale) > 1 ? "s" : ""})
           </strong>
         </div>

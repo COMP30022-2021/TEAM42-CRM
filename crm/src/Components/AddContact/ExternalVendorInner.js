@@ -1,8 +1,8 @@
 import React from "react";
 import UploadPicture from "../UploadPicture/UploadPicture";
 
-export default function ExternalVendorInner({ values }) {
-  console.log(values);
+export default function ExternalVendorInner({ values, mode }) {
+  const disabled = mode === "edit";
   return (
     <div>
       <div className="pone" style={{ top: "13%", left: "9%" }}>
@@ -20,6 +20,7 @@ export default function ExternalVendorInner({ values }) {
         placeholder="Enter Vendor's Name"
         value={values.vendorName}
         onChange={(e) => values.setName(e.target.value)}
+        disabled={disabled}
       ></input>
 
       <div className="pone" style={{ top: "64%", left: "9%" }}>
@@ -96,6 +97,7 @@ export default function ExternalVendorInner({ values }) {
       <div className="pone" style={{ top: "31%", left: "37%" }}>
         Female
       </div>
+
       <input
         style={{
           position: "absolute",
@@ -108,6 +110,7 @@ export default function ExternalVendorInner({ values }) {
         checked={values.vendorIsMale}
         value={values.vendorIsMale}
         onChange={(e) => values.setIsMale(e.currentTarget.checked)}
+        disabled={disabled}
       />
 
       <input
@@ -122,6 +125,7 @@ export default function ExternalVendorInner({ values }) {
         checked={!values.vendorIsMale}
         value={!values.vendorIsMale}
         onChange={(e) => values.setIsMale(!e.currentTarget.checked)}
+        disabled={disabled}
       />
     </div>
   );

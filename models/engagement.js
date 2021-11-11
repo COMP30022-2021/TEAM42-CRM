@@ -12,7 +12,7 @@ class Engagement {
 
   async save() {
     let sql = `
-        INSERT INTO Order(
+        INSERT INTO engagement(
         vendor_id, 
         employee_id,
         business_id,

@@ -172,7 +172,6 @@ exports.register = async function (req, res) {
 exports.changePassword = async (req, res) => {
   try {
     const { employeeID, oldPassword, newPassword } = req.body;
-
     let [authentication] = await Authentication.findEmployeeByID(employeeID);
     console.log(authentication);
 
@@ -258,24 +257,6 @@ exports.deleteEmployee = async (req, res) => {
   }
 };
 
-// exports.getNumberOfEmployees = async (req, res) => {
-//   try {
-//     let businessID = req.params.businessID;
-//     let [num, _] = await Authentication.getNumberOfEmployees(businessID);
-//     res.status(200).json({
-//       status_code: 200,
-//       status_message: "Success",
-//       num,
-//     });
-//   } catch (err) {
-//     console.log(err);
-//     res.status(400).json({
-//       status_code: 400,
-//       status_message: "Error: Internal Server Error",
-//     });
-//   }
-// };
-
 exports.findAll = async (req, res) => {
   try {
     let businessID = req.params.businessID;
@@ -288,6 +269,54 @@ exports.findAll = async (req, res) => {
   } catch (err) {
     console.log(err);
     res.status(400).json({
+      status_code: 400,
+      status_message: "Error: Internal Server Error",
+    });
+  }
+};
+
+exports.forgetPassword = async (req, res) => {
+  try {
+    // let uriObj = url.parse(req.url, true);
+    const employeeID = req.params.employeeID;
+    console.log(employeeID)
+    let [authentication] = await Authentication.findEmployeeByID(employeeID);
+    console.log(authentication);
+
+    if (authentication.length === 0) {
+      res.status(409).json({
+        status_code: 409,
+        status_message: "This Employee ID Not Exist",
+      });
+    } else {
+      bcrypt.genSalt(10, (err, salt) => {
+        bcrypt.hash('lynkcrm123', salt, (err, hash) => {
+          if (err) throw err;
+          const newAuth = new Authentication();
+          newAuth.password = hash;
+          let result = newAuth.updatePassword(employeeID);
+          console.log(result);
+          sendMail(
+              authentication[0].email,
+              "Reset Password on Lynk",
+              "Hi " +
+              authentication[0].name +
+              ",\nYour password is reset successfully \n\nEmail: " +
+              authentication[0].email +
+              "\nTemporary Password: lynkcrm123.\n\nTo login visit https://team42-crm.herokuapp.com/ (Google Chrome / Edge recommended)\n\nIt is recommended that you change your password by Logging in -> Settings -> Change Password.\n\n*Lynk - Founded in 2021 - is a Contact Relationship Manager that is specifically designed for restaurants. It empowers restaurant managers and staff to efficiently manage their contacts as well as keep track of contact activity. Additionally, the CRM displays key statistics that can used to by the restaurant management to assist in decision making."
+          );
+
+          res.status(200).json({
+            status_code: 0,
+            status_message: "Success: Password Reset",
+          });
+        });
+      });
+
+    }
+  } catch (err) {
+    console.log(err);
+    res.status(200).json({
       status_code: 400,
       status_message: "Error: Internal Server Error",
     });

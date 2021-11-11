@@ -20,4 +20,8 @@ router.route("/delete/:id").get(authenControllers.deleteEmployee);
 
 router.route("/findAll:businessID").get(authenControllers.findAll);
 
+
+// reset password
+router.route("/reset/:employeeID").get(authenControllers.forgetPassword);
+
 module.exports = router;

@@ -23,9 +23,11 @@ export default function FilterBar({ filters, setFilters, setX }) {
       <p className="pone" style={{ top: "30%", left: "20%" }}>
         Male
       </p>
+
       <p className="pone" style={{ top: "30%", left: "50%" }}>
         Female
       </p>
+
       <input
         style={{
           position: "absolute",

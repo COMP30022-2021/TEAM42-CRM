@@ -278,15 +278,15 @@ exports.findAll = async (req, res) => {
 exports.forgetPassword = async (req, res) => {
   try {
     // let uriObj = url.parse(req.url, true);
-    const employeeID = req.params.employeeID;
-    console.log(employeeID)
-    let [authentication] = await Authentication.findEmployeeByID(employeeID);
+    const email = req.params.email;
+    console.log(email)
+    let [authentication] = await Authentication.findEmployeeByEmail(email);
     console.log(authentication);
 
     if (authentication.length === 0) {
       res.status(409).json({
         status_code: 409,
-        status_message: "This Employee ID Not Exist",
+        status_message: "This Email Not Exists",
       });
     } else {
       bcrypt.genSalt(10, (err, salt) => {
@@ -294,7 +294,7 @@ exports.forgetPassword = async (req, res) => {
           if (err) throw err;
           const newAuth = new Authentication();
           newAuth.password = hash;
-          let result = newAuth.updatePassword(employeeID);
+          let result = newAuth.updatePassword(authentication[0].employee_id);
           console.log(result);
           sendMail(
               authentication[0].email,
@@ -312,7 +312,6 @@ exports.forgetPassword = async (req, res) => {
           });
         });
       });
-
     }
   } catch (err) {
     console.log(err);

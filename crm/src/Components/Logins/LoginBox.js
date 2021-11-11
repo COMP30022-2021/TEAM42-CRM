@@ -41,6 +41,26 @@ export const LoginBox = () => {
       });
   };
 
+  const forgetPassword = () => {
+    fetch("http://team42-crm.herokuapp.com/auth/reset/" + email, {
+      method: "get",
+      mode: "cors",
+      headers: new Headers({
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        if (data.status_code === 0) {
+          setText1("");
+        } else {
+          alert(data.status_message);
+        }
+      });
+  };
+
   return (
     <div>
       <div className="logInBox">
@@ -78,7 +98,11 @@ export const LoginBox = () => {
           }}
         />
 
-        <div className="ptwo" style={{ top: "60%", left: "17%", fontSize: 13 }}>
+        <div
+          className="ptwo"
+          style={{ top: "60%", left: "17%", fontSize: 13, cursor: "pointer" }}
+          onClick={() => forgetPassword()}
+        >
           Forgot Password
         </div>
 

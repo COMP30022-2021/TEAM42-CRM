@@ -9,7 +9,8 @@ router.route("/create").post(customerControllers.createNewCustomer);
 router.route("/delete/:id").get(customerControllers.deleteCustomer);
 
 // router.route("/getNumberOfCustomers:businessID").get(customerControllers.getNumberOfCustomers);
-
 router.route("/findAll:businessID").get(customerControllers.findAll);
+
+router.route("/update").post(customerControllers.updateCustomer);
 
 module.exports = router;

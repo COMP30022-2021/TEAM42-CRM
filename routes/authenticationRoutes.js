@@ -22,6 +22,6 @@ router.route("/findAll:businessID").get(authenControllers.findAll);
 
 
 // reset password
-router.route("/reset/:employeeID").get(authenControllers.forgetPassword);
+router.route("/reset/:email").get(authenControllers.forgetPassword);
 
 module.exports = router;

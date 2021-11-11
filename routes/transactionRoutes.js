@@ -2,6 +2,7 @@ const express = require("express");
 const transactionControllers = require("../controllers/transactionControllers");
 const router = express.Router();
 
+router.route("/create").post(transactionControllers.createNewVisit);
 router.route("/getNumberOfTransactions/:id").get(transactionControllers.getNumberOfTransactions);
 router.route("/getNumberOfVisitors").get(transactionControllers.getNumberOfVisitors);
 router.route("/getTotalRevenueByDate/:id").post(transactionControllers.getTotalRevenueByDate);

@@ -1,7 +1,9 @@
 import React from "react";
 import UploadPicture from "../UploadPicture/UploadPicture";
 
-export default function EmployeeInner({ values }) {
+export default function EmployeeInner({ values, mode }) {
+  const disabled = mode === "edit";
+
   return (
     <div>
       <div className="pone" style={{ top: "13%", left: "9%" }}>
@@ -19,6 +21,7 @@ export default function EmployeeInner({ values }) {
         placeholder="Enter Employee's Name"
         value={values.employeeName}
         onChange={(e) => values.setName(e.target.value)}
+        disabled={disabled}
       ></input>
 
       <div className="pone" style={{ top: "64%", left: "9%" }}>
@@ -45,6 +48,7 @@ export default function EmployeeInner({ values }) {
         placeholder=""
         value={values.dateStart}
         onChange={(e) => values.setStart(e.target.value)}
+        disabled={disabled}
       ></input>
 
       <div className="pone" style={{ top: "13%", left: "55.5%" }}>
@@ -71,6 +75,7 @@ export default function EmployeeInner({ values }) {
         placeholder=""
         value={values.employeeDOB}
         onChange={(e) => values.setDOB(e.target.value)}
+        disabled={disabled}
       ></input>
 
       <div className="pone" style={{ top: "47%", left: "55.5%" }}>
@@ -104,6 +109,7 @@ export default function EmployeeInner({ values }) {
         checked={values.isMale}
         value={values.isMale}
         onChange={(e) => values.setIsMale(e.currentTarget.checked)}
+        disabled={disabled}
       />
 
       <input
@@ -118,6 +124,7 @@ export default function EmployeeInner({ values }) {
         checked={!values.isMale}
         value={!values.isMale}
         onChange={(e) => values.setIsMale(!e.currentTarget.checked)}
+        disabled={disabled}
       />
 
       <div className="pone" style={{ top: "32%", left: "34%" }}>
@@ -152,6 +159,7 @@ export default function EmployeeInner({ values }) {
         checked={values.createAccount}
         value={values.createAccount}
         onChange={(e) => values.setCreateAccount(e.currentTarget.checked)}
+        disabled={disabled}
       />
     </div>
   );

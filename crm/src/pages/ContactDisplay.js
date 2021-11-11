@@ -89,6 +89,7 @@ export default function ContactDisplay() {
           setEditMode={setEditMode}
           contact={displayContact}
           type={path[2]}
+          id={path[4]}
         />
       )}
       {blur && <AddPopUp setBlur={setBlur} />}

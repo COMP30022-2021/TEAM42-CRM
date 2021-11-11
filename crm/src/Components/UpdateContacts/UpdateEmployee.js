@@ -4,7 +4,7 @@ import { GrClose } from "react-icons/gr";
 import EmployeeInner from "../AddContact/EmployeeInner";
 import { useHistory } from "react-router-dom";
 
-export default function UpdateEmployee({ setEditMode, contact }) {
+export default function UpdateEmployee({ setEditMode, contact, id }) {
   const history = useHistory();
 
   const [employeeName, setName] = useState(contact.name);
@@ -14,7 +14,7 @@ export default function UpdateEmployee({ setEditMode, contact }) {
   const [dateStart, setStart] = useState(contact.date_joined);
   const [employeePhone, setPhone] = useState(contact.phone);
   const [isMale, setIsMale] = useState(contact.gender === 1);
-  const [isManager, setIsManager] = useState(contact.Role === "Manager");
+  const [isManager, setIsManager] = useState(contact.role === "Manager");
   const [createAccount, setCreateAccount] = useState(false);
 
   const properties = {
@@ -64,6 +64,32 @@ export default function UpdateEmployee({ setEditMode, contact }) {
       });
   };
 
+  const handleUpdate = () => {
+    fetch("https://team42-crm.herokuapp.com/auth/update/", {
+      method: "post",
+      mode: "cors",
+      headers: new Headers({
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      }),
+      body: JSON.stringify({
+        email: employeeEmail,
+        phone: employeePhone,
+        address: employeeAddress,
+        isManager: isManager ? "Manager" : "Employee",
+        employeeID: id,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.status_code === 200) {
+          window.location.reload();
+        } else {
+          alert(data.status_message);
+        }
+      });
+  };
+
   return (
     <div style={{ background: "#265573", width: "100%", height: "100%" }}>
       <div className="addContact">
@@ -73,11 +99,12 @@ export default function UpdateEmployee({ setEditMode, contact }) {
           width_a={"100%"}
         />
 
-        <EmployeeInner values={properties} />
+        <EmployeeInner values={properties} mode={"edit"} />
 
         <button
           className="buttonCustomer"
           style={{ width: "25%", left: "20%", top: "83.5%" }}
+          onClick={() => handleUpdate()}
         >
           <p>Update Contact</p>
         </button>

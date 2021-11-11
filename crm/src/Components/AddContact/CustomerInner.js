@@ -1,7 +1,9 @@
 import React from "react";
 import UploadPicture from "../UploadPicture/UploadPicture";
 
-export default function CustomerInner({ values }) {
+export default function CustomerInner({ values, mode }) {
+  const disabled = mode === "edit";
+
   return (
     <div>
       <div className="pone" style={{ top: "13%", left: "9%" }}>
@@ -19,6 +21,7 @@ export default function CustomerInner({ values }) {
         placeholder="Enter Customer's Name"
         value={values.customerName}
         onChange={(e) => values.setName(e.target.value)}
+        disabled={disabled}
       ></input>
 
       <div className="pone" style={{ top: "64%", left: "9%" }}>
@@ -45,6 +48,7 @@ export default function CustomerInner({ values }) {
         placeholder=""
         value={values.dateFirstVisit}
         onChange={(e) => values.setFirstVisit(e.target.value)}
+        disabled={disabled}
       ></input>
 
       <div className="pone" style={{ top: "13%", left: "55.5%" }}>
@@ -71,6 +75,7 @@ export default function CustomerInner({ values }) {
         placeholder=""
         value={values.customerDOB}
         onChange={(e) => values.setDOB(e.target.value)}
+        disabled={disabled}
       ></input>
 
       <div className="pone" style={{ top: "47%", left: "55.5%" }}>
@@ -107,6 +112,7 @@ export default function CustomerInner({ values }) {
         checked={values.customerIsMale}
         value={values.customerIsMale}
         onChange={(e) => values.setIsMale(e.currentTarget.checked)}
+        disabled={disabled}
       />
 
       <input
@@ -121,6 +127,7 @@ export default function CustomerInner({ values }) {
         checked={!values.customerIsMale}
         value={!values.customerIsMale}
         onChange={(e) => values.setIsMale(!e.currentTarget.checked)}
+        disabled={disabled}
       />
     </div>
   );

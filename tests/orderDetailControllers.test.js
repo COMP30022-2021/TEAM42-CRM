@@ -36,14 +36,14 @@ describe("Get Product Q Revenue in a Year", () => {
 
 describe("Get All sold products", () => {
   test("Returns 200 status code ", async () => {
-    const response = await request.post("/order/getAllSoldProducts").send({
+    const response = await request.post("/order/getAllSoldProducts1").send({
       "sortOrder": "DESC",
       "limit": 3
     });
     expect(response.statusCode).toBe(200);
   });
   test("Returns JSON file", async () => {
-    const response = await request.post("/order/getAllSoldProducts").send({
+    const response = await request.post("/order/getAllSoldProducts1").send({
       "sortOrder": "DESC",
       "limit": 3
     });

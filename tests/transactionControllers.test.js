@@ -17,11 +17,11 @@ afterAll(async () => {
 
 describe("Getting the number of transactions", () => {
     test("Returns 200 status code ", async () => {
-        const response = await request.get("/transaction/getNumberOfTransactions");
+        const response = await request.get("/transaction/getNumberOfTransactions/1");
         expect(response.statusCode).toBe(200);
     });
     test("Returns JSON file", async () => {
-        const response = await request.get("/transaction/getNumberOfTransactions");
+        const response = await request.get("/transaction/getNumberOfTransactions/1");
         expect(response.headers["content-type"]).toEqual(
             expect.stringContaining("json")
         );
@@ -43,14 +43,14 @@ describe("Getting the number of visitors", () => {
 
 describe("Getting the the total revenue by date ", () => {
     test("Returns 200 status code ", async () => {
-        const response = await request.post("/transaction/getTotalRevenueByDate").send({
+        const response = await request.post("/transaction/getTotalRevenueByDate/1").send({
             "start_date": "2019-1-1",
             "end_date": "2019-10-1"
         });
         expect(response.statusCode).toBe(200);
     });
     test("Returns JSON file", async () => {
-        const response = await request.post("/transaction/getTotalRevenueByDate").send({
+        const response = await request.post("/transaction/getTotalRevenueByDate/1").send({
             "start_date": "2019-1-1",
             "end_date": "2019-10-1"
         });
@@ -62,11 +62,11 @@ describe("Getting the the total revenue by date ", () => {
 
 describe("Getting One year revenue by quarter in Year ", () => {
     test("Returns 200 status code ", async () => {
-        const response = await request.get("/transaction/getOneYearRevenueByQuarterInYear2021") ;
+        const response = await request.get("/transaction/getOneYearRevenueByQuarterInYear2021/1") ;
         expect(response.statusCode).toBe(200);
     });
     test("Returns JSON file", async () => {
-        const response = await request.get("/transaction/getOneYearRevenueByQuarterInYear2021") ;
+        const response = await request.get("/transaction/getOneYearRevenueByQuarterInYear2021/1") ;
         expect(response.headers["content-type"]).toEqual(
             expect.stringContaining("json")
         );

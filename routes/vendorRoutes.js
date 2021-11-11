@@ -12,4 +12,6 @@ router.route("/delete/:id").get(vendorControllers.deleteVendor);
 
 router.route("/findAll:businessID").get(vendorControllers.findAll);
 
+router.route("/update").post(vendorControllers.updateVendor);
+
 module.exports = router;

@@ -40,7 +40,6 @@ class Customer {
 
     async deleteByID(id) {
         let sql = `DELETE FROM customer WHERE customer_id = ${id};`
-
         const [result, _] = await mysql.execute(sql);
         return result
     }
@@ -65,12 +64,10 @@ class Customer {
         return mysql.execute((sql))
     }
 
-    // static getNumberOfCustomers(businessID) {
-    //     let sql = `SELECT COUNT(DISTINCT customer_id) as total_costumers
-    //                FROM customer
-    //                WHERE business_id = ${businessID}`
-    //     return mysql.execute((sql))
-    // }
+    static updateCustomer(email, address, phone, customerID) {
+        let sql = `UPDATE customer SET email='${email}',address='${address}', phone='${phone}' WHERE customer_id = ${customerID}`
+        return mysql.execute(sql);
+    }
 }
 
 module.exports = Customer;

@@ -93,6 +93,11 @@ class Authentication {
         let sql = `SELECT * FROM employee WHERE business_id = ${businessID}`
         return mysql.execute((sql))
     }
+
+    static updateEmployee(email, address, phone, isManager ,employeeID) {
+        let sql = `UPDATE employee SET email='${email}',address='${address}', phone='${phone}', role='${isManager}' WHERE employee_id = ${employeeID}`
+        return mysql.execute(sql);
+    }
 }
 
 module.exports = Authentication;

@@ -321,3 +321,20 @@ exports.forgetPassword = async (req, res) => {
     });
   }
 };
+
+exports.updateEmployee = async (req, res) => {
+  try {
+    let { email, address, phone, isManager, employeeID } = req.body;
+    await Authentication.updateEmployee(email, address, phone, isManager, employeeID);
+    res.status(200).json({
+      status_code: 200,
+      status_message: "Success",
+    })
+  } catch (err) {
+    console.log(err);
+    res.status(400).json({
+      status_code: 400,
+      status_message: "Error: Internal Server Error",
+    });
+  }
+};

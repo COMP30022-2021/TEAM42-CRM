@@ -11,6 +11,7 @@ import { BiDollar } from "react-icons/bi";
 import { ImPriceTags } from "react-icons/im";
 import { EditContact } from "./EditContact";
 
+import { useLocation } from "react-router";
 import customer from "../../res/images/Customer.jpg";
 import employee from "../../res/images/Employee.jfif";
 import vendor from "../../res/images/external_vendor.jpg";

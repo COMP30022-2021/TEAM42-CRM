@@ -12,7 +12,7 @@ class Transaction {
 
   async save() {
     let sql = `
-        INSERT INTO Order(
+        INSERT INTO transaction(
         customer_id,
         employee_id,
         business_id,
@@ -20,12 +20,12 @@ class Transaction {
         number_of_people,
         total_price
         )VALUES(
-        '${this.customer_id}', 
-        '${this.employee_id}',
-        '${this.business_id}',
-        '${this.date}',
-        '${this.number_of_people}',
-        '${this.total_price}',
+        ${this.customer_id}, 
+        ${this.employee_id},
+        ${this.business_id},
+        ${this.date},
+        ${this.number_of_people},
+        ${this.total_price}
         )`
 
     const [newTransaction, _] = await mysql.execute(sql);

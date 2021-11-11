@@ -11,7 +11,7 @@ class OrderDetail {
     let sql = `
         INSERT INTO Order(
         product_id, 
-        num_of_products
+        num_of_products,
         transaction_id
         )VALUES(
         '${this.product_id}',
@@ -29,18 +29,20 @@ class OrderDetail {
   // }
 
   static getAllSoldProducts(sortOrder, limit, id) {
-    let sql = `SELECT product_id, SUM(number_of_products) as sale
-            FROM orderdetail JOIN transaction ON orderdetail.transaction_id = transaction.transaction_id
-            WHERE business_id = ${id}
-            GROUP BY product_id
-            ORDER BY sale 
-            LIMIT ${limit}`;
+    let sql = `SELECT product.name, SUM(number_of_products) as sale
+               FROM (orderdetail JOIN transaction ON orderdetail.transaction_id = transaction.transaction_id)
+               JOIN product ON product.product_id = orderdetail.product_id
+               WHERE business_id = ${id}
+               GROUP BY product.product_id
+               ORDER BY sale
+               LIMIT ${limit}`;
 
     if (sortOrder === "DESC") {
-      sql = `SELECT product_id, SUM(number_of_products) as sale
-             FROM orderdetail JOIN transaction ON orderdetail.transaction_id = transaction.transaction_id
+      sql = `SELECT product.name, SUM(number_of_products) as sale
+             FROM (orderdetail JOIN transaction ON orderdetail.transaction_id = transaction.transaction_id)
+             JOIN product ON product.product_id = orderdetail.product_id
              WHERE business_id = ${id}
-             GROUP BY product_id
+             GROUP BY product.product_id
              ORDER BY sale DESC
              LIMIT ${limit}`;
     }

@@ -1,5 +1,38 @@
 const transaction = require("../models/transaction");
 
+exports.createNewVisit = async (req, res) => {
+  try {
+    let { customer_id, employee_id, business_id, date, number_of_people, total_price } = req.body;
+    let newTransaction = new transaction(customer_id, employee_id, business_id, date, number_of_people, total_price);
+
+    newTransaction.save().then(() => {
+      res.status(200).json({
+        status_code: 200,
+        status_message: "Success",
+        product: {
+          customer_id: newTransaction.customer_id,
+          employee_id: newTransaction.employee_id,
+          business_id: newTransaction.business_id,
+          date: newTransaction.date
+        }
+      });
+    });
+  } catch (err) {
+    console.log(err);
+    if(err.code === 1062) {
+      res.status(401).json({
+        status_code: 401,
+        status_message: "Error: Product Already Exists"
+      })
+    } else {
+      res.status(400).json({
+        status_code: 400,
+        status_message: "Error: Internal Server Error"
+      })
+    }
+  }
+};
+
 exports.getNumberOfTransactions = async (req, res) => {
   try {
     let id = req.params.id

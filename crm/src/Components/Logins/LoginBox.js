@@ -42,7 +42,7 @@ export const LoginBox = () => {
   };
 
   const forgetPassword = () => {
-    fetch("http://team42-crm.herokuapp.com/auth/reset/" + email, {
+    fetch("https://team42-crm.herokuapp.com/auth/reset/" + email, {
       method: "get",
       mode: "cors",
       headers: new Headers({

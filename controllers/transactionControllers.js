@@ -1,11 +1,15 @@
 const transaction = require("../models/transaction");
+const Order = require("../models/orderDetail")
 
 exports.createNewVisit = async (req, res) => {
   try {
-    let { customer_id, employee_id, business_id, date, number_of_people, total_price } = req.body;
+    let { customer_id, employee_id, business_id, date, number_of_people, total_price, product } = req.body;
     let newTransaction = new transaction(customer_id, employee_id, business_id, date, number_of_people, total_price);
+    let trans_id;
 
-    newTransaction.save().then(() => {
+    newTransaction.save().then((trans) => {
+      trans_id = trans.insertId
+
       res.status(200).json({
         status_code: 200,
         status_message: "Success",
@@ -17,6 +21,11 @@ exports.createNewVisit = async (req, res) => {
         }
       });
     });
+
+    let newOrder = new Order(product, 1, trans_id)
+
+    newOrder.save().then((order) => {});
+
   } catch (err) {
     console.log(err);
     if(err.code === 1062) {

@@ -9,9 +9,9 @@ class OrderDetail {
 
   async save() {
     let sql = `
-        INSERT INTO Order(
+        INSERT INTO orderdetail(
         product_id, 
-        num_of_products,
+        number_of_products,
         transaction_id
         )VALUES(
         '${this.product_id}',

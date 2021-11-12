@@ -3,20 +3,44 @@ import Header from "../SignIns/SignInHeader";
 import Helmet from "react-helmet";
 import { GrClose } from "react-icons/gr";
 
-export default function AddVisit({ setAddVisit }) {
+export default function AddVisit({ setAddVisit, id }) {
   const [totalAmount, setTotalAmount] = React.useState("");
   const [ID, setID] = React.useState("");
+  const [allItems, setAllItems] = React.useState([]);
   const [NumberOfPeople, setNumPeople] = React.useState("");
 
   const addVisit = () => {
-    alert("Added Visit");
+    fetch("https://team42-crm.herokuapp.com/transaction/create", {
+      method: "post",
+      mode: "cors",
+      headers: new Headers({
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      }),
+      body: JSON.stringify({
+        customer_id: id,
+        employee_id: localStorage.getItem("employeeID"),
+        business_id: localStorage.getItem("businessID"),
+        date: new Date(),
+        number_of_people: NumberOfPeople,
+        total_price: totalAmount,
+        product: parseInt(ID),
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.status_code === 200) {
+          console.log(data);
+        } else {
+          alert(data.status_message);
+        }
+      });
     setAddVisit(false);
   };
 
   const addItem = () => {
-    setTotalAmount("");
+    allItems.push(ID);
     setID("");
-    setNumPeople("");
     alert("Added Item");
   };
 

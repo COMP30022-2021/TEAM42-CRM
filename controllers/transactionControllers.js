@@ -13,6 +13,7 @@ exports.createNewVisit = async (req, res) => {
       res.status(200).json({
         status_code: 200,
         status_message: "Success",
+        transaction_id: trans_id,
         product: {
           customer_id: newTransaction.customer_id,
           employee_id: newTransaction.employee_id,

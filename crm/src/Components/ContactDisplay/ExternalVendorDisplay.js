@@ -20,6 +20,7 @@ import moffat from "../../res/images/moffat.jpg";
 export default function ExternalVendorDisplay({ contact, setEditMode }) {
   const [addEngagement, setAddEngagement] = React.useState(false);
   const [engagementHistory, setEngagementHistory] = React.useState(false);
+  const location = useLocation();
 
   const blurred = addEngagement || engagementHistory;
   const image =
@@ -106,7 +107,7 @@ export default function ExternalVendorDisplay({ contact, setEditMode }) {
             height: "30%",
           }}
         >
-          <EngagementTable />
+          <EngagementTable vendor_id={location.pathname.split("/")[4]} />
           <p
             className="p8"
             style={{ right: "8%", top: "102%", fontSize: 12 }}
@@ -118,10 +119,16 @@ export default function ExternalVendorDisplay({ contact, setEditMode }) {
 
         <EditContact setEditMode={setEditMode} />
       </div>
-      {addEngagement && <AddEngagement setAddEngagement={setAddEngagement} />}
+      {addEngagement && (
+        <AddEngagement
+          setAddEngagement={setAddEngagement}
+          id={location.pathname.split("/")[4]}
+        />
+      )}
       {engagementHistory && (
         <EngagementCompleteHistory
           setEngagementHistory={setEngagementHistory}
+          id={location.pathname.split("/")[4]}
         />
       )}
     </div>

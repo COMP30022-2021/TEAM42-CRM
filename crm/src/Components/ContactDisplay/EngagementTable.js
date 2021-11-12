@@ -1,25 +1,33 @@
 import React from "react";
 import EngagementElement from "./EngagementElement";
 
-export default function EngagementTable() {
-  const total = {
-    engagement: "18",
+export default function EngagementTable({ vendor_id }) {
+  const [history, setHistory] = React.useState([]);
+  console.log(vendor_id);
+  const getEngagementHistory = () => {
+    fetch("https://team42-crm.herokuapp.com/engagement/findAll/" + vendor_id, {
+      method: "get",
+      mode: "cors",
+      headers: new Headers({
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        if (data.status_code === 200) {
+          console.log(data);
+          setHistory(data.engagements);
+        } else {
+          alert(data.status_message);
+        }
+      });
   };
 
-  const engagements = [
-    {
-      date: "27/06/2017",
-      purpose: "Repair",
-    },
-    {
-      date: "23/06/2017",
-      purpose: "Personal",
-    },
-    {
-      date: "27/05/2017",
-      purpose: "Payment",
-    },
-  ];
+  React.useEffect(() => {
+    getEngagementHistory();
+  }, []);
 
   return (
     <div style={{ width: "100%", height: "100%", background: "#F8F2F2" }}>
@@ -40,7 +48,7 @@ export default function EngagementTable() {
         >
           Purpose:
         </p>
-        {engagements.map((engagement, index) => (
+        {history.map((engagement, index) => (
           <EngagementElement
             engagement={engagement}
             index={index}
@@ -54,7 +62,7 @@ export default function EngagementTable() {
           className="p5"
           style={{ position: "absolute", top: "84%", left: "3%" }}
         >
-          Total Contacs: {total.engagement}
+          Total Contacs: {history.length}
         </p>
       </div>
     </div>

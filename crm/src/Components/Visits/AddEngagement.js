@@ -4,13 +4,37 @@ import { useState } from "react";
 import Helmet from "react-helmet";
 import { GrClose } from "react-icons/gr";
 
-export default function AddEngagement({ setAddEngagement }) {
+export default function AddEngagement({ setAddEngagement, id }) {
   const [Date, setText1] = useState("");
   const [Purpose, setText2] = useState("");
   const [Rating, setText3] = useState("");
 
+  console.log(id);
   const addEngagement = () => {
-    alert("Added Engagement");
+    fetch("https://team42-crm.herokuapp.com/engagement/create", {
+      method: "post",
+      mode: "cors",
+      headers: new Headers({
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      }),
+      body: JSON.stringify({
+        vendor_id: id,
+        employee_id: localStorage.getItem("employeeID"),
+        business_id: localStorage.getItem("businessID"),
+        date: Date,
+        purpose: Purpose,
+        rating: parseInt(Rating),
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.status_code === 200) {
+          console.log(Purpose);
+        } else {
+          alert(data.status_message);
+        }
+      });
     setAddEngagement(false);
   };
 
@@ -27,7 +51,7 @@ export default function AddEngagement({ setAddEngagement }) {
         <input
           className="search-bar2"
           style={{ width: "70%", top: "24%", left: "15%", height: "8%" }}
-          type="text"
+          type="date"
           placeholder="Enter the Date"
           value={Date}
           onChange={(e) => setText1(e.target.value)}

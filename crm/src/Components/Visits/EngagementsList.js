@@ -25,15 +25,6 @@ export default function EngagementsList({ engagements }) {
       {engagements.map((engagement) => (
         <EngagementListElement engagement={engagement} />
       ))}
-      {engagements.map((engagement) => (
-        <EngagementListElement engagement={engagement} />
-      ))}
-      {engagements.map((engagement) => (
-        <EngagementListElement engagement={engagement} />
-      ))}
-      {engagements.map((engagement) => (
-        <EngagementListElement engagement={engagement} />
-      ))}
     </div>
   );
 }

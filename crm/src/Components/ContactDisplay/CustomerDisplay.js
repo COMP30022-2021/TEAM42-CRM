@@ -117,7 +117,12 @@ export default function CustomerDisplay({ contact, setEditMode }) {
 
         <EditContact setEditMode={setEditMode} />
       </div>
-      {addVisit && <AddVisit setAddVisit={setAddVisit} />}
+      {addVisit && (
+        <AddVisit
+          setAddVisit={setAddVisit}
+          id={location.pathname.split("/")[4]}
+        />
+      )}
       {visitHistory && (
         <VisitCompleteHistory
           setVisitHistory={setVisitHistory}

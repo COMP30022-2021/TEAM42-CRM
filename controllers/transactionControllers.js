@@ -5,7 +5,7 @@ exports.createNewVisit = async (req, res) => {
   try {
     let { customer_id, employee_id, business_id, date, number_of_people, total_price, product } = req.body;
     let newTransaction = new transaction(customer_id, employee_id, business_id, date, number_of_people, total_price);
-    let trans_id;
+    let trans_id = 0;
 
     newTransaction.save().then((trans) => {
       trans_id = trans.insertId
@@ -21,11 +21,10 @@ exports.createNewVisit = async (req, res) => {
           date: newTransaction.date
         }
       });
+
+      let newOrder = new Order(product, 1, trans_id)
+      newOrder.save().then((order) => {});
     });
-
-    let newOrder = new Order(product, 1, trans_id)
-
-    newOrder.save().then((order) => {});
 
   } catch (err) {
     console.log(err);
